@@ -87,6 +87,9 @@
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenTableCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateTable}" >
                 <Image Source="../Resources/Icons/Table_New.png" />
             </Button>
+            <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenViewCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateView}" >
+                <Image Source="../Resources/Icons/Placeholder.png" />
+            </Button>
         </DockPanel>
         <Grid Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>

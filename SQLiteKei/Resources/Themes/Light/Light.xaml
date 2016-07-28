@@ -32,6 +32,7 @@
     <Style TargetType="{x:Type views:TableCreator}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type views:About}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type views:UnhandledExceptionWindow}" BasedOn="{StaticResource {x:Type Window}}" />
+    <Style TargetType="{x:Type views:ViewCreator}" BasedOn="{StaticResource {x:Type Window}}" />
 
     <Style TargetType="{x:Type StatusBar}">
         <Setter Property="Background" Value="{StaticResource ApplicationBackground}" />

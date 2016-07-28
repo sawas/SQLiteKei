@@ -67,10 +67,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\ViewCreator\ViewCreatorViewModel.cs" />
+    <Compile Include="Views\ViewCreator.xaml.cs">
+      <DependentUpon>ViewCreator.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Resources\Themes\Dark\Dark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <Page Include="Views\ViewCreator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Resource Include="Resources\Themes\Dark\Dark_Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -205,6 +205,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TableCreator_Label_Database.
+        /// </summary>
+        public static string CreatorWindow_Label_Database {
+            get {
+                return ResourceManager.GetString("CreatorWindow_Label_Database", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DatabaseGeneralTab_DatabaseName.
         /// </summary>
         public static string DatabaseGeneralTab_DatabaseName {
@@ -611,15 +620,6 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TableCreator_Label_Database.
-        /// </summary>
-        public static string TableCreator_Label_Database {
-            get {
-                return ResourceManager.GetString("TableCreator_Label_Database", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to TableCreator_Label_TableName.
         /// </summary>
         public static string TableCreator_Label_Default {
@@ -800,6 +800,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tooltip_NewView.
+        /// </summary>
+        public static string Tooltip_CreateView {
+            get {
+                return ResourceManager.GetString("Tooltip_CreateView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tooltip_DeleteDatabase.
         /// </summary>
         public static string Tooltip_DeleteDatabase {
@@ -886,6 +895,24 @@ namespace SQLiteKei.Properties {
         public static string UnhandledException_Title {
             get {
                 return ResourceManager.GetString("UnhandledException_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ViewCreator_Label_ViewDefinition.
+        /// </summary>
+        public static string ViewCreator_Label_ViewDefinition {
+            get {
+                return ResourceManager.GetString("ViewCreator_Label_ViewDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ViewCreator_Label_ViewName.
+        /// </summary>
+        public static string ViewCreator_Label_ViewName {
+            get {
+                return ResourceManager.GetString("ViewCreator_Label_ViewName", resourceCulture);
             }
         }
         

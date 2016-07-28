@@ -62,6 +62,11 @@ namespace SQLiteKei
             viewModel.RefreshTree();
         }
 
+        private void OpenViewCreator(object sender, RoutedEventArgs e)
+        {
+            new ViewCreator(viewModel.TreeViewItems).ShowDialog();
+        }
+
         private void CreateNewDatabase(object sender, RoutedEventArgs e)
         {
             using (var dialog = new SaveFileDialog())

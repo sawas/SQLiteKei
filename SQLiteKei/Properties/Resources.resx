@@ -165,6 +165,9 @@
   <data name="ContextMenuItem_RenameDatabase" xml:space="preserve">
     <value>ContextMenuItem_RenameDatabase</value>
   </data>
+  <data name="CreatorWindow_Label_Database" xml:space="preserve">
+    <value>TableCreator_Label_Database</value>
+  </data>
   <data name="DatabaseGeneralTab_DatabaseName" xml:space="preserve">
     <value>DatabaseGeneralTab_DatabaseName</value>
   </data>
@@ -301,9 +304,6 @@
   <data name="TableCreator_ForeignKey" xml:space="preserve">
     <value>TableCreator_ForeignKey</value>
   </data>
-  <data name="TableCreator_Label_Database" xml:space="preserve">
-    <value>TableCreator_Label_Database</value>
-  </data>
   <data name="TableCreator_Label_Default" xml:space="preserve">
     <value>TableCreator_Label_TableName</value>
   </data>
@@ -364,6 +364,9 @@
   <data name="Tooltip_CreateTable" xml:space="preserve">
     <value>Tooltip_CreateTable</value>
   </data>
+  <data name="Tooltip_CreateView" xml:space="preserve">
+    <value>Tooltip_NewView</value>
+  </data>
   <data name="Tooltip_DeleteDatabase" xml:space="preserve">
     <value>Tooltip_DeleteDatabase</value>
   </data>
@@ -393,6 +396,12 @@
   </data>
   <data name="UnhandledException_Title" xml:space="preserve">
     <value>UnhandledException_Title</value>
+  </data>
+  <data name="ViewCreator_Label_ViewDefinition" xml:space="preserve">
+    <value>ViewCreator_Label_ViewDefinition</value>
+  </data>
+  <data name="ViewCreator_Label_ViewName" xml:space="preserve">
+    <value>ViewCreator_Label_ViewName</value>
   </data>
   <data name="WindowTitle_About" xml:space="preserve">
     <value>WindowTitle_About</value>
