@@ -125,7 +125,7 @@ namespace SQLiteKei.ViewModels.TableCreatorWindow
 
             try
             {
-                var builder = QueryBuilder.Create(tableName);
+                var builder = QueryBuilder.CreateTable(tableName);
 
                 foreach (var definition in ColumnDefinitions)
                 {

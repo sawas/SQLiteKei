@@ -399,6 +399,9 @@
   <data name="ViewCreator_Label_ViewName" xml:space="preserve">
     <value>Viewname</value>
   </data>
+  <data name="ViewCreator_ViewCreateSuccess" xml:space="preserve">
+    <value>View erfolgreich erzeugt!</value>
+  </data>
   <data name="WindowTitle_About" xml:space="preserve">
     <value>Über</value>
   </data>

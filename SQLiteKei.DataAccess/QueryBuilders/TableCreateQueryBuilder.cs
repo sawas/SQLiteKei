@@ -8,7 +8,7 @@ using System;
 
 namespace SQLiteKei.DataAccess.QueryBuilders
 {
-    public class CreateQueryBuilder
+    public class TableCreateQueryBuilder
     {
         private string table; 
 
@@ -18,14 +18,14 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         private bool primaryKeyAdded;
 
-        public CreateQueryBuilder(string table)
+        public TableCreateQueryBuilder(string table)
         {
             this.table = table;
             Columns = new List<ColumnData>();
             ForeignKeys = new List<ForeignKeyData>();
         }
 
-        public CreateQueryBuilder AddColumn(string columnName, DataType dataType, bool isPrimary = false, bool isNotNull = true, object defaultValue = null)
+        public TableCreateQueryBuilder AddColumn(string columnName, DataType dataType, bool isPrimary = false, bool isNotNull = true, object defaultValue = null)
         {
             if(string.IsNullOrWhiteSpace(columnName))
             {
@@ -66,7 +66,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             }
         }
 
-        public CreateQueryBuilder AddForeignKey(string localColumn, string referencedTable, string referencedColumn)
+        public TableCreateQueryBuilder AddForeignKey(string localColumn, string referencedTable, string referencedColumn)
         {
             CheckIfForeignKeyAlreadyAdded(localColumn);
 

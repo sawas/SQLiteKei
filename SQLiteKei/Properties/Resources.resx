@@ -403,6 +403,9 @@
   <data name="ViewCreator_Label_ViewName" xml:space="preserve">
     <value>ViewCreator_Label_ViewName</value>
   </data>
+  <data name="ViewCreator_ViewCreateSuccess" xml:space="preserve">
+    <value>ViewCreator_ViewCreateSuccess</value>
+  </data>
   <data name="WindowTitle_About" xml:space="preserve">
     <value>WindowTitle_About</value>
   </data>

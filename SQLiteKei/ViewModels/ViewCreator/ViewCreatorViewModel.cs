@@ -3,12 +3,18 @@
 using SQLiteKei.Commands;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.Common;
-using SQLiteKei.DataAccess.Helpers;
 
 using System.Collections.Generic;
+using SQLiteKei.DataAccess.Database;
+using SQLiteKei.DataAccess.QueryBuilders;
+using System;
+using SQLiteKei.Helpers;
 
 namespace SQLiteKei.ViewModels.ViewCreator
 {
+    /// <summary>
+    /// ViewModel for the ViewCreator
+    /// </summary>
     public class ViewCreatorViewModel : NotifyingModel
     {
         private readonly ILog logger = LogHelper.GetLogger();
@@ -29,7 +35,7 @@ namespace SQLiteKei.ViewModels.ViewCreator
             set { viewName = value; ValidateModel(); }
         }
 
-        public bool IfIsNotExists { get; set; }
+        public bool IsIfNotExists { get; set; }
 
         private string sqlStatement;
         public string SqlStatement
@@ -54,22 +60,41 @@ namespace SQLiteKei.ViewModels.ViewCreator
 
         public ViewCreatorViewModel()
         {
-            IfIsNotExists = true;
+            IsIfNotExists = true;
             Databases = new List<DatabaseSelectItem>();
             createCommand = new DelegateCommand(Create);
         }
 
-        private void Create()
-        {
-            StatusInfo = string.Empty;
-        }
-
-        public void ValidateModel()
+        private void ValidateModel()
         {
             IsValidViewDefinition = SelectedDatabase != null
                 && !string.IsNullOrWhiteSpace(ViewName)
                 && !string.IsNullOrWhiteSpace(SqlStatement);
         }
+
+        private void Create()
+        {
+            StatusInfo = string.Empty;
+
+            var exectuableSql = QueryBuilder.CreateView(ViewName)
+                .IfNotExists(IsIfNotExists)
+                .As(sqlStatement)
+                .Build();
+
+            using (var dbHandler = new DatabaseHandler(selectedDatabase.DatabasePath))
+            {
+                try
+                {
+                    dbHandler.ExecuteNonQuery(exectuableSql);
+                    StatusInfo = LocalisationHelper.GetString("ViewCreator_ViewCreateSuccess");
+                }
+                catch(Exception ex)
+                {
+                    logger.Error("A view could not be created.", ex);
+                    StatusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
+                }
+            }
+        } 
 
         private readonly DelegateCommand createCommand;
 

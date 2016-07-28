@@ -917,6 +917,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ViewCreator_ViewCreateSuccess.
+        /// </summary>
+        public static string ViewCreator_ViewCreateSuccess {
+            get {
+                return ResourceManager.GetString("ViewCreator_ViewCreateSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WindowTitle_About.
         /// </summary>
         public static string WindowTitle_About {

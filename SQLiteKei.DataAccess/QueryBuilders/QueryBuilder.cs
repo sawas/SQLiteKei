@@ -39,9 +39,14 @@
         /// </summary>
         /// <param name="tableName">Name of the table.</param>
         /// <returns></returns>
-        public static CreateQueryBuilder Create(string tableName)
+        public static TableCreateQueryBuilder CreateTable(string tableName)
         {
-            return new CreateQueryBuilder(tableName);
+            return new TableCreateQueryBuilder(tableName);
+        }
+
+        public static ViewCreateQueryBuilder CreateView(string viewName)
+        {
+            return new ViewCreateQueryBuilder(viewName);
         }
 
         /// <summary>
