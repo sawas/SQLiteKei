@@ -421,4 +421,7 @@
   <data name="WindowTitle_TableCreator" xml:space="preserve">
     <value>WindowTitle_TableCreator</value>
   </data>
+  <data name="WindowTitle_ViewCreator" xml:space="preserve">
+    <value>WindowTitle_ViewCreator</value>
+  </data>
 </root>

@@ -6,7 +6,7 @@
         xmlns:cmodel="clr-namespace:SQLiteKei.ViewModels.Common"
         xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         mc:Ignorable="d"
-        Title="ViewCreator"
+        Title="{x:Static localisation:Resources.WindowTitle_ViewCreator}"
         Height="300" Width="500"
         MinHeight="300" MinWidth="500">
     <Grid>

@@ -417,4 +417,7 @@
   <data name="WindowTitle_TableCreator" xml:space="preserve">
     <value>Create Table</value>
   </data>
+  <data name="WindowTitle_ViewCreator" xml:space="preserve">
+    <value>Create View</value>
+  </data>
 </root>

@@ -969,5 +969,14 @@ namespace SQLiteKei.Properties {
                 return ResourceManager.GetString("WindowTitle_TableCreator", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WindowTitle_ViewCreator.
+        /// </summary>
+        public static string WindowTitle_ViewCreator {
+            get {
+                return ResourceManager.GetString("WindowTitle_ViewCreator", resourceCulture);
+            }
+        }
     }
 }

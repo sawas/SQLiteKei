@@ -415,6 +415,9 @@
     <value>SELECT-Statement erstellen</value>
   </data>
   <data name="WindowTitle_TableCreator" xml:space="preserve">
-    <value>Tabelle erzeugen</value>
+    <value>Tabelle erstellen</value>
+  </data>
+  <data name="WindowTitle_ViewCreator" xml:space="preserve">
+    <value>View erstellen</value>
   </data>
 </root>
