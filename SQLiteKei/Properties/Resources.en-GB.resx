@@ -151,13 +151,16 @@
     <value>Empty</value>
   </data>
   <data name="ContextMenuItem_NewDatabase" xml:space="preserve">
-    <value>New</value>
+    <value>New Database</value>
   </data>
   <data name="ContextMenuItem_NewTable" xml:space="preserve">
-    <value>Create Table</value>
+    <value>New Table</value>
+  </data>
+  <data name="ContextMenuItem_NewView" xml:space="preserve">
+    <value>New View</value>
   </data>
   <data name="ContextMenuItem_OpenDatabase" xml:space="preserve">
-    <value>Open...</value>
+    <value>Open Database</value>
   </data>
   <data name="ContextMenuItem_OpenFileDirectory" xml:space="preserve">
     <value>Show in Explorer</value>

@@ -3,9 +3,9 @@
 namespace SQLiteKei.ViewModels.DBTreeView
 {
     /// <summary>
-    /// A directory item that is used to contain tables in the main tree view.
+    /// A directory item that is used to contain views in the main tree view.
     /// </summary>
-    public class TableFolderItem : DirectoryItem
+    public class ViewFolderItem : DirectoryItem
     {
     }
 }
