@@ -1,6 +1,7 @@
 ﻿using log4net;
 
 using SQLiteKei.DataAccess.Helpers;
+using SQLiteKei.DataAccess.QueryBuilders;
 
 namespace SQLiteKei.DataAccess.Database
 {
@@ -19,7 +20,9 @@ namespace SQLiteKei.DataAccess.Database
         {
             using (var command = connection.CreateCommand())
             {
-                
+                command.CommandText = QueryBuilder.DropView(viewName).Build();
+                command.ExecuteNonQuery();
+                logger.Info("Dropped view '" + viewName + "'.");
             }
         }
     }
