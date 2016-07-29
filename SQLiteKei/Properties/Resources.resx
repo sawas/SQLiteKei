@@ -244,6 +244,9 @@
   <data name="MessageBoxTitle_TableDeletion" xml:space="preserve">
     <value>MessageBoxTitle_TableDeletion</value>
   </data>
+  <data name="MessageBoxTitle_ViewDeletion" xml:space="preserve">
+    <value>MessageBoxTitle_ViewDeletion</value>
+  </data>
   <data name="MessageBox_DatabaseDeleteWarning" xml:space="preserve">
     <value>MessageBox_DatabaseDeleteWarning</value>
   </data>
@@ -255,6 +258,9 @@
   </data>
   <data name="MessageBox_TableDeleteWarning" xml:space="preserve">
     <value>MessageBox_TableDeleteWarning</value>
+  </data>
+  <data name="MessageBox_ViewDeleteWarning" xml:space="preserve">
+    <value>MessageBox_ViewDeleteWarning</value>
   </data>
   <data name="Preferences_ApplicationTheme" xml:space="preserve">
     <value>Preferences_ApplicationTheme</value>

@@ -129,6 +129,7 @@ namespace SQLiteKei
             ResetTabControl();
 
             var currentSelection = (TreeItem)DBTreeView.SelectedItem;
+            viewModel.SelectedItem = currentSelection;
             var tabs = DatabaseTabGenerator.GenerateTabsFor(currentSelection);
 
             foreach (TabItem tab in tabs)
@@ -159,16 +160,22 @@ namespace SQLiteKei
             MainTabControl.SelectedIndex = 0;
         }
 
+        private void EmptyTable(object sender, RoutedEventArgs e)
+        {
+            var tableItem = (TableItem)DBTreeView.SelectedItem;
+            viewModel.EmptyTable(tableItem.DisplayName);
+        }
+
         private void DeleteTable(object sender, RoutedEventArgs e)
         {
             var tableItem = (TableItem)DBTreeView.SelectedItem;
             viewModel.DeleteTable(tableItem);
         }
 
-        private void EmptyTable(object sender, RoutedEventArgs e)
+        private void DeleteView(object sender, RoutedEventArgs e)
         {
-            var tableItem = (TableItem)DBTreeView.SelectedItem;
-            viewModel.EmptyTable(tableItem.DisplayName);
+            var tableItem = (ViewItem)DBTreeView.SelectedItem;
+            viewModel.DeleteView(tableItem);
         }
 
         protected override void OnClosed(EventArgs e)

@@ -240,6 +240,9 @@
   <data name="MessageBoxTitle_TableDeletion" xml:space="preserve">
     <value>Delete Table</value>
   </data>
+  <data name="MessageBoxTitle_ViewDeletion" xml:space="preserve">
+    <value>Delete View</value>
+  </data>
   <data name="MessageBox_DatabaseDeleteWarning" xml:space="preserve">
     <value>Do you really want to delete the database '{0}'? Warning: this will delete the database from your file system!</value>
   </data>
@@ -251,6 +254,9 @@
   </data>
   <data name="MessageBox_TableDeleteWarning" xml:space="preserve">
     <value>Do you really want to delete the table '{0}'?</value>
+  </data>
+  <data name="MessageBox_ViewDeleteWarning" xml:space="preserve">
+    <value>Do you really want to delete the view '{0}'?</value>
   </data>
   <data name="Preferences_ApplicationTheme" xml:space="preserve">
     <value>Current Theme</value>

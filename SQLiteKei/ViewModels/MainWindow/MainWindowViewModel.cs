@@ -1,5 +1,6 @@
-﻿using System.Data.SqlClient;
-using log4net;
+﻿using log4net;
+
+using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Helpers;
 using SQLiteKei.Helpers.Interfaces;
@@ -21,6 +22,8 @@ namespace SQLiteKei.ViewModels.MainWindow
         private readonly ITreeSaveHelper treeSaveHelper;
 
         private readonly ILog log = LogHelper.GetLogger();
+
+        public TreeItem SelectedItem { get; set; }
 
         private ObservableCollection<TreeItem> treeViewItems;
         public ObservableCollection<TreeItem> TreeViewItems
@@ -146,6 +149,29 @@ namespace SQLiteKei.ViewModels.MainWindow
             catch (Exception ex)
             {
                 log.Error("Failed to delete table '" + tableItem.DisplayName + "'.", ex);
+                var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
+                StatusBarInfo = statusInfo;
+            }
+        }
+
+        public void DeleteView(ViewItem viewItem)
+        {
+            var message = LocalisationHelper.GetString("MessageBox_ViewDeleteWarning", viewItem.DisplayName);
+            var result = MessageBox.Show(message, LocalisationHelper.GetString("MessageBoxTitle_ViewDeletion"), MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result != MessageBoxResult.Yes) return;
+
+            try
+            {
+                using (var viewHandler = new ViewHandler(Properties.Settings.Default.CurrentDatabase))
+                {
+                    viewHandler.DropView(viewItem.DisplayName);
+                    RemoveItemFromTree(viewItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Failed to delete view '" + viewItem.DisplayName + "'.", ex);
                 var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
                 StatusBarInfo = statusInfo;
             }
