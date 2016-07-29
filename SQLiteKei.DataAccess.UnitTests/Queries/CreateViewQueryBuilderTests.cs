@@ -5,7 +5,7 @@ using SQLiteKei.DataAccess.QueryBuilders;
 namespace SQLiteKei.DataAccess.UnitTests.Queries
 {
     [TestFixture]
-    public class ViewCreateQueryBuilderTests
+    public class CreateViewQueryBuilderTests
     {
         [Test]
         public void Build_WithValidData_ReturnsValidQuery()

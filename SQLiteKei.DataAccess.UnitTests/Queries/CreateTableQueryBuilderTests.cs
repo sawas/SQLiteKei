@@ -1,17 +1,13 @@
-﻿#region usings
-
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using SQLiteKei.DataAccess.Exceptions;
 using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.DataAccess.QueryBuilders.Enums;
 
-#endregion
-
 namespace SQLiteKei.UnitTests.Queries
 {
     [TestFixture]
-    public class TableCreateQueryBuilderTests
+    public class CreateTableQueryBuilderTests
     {
         [Test]
         public void Build_WithValidData_ReturnsValidQuery()

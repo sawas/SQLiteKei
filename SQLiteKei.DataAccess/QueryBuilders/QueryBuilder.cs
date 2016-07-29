@@ -39,9 +39,9 @@
         /// </summary>
         /// <param name="tableName">Name of the table.</param>
         /// <returns></returns>
-        public static TableCreateQueryBuilder CreateTable(string tableName)
+        public static CreateTableQueryBuilder CreateTable(string tableName)
         {
-            return new TableCreateQueryBuilder(tableName);
+            return new CreateTableQueryBuilder(tableName);
         }
 
         /// <summary>
@@ -49,9 +49,9 @@
         /// </summary>
         /// <param name="viewName">Name of the view.</param>
         /// <returns></returns>
-        public static ViewCreateQueryBuilder CreateView(string viewName)
+        public static CreateViewQueryBuilder CreateView(string viewName)
         {
-            return new ViewCreateQueryBuilder(viewName);
+            return new CreateViewQueryBuilder(viewName);
         }
 
         /// <summary>

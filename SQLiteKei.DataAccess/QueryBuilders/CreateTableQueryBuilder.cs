@@ -4,11 +4,13 @@ using SQLiteKei.DataAccess.QueryBuilders.Enums;
 
 using System.Collections.Generic;
 using System.Linq;
-using System;
 
 namespace SQLiteKei.DataAccess.QueryBuilders
 {
-    public class TableCreateQueryBuilder
+    /// <summary>
+    /// QueryBuilder to generate a statement to create a table.
+    /// </summary>
+    public class CreateTableQueryBuilder
     {
         private string table; 
 
@@ -18,14 +20,31 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         private bool primaryKeyAdded;
 
-        public TableCreateQueryBuilder(string table)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateTableQueryBuilder"/> class.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        public CreateTableQueryBuilder(string table)
         {
             this.table = table;
             Columns = new List<ColumnData>();
             ForeignKeys = new List<ForeignKeyData>();
         }
 
-        public TableCreateQueryBuilder AddColumn(string columnName, DataType dataType, bool isPrimary = false, bool isNotNull = true, object defaultValue = null)
+        /// <summary>
+        /// Adds a new column to the query builder
+        /// </summary>
+        /// <param name="columnName">Name of the column.</param>
+        /// <param name="dataType">Type of the column.</param>
+        /// <param name="isPrimary">Defines if the column is the primary key.</param>
+        /// <param name="isNotNull">Defines if the column is marked NotNull</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <exception cref="ColumnDefinitionException">
+        /// Invalid column name.
+        /// or
+        /// Multiple primary keys defined.
+        /// </exception>
+        public CreateTableQueryBuilder AddColumn(string columnName, DataType dataType, bool isPrimary = false, bool isNotNull = true, object defaultValue = null)
         {
             if(string.IsNullOrWhiteSpace(columnName))
             {
@@ -66,7 +85,14 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             }
         }
 
-        public TableCreateQueryBuilder AddForeignKey(string localColumn, string referencedTable, string referencedColumn)
+        /// <summary>
+        /// Adds the foreign key.
+        /// </summary>
+        /// <param name="localColumn">The local column.</param>
+        /// <param name="referencedTable">The referenced table.</param>
+        /// <param name="referencedColumn">The referenced column.</param>
+        /// <returns></returns>
+        public CreateTableQueryBuilder AddForeignKey(string localColumn, string referencedTable, string referencedColumn)
         {
             CheckIfForeignKeyAlreadyAdded(localColumn);
 
@@ -92,6 +118,10 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             }
         }
 
+        /// <summary>
+        /// Builds the query.
+        /// </summary>
+        /// <returns>The query.</returns>
         public string Build()
         {
             if(string.IsNullOrWhiteSpace(table))
