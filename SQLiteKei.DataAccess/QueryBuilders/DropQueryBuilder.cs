@@ -2,7 +2,7 @@
 
 namespace SQLiteKei.DataAccess.QueryBuilders
 {
-    public class DropQueryBuilder
+    public class DropTableQueryBuilder
     {
         private string table;
 
@@ -10,19 +10,19 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         private bool isIfExists;
 
-        public DropQueryBuilder(string tableName)
+        public DropTableQueryBuilder(string tableName)
         {
             table = tableName;
         }
 
-        public DropQueryBuilder IfExists()
+        public DropTableQueryBuilder IfExists()
         {
             isIfExists = true;
 
             return this;
         }
 
-        public DropQueryBuilder Cascade()
+        public DropTableQueryBuilder Cascade()
         {
             isCascade = true;
 

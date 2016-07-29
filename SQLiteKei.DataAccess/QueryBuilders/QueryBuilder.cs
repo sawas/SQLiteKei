@@ -44,6 +44,11 @@
             return new TableCreateQueryBuilder(tableName);
         }
 
+        /// <summary>
+        /// Begins a CREATE statement for the specified view.
+        /// </summary>
+        /// <param name="viewName">Name of the view.</param>
+        /// <returns></returns>
         public static ViewCreateQueryBuilder CreateView(string viewName)
         {
             return new ViewCreateQueryBuilder(viewName);
@@ -54,9 +59,19 @@
         /// </summary>
         /// <param name="tableName">Name of the table.</param>
         /// <returns></returns>
-        public static DropQueryBuilder Drop(string tableName)
+        public static DropTableQueryBuilder DropTable(string tableName)
         {
-            return new DropQueryBuilder(tableName);
+            return new DropTableQueryBuilder(tableName);
+        }
+
+        /// <summary>
+        /// Begins a DROP statement for the specified view.
+        /// </summary>
+        /// <param name="viewName">Name of the view.</param>
+        /// <returns></returns>
+        public static DropViewQueryBuilder DropView(string viewName)
+        {
+            return new DropViewQueryBuilder(viewName);
         }
     }
 }

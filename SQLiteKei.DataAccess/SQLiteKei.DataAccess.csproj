@@ -65,6 +65,7 @@
     <Compile Include="Database\DatabaseHandler.cs" />
     <Compile Include="Database\DisposableDbHandler.cs" />
     <Compile Include="Database\TableHandler.cs" />
+    <Compile Include="Database\ViewHandler.cs" />
     <Compile Include="Exceptions\ColumnDefinitionException.cs" />
     <Compile Include="Exceptions\CreateQueryBuilderException.cs" />
     <Compile Include="Exceptions\SelectQueryBuilderException.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryBuilders\Base\ConditionalQueryBuilder.cs" />
     <Compile Include="QueryBuilders\Base\QueryBuilderBase.cs" />
+    <Compile Include="QueryBuilders\DropViewQueryBuilder.cs" />
     <Compile Include="QueryBuilders\TableCreateQueryBuilder.cs" />
     <Compile Include="QueryBuilders\Data\ColumnData.cs" />
     <Compile Include="QueryBuilders\Data\ForeignKeyData.cs" />

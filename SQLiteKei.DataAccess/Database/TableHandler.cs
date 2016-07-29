@@ -12,6 +12,9 @@ using System.Data.SQLite;
 
 namespace SQLiteKei.DataAccess.Database
 {
+    /// <summary>
+    /// A class that handles database interactions related to tables on the specified database
+    /// </summary>
     public class TableHandler : DisposableDbHandler
     {
         private ILog logger = LogHelper.GetLogger();
@@ -100,7 +103,7 @@ namespace SQLiteKei.DataAccess.Database
         {
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = QueryBuilder.Drop(tableName).Build();
+                command.CommandText = QueryBuilder.DropTable(tableName).Build();
                 command.ExecuteNonQuery();
                 logger.Info("Dropped table '" + tableName + "'.");
             }
