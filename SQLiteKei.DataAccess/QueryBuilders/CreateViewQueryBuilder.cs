@@ -23,7 +23,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         }
 
         /// <summary>
-        /// Defines if the drop statement should include an IF NOT EXISTS or not.
+        /// Defines if the create statement should include an IF NOT EXISTS or not.
         /// </summary>
         public CreateViewQueryBuilder IfNotExists(bool value = true)
         {

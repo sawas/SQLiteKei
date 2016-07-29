@@ -1,0 +1,101 @@
+﻿<Window x:Class="SQLiteKei.Views.TriggerCreator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:model="clr-namespace:SQLiteKei.ViewModels.TriggerCreatorWindow"
+        xmlns:cmodel="clr-namespace:SQLiteKei.ViewModels.Common"
+        xmlns:localisation="clr-namespace:SQLiteKei.Properties"
+        mc:Ignorable="d"
+        Title="{x:Static localisation:Resources.WindowTitle_TriggerCreator}" 
+        MinHeight="300" MinWidth="300">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <TabControl>
+                <TabItem Header="Definition" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" />
+                            <ComboBox x:Name="DatabaseComboBox" Width="150" Height="20" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
+                                        <TextBlock Text="{Binding DatabaseName}" VerticalAlignment="Center" ToolTip="{Binding DatabasePath}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Label Content="{x:Static localisation:Resources.ViewCreator_Label_ViewName}" />
+                            <TextBox Height="25" Text="{Binding TriggerName, UpdateSourceTrigger=PropertyChanged}" Width="125" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                        <GroupBox Grid.Row="1" Header="Event Definiton" Padding="5">
+                            <StackPanel>
+                                <DockPanel LastChildFill="False" Margin="4 2">
+                                    <ComboBox Width="100" ItemsSource="{Binding TriggerEntryPoints}" SelectedItem="{Binding SelectedTriggerEntryPoint}"/>
+                                    <ComboBox Width="100" Margin="5 0" ItemsSource="{Binding TriggerEvents}" SelectedItem="{Binding SelectedTriggerEvent}"/>
+                                    <Label Content="ON" />
+                                    <ComboBox MinWidth="150" ItemsSource="{Binding AvailableTables}" SelectedItem="{Binding SelectedTable}"/>
+                                </DockPanel>
+                                <GroupBox Header="Columns" Visibility="{Binding IsUpdateOfEvent, Converter={StaticResource BooleanToVisibilityConverter}}" Padding="5">
+                                    <ItemsControl ItemsSource="{Binding Columns}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.Resources>
+                                            <DataTemplate DataType="{x:Type model:ColumnItem}">
+                                                <DockPanel>
+                                                    <Border BorderThickness="1" Margin="2" CornerRadius="2" Padding="8 2 5 2">
+                                                        <CheckBox IsChecked="{Binding IsSelected}" VerticalAlignment="Center" VerticalContentAlignment="Center">
+                                                            <Label Content="{Binding ColumnName}" Margin="-3 0 0 0"/>
+                                                        </CheckBox>
+                                                    </Border>
+                                                </DockPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.Resources>
+                                    </ItemsControl>
+                                </GroupBox>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Grid.Row="2" Header="Trigger WHEN Expression">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <TextBox TextWrapping="Wrap" />
+                            </ScrollViewer>
+                        </GroupBox>
+                        <GroupBox Grid.Row="3" Header="Trigger Actions (separated by semicolon)">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <TextBox TextWrapping="Wrap" />
+                            </ScrollViewer>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="SQL" >
+                    <TextBox />
+                </TabItem>
+            </TabControl>
+            <Grid Grid.Row="2" Height="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button Style="{DynamicResource ButtonDark}" Grid.Column="0" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Create}"
+                    Command="{Binding CreateCommand}" IsEnabled="{Binding IsValidViewDefinition}"/>
+                <TextBox Grid.Column="1" Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding StatusInfo}" />
+                <Button Style="{DynamicResource ButtonDark}" Grid.Column="2" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Cancel}" IsCancel="True" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

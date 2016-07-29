@@ -375,6 +375,9 @@
   <data name="Tooltip_CreateTable" xml:space="preserve">
     <value>Tabelle erzeugen</value>
   </data>
+  <data name="Tooltip_CreateTrigger" xml:space="preserve">
+    <value>Trigger erzeugen</value>
+  </data>
   <data name="Tooltip_CreateView" xml:space="preserve">
     <value>View erzeugen</value>
   </data>
@@ -401,6 +404,9 @@
   </data>
   <data name="TreeItem_Views" xml:space="preserve">
     <value>Views</value>
+  </data>
+  <data name="TriggerCreator_Label_TriggerName" xml:space="preserve">
+    <value>Triggername</value>
   </data>
   <data name="UnhandledException" xml:space="preserve">
     <value>Ein unerwarteter und unbehandelter Fehler ist aufgetreten. Die Anwendung wird nun beendet. </value>
@@ -431,6 +437,9 @@
   </data>
   <data name="WindowTitle_TableCreator" xml:space="preserve">
     <value>Tabelle erstellen</value>
+  </data>
+  <data name="WindowTitle_TriggerCreator" xml:space="preserve">
+    <value>Trigger erstellen</value>
   </data>
   <data name="WindowTitle_ViewCreator" xml:space="preserve">
     <value>View erstellen</value>

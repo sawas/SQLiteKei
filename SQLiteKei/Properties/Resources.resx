@@ -379,6 +379,9 @@
   <data name="Tooltip_CreateTable" xml:space="preserve">
     <value>Tooltip_CreateTable</value>
   </data>
+  <data name="Tooltip_CreateTrigger" xml:space="preserve">
+    <value>Tooltip_CreateTrigger</value>
+  </data>
   <data name="Tooltip_CreateView" xml:space="preserve">
     <value>Tooltip_NewView</value>
   </data>
@@ -405,6 +408,9 @@
   </data>
   <data name="TreeItem_Views" xml:space="preserve">
     <value>TreeItem_Views</value>
+  </data>
+  <data name="TriggerCreator_Label_TriggerName" xml:space="preserve">
+    <value>TriggerCreator_Label_TriggerName</value>
   </data>
   <data name="UnhandledException" xml:space="preserve">
     <value>UnhandledException</value>
@@ -435,6 +441,9 @@
   </data>
   <data name="WindowTitle_TableCreator" xml:space="preserve">
     <value>WindowTitle_TableCreator</value>
+  </data>
+  <data name="WindowTitle_TriggerCreator" xml:space="preserve">
+    <value>WindowTitle_TriggerCreator</value>
   </data>
   <data name="WindowTitle_ViewCreator" xml:space="preserve">
     <value>WindowTitle_ViewCreator</value>

@@ -28,11 +28,12 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                             <Setter TargetName="Header" Property="Background" Value="{StaticResource TabItemBackground_Selected}" />
+                            <Setter TargetName="Header" Property="Background" Value="{StaticResource TabItemBackground_Selected}" />
                             <Setter TargetName="Header" Property="BorderBrush" Value="{StaticResource TabItemBorder_Selected}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="False">
                             <Setter TargetName="Header" Property="Background" Value="{StaticResource TabItemBackground_Unselected}" />
+                            <Setter TargetName="Header" Property="BorderBrush" Value="Transparent" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

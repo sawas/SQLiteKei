@@ -55,6 +55,16 @@
         }
 
         /// <summary>
+        /// Begins a CREATE statement for the specified trigger.
+        /// </summary>
+        /// <param name="triggerName">Name of the trigger.</param>
+        /// <returns></returns>
+        public static CreateTriggerQueryBuilder CreateTrigger(string triggerName)
+        {
+            return new CreateTriggerQueryBuilder(triggerName);
+        }
+
+        /// <summary>
         /// Begins a DROP statement for the specified table.
         /// </summary>
         /// <param name="tableName">Name of the table.</param>

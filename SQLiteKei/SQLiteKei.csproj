@@ -68,7 +68,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\DBTreeView\ViewFolderItem.cs" />
+    <Compile Include="ViewModels\TriggerCreatorWindow\ColumnItem.cs" />
+    <Compile Include="ViewModels\TriggerCreatorWindow\TriggerCreatorViewModel.cs" />
     <Compile Include="ViewModels\ViewCreatorWindow\ViewCreatorViewModel.cs" />
+    <Compile Include="Views\TriggerCreator.xaml.cs">
+      <DependentUpon>TriggerCreator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewCreator.xaml.cs">
       <DependentUpon>ViewCreator.xaml</DependentUpon>
     </Compile>
@@ -76,6 +81,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <Page Include="Views\TriggerCreator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ViewCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

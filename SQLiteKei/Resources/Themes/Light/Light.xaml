@@ -30,6 +30,7 @@
     <Style TargetType="{x:Type views:QueryEditor}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type views:SelectQueryWindow}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type views:TableCreator}" BasedOn="{StaticResource {x:Type Window}}" />
+    <Style TargetType="{x:Type views:TriggerCreator}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type views:About}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type views:UnhandledExceptionWindow}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type views:ViewCreator}" BasedOn="{StaticResource {x:Type Window}}" />
@@ -44,5 +45,8 @@
 
     <Style TargetType="{x:Type GridSplitter}">
         <Setter Property="Background" Value="#C1C1C1" />
+    </Style>
+    <Style TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="#C1C1C1" />
     </Style>
 </ResourceDictionary>
