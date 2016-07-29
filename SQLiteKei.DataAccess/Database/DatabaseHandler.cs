@@ -109,7 +109,7 @@ namespace SQLiteKei.DataAccess.Database
             {
                 triggers.Add(new Trigger
                 {
-                    Name = row.ItemArray[2].ToString()
+                    Name = row.ItemArray[3].ToString()
                 });
             }
 

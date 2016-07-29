@@ -440,6 +440,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MessageBox_TriggerDeleteWarning.
+        /// </summary>
+        public static string MessageBox_TriggerDeleteWarning {
+            get {
+                return ResourceManager.GetString("MessageBox_TriggerDeleteWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MessageBox_ViewDeleteWarning.
         /// </summary>
         public static string MessageBox_ViewDeleteWarning {
@@ -481,6 +490,15 @@ namespace SQLiteKei.Properties {
         public static string MessageBoxTitle_TableDeletion {
             get {
                 return ResourceManager.GetString("MessageBoxTitle_TableDeletion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MessageBoxTitle_TriggerDeletion.
+        /// </summary>
+        public static string MessageBoxTitle_TriggerDeletion {
+            get {
+                return ResourceManager.GetString("MessageBoxTitle_TriggerDeletion", resourceCulture);
             }
         }
         

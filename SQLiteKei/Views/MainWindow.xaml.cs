@@ -174,8 +174,14 @@ namespace SQLiteKei
 
         private void DeleteView(object sender, RoutedEventArgs e)
         {
-            var tableItem = (ViewItem)DBTreeView.SelectedItem;
-            viewModel.DeleteView(tableItem);
+            var viewItem = (ViewItem)DBTreeView.SelectedItem;
+            viewModel.DeleteView(viewItem);
+        }
+
+        private void DeleteTrigger(object sender, RoutedEventArgs e)
+        {
+            var triggerItem = (TriggerItem)DBTreeView.SelectedItem;
+            viewModel.DeleteTrigger(triggerItem);
         }
 
         protected override void OnClosed(EventArgs e)

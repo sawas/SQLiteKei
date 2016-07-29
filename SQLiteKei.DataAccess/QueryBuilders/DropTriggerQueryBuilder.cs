@@ -3,27 +3,27 @@
 namespace SQLiteKei.DataAccess.QueryBuilders
 {
     /// <summary>
-    /// A query builder for DROP VIEW statements.
+    /// A query builder for DROP TRIGGER statements.
     /// </summary>
-    public class DropViewQueryBuilder : QueryBuilderBase
+    public class DropTriggerQueryBuilder : QueryBuilderBase
     {
-        private readonly string viewName;
+        private readonly string triggerName;
 
         private bool ifExists;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DropViewQueryBuilder"/> class.
+        /// Initializes a new instance of the <see cref="DropTriggerQueryBuilder"/> class.
         /// </summary>
-        /// <param name="viewName">Name of the view.</param>
-        public DropViewQueryBuilder(string viewName)
+        /// <param name="triggerName">Name of the trigger.</param>
+        public DropTriggerQueryBuilder(string triggerName)
         {
-            this.viewName = viewName;
+            this.triggerName = triggerName;
         }
 
         /// <summary>
         /// Defines if the drop statement should include an IF EXISTS or not.
         /// </summary>
-        public DropViewQueryBuilder IfExists(bool value = true)
+        public DropTriggerQueryBuilder IfExists(bool value = true)
         {
             ifExists = value;
             return this;
@@ -36,9 +36,9 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         public override string Build()
         {
             if (ifExists)
-                return string.Format("DROP VIEW IF EXISTS {0}", viewName);
+                return string.Format("DROP TRIGGER IF EXISTS {0}", triggerName);
 
-            return string.Format("DROP VIEW {0}", viewName);
+            return string.Format("DROP TRIGGER {0}", triggerName);
         }
     }
 }

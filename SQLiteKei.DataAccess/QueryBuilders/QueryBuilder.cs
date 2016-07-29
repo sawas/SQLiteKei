@@ -73,5 +73,15 @@
         {
             return new DropViewQueryBuilder(viewName);
         }
+
+        /// <summary>
+        /// Begins a DROP statement for the specified trigger.
+        /// </summary>
+        /// <param name="triggerName">Name of the trigger.</param>
+        /// <returns></returns>
+        public static DropTriggerQueryBuilder DropTrigger(string triggerName)
+        {
+            return new DropTriggerQueryBuilder(triggerName);
+        }
     }
 }

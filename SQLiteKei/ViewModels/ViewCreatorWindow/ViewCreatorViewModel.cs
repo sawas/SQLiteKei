@@ -10,7 +10,7 @@ using SQLiteKei.DataAccess.QueryBuilders;
 using System;
 using SQLiteKei.Helpers;
 
-namespace SQLiteKei.ViewModels.ViewCreator
+namespace SQLiteKei.ViewModels.ViewCreatorWindow
 {
     /// <summary>
     /// ViewModel for the ViewCreator

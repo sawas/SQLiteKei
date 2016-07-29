@@ -1,6 +1,5 @@
 ﻿using log4net;
 
-using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Helpers;
 using SQLiteKei.Helpers.Interfaces;
@@ -172,6 +171,29 @@ namespace SQLiteKei.ViewModels.MainWindow
             catch (Exception ex)
             {
                 log.Error("Failed to delete view '" + viewItem.DisplayName + "'.", ex);
+                var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
+                StatusBarInfo = statusInfo;
+            }
+        }
+
+        internal void DeleteTrigger(TriggerItem triggerItem)
+        {
+            var message = LocalisationHelper.GetString("MessageBox_TriggerDeleteWarning", triggerItem.DisplayName);
+            var result = MessageBox.Show(message, LocalisationHelper.GetString("MessageBoxTitle_TriggerDeletion"), MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result != MessageBoxResult.Yes) return;
+
+            try
+            {
+                using (var triggerHandler = new TriggerHandler(Properties.Settings.Default.CurrentDatabase))
+                {
+                    triggerHandler.DropTrigger(triggerItem.DisplayName);
+                    RemoveItemFromTree(triggerItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Failed to delete trigger '" + triggerItem.DisplayName + "'.", ex);
                 var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
                 StatusBarInfo = statusInfo;
             }
