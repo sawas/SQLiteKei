@@ -1,14 +1,14 @@
 ﻿using log4net;
 
 using SQLiteKei.Commands;
+using SQLiteKei.DataAccess.Database;
+using SQLiteKei.DataAccess.QueryBuilders;
+using SQLiteKei.Helpers;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.Common;
 
-using System.Collections.Generic;
-using SQLiteKei.DataAccess.Database;
-using SQLiteKei.DataAccess.QueryBuilders;
 using System;
-using SQLiteKei.Helpers;
+using System.Collections.Generic;
 
 namespace SQLiteKei.ViewModels.ViewCreatorWindow
 {

@@ -1,18 +1,18 @@
 ﻿using log4net;
 
+using SQLiteKei.Commands;
+using SQLiteKei.DataAccess.Database;
+using SQLiteKei.DataAccess.QueryBuilders;
+using SQLiteKei.Helpers;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.Common;
-using SQLiteKei.DataAccess.Helpers;
-using SQLiteKei.DataAccess.Database;
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using SQLiteKei.DataAccess.QueryBuilders;
-using System;
 using System.Linq;
-using SQLiteKei.Commands;
 
 namespace SQLiteKei.ViewModels.TriggerCreatorWindow
 {
@@ -33,16 +33,25 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
         public string TriggerName
         {
             get { return triggerName; }
-            set { triggerName = value; UpdateSQL(); }
+            set { triggerName = value; UpdateModel(); }
+        }
+
+        private bool isIfNotExists;
+        public bool IsIfNotExists
+        {
+            get { return isIfNotExists; }
+            set { isIfNotExists = value; UpdateSQL(); }
         }
 
         /// <summary>
         /// The point (in time) when the action takes place, which is either before, after or instead of an event.
         /// </summary>
-        /// <value>
-        /// The selected trigger entry point.
-        /// </value>
-        public string SelectedTriggerEntryPoint { get; set; }
+        private string selectedTriggerEntryPoint;
+        public string SelectedTriggerEntryPoint
+        {
+            get { return selectedTriggerEntryPoint; }
+            set { selectedTriggerEntryPoint = value; IsUpdateOfEvent = selectedTriggerEntryPoint.Equals("UPDATE OF"); UpdateModel(); }
+        }
 
         public List<string> TriggerEntryPoints { get; set; }
 
@@ -50,7 +59,7 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
         public string SelectedTriggerEvent
         {
             get { return selectedTriggerEvent; }
-            set { selectedTriggerEvent = value; IsUpdateOfEvent = selectedTriggerEvent.Equals("UPDATE OF"); }
+            set { selectedTriggerEvent = value; IsUpdateOfEvent = selectedTriggerEvent.Equals("UPDATE OF"); UpdateModel(); }
         }
 
         public List<string> TriggerEvents { get; private set; }
@@ -73,6 +82,48 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
 
         public ObservableCollection<ColumnItem> Columns { get; set; }
 
+        private bool isForEachRow;
+        public bool IsForEachRow
+        {
+            get { return isForEachRow; }
+            set { isForEachRow = value; UpdateSQL(); }
+        }
+
+        private string whenExpression;
+        public string WhenExpression
+        {
+            get { return whenExpression; }
+            set { whenExpression = value; UpdateModel(); }
+        }
+
+        private string triggerActions;
+        public string TriggerActions
+        {
+            get { return triggerActions; }
+            set { triggerActions = value; UpdateModel(); }
+        }
+
+        private string sql;
+        public string Sql
+        {
+            get { return sql; }
+            set { sql = value; NotifyPropertyChanged("SQL"); }
+        }
+
+        private string statusInfo;
+        public string StatusInfo
+        {
+            get { return statusInfo; }
+            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+        }
+
+        private bool isValidModel;
+        public bool IsValidModel
+        {
+            get { return isValidModel; }
+            set { isValidModel = value;  NotifyPropertyChanged("IsValidModel"); }
+        }
+
         private CreateTriggerQueryBuilder queryBuilder;
 
         public TriggerCreatorViewModel()
@@ -86,7 +137,9 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
             Columns = new ObservableCollection<ColumnItem>();
             Columns.CollectionChanged += CollectionContentChanged;
 
-            createCommand = new DelegateCommand(UpdateSQL);
+            createCommand = new DelegateCommand(Create);
+
+            UpdateModel();
         }
 
         private void CollectionContentChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -147,16 +200,46 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
             }
         }
 
+        private void UpdateModel()
+        {
+            VerifyModel();
+            UpdateSQL();
+        }
+
+        private void VerifyModel()
+        {
+            IsValidModel = selectedDatabase != null
+                && !string.IsNullOrEmpty(triggerName)
+                && !string.IsNullOrEmpty(selectedTriggerEntryPoint)
+                && !string.IsNullOrEmpty(selectedTriggerEvent)
+                && !string.IsNullOrEmpty(selectedTable)
+                && !string.IsNullOrEmpty(triggerActions);
+
+            if (!IsValidModel)
+                StatusInfo = LocalisationHelper.GetString("TriggerCreator_StatusInfo_InvalidModel");
+            else
+                StatusInfo = string.Empty;
+        }
+
         private void UpdateSQL()
         {
-            queryBuilder = new CreateTriggerQueryBuilder(TriggerName);
+            queryBuilder = new CreateTriggerQueryBuilder(TriggerName)
+                .IfNotExists(IsIfNotExists)
+                .On(selectedTable)
+                .ForEachRow(IsForEachRow)
+                .When(whenExpression)
+                .Do(triggerActions);
+
             SetEntryPoint();
             SetEvent();
 
+            Sql = queryBuilder.Build();
         }
 
         private void SetEntryPoint()
         {
+            if (string.IsNullOrEmpty(selectedTriggerEntryPoint)) return;
+
             if (SelectedTriggerEntryPoint.Equals("BEFORE"))
                 queryBuilder = queryBuilder.Before();
             else if (SelectedTriggerEntryPoint.Equals("INSTEAD OF"))
@@ -167,6 +250,8 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
 
         private void SetEvent()
         {
+            if (string.IsNullOrEmpty(selectedTriggerEvent)) return;
+
             if (selectedTriggerEvent.Equals("INSERT"))
                 queryBuilder = queryBuilder.Insert();
             else if (selectedTriggerEvent.Equals("UPDATE"))
@@ -179,7 +264,21 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
 
         private void Create()
         {
+            StatusInfo = string.Empty;
 
+            using (var dbHandler = new DatabaseHandler(selectedDatabase.DatabasePath))
+            {
+                try
+                {
+                    dbHandler.ExecuteNonQuery(sql);
+                    StatusInfo = LocalisationHelper.GetString("TriggerCreator_StatusInfo_Success");
+                }
+                catch(Exception ex)
+                {
+                    logger.Error("An error occured when the user tried to create a trigger from the TriggerCreator.", ex);
+                    StatusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
+                }
+            }
         }
 
         private readonly DelegateCommand createCommand;

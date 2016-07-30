@@ -935,11 +935,65 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TriggerCreator_GroupBoxHeader_Columns.
+        /// </summary>
+        public static string TriggerCreator_GroupBoxHeader_Columns {
+            get {
+                return ResourceManager.GetString("TriggerCreator_GroupBoxHeader_Columns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerCreator_GroupBoxHeader_EventDefinition.
+        /// </summary>
+        public static string TriggerCreator_GroupBoxHeader_EventDefinition {
+            get {
+                return ResourceManager.GetString("TriggerCreator_GroupBoxHeader_EventDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerCreator_GroupBoxHeader_TriggerActions.
+        /// </summary>
+        public static string TriggerCreator_GroupBoxHeader_TriggerActions {
+            get {
+                return ResourceManager.GetString("TriggerCreator_GroupBoxHeader_TriggerActions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerCreator_GroupBoxHeader_WhenExpression.
+        /// </summary>
+        public static string TriggerCreator_GroupBoxHeader_WhenExpression {
+            get {
+                return ResourceManager.GetString("TriggerCreator_GroupBoxHeader_WhenExpression", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TriggerCreator_Label_TriggerName.
         /// </summary>
         public static string TriggerCreator_Label_TriggerName {
             get {
                 return ResourceManager.GetString("TriggerCreator_Label_TriggerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerCreator_StatusInfo_InvalidModel.
+        /// </summary>
+        public static string TriggerCreator_StatusInfo_InvalidModel {
+            get {
+                return ResourceManager.GetString("TriggerCreator_StatusInfo_InvalidModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerCreator_StatusInfo_Success.
+        /// </summary>
+        public static string TriggerCreator_StatusInfo_Success {
+            get {
+                return ResourceManager.GetString("TriggerCreator_StatusInfo_Success", resourceCulture);
             }
         }
         

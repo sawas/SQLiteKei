@@ -64,6 +64,7 @@
     <Compile Include="DatabaseHandlers\TableHandlerTests.cs" />
     <Compile Include="Helpers\TreeSaveHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\TriggerCreatorViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

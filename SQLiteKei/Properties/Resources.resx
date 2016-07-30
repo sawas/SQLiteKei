@@ -409,8 +409,26 @@
   <data name="TreeItem_Views" xml:space="preserve">
     <value>TreeItem_Views</value>
   </data>
+  <data name="TriggerCreator_GroupBoxHeader_Columns" xml:space="preserve">
+    <value>TriggerCreator_GroupBoxHeader_Columns</value>
+  </data>
+  <data name="TriggerCreator_GroupBoxHeader_EventDefinition" xml:space="preserve">
+    <value>TriggerCreator_GroupBoxHeader_EventDefinition</value>
+  </data>
+  <data name="TriggerCreator_GroupBoxHeader_TriggerActions" xml:space="preserve">
+    <value>TriggerCreator_GroupBoxHeader_TriggerActions</value>
+  </data>
+  <data name="TriggerCreator_GroupBoxHeader_WhenExpression" xml:space="preserve">
+    <value>TriggerCreator_GroupBoxHeader_WhenExpression</value>
+  </data>
   <data name="TriggerCreator_Label_TriggerName" xml:space="preserve">
     <value>TriggerCreator_Label_TriggerName</value>
+  </data>
+  <data name="TriggerCreator_StatusInfo_InvalidModel" xml:space="preserve">
+    <value>TriggerCreator_StatusInfo_InvalidModel</value>
+  </data>
+  <data name="TriggerCreator_StatusInfo_Success" xml:space="preserve">
+    <value>TriggerCreator_StatusInfo_Success</value>
   </data>
   <data name="UnhandledException" xml:space="preserve">
     <value>UnhandledException</value>

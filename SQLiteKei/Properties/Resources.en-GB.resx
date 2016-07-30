@@ -405,8 +405,26 @@
   <data name="TreeItem_Views" xml:space="preserve">
     <value>Views</value>
   </data>
+  <data name="TriggerCreator_GroupBoxHeader_Columns" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="TriggerCreator_GroupBoxHeader_EventDefinition" xml:space="preserve">
+    <value>Event Definition</value>
+  </data>
+  <data name="TriggerCreator_GroupBoxHeader_TriggerActions" xml:space="preserve">
+    <value>Trigger Actions (steps separated by semicolon)</value>
+  </data>
+  <data name="TriggerCreator_GroupBoxHeader_WhenExpression" xml:space="preserve">
+    <value>WHEN Expression</value>
+  </data>
   <data name="TriggerCreator_Label_TriggerName" xml:space="preserve">
     <value>Trigger Name</value>
+  </data>
+  <data name="TriggerCreator_StatusInfo_InvalidModel" xml:space="preserve">
+    <value>Not all necessary fields have been defined</value>
+  </data>
+  <data name="TriggerCreator_StatusInfo_Success" xml:space="preserve">
+    <value>SQL executed successfully!</value>
   </data>
   <data name="UnhandledException" xml:space="preserve">
     <value>An unexpected and unhandled error occured. The application will be terminated.</value>

@@ -6,7 +6,7 @@ using System.IO;
 
 namespace SQLiteKei.IntegrationTests.Base
 {
-    public class DbTestBase
+    public class IntegrationTestBase
     {
         protected const string DATABASEFILENAME = "TestDb";
 

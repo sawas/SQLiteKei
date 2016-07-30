@@ -10,7 +10,7 @@ using System.Data.Common;
 namespace SQLiteKei.IntegrationTests.DatabaseHandlers
 {
     [TestFixture, Explicit]
-    public class TableHandlerTests : DbTestBase
+    public class TableHandlerTests : IntegrationTestBase
     {
         [Test]
         public void GetColumns_WithValidTableName_ReturnsCorrectNumberOfColumns()

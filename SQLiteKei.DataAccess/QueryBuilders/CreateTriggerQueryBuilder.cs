@@ -92,7 +92,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         /// </summary>
         public CreateTriggerQueryBuilder Update(List<string> columnNames)
         {
-            if (!columnNames.Any())
+            if (columnNames.Any())
                 triggerEvent = "UPDATE OF " + string.Join(", ", columnNames);
             else
                 triggerEvent = "UPDATE";
@@ -166,7 +166,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             stringBuilder.Append(" ON '" + targetTableName + "'");
 
             if (isForEachRow)
-                stringBuilder.Append("\nFOR REACH ROW");
+                stringBuilder.Append("\nFOR EACH ROW");
 
             if (!string.IsNullOrWhiteSpace(condition))
                 stringBuilder.Append("\nWHEN " + condition);
