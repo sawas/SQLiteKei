@@ -8,7 +8,7 @@ namespace SQLiteKei.DataAccess.Database
     /// </summary>
     public abstract class DisposableDbHandler : IDisposable
     {
-        protected SQLiteConnection connection;
+        internal SQLiteConnection connection;
 
         protected DisposableDbHandler(string databasePath)
         {
