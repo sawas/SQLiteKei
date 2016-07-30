@@ -32,7 +32,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         }
 
         /// <summary>
-        /// Ases the specified as statement.
+        /// Defines the SQL statement executed from this view.
         /// </summary>
         /// <param name="asStatement">The view defining SQL statement.</param>
         public CreateViewQueryBuilder As(string asStatement)

@@ -1,5 +1,8 @@
 ﻿namespace SQLiteKei.DataAccess.Models
 {
+    /// <summary>
+    /// A model that represents a database table column.
+    /// </summary>
     public class Column
     {
         public int Id { get; set; }

@@ -64,7 +64,8 @@ namespace SQLiteKei.DataAccess.Database
             {
                 views.Add(new View
                 {
-                    Name = row.ItemArray[2].ToString()
+                    Name = row.ItemArray[2].ToString(),
+                    SqlStatement = row.ItemArray[3].ToString()
                 });
             }
 
