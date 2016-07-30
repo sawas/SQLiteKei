@@ -178,6 +178,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ContextMenuItem_NewTrigger.
+        /// </summary>
+        public static string ContextMenuItem_NewTrigger {
+            get {
+                return ResourceManager.GetString("ContextMenuItem_NewTrigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ContextMenuItem_NewView.
         /// </summary>
         public static string ContextMenuItem_NewView {

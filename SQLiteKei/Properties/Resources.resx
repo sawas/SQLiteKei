@@ -156,6 +156,9 @@
   <data name="ContextMenuItem_NewTable" xml:space="preserve">
     <value>ContextMenuItem_NewTable</value>
   </data>
+  <data name="ContextMenuItem_NewTrigger" xml:space="preserve">
+    <value>ContextMenuItem_NewTrigger</value>
+  </data>
   <data name="ContextMenuItem_NewView" xml:space="preserve">
     <value>ContextMenuItem_NewView</value>
   </data>

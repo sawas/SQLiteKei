@@ -35,7 +35,7 @@ namespace SQLiteKei.ViewModels.DBTreeView.Mapping
             TableFolderItem tableFolder = MapTables();
             ViewFolderItem viewFolder = MapViews();
             FolderItem indexFolder = MapIndexes();
-            FolderItem triggerFolder = MapTriggers();
+            TriggerFolderItem triggerFolder = MapTriggers();
 
             var databaseItem = new DatabaseItem()
             {
@@ -122,12 +122,12 @@ namespace SQLiteKei.ViewModels.DBTreeView.Mapping
             return indexFolder;
         }
 
-        private FolderItem MapTriggers()
+        private TriggerFolderItem MapTriggers()
         {
             var triggers = dbHandler.GetTriggers();
             IEnumerable triggerNames = triggers.Select(x => x.Name);
 
-            var triggerFolder = new FolderItem { DisplayName = LocalisationHelper.GetString("TreeItem_Triggers") };
+            var triggerFolder = new TriggerFolderItem { DisplayName = LocalisationHelper.GetString("TreeItem_Triggers") };
 
             foreach (string triggerName in triggerNames)
             {

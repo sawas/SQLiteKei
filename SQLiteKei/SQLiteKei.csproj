@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\DBTreeView\ViewFolderItem.cs" />
     <Compile Include="ViewModels\TriggerCreatorWindow\ColumnItem.cs" />
     <Compile Include="ViewModels\TriggerCreatorWindow\TriggerCreatorViewModel.cs" />
