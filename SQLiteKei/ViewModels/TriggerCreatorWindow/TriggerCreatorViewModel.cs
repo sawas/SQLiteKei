@@ -75,7 +75,7 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
         public string SelectedTable
         {
             get { return selectedTable; }
-            set { selectedTable = value; UpdateAvailableColumns(); }
+            set { selectedTable = value; UpdateAvailableColumns(); UpdateModel(); }
         }
 
         public ObservableCollection<string> AvailableTables { get; set; }
