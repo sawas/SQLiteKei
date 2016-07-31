@@ -332,6 +332,33 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MenuItemHeader_CreateTable.
+        /// </summary>
+        public static string MenuItemHeader_CreateTable {
+            get {
+                return ResourceManager.GetString("MenuItemHeader_CreateTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MenuItemHeader_CreateTrigger.
+        /// </summary>
+        public static string MenuItemHeader_CreateTrigger {
+            get {
+                return ResourceManager.GetString("MenuItemHeader_CreateTrigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MenuItemHeader_CreateView.
+        /// </summary>
+        public static string MenuItemHeader_CreateView {
+            get {
+                return ResourceManager.GetString("MenuItemHeader_CreateView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MenuItemHeader_Documentation.
         /// </summary>
         public static string MenuItemHeader_Documentation {

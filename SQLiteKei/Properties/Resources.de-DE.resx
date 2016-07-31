@@ -204,6 +204,15 @@
   <data name="MenuItemHeader_About" xml:space="preserve">
     <value>Über</value>
   </data>
+  <data name="MenuItemHeader_CreateTable" xml:space="preserve">
+    <value>Tabelle erzeugen</value>
+  </data>
+  <data name="MenuItemHeader_CreateTrigger" xml:space="preserve">
+    <value>Trigger erzeugen</value>
+  </data>
+  <data name="MenuItemHeader_CreateView" xml:space="preserve">
+    <value>View erzeugen</value>
+  </data>
   <data name="MenuItemHeader_Documentation" xml:space="preserve">
     <value>Dokumentation</value>
   </data>

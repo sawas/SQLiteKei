@@ -208,6 +208,15 @@
   <data name="MenuItemHeader_About" xml:space="preserve">
     <value>MenuItemHeader_About</value>
   </data>
+  <data name="MenuItemHeader_CreateTable" xml:space="preserve">
+    <value>MenuItemHeader_CreateTable</value>
+  </data>
+  <data name="MenuItemHeader_CreateTrigger" xml:space="preserve">
+    <value>MenuItemHeader_CreateTrigger</value>
+  </data>
+  <data name="MenuItemHeader_CreateView" xml:space="preserve">
+    <value>MenuItemHeader_CreateView</value>
+  </data>
   <data name="MenuItemHeader_Documentation" xml:space="preserve">
     <value>MenuItemHeader_Documentation</value>
   </data>

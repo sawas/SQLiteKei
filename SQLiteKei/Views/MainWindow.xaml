@@ -56,7 +56,12 @@
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Exit}" Click="MenuItem_Exit_Click"/>
             </MenuItem>
             <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Tools}">
+                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_CreateTable}" Click="OpenTableCreator"/>
+                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_CreateView}" Click="OpenViewCreator"/>
+                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_CreateTrigger}" Click="OpenTriggerCreator"/>
+                <Separator/>
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_QueryEditor}" Click="OpenQueryEditor"/>
+                <Separator/>
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Preferences}" Click="OpenPreferences"/>
             </MenuItem>
             <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Help}">
