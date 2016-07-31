@@ -2,7 +2,7 @@
 
 using System.Runtime.CompilerServices;
 
-namespace SQLiteKei.Helpers
+namespace SQLiteKei.Util
 {
     public static class LogHelper
     {

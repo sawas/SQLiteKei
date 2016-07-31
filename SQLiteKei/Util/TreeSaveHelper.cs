@@ -1,6 +1,6 @@
 ﻿using log4net;
 
-using SQLiteKei.Helpers.Interfaces;
+using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.DBTreeView.Base;
 using SQLiteKei.ViewModels.DBTreeView.Mapping;
 
@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace SQLiteKei.Helpers
+namespace SQLiteKei.Util
 {
     public class TreeSaveHelper : ITreeSaveHelper
     {

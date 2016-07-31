@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 
 using SQLiteKei.ViewModels.MainTabControl.Tables;
-using SQLiteKei.Helpers;
+using SQLiteKei.Util;
 
 namespace SQLiteKei.Views.UserControls
 {

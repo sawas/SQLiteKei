@@ -2,7 +2,7 @@
 
 using SQLiteKei.ViewModels.DBTreeView.Base;
 
-namespace SQLiteKei.Helpers.Interfaces
+namespace SQLiteKei.Util.Interfaces
 {
     public interface ITreeSaveHelper
     {

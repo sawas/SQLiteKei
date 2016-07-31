@@ -1,4 +1,4 @@
-﻿namespace SQLiteKei.Helpers
+﻿namespace SQLiteKei.Util
 {
     /// <summary>
     /// A helper class that loads the localized string with the specified key (refer to Resources.-Files for keys).

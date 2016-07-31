@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Markup;
 
-namespace SQLiteKei.Helpers
+namespace SQLiteKei.Util
 {
     public class ThemeHelper
     {

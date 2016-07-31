@@ -6,7 +6,7 @@ using SQLiteKei.ViewModels.DBTreeView.Base;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace SQLiteKei.Helpers
+namespace SQLiteKei.Util
 {
     /// <summary>
     /// A class that is used to update elements on the main tree from anywhere in the application.

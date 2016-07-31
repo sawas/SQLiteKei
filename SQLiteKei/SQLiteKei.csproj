@@ -67,7 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Helpers\MainTreeHandler.cs" />
+    <Compile Include="Util\MainTreeHandler.cs" />
     <Compile Include="ViewModels\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\DBTreeView\ViewFolderItem.cs" />
     <Compile Include="ViewModels\TriggerCreatorWindow\ColumnItem.cs" />
@@ -213,12 +213,12 @@
     </Compile>
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
-    <Compile Include="Helpers\DatabaseTabGenerator.cs" />
-    <Compile Include="Helpers\Interfaces\ITreeSaveHelper.cs" />
-    <Compile Include="Helpers\LocalisationHelper.cs" />
-    <Compile Include="Helpers\LogHelper.cs" />
-    <Compile Include="Helpers\ThemeHelper.cs" />
-    <Compile Include="Helpers\TreeSaveHelper.cs" />
+    <Compile Include="Util\DatabaseTabGenerator.cs" />
+    <Compile Include="Util\Interfaces\ITreeSaveHelper.cs" />
+    <Compile Include="Util\LocalisationHelper.cs" />
+    <Compile Include="Util\LogHelper.cs" />
+    <Compile Include="Util\ThemeHelper.cs" />
+    <Compile Include="Util\TreeSaveHelper.cs" />
     <Compile Include="Properties\Resources.en-GB.Designer.cs">
       <DependentUpon>Resources.en-GB.resx</DependentUpon>
       <AutoGen>True</AutoGen>

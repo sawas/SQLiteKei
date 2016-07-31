@@ -1,7 +1,7 @@
 ﻿using log4net;
 
 using SQLiteKei.DataAccess.Database;
-using SQLiteKei.Helpers;
+using SQLiteKei.Util;
 
 using System.Collections;
 using System.Collections.Generic;

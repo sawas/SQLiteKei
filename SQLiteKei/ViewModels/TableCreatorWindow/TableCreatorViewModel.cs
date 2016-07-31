@@ -3,7 +3,7 @@
 using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.QueryBuilders;
-using SQLiteKei.Helpers;
+using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.Common;
 

@@ -10,7 +10,7 @@ using System;
 
 
 
-namespace SQLiteKei.Helpers
+namespace SQLiteKei.Util
 {
     /// <summary>
     /// A class that generates tabs for the currently selected tree item in the main tree.

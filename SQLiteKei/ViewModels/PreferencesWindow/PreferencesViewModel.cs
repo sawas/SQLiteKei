@@ -1,6 +1,6 @@
 ﻿using log4net;
 
-using SQLiteKei.Helpers;
+using SQLiteKei.Util;
 
 using System.Collections.Generic;
 using System;

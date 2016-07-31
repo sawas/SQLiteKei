@@ -1,7 +1,7 @@
 ﻿using log4net;
 
 using SQLiteKei.DataAccess.Database;
-using SQLiteKei.Helpers;
+using SQLiteKei.Util;
 using SQLiteKei.ViewModels.DBTreeView;
 using SQLiteKei.ViewModels.DBTreeView.Base;
 using SQLiteKei.ViewModels.MainWindow;

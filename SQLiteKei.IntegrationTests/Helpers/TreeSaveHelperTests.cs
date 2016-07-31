@@ -5,7 +5,7 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using SQLiteKei.Helpers;
+using SQLiteKei.Util;
 using SQLiteKei.IntegrationTests.Base;
 using SQLiteKei.ViewModels.DBTreeView;
 using SQLiteKei.ViewModels.DBTreeView.Base;

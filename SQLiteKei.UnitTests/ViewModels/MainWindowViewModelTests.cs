@@ -2,7 +2,7 @@
 
 using NUnit.Framework;
 
-using SQLiteKei.Helpers.Interfaces;
+using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.DBTreeView;
 using SQLiteKei.ViewModels.DBTreeView.Base;
 using SQLiteKei.ViewModels.MainWindow;
