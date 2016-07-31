@@ -76,6 +76,12 @@ namespace SQLiteKei.ViewModels.ViewCreatorWindow
         {
             StatusInfo = string.Empty;
 
+            if (!sqlStatement.StartsWith("SELECT", StringComparison.CurrentCultureIgnoreCase))
+            {
+                StatusInfo = LocalisationHelper.GetString("ViewGeneralTab_InvalidStatement");
+                return;
+            }
+
             var exectuableSql = QueryBuilder.CreateView(ViewName)
                 .IfNotExists(IsIfNotExists)
                 .As(sqlStatement)

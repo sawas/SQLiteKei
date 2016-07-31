@@ -313,6 +313,9 @@
   <data name="TabHeader_GeneralTable" xml:space="preserve">
     <value>TabHeader_GeneralTable</value>
   </data>
+  <data name="TabHeader_GeneralView" xml:space="preserve">
+    <value>TabHeader_GeneralView</value>
+  </data>
   <data name="TabHeader_TableRecords" xml:space="preserve">
     <value>TabHeader_TableRecords</value>
   </data>
@@ -439,6 +442,9 @@
   <data name="UnhandledException_Title" xml:space="preserve">
     <value>UnhandledException_Title</value>
   </data>
+  <data name="ViewCreator_InvalidStatement" xml:space="preserve">
+    <value>ViewCreator_InvalidStatement</value>
+  </data>
   <data name="ViewCreator_Label_ViewDefinition" xml:space="preserve">
     <value>ViewCreator_Label_ViewDefinition</value>
   </data>
@@ -447,6 +453,24 @@
   </data>
   <data name="ViewCreator_ViewCreateSuccess" xml:space="preserve">
     <value>ViewCreator_ViewCreateSuccess</value>
+  </data>
+  <data name="ViewGeneralTab_Button_UpdateDefinition" xml:space="preserve">
+    <value>ViewGeneralTab_Button_UpdateDefinition</value>
+  </data>
+  <data name="ViewGeneralTab_CouldNotLoadResults" xml:space="preserve">
+    <value>ViewGeneralTab_CouldNotLoadResults</value>
+  </data>
+  <data name="ViewGeneralTab_InvalidStatement" xml:space="preserve">
+    <value>ViewGeneralTab_InvalidStatement</value>
+  </data>
+  <data name="ViewGeneralTab_ViewContent" xml:space="preserve">
+    <value>ViewGeneralTab_ViewContent</value>
+  </data>
+  <data name="ViewGeneralTab_ViewDefinition" xml:space="preserve">
+    <value>ViewGeneralTab_ViewDefinition</value>
+  </data>
+  <data name="ViewGeneralTab_ViewName" xml:space="preserve">
+    <value>ViewGeneralTab_ViewName</value>
   </data>
   <data name="WindowTitle_About" xml:space="preserve">
     <value>WindowTitle_About</value>

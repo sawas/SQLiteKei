@@ -49,11 +49,13 @@ namespace SQLiteKei.Views.UserControls
             try
             {
                 var dbPath = Properties.Settings.Default.CurrentDatabase;
-                var dbHandler = new DatabaseHandler(dbPath);
-                var resultTable = dbHandler.ExecuteReader(selectQuery);
+                using (var dbHandler = new DatabaseHandler(dbPath))
+                {
+                    var resultTable = dbHandler.ExecuteReader(selectQuery);
 
-                ViewModel.DataGridCollection = new ListCollectionView(resultTable.DefaultView);
-                StatusBar.Text = string.Format("Rows returned: {0}", resultTable.Rows.Count);
+                    ViewModel.DataGridCollection = new ListCollectionView(resultTable.DefaultView);
+                    StatusBar.Text = string.Format("Rows returned: {0}", resultTable.Rows.Count);
+                }  
             }
             catch (Exception ex)
             {

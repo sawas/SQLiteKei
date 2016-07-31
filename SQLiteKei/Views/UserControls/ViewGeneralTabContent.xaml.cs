@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using SQLiteKei.ViewModels.MainTabControl.Views;
+
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SQLiteKei.Views.UserControls
 {
@@ -20,8 +9,9 @@ namespace SQLiteKei.Views.UserControls
     /// </summary>
     public partial class ViewGeneralTabContent : UserControl
     {
-        public ViewGeneralTabContent()
+        public ViewGeneralTabContent(GeneralViewViewModel viewModel)
         {
+            DataContext = viewModel;
             InitializeComponent();
         }
     }

@@ -647,6 +647,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TabHeader_GeneralView.
+        /// </summary>
+        public static string TabHeader_GeneralView {
+            get {
+                return ResourceManager.GetString("TabHeader_GeneralView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TabHeader_TableRecords.
         /// </summary>
         public static string TabHeader_TableRecords {
@@ -1025,6 +1034,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ViewCreator_InvalidStatement.
+        /// </summary>
+        public static string ViewCreator_InvalidStatement {
+            get {
+                return ResourceManager.GetString("ViewCreator_InvalidStatement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ViewCreator_Label_ViewDefinition.
         /// </summary>
         public static string ViewCreator_Label_ViewDefinition {
@@ -1048,6 +1066,60 @@ namespace SQLiteKei.Properties {
         public static string ViewCreator_ViewCreateSuccess {
             get {
                 return ResourceManager.GetString("ViewCreator_ViewCreateSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ViewGeneralTab_Button_UpdateDefinition.
+        /// </summary>
+        public static string ViewGeneralTab_Button_UpdateDefinition {
+            get {
+                return ResourceManager.GetString("ViewGeneralTab_Button_UpdateDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ViewGeneralTab_CouldNotLoadResults.
+        /// </summary>
+        public static string ViewGeneralTab_CouldNotLoadResults {
+            get {
+                return ResourceManager.GetString("ViewGeneralTab_CouldNotLoadResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ViewGeneralTab_InvalidStatement.
+        /// </summary>
+        public static string ViewGeneralTab_InvalidStatement {
+            get {
+                return ResourceManager.GetString("ViewGeneralTab_InvalidStatement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ViewGeneralTab_ViewContent.
+        /// </summary>
+        public static string ViewGeneralTab_ViewContent {
+            get {
+                return ResourceManager.GetString("ViewGeneralTab_ViewContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ViewGeneralTab_ViewDefinition.
+        /// </summary>
+        public static string ViewGeneralTab_ViewDefinition {
+            get {
+                return ResourceManager.GetString("ViewGeneralTab_ViewDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ViewGeneralTab_ViewName.
+        /// </summary>
+        public static string ViewGeneralTab_ViewName {
+            get {
+                return ResourceManager.GetString("ViewGeneralTab_ViewName", resourceCulture);
             }
         }
         

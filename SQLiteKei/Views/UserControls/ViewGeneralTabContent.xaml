@@ -3,10 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SQLiteKei.Views.UserControls"
+             xmlns:localisation="clr-namespace:SQLiteKei.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Header="{x:Static localisation:Resources.TabContent_GroupBoxHeader_About}" Padding="2 0">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.ViewGeneralTab_ViewName}" />
+                <TextBox Style="{DynamicResource FocusHighlightTextBox}" Text="{Binding ViewName}" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Header="{x:Static localisation:Resources.ViewGeneralTab_ViewDefinition}"  >
+            <StackPanel Margin="5">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="80">
+                    <TextBox Text="{Binding SqlStatement}" TextWrapping="Wrap" AcceptsReturn="True" />
+                </ScrollViewer>
+                <DockPanel Margin="0 2 0 0" Height="30">
+                    <Button Height="25" Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.ViewGeneralTab_Button_UpdateDefinition}" Command="{Binding UpdateCommand}" />
+                    <Label Content="{Binding StatusInfo}" />
+                </DockPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="2" Header="{x:Static localisation:Resources.ViewGeneralTab_ViewContent}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <DataGrid HeadersVisibility="Column" ItemsSource="{Binding DataGridCollection}" IsReadOnly="True"
+                              Visibility="{Binding CouldLoadResults, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <Label Content="{x:Static localisation:Resources.ViewGeneralTab_CouldNotLoadResults}" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           Visibility="{Binding CouldNotLoadResults, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </StackPanel>
+            </ScrollViewer>
+        </GroupBox>
     </Grid>
 </UserControl>

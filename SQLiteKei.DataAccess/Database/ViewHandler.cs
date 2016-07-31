@@ -74,6 +74,15 @@ namespace SQLiteKei.DataAccess.Database
             };
         }
 
+        public string GetViewDefinition(string viewName)
+        {
+            logger.Info("Loading view definition of view " + viewName);
+            var dataRows = connection.GetSchema("Views").AsEnumerable();
+            var selectedRow = dataRows.SingleOrDefault(x => x.ItemArray[2].Equals(viewName));
+
+            return selectedRow.ItemArray[3].ToString();
+        }
+
         /// <summary>
         /// Drops the specified view.
         /// </summary>

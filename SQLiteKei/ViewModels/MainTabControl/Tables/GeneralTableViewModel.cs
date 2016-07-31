@@ -30,12 +30,11 @@ namespace SQLiteKei.ViewModels.MainTabControl.Tables
                             MainTreeHandler.UpdateTableName(tableName, value, Properties.Settings.Default.CurrentDatabase);
                             tableName = value;
                             TableCreateStatement = tableHandler.GetCreateStatement(tableName);
-                            NotifyPropertyChanged("TableName");
                         }
                     }
                     catch (Exception ex)
                     {
-                        logger.Warn("Tried to rename table '" + tableName + "' from table overview.", ex);
+                        logger.Warn("Failed to rename table '" + tableName + "' from table overview.", ex);
                     }
                 }
             }

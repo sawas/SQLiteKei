@@ -2,6 +2,7 @@
 using SQLiteKei.ViewModels.DBTreeView.Base;
 using SQLiteKei.ViewModels.MainTabControl.Databases;
 using SQLiteKei.ViewModels.MainTabControl.Tables;
+using SQLiteKei.ViewModels.MainTabControl.Views;
 using SQLiteKei.Views.UserControls;
 
 using System.Collections.Generic;
@@ -87,7 +88,13 @@ namespace SQLiteKei.Util
 
         private static List<TabItem> GenerateViewTabs(ViewItem viewItem)
         {
-            throw new NotImplementedException();
+            var generalTab = new TabItem
+            {
+                Header = LocalisationHelper.GetString("TabHeader_GeneralView", viewItem.DisplayName),
+                Content = new ViewGeneralTabContent(new GeneralViewViewModel(viewItem.DisplayName))
+            };
+
+            return new List<TabItem> { generalTab };
         }
     }
 }

@@ -309,6 +309,9 @@
   <data name="TabHeader_GeneralTable" xml:space="preserve">
     <value>Tabelle {0}</value>
   </data>
+  <data name="TabHeader_GeneralView" xml:space="preserve">
+    <value>View {0}</value>
+  </data>
   <data name="TabHeader_TableRecords" xml:space="preserve">
     <value>Datensätze</value>
   </data>
@@ -435,6 +438,9 @@
   <data name="UnhandledException_Title" xml:space="preserve">
     <value>Ups, das hätte nicht passieren dürfen</value>
   </data>
+  <data name="ViewCreator_InvalidStatement" xml:space="preserve">
+    <value>Eine View muss als SELECT definiert sein!</value>
+  </data>
   <data name="ViewCreator_Label_ViewDefinition" xml:space="preserve">
     <value>View-Definition</value>
   </data>
@@ -443,6 +449,24 @@
   </data>
   <data name="ViewCreator_ViewCreateSuccess" xml:space="preserve">
     <value>View erfolgreich erzeugt!</value>
+  </data>
+  <data name="ViewGeneralTab_Button_UpdateDefinition" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="ViewGeneralTab_CouldNotLoadResults" xml:space="preserve">
+    <value>Der Inhalt der View konnte nicht geladen werden.</value>
+  </data>
+  <data name="ViewGeneralTab_InvalidStatement" xml:space="preserve">
+    <value>Eine View muss als SELECT definiert sein!</value>
+  </data>
+  <data name="ViewGeneralTab_ViewContent" xml:space="preserve">
+    <value>Inhalt der View</value>
+  </data>
+  <data name="ViewGeneralTab_ViewDefinition" xml:space="preserve">
+    <value>View-Definition</value>
+  </data>
+  <data name="ViewGeneralTab_ViewName" xml:space="preserve">
+    <value>Name der View:</value>
   </data>
   <data name="WindowTitle_About" xml:space="preserve">
     <value>Über</value>
