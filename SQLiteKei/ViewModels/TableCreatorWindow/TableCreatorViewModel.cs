@@ -12,6 +12,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using SQLiteKei.ViewModels.DBTreeView;
 
 namespace SQLiteKei.ViewModels.TableCreatorWindow
 {
@@ -220,7 +221,7 @@ namespace SQLiteKei.ViewModels.TableCreatorWindow
                         dbHandler.ExecuteNonQuery(SqlStatement);
                         StatusInfo = LocalisationHelper.GetString("TableCreator_TableCreateSuccess");
 
-                        MainTreeHandler.AddTable(tableName, selectedDatabase.DatabasePath);
+                        MainTreeHandler.AddItem<TableFolderItem, TableItem>(tableName, selectedDatabase.DatabasePath);
                     }
                 }
                 catch (Exception ex)

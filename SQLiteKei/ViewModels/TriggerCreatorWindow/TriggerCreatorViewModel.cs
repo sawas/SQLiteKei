@@ -6,7 +6,7 @@ using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.Helpers;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.Common;
-
+using SQLiteKei.ViewModels.DBTreeView;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -276,6 +276,7 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
                 {
                     dbHandler.ExecuteNonQuery(sql);
                     StatusInfo = LocalisationHelper.GetString("TriggerCreator_StatusInfo_Success");
+                    MainTreeHandler.AddItem<TriggerFolderItem, TriggerItem>(triggerName, selectedDatabase.DatabasePath);
                 }
                 catch(Exception ex)
                 {

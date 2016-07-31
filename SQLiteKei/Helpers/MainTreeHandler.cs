@@ -27,20 +27,29 @@ namespace SQLiteKei.Helpers
             logger.Info("Registered main tree on MainTreeHandler");
         }
 
-        public static void AddTable(string tableName, string targetDatabasePath)
+        /// <summary>
+        /// Adds the specified item to the main tree. The FolderType needs to be defined to place the item in the correct subfolder.
+        /// </summary>
+        /// <typeparam name="TFolderType">The type of the database sub folder where the item will be added.</typeparam>
+        /// <typeparam name="TItemType">The type of the item.</typeparam>
+        /// <param name="itemName">Name of the item.</param>
+        /// <param name="targetDatabasePath">The target database path.</param>
+        public static void AddItem<TFolderType, TItemType>(string itemName, string targetDatabasePath)
+            where TFolderType : DirectoryItem
+            where TItemType : TreeItem, new()
         {
             var database = GetDatabaseFromTree(targetDatabasePath);
             if (database == null) return;
 
-            var folder = GetSubFolderOf<TableFolderItem>(database);
+            var folder = GetSubFolderOf<TFolderType>(database);
             if (folder == null) return;
 
-            folder.Items.Add(new TableItem { DisplayName = tableName, DatabasePath = targetDatabasePath });
-        }
+            folder.Items.Add(new TItemType { DisplayName = itemName, DatabasePath = targetDatabasePath });
+        }        
 
         private static DatabaseItem GetDatabaseFromTree(string targetDatabasePath)
         {
-            var database = mainTree.SingleOrDefault(i => i.DatabasePath.Equals(targetDatabasePath)) as DatabaseItem;
+            var database = mainTree.SingleOrDefault(i => i.DatabasePath.Equals("path")) as DatabaseItem;
 
             if (database == null)
                 logger.Error("Could not add object to database tree view. The specified database could not be found: " + targetDatabasePath);

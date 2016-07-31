@@ -53,14 +53,12 @@ namespace SQLiteKei
 
         private void OpenQueryEditor(object sender, RoutedEventArgs e)
         {
-            
-            //new QueryEditor(viewModel.TreeViewItems).ShowDialog();
+            new QueryEditor(viewModel.TreeViewItems).ShowDialog();
         }
 
         private void OpenTableCreator(object sender, RoutedEventArgs e)
         {
             new TableCreator(viewModel.TreeViewItems).ShowDialog();
-            viewModel.RefreshTree();
         }
 
         private void OpenViewCreator(object sender, RoutedEventArgs e)
