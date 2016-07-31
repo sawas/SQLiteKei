@@ -8,8 +8,6 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using System;
 
-
-
 namespace SQLiteKei.Util
 {
     /// <summary>
@@ -34,6 +32,10 @@ namespace SQLiteKei.Util
             return GenerateDefaultTabs();
         }
 
+        /// <summary>
+        /// Generates the default tabs.
+        /// </summary>
+        /// <returns></returns>
         public static List<TabItem> GenerateDefaultTabs()
         {
             return new List<TabItem>();

@@ -63,7 +63,7 @@
     <Compile Include="Base\IntegrationTestBase.cs" />
     <Compile Include="DatabaseHandlers\TableHandlerTests.cs" />
     <Compile Include="DatabaseHandlers\ViewHandlerTests.cs" />
-    <Compile Include="Helpers\TreeSaveHelperTests.cs" />
+    <Compile Include="Util\TreeSaveHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\TriggerCreatorViewModelTests.cs" />
   </ItemGroup>

@@ -28,13 +28,42 @@ namespace SQLiteKei.Util
         }
 
         /// <summary>
+        /// Adds a table item to the specified target database.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <param name="targetDatabasePath">The target database path.</param>
+        public static void AddTable(string tableName, string targetDatabasePath)
+        {
+            AddItem<TableFolderItem, TableItem>(tableName, targetDatabasePath);
+        }
+
+        /// <summary>
+        /// Adds a view item to the specified target database.
+        /// </summary>
+        /// <param name="viewName">Name of the view.</param>
+        /// <param name="targetDatabasePath">The target database path.</param>
+        public static void AddView(string viewName, string targetDatabasePath)
+        {
+            AddItem<ViewFolderItem, ViewItem>(viewName, targetDatabasePath);
+        }
+
+        /// <summary>trigger item to the specified target database.
+        /// </summary>
+        /// <param name="triggerName">Name of the trigger.</param>
+        /// <param name="targetDatabasePath">The target database path.</param>
+        public static void AddTrigger(string triggerName, string targetDatabasePath)
+        {
+            AddItem<TriggerFolderItem, TriggerItem>(triggerName, targetDatabasePath);
+        }
+
+        /// <summary>
         /// Adds the specified item to the main tree. The FolderType needs to be defined to place the item in the correct subfolder.
         /// </summary>
         /// <typeparam name="TFolderType">The type of the database sub folder where the item will be added.</typeparam>
         /// <typeparam name="TItemType">The type of the item.</typeparam>
         /// <param name="itemName">Name of the item.</param>
         /// <param name="targetDatabasePath">The target database path.</param>
-        public static void AddItem<TFolderType, TItemType>(string itemName, string targetDatabasePath)
+        private static void AddItem<TFolderType, TItemType>(string itemName, string targetDatabasePath)
             where TFolderType : DirectoryItem
             where TItemType : TreeItem, new()
         {
@@ -45,11 +74,64 @@ namespace SQLiteKei.Util
             if (folder == null) return;
 
             folder.Items.Add(new TItemType { DisplayName = itemName, DatabasePath = targetDatabasePath });
-        }        
+        }
+
+        /// <summary>
+        /// Updates the name of the table tree item on the specified database.
+        /// </summary>
+        /// <param name="oldName">The old name.</param>
+        /// <param name="newName">The new name.</param>
+        /// <param name="targetDatabasePath">The target database path.</param>
+        public static void UpdateTableName(string oldName, string newName, string targetDatabasePath)
+        {
+            UpdateItemName<TableFolderItem>(oldName, newName, targetDatabasePath);
+        }
+
+        /// <summary>
+        /// Updates the name of the view tree item on the specified database.
+        /// </summary>
+        /// <param name="oldName">The old name.</param>
+        /// <param name="newName">The new name.</param>
+        /// <param name="targetDatabasePath">The target database path.</param>
+        public static void UpdateViewName(string oldName, string newName, string targetDatabasePath)
+        {
+            UpdateItemName<ViewFolderItem>(oldName, newName, targetDatabasePath);
+        }
+
+        /// <summary>
+        /// Updates the name of the trigger tree item on the specified database.
+        /// </summary>
+        /// <param name="oldName">The old name.</param>
+        /// <param name="newName">The new name.</param>
+        /// <param name="targetDatabasePath">The target database path.</param>
+        public static void UpdateTriggerName(string oldName, string newName, string targetDatabasePath)
+        {
+            UpdateItemName<TriggerFolderItem>(oldName, newName, targetDatabasePath);
+        }
+
+        private static void UpdateItemName<TFolderType>(string oldName, string newName, string targetDatabasePath)
+            where TFolderType : DirectoryItem
+        {
+            var database = GetDatabaseFromTree(targetDatabasePath);
+            if (database == null) return;
+
+            var folder = GetSubFolderOf<TFolderType>(database);
+            if (folder == null) return;
+
+            var targetItem = folder.Items.SingleOrDefault(i => i.DisplayName.Equals(oldName));
+
+            if (targetItem == null)
+            {
+                logger.Error("Could not update the name of a tree item.");
+                return;
+            }
+
+            targetItem.DisplayName = newName;
+        }    
 
         private static DatabaseItem GetDatabaseFromTree(string targetDatabasePath)
         {
-            var database = mainTree.SingleOrDefault(i => i.DatabasePath.Equals("path")) as DatabaseItem;
+            var database = mainTree.SingleOrDefault(i => i.DatabasePath.Equals(targetDatabasePath)) as DatabaseItem;
 
             if (database == null)
                 logger.Error("Could not add object to database tree view. The specified database could not be found: " + targetDatabasePath);

@@ -10,7 +10,7 @@ using SQLiteKei.IntegrationTests.Base;
 using SQLiteKei.ViewModels.DBTreeView;
 using SQLiteKei.ViewModels.DBTreeView.Base;
 
-namespace SQLiteKei.IntegrationTests.Helpers
+namespace SQLiteKei.IntegrationTests.Util
 {
     [TestFixture, Explicit]
     public class TreeSaveHelperTests : IntegrationTestBase

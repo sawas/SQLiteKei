@@ -6,7 +6,6 @@ using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.Common;
-using SQLiteKei.ViewModels.DBTreeView;
 
 using System;
 using System.Collections.Generic;
@@ -88,7 +87,7 @@ namespace SQLiteKei.ViewModels.ViewCreatorWindow
                 {
                     dbHandler.ExecuteNonQuery(exectuableSql);
                     StatusInfo = LocalisationHelper.GetString("ViewCreator_ViewCreateSuccess");
-                    MainTreeHandler.AddItem<ViewFolderItem, ViewItem>(viewName, selectedDatabase.DatabasePath);
+                    MainTreeHandler.AddView(viewName, selectedDatabase.DatabasePath);
                 }
                 catch(Exception ex)
                 {
