@@ -42,6 +42,8 @@ namespace SQLiteKei.ViewModels.MainWindow
         {
             this.treeSaveHelper = treeSaveHelper;
             TreeViewItems = treeSaveHelper.Load();
+
+            MainTreeHandler.Register(TreeViewItems);
         }
 
         public void OpenDatabase(string databasePath)

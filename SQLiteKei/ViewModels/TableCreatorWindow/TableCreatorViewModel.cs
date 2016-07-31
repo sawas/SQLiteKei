@@ -219,6 +219,8 @@ namespace SQLiteKei.ViewModels.TableCreatorWindow
                     {
                         dbHandler.ExecuteNonQuery(SqlStatement);
                         StatusInfo = LocalisationHelper.GetString("TableCreator_TableCreateSuccess");
+
+                        MainTreeHandler.AddTable(tableName, selectedDatabase.DatabasePath);
                     }
                 }
                 catch (Exception ex)
