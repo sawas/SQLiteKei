@@ -29,6 +29,8 @@ namespace SQLiteKei.Util
                 return GenerateDatabaseTabs((DatabaseItem)treeItem);
             if (treeItem.GetType() == typeof(TableItem))
                 return GenerateTableTabs((TableItem)treeItem);
+            if (treeItem.GetType() == typeof(ViewItem))
+                return GenerateViewTabs((ViewItem)treeItem);
             return GenerateDefaultTabs();
         }
 
@@ -79,6 +81,11 @@ namespace SQLiteKei.Util
         }
 
         private static List<TabItem> GenerateIndexTabs(IndexItem indexItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static List<TabItem> GenerateViewTabs(ViewItem viewItem)
         {
             throw new NotImplementedException();
         }

@@ -1,13 +1,19 @@
-﻿using SQLiteKei.DataAccess.Database;
+﻿using log4net;
+
+using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.Models;
+using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 
+using System;
 using System.Collections.Generic;
 
 namespace SQLiteKei.ViewModels.MainTabControl.Tables
 {
     public class GeneralTableViewModel : NotifyingModel
     {
+        private readonly ILog logger = LogHelper.GetLogger();
+
         private string tableName;
         public string TableName
         {
@@ -21,13 +27,15 @@ namespace SQLiteKei.ViewModels.MainTabControl.Tables
                         using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
                         {
                             tableHandler.RenameTable(tableName, value);
+                            MainTreeHandler.UpdateTableName(tableName, value, Properties.Settings.Default.CurrentDatabase);
+                            tableName = value;
+                            TableCreateStatement = tableHandler.GetCreateStatement(tableName);
+                            NotifyPropertyChanged("TableName");
                         }
-                        tableName = value;
-                        NotifyPropertyChanged("TableName");
                     }
-                    catch 
-                    { 
-                        //TODO decide what should happen in this case 
+                    catch (Exception ex)
+                    {
+                        logger.Warn("Tried to rename table '" + tableName + "' from table overview.", ex);
                     }
                 }
             }
@@ -42,7 +50,12 @@ namespace SQLiteKei.ViewModels.MainTabControl.Tables
 
         public int ColumnCount { get; set; }
 
-        public string TableCreateStatement { get; set; }
+        private string tableCreateStatement;
+        public string TableCreateStatement
+        {
+            get { return tableCreateStatement; }
+            set { tableCreateStatement = value; NotifyPropertyChanged("TableCreateStatement"); }
+        }
 
         public List<ColumnDataItem> ColumnData { get; set; }
 

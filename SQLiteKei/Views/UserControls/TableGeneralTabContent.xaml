@@ -15,26 +15,26 @@
         <GroupBox Grid.Row="0" Header="{x:Static localisation:Resources.TabContent_GroupBoxHeader_About}" Width="Auto" Height="Auto">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox Style="{StaticResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TableGeneralTab_TableName}"/>
-                    <TextBox Style="{StaticResource SelectableLabelTextBox}" IsReadOnly="False" Text="{Binding TableInfo.TableName}" />
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TableGeneralTab_TableName}"/>
+                    <TextBox Style="{DynamicResource FocusHighlightTextBox}" Text="{Binding TableInfo.TableName}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox Style="{StaticResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TableGeneralTab_Columns}" />
-                    <TextBox Style="{StaticResource SelectableLabelTextBox}" MinWidth="25" Text="{Binding TableInfo.ColumnCount}"/>
-                    <TextBox Style="{StaticResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TableGeneralTab_Records}" />
-                    <TextBox Style="{StaticResource SelectableLabelTextBox}" Text="{Binding TableInfo.RowCount}"/>
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TableGeneralTab_Columns}" />
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" MinWidth="25" Text="{Binding TableInfo.ColumnCount}"/>
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TableGeneralTab_Records}" />
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding TableInfo.RowCount}"/>
                 </StackPanel>
                 <StackPanel>
-                    <TextBox Style="{StaticResource SelectableLabelTextBox}" FontWeight="DemiBold" Text="{x:Static localisation:Resources.TableGeneralTab_TableCreateStatement}" />
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="DemiBold" Text="{x:Static localisation:Resources.TableGeneralTab_TableCreateStatement}" />
                     <ScrollViewer Height="80" VerticalScrollBarVisibility="Auto">
-                        <TextBox Text="{Binding TableInfo.TableCreateStatement}" TextWrapping="Wrap"/>
+                        <TextBox Text="{Binding TableInfo.TableCreateStatement}" IsReadOnly="True" TextWrapping="Wrap" />
                     </ScrollViewer>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Style="{StaticResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Empty}" Height="25" Width="100" Margin="15 0 0 0" Click="EmptyTable"  />
-            <Button Style="{StaticResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Reindex}" Height="25" Width="100" Margin="5 0" Click="ReindexTable"   />
+            <Button Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Empty}" Height="25" Width="100" Margin="15 0 0 0" Click="EmptyTable"  />
+            <Button Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Reindex}" Height="25" Width="100" Margin="5 0" Click="ReindexTable"   />
         </StackPanel>
         <GroupBox Grid.Row="2" Header="{x:Static localisation:Resources.TabContent_GroupBoxHeader_Columns}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="Auto">
             <ScrollViewer VerticalScrollBarVisibility="Auto">

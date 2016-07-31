@@ -70,11 +70,15 @@
     <Compile Include="Util\MainTreeHandler.cs" />
     <Compile Include="ViewModels\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\DBTreeView\ViewFolderItem.cs" />
+    <Compile Include="ViewModels\MainTabControl\Views\GeneralViewViewModel.cs" />
     <Compile Include="ViewModels\TriggerCreatorWindow\ColumnItem.cs" />
     <Compile Include="ViewModels\TriggerCreatorWindow\TriggerCreatorViewModel.cs" />
     <Compile Include="ViewModels\ViewCreatorWindow\ViewCreatorViewModel.cs" />
     <Compile Include="Views\TriggerCreator.xaml.cs">
       <DependentUpon>TriggerCreator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ViewGeneralTabContent.xaml.cs">
+      <DependentUpon>ViewGeneralTabContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewCreator.xaml.cs">
       <DependentUpon>ViewCreator.xaml</DependentUpon>
@@ -84,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <Page Include="Views\TriggerCreator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\ViewGeneralTabContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -329,7 +337,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\MainTabControl\Indexes\" />
-    <Folder Include="ViewModels\MainTabControl\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Logo_128x128.png" />

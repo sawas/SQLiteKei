@@ -38,4 +38,19 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="IsReadOnly" Value="True" />
     </Style>
+    
+    <Style x:Key="FocusHighlightTextBox" TargetType="TextBox">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource ApplicationFontColor}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource BorderColor}" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Padding" Value="1" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>
