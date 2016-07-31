@@ -50,7 +50,7 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
         public string SelectedTriggerEntryPoint
         {
             get { return selectedTriggerEntryPoint; }
-            set { selectedTriggerEntryPoint = value; IsUpdateOfEvent = selectedTriggerEntryPoint.Equals("UPDATE OF"); UpdateModel(); }
+            set { selectedTriggerEntryPoint = value; UpdateModel(); }
         }
 
         public List<string> TriggerEntryPoints { get; set; }
@@ -71,14 +71,14 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
             set { isUpdateOfEvent = value; NotifyPropertyChanged("IsUpdateOfEvent"); }
         }
 
-        private string selectedTable { get; set; }
-        public string SelectedTable
+        private string selectedTarget { get; set; }
+        public string SelectedTarget
         {
-            get { return selectedTable; }
-            set { selectedTable = value; UpdateAvailableColumns(); UpdateModel(); }
+            get { return selectedTarget; }
+            set { selectedTarget = value; UpdateAvailableColumns(); UpdateModel(); }
         }
 
-        public ObservableCollection<string> AvailableTables { get; set; }
+        public ObservableCollection<string> AvailableTargets { get; set; }
 
         public ObservableCollection<ColumnItem> Columns { get; set; }
 
@@ -133,7 +133,7 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
             TriggerEntryPoints = new List<string> { "BEFORE", "AFTER", "INSTEAD OF" };
             TriggerEvents = new List<string> { "DELETE", "INSERT", "UPDATE", "UPDATE OF" };
 
-            AvailableTables = new ObservableCollection<string>();
+            AvailableTargets = new ObservableCollection<string>();
             Columns = new ObservableCollection<ColumnItem>();
             Columns.CollectionChanged += CollectionContentChanged;
 
@@ -172,13 +172,17 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
             using (var dbHandler = new DatabaseHandler(SelectedDatabase.DatabasePath))
             {
                 var tables = dbHandler.GetTables();
-                {
-                    AvailableTables.Clear();
+                var views = dbHandler.GetViews();
 
-                    foreach (var table in tables)
-                    {
-                        AvailableTables.Add(table.Name);
-                    }
+                AvailableTargets.Clear();
+
+                foreach (var table in tables)
+                {
+                    AvailableTargets.Add(table.Name);
+                }
+                foreach (var view in views)
+                {
+                    AvailableTargets.Add(view.Name);
                 }
             }
         }
@@ -191,7 +195,7 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
             {
                 Columns.Clear();
 
-                var columns = tableHandler.GetColumns(selectedTable);
+                var columns = tableHandler.GetColumns(selectedTarget);
 
                 foreach (var column in columns)
                 {
@@ -212,7 +216,7 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
                 && !string.IsNullOrEmpty(triggerName)
                 && !string.IsNullOrEmpty(selectedTriggerEntryPoint)
                 && !string.IsNullOrEmpty(selectedTriggerEvent)
-                && !string.IsNullOrEmpty(selectedTable)
+                && !string.IsNullOrEmpty(selectedTarget)
                 && !string.IsNullOrEmpty(triggerActions);
 
             if (!IsValidModel)
@@ -225,7 +229,7 @@ namespace SQLiteKei.ViewModels.TriggerCreatorWindow
         {
             queryBuilder = new CreateTriggerQueryBuilder(TriggerName)
                 .IfNotExists(IsIfNotExists)
-                .On(selectedTable)
+                .On(selectedTarget)
                 .ForEachRow(IsForEachRow)
                 .When(whenExpression)
                 .Do(triggerActions);

@@ -16,7 +16,7 @@
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" />
+            <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" VerticalAlignment="Center" />
             <ComboBox x:Name="DatabaseComboBox" Width="150" Height="20" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
@@ -24,7 +24,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Label Content="{x:Static localisation:Resources.ViewCreator_Label_ViewName}" />
+            <Label Content="{x:Static localisation:Resources.ViewCreator_Label_ViewName}" VerticalAlignment="Center" />
             <TextBox Height="25" Text="{Binding ViewName, UpdateSourceTrigger=PropertyChanged}" Width="125" VerticalContentAlignment="Center"/>
         </StackPanel>
         <DockPanel Grid.Row="1" Margin="3">

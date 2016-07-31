@@ -10,7 +10,7 @@ namespace SQLiteKei.DataAccess.UnitTests.Queries
         [Test]
         public void Build_WithValidValues_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "CREATE TRIGGER IF NOT EXISTS 'TriggerName'\nAFTER UPDATE ON 'TargetTable'\nFOR EACH ROW\nWHEN Condition\nBEGIN\nSQL Statement\nEND";
+            const string EXPECTED_QUERY = "CREATE TRIGGER IF NOT EXISTS 'TriggerName'\nAFTER UPDATE ON 'TargetTable'\nFOR EACH ROW\nWHEN Condition\nBEGIN\nSQL Statement;\nEND";
 
             var result = QueryBuilder.CreateTrigger("TriggerName")
                 .IfNotExists()

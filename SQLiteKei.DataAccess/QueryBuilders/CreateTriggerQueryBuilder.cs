@@ -145,7 +145,16 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         /// <param name="triggerActions">The trigger actions.</param>
         public CreateTriggerQueryBuilder Do(string triggerActions)
         {
-            this.triggerActions = triggerActions;
+            if (triggerActions != null)
+            {
+                if (triggerActions.EndsWith(";"))
+                    this.triggerActions = triggerActions;
+                else
+                    this.triggerActions = triggerActions + ";";
+            }
+            else
+                this.triggerActions = triggerActions;
+                
             return this;
         }
 

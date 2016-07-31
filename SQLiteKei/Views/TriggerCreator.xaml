@@ -52,7 +52,7 @@
                                     <ComboBox MinWidth="100" ItemsSource="{Binding TriggerEntryPoints}" SelectedItem="{Binding SelectedTriggerEntryPoint}"/>
                                     <ComboBox MinWidth="100" Margin="5 0" ItemsSource="{Binding TriggerEvents}" SelectedItem="{Binding SelectedTriggerEvent}"/>
                                     <Label Content="ON" />
-                                    <ComboBox MinWidth="150" ItemsSource="{Binding AvailableTables}" SelectedItem="{Binding SelectedTable}"/>
+                                    <ComboBox MinWidth="150" ItemsSource="{Binding AvailableTargets}" SelectedItem="{Binding SelectedTarget}"/>
                                 </DockPanel>
                                 <GroupBox Header="{x:Static localisation:Resources.TriggerCreator_GroupBoxHeader_Columns}" Visibility="{Binding IsUpdateOfEvent, Converter={StaticResource BooleanToVisibilityConverter}}" Padding="5">
                                     <ItemsControl ItemsSource="{Binding Columns}">
