@@ -330,6 +330,9 @@
   <data name="TabHeader_GeneralTable" xml:space="preserve">
     <value>Tabelle {0}</value>
   </data>
+  <data name="TabHeader_GeneralTrigger" xml:space="preserve">
+    <value>Trigger {0}</value>
+  </data>
   <data name="TabHeader_GeneralView" xml:space="preserve">
     <value>View {0}</value>
   </data>
@@ -452,6 +455,12 @@
   </data>
   <data name="TriggerCreator_StatusInfo_Success" xml:space="preserve">
     <value>SQL erfolgreich ausgeführt!</value>
+  </data>
+  <data name="TriggerGeneralTab_Button_UpdateDefinition" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="TriggerGeneralTab_TriggerName" xml:space="preserve">
+    <value>Name des Triggers:</value>
   </data>
   <data name="UnhandledException" xml:space="preserve">
     <value>Ein unerwarteter und unbehandelter Fehler ist aufgetreten. Die Anwendung wird nun beendet. </value>

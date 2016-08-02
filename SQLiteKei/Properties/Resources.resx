@@ -334,6 +334,9 @@
   <data name="TabHeader_GeneralTable" xml:space="preserve">
     <value>TabHeader_GeneralTable</value>
   </data>
+  <data name="TabHeader_GeneralTrigger" xml:space="preserve">
+    <value>TabHeader_GeneralTrigger</value>
+  </data>
   <data name="TabHeader_GeneralView" xml:space="preserve">
     <value>TabHeader_GeneralView</value>
   </data>
@@ -456,6 +459,12 @@
   </data>
   <data name="TriggerCreator_StatusInfo_Success" xml:space="preserve">
     <value>TriggerCreator_StatusInfo_Success</value>
+  </data>
+  <data name="TriggerGeneralTab_Button_UpdateDefinition" xml:space="preserve">
+    <value>TriggerGeneralTab_Button_UpdateDefinition</value>
+  </data>
+  <data name="TriggerGeneralTab_TriggerName" xml:space="preserve">
+    <value>TriggerGeneralTab_TriggerName</value>
   </data>
   <data name="UnhandledException" xml:space="preserve">
     <value>UnhandledException</value>

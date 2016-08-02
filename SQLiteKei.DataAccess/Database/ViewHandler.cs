@@ -64,13 +64,13 @@ namespace SQLiteKei.DataAccess.Database
         public View GetView(string viewName)
         {
             logger.Info("Loading view " + viewName);
-            var dataRows = connection.GetSchema("Views").AsEnumerable();
-            var selectedRow = dataRows.SingleOrDefault(x => x.ItemArray[2].Equals(viewName));
+            var views = connection.GetSchema("Views").AsEnumerable();
+            var view = views.SingleOrDefault(x => x.ItemArray[2].Equals(viewName));
 
             return new View
             {
-                Name = selectedRow.ItemArray[2].ToString(),
-                SqlStatement = selectedRow.ItemArray[3].ToString()
+                Name = view.ItemArray[2].ToString(),
+                SqlStatement = view.ItemArray[3].ToString()
             };
         }
 

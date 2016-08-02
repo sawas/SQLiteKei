@@ -35,7 +35,7 @@ namespace SQLiteKei.ViewModels.MainTabControl.Views
                     }
                     catch(Exception ex)
                     {
-                        logger.Warn("Failed to rename view '" + viewName + "' from table overview.", ex);
+                        logger.Warn("Failed to rename view '" + viewName + "' from view overview.", ex);
                     }
                 }
             }

@@ -2,12 +2,12 @@
 using SQLiteKei.ViewModels.DBTreeView.Base;
 using SQLiteKei.ViewModels.MainTabControl.Databases;
 using SQLiteKei.ViewModels.MainTabControl.Tables;
+using SQLiteKei.ViewModels.MainTabControl.Trigger;
 using SQLiteKei.ViewModels.MainTabControl.Views;
 using SQLiteKei.Views.UserControls;
 
 using System.Collections.Generic;
 using System.Windows.Controls;
-using System;
 
 namespace SQLiteKei.Util
 {
@@ -32,6 +32,8 @@ namespace SQLiteKei.Util
                 return GenerateTableTabs((TableItem)treeItem);
             if (treeItem.GetType() == typeof(ViewItem))
                 return GenerateViewTabs((ViewItem)treeItem);
+            if (treeItem.GetType() == typeof(TriggerItem))
+                return GenerateTriggerTabs((TriggerItem)treeItem);
             return GenerateDefaultTabs();
         }
 
@@ -81,17 +83,23 @@ namespace SQLiteKei.Util
             return new List<TabItem> { generalTab, recordsTab };
         }
 
-        private static List<TabItem> GenerateIndexTabs(IndexItem indexItem)
-        {
-            throw new NotImplementedException();
-        }
-
         private static List<TabItem> GenerateViewTabs(ViewItem viewItem)
         {
             var generalTab = new TabItem
             {
                 Header = LocalisationHelper.GetString("TabHeader_GeneralView", viewItem.DisplayName),
                 Content = new ViewGeneralTabContent(new GeneralViewViewModel(viewItem.DisplayName))
+            };
+
+            return new List<TabItem> { generalTab };
+        }
+
+        private static List<TabItem> GenerateTriggerTabs(TriggerItem triggerItem)
+        {
+            var generalTab = new TabItem
+            {
+                Header = LocalisationHelper.GetString("TabHeader_GeneralTrigger", triggerItem.DisplayName),
+                Content = new TriggerGeneralTabContent(new GeneralTriggerViewModel(triggerItem.DisplayName))
             };
 
             return new List<TabItem> { generalTab };
