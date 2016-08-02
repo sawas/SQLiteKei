@@ -7,6 +7,7 @@
         xmlns:cmodel="clr-namespace:SQLiteKei.ViewModels.Common"
         xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="{x:Static localisation:Resources.WindowTitle_TriggerCreator}" 
         MinHeight="600" MinWidth="700"
         Height="750" Width="700">
@@ -42,7 +43,7 @@
                             <CheckBox Margin="10 0" IsChecked="{Binding IsIfNotExists}" VerticalAlignment="Center">
                                 <Label Margin="-5" Content="If Not Exists"/>
                             </CheckBox>
-                            <CheckBox Margin="5 0" Grid.Row="2" IsChecked="{Binding IsForEachRow}"  VerticalAlignment="Center">
+                            <CheckBox Margin="5 0" IsChecked="{Binding IsForEachRow}"  VerticalAlignment="Center" VerticalContentAlignment="Center">
                                 <Label Content="For Each Row" Margin="-5 0 0 0"/>
                             </CheckBox>
                         </StackPanel>

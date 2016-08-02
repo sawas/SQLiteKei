@@ -6,6 +6,7 @@
         xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         xmlns:cmodel="clr-namespace:SQLiteKei.ViewModels.Common"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="{x:Static localisation:Resources.WindowTitle_QueryEditor}"
         Height="500" Width="400" MinHeight="500" MinWidth="400">
     <Grid>

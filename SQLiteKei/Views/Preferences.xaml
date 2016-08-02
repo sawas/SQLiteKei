@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="{x:Static localisation:Resources.WindowTitle_Preferences}"
         Height="300" Width="250"
         ResizeMode="NoResize">

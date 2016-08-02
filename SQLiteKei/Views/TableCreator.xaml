@@ -7,6 +7,7 @@
         xmlns:cmodel="clr-namespace:SQLiteKei.ViewModels.Common"
         xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="{x:Static localisation:Resources.WindowTitle_TableCreator}"
         MinHeight="400" MinWidth="500"
         Height="400" Width="600">

@@ -27,7 +27,7 @@
                     <TextBox Text="{Binding SqlStatement}" TextWrapping="Wrap" AcceptsReturn="True" />
                 </ScrollViewer>
                 <DockPanel Margin="0 2 0 0" Height="30">
-                    <Button Height="25" Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.ViewGeneralTab_Button_UpdateDefinition}" Command="{Binding UpdateCommand}" />
+                    <Button Height="25" Width="100" Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.ViewGeneralTab_Button_UpdateDefinition}" Command="{Binding UpdateCommand}" />
                     <Label Content="{Binding StatusInfo}" />
                 </DockPanel>
             </StackPanel>
