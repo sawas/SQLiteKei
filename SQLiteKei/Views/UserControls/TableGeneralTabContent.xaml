@@ -25,10 +25,11 @@
                     <TextBox Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding TableInfo.RowCount}"/>
                 </StackPanel>
                 <StackPanel>
-                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="DemiBold" Text="{x:Static localisation:Resources.TableGeneralTab_TableCreateStatement}" />
-                    <ScrollViewer Height="80" VerticalScrollBarVisibility="Auto">
-                        <TextBox Text="{Binding TableInfo.TableCreateStatement}" IsReadOnly="True" TextWrapping="Wrap" />
-                    </ScrollViewer>
+                    <GroupBox Header="{x:Static localisation:Resources.TableGeneralTab_TableCreateStatement}">
+                        <ScrollViewer Height="90" VerticalScrollBarVisibility="Auto">
+                            <TextBox Text="{Binding TableInfo.TableCreateStatement}" BorderThickness="0" IsReadOnly="True" TextWrapping="Wrap" Margin="0" />
+                        </ScrollViewer>
+                    </GroupBox>
                 </StackPanel>
             </StackPanel>
         </GroupBox>

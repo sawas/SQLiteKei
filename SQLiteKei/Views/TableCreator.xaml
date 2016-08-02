@@ -75,7 +75,7 @@
             </TabItem>
             <TabItem Header="SQL">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <TextBox Text="{Binding SqlStatement}" TextWrapping="Wrap" />
+                    <TextBox Text="{Binding SqlStatement}" TextWrapping="Wrap" AcceptsReturn="True"/>
                 </ScrollViewer>
             </TabItem>
         </TabControl>
