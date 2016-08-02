@@ -300,8 +300,14 @@
   <data name="QueryEditor_Label_Database" xml:space="preserve">
     <value>Datenbank</value>
   </data>
+  <data name="QueryEditor_LoadQuery" xml:space="preserve">
+    <value>Laden</value>
+  </data>
   <data name="QueryEditor_NoDatabaseSelected" xml:space="preserve">
     <value>Keine Datenbank ausgewählt</value>
+  </data>
+  <data name="QueryEditor_SaveQuery" xml:space="preserve">
+    <value>Speichern</value>
   </data>
   <data name="TabContent_GroupBoxHeader_About" xml:space="preserve">
     <value>Über</value>

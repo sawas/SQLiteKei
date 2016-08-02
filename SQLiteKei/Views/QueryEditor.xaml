@@ -8,27 +8,29 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="{x:Static localisation:Resources.WindowTitle_QueryEditor}"
-        Height="500" Width="400" MinHeight="500" MinWidth="400">
+        Height="500" Width="450" MinHeight="500" MinWidth="450">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="2*" />
             <RowDefinition Height="2" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Height="25">
-            <Label Content="{x:Static localisation:Resources.QueryEditor_Label_Database}" />
-            <ComboBox x:Name="DatabaseComboBox" Width="150" Height="20" ItemsSource="{Binding Databases}">
+        <DockPanel Grid.Row="0" LastChildFill="False">
+            <Label DockPanel.Dock="Left" Content="{x:Static localisation:Resources.QueryEditor_Label_Database}" />
+            <ComboBox DockPanel.Dock="Left" x:Name="DatabaseComboBox" Width="150" Height="20" ItemsSource="{Binding Databases}" VerticalAlignment="Center">
                 <ComboBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
                         <TextBlock Text="{Binding DatabaseName}" VerticalAlignment="Center" ToolTip="{Binding DatabasePath}"></TextBlock>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-        </StackPanel>
+            <Button DockPanel.Dock="Right" Style="{StaticResource ButtonDark}" Height="25" Width="50" Margin="5 0" Content="{x:Static localisation:Resources.QueryEditor_LoadQuery}" />
+            <Button DockPanel.Dock="Right" Style="{StaticResource ButtonDark}" Height="25" Width="50" Content="{x:Static localisation:Resources.QueryEditor_SaveQuery}" />
+        </DockPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-            <TextBox x:Name="QueryBox"  VerticalAlignment="Stretch" Text="{Binding SqlStatement, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True" Margin="5 0 5 5" IsInactiveSelectionHighlightEnabled="True"></TextBox>
+            <TextBox x:Name="QueryBox"  VerticalAlignment="Stretch" Text="{Binding SqlStatement, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True" Margin="5 0 5 5" IsInactiveSelectionHighlightEnabled="True" />
         </ScrollViewer>
         <GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" ResizeDirection="Rows" ResizeBehavior="PreviousAndNext" Background="#3F3F46"/>
         <DataGrid x:Name="QueryGrid" Grid.Row="3" HeadersVisibility="Column"></DataGrid>
