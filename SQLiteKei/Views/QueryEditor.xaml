@@ -27,7 +27,7 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Button DockPanel.Dock="Right" Style="{StaticResource ButtonDark}" Height="25" Width="50" Margin="5 0" Content="{x:Static localisation:Resources.QueryEditor_LoadQuery}" />
-            <Button DockPanel.Dock="Right" Style="{StaticResource ButtonDark}" Height="25" Width="50" Content="{x:Static localisation:Resources.QueryEditor_SaveQuery}" />
+            <Button DockPanel.Dock="Right" Style="{StaticResource ButtonDark}" Height="25" Width="50" Content="{x:Static localisation:Resources.QueryEditor_SaveQuery}" Command="{Binding SaveCommand}" />
         </DockPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <TextBox x:Name="QueryBox"  VerticalAlignment="Stretch" Text="{Binding SqlStatement, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True" Margin="5 0 5 5" IsInactiveSelectionHighlightEnabled="True" />

@@ -301,6 +301,9 @@
   <data name="Preferences_Language_German" xml:space="preserve">
     <value>Preferences_Language_German</value>
   </data>
+  <data name="QueryEditor_FileSaveFailed" xml:space="preserve">
+    <value>QueryEditor_FileSaveFailed</value>
+  </data>
   <data name="QueryEditor_Label_Database" xml:space="preserve">
     <value>QueryEditor_Label_Database</value>
   </data>
