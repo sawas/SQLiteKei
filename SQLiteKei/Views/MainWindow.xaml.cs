@@ -31,7 +31,7 @@ namespace SQLiteKei
         {
             viewModel = new MainWindowViewModel(new TreeSaveHelper());
             DataContext = viewModel;
-            KeyDown += new System.Windows.Input.KeyEventHandler(Window_KeyDown);
+            KeyDown += Window_KeyDown;
 
             InitializeComponent();
         }

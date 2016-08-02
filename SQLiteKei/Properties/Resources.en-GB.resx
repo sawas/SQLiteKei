@@ -297,6 +297,9 @@
   <data name="Preferences_Language_German" xml:space="preserve">
     <value>German</value>
   </data>
+  <data name="QueryEditor_FileLoadFailed" xml:space="preserve">
+    <value>File could not be loaded.</value>
+  </data>
   <data name="QueryEditor_FileSaveFailed" xml:space="preserve">
     <value>File could not be saved.</value>
   </data>

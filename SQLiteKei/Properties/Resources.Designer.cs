@@ -611,6 +611,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to QueryEditor_FileLoadFailed.
+        /// </summary>
+        public static string QueryEditor_FileLoadFailed {
+            get {
+                return ResourceManager.GetString("QueryEditor_FileLoadFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to QueryEditor_FileSaveFailed.
         /// </summary>
         public static string QueryEditor_FileSaveFailed {
