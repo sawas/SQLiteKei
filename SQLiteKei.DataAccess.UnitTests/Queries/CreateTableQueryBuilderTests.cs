@@ -12,7 +12,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithValidData_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "CREATE TABLE Table\n(\nColumn1 Integer PRIMARY KEY NOT NULL,\nColumn2 Text NOT NULL,\nFOREIGN KEY(Column1) REFERENCES ReferencedTable(ReferencedColumn)\n);";
+            const string EXPECTED_QUERY = "CREATE TABLE 'Table'\n(\nColumn1 Integer PRIMARY KEY NOT NULL,\nColumn2 Text NOT NULL,\nFOREIGN KEY(Column1) REFERENCES ReferencedTable(ReferencedColumn)\n);";
 
             var result = QueryBuilder
                 .CreateTable("Table")

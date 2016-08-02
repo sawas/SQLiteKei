@@ -104,7 +104,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
             string finalSelect = GetFinalSelect();
 
-            var resultString = string.Format("SELECT {0}\nFROM {1}", finalSelect, table);
+            var resultString = string.Format("SELECT {0}\nFROM '{1}'", finalSelect, table);
 
             if (WhereClauses.Any())
             {

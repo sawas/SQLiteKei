@@ -15,7 +15,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithValidData_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT Column1, Column2 AS Alias\nFROM Table\nWHERE Column1 = 2\nOR Column2 = 3\nORDER BY Column2 DESC, Column1";
+            const string EXPECTED_QUERY = "SELECT Column1, Column2 AS Alias\nFROM 'Table'\nWHERE Column1 = 2\nOR Column2 = 3\nORDER BY Column2 DESC, Column1";
 
             var result = QueryBuilder.Select("Column1")
                 .AddSelect("Column2", "Alias")
@@ -32,7 +32,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithWhereStatement_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column1 = 1";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column1 = 1";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -45,7 +45,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithAndStatement_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column1 = 1\nAND Column2 = 2";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column1 = 1\nAND Column2 = 2";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -59,7 +59,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithOrStatement_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column1 = 1\nOR Column2 = 2";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column1 = 1\nOR Column2 = 2";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -73,7 +73,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithIsCondition_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column = 1";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column = 1";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -86,7 +86,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithIsGreaterThanCondition_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column > 1";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column > 1";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -99,7 +99,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithIsGreaterThanOrEqualCondition_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column >= 1";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column >= 1";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -112,7 +112,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithIsLessThanCondition_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column < 1";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column < 1";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -125,7 +125,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithIsLessThanOrEqualCondition_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column <= 1";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column <= 1";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -138,7 +138,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithIsLikeCondition_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column LIKE '%__AB'";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column LIKE '%__AB'";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -151,7 +151,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithIsContainsCondition_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column LIKE '%Text%'";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column LIKE '%Text%'";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -164,7 +164,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithBeginsWithCondition_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column LIKE 'Text%'";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column LIKE 'Text%'";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -177,7 +177,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithEndsWithCondition_BuildsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table\nWHERE Column LIKE '%Text'";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nWHERE Column LIKE '%Text'";
 
             var result = QueryBuilder.Select()
                 .From("Table")
@@ -190,7 +190,7 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithEmptySelects_DefaultsToWildcardSelect()
         {
-            const string EXPECTED_QUERY = "SELECT *\nFROM Table";
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'";
 
             var result = QueryBuilder.Select()
                 .From("Table")

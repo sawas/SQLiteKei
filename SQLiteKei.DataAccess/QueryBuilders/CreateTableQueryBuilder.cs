@@ -139,10 +139,10 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             if(ForeignKeys.Any())
             {
                 string foreignKeys = string.Join(",\n", ForeignKeys);
-                return string.Format("CREATE TABLE {0}\n(\n{1},\n{2}\n);", table, columns, foreignKeys);
+                return string.Format("CREATE TABLE '{0}'\n(\n{1},\n{2}\n);", table, columns, foreignKeys);
             }
 
-            return string.Format("CREATE TABLE {0}\n(\n{1}\n);", table, columns);
+            return string.Format("CREATE TABLE '{0}'\n(\n{1}\n);", table, columns);
         }
     }
 }

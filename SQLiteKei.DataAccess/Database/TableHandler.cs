@@ -88,7 +88,7 @@ namespace SQLiteKei.DataAccess.Database
             {
                 command.CommandText = QueryBuilder
                 .Select("count(*)")
-                .From("'" + tableName + "'")
+                .From(tableName)
                 .Build();
 
                 return Convert.ToInt64(command.ExecuteScalar());
