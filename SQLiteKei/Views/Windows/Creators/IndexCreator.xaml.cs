@@ -1,20 +1,19 @@
 ﻿using SQLiteKei.ViewModels.Common;
-using SQLiteKei.ViewModels.DBTreeView.Base;
+using SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow;
 using SQLiteKei.ViewModels.DBTreeView;
-using SQLiteKei.ViewModels.ViewCreatorWindow;
+using SQLiteKei.ViewModels.DBTreeView.Base;
 
 using System.Collections.Generic;
 using System.Windows;
 
-
-namespace SQLiteKei.Views
+namespace SQLiteKei.Views.Windows.Creators
 {
     /// <summary>
-    /// Interaction logic for ViewCreator.xaml
+    /// Interaction logic for IndexCreator.xaml
     /// </summary>
-    public partial class ViewCreator : Window
+    public partial class IndexCreator : Window
     {
-        public ViewCreator(IEnumerable<TreeItem> databases)
+        public IndexCreator(IEnumerable<TreeItem> databases)
         {
             var viewModel = new ViewCreatorViewModel();
 

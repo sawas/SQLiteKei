@@ -4,6 +4,7 @@ using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.MainTabControl.Tables;
 using SQLiteKei.ViewModels.SelectQueryWindow;
+using SQLiteKei.Views.Windows;
 
 using System;
 using System.Text.RegularExpressions;

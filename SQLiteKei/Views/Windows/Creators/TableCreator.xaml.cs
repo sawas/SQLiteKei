@@ -1,22 +1,21 @@
 ﻿using SQLiteKei.ViewModels.Common;
+using SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow;
 using SQLiteKei.ViewModels.DBTreeView;
 using SQLiteKei.ViewModels.DBTreeView.Base;
-using SQLiteKei.ViewModels.TriggerCreatorWindow;
 
 using System.Collections.Generic;
 using System.Windows;
 
-
-namespace SQLiteKei.Views
+namespace SQLiteKei.Views.Windows.Creators
 {
     /// <summary>
-    /// Interaction logic for TriggerCreator.xaml
+    /// Interaction logic for TableCreator.xaml
     /// </summary>
-    public partial class TriggerCreator : Window
+    public partial class TableCreator : Window
     {
-        public TriggerCreator(IEnumerable<TreeItem> databases)
+        public TableCreator(IEnumerable<TreeItem> databases)
         {
-            var viewModel = new TriggerCreatorViewModel();
+            var viewModel = new TableCreatorViewModel();
 
             foreach (DatabaseItem database in databases)
             {

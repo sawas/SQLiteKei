@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 
-namespace SQLiteKei.Views
+namespace SQLiteKei.Views.Windows
 {
     /// <summary>
     /// Interaction logic for QueryEditor.xaml

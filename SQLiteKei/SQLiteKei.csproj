@@ -68,14 +68,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Util\MainTreeHandler.cs" />
+    <Compile Include="ViewModels\CreatorWindows\IndexCreator\IndexCreatorViewModel.cs" />
     <Compile Include="ViewModels\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\DBTreeView\ViewFolderItem.cs" />
     <Compile Include="ViewModels\MainTabControl\Trigger\GeneralTriggerViewModel.cs" />
     <Compile Include="ViewModels\MainTabControl\Views\GeneralViewViewModel.cs" />
-    <Compile Include="ViewModels\TriggerCreatorWindow\ColumnItem.cs" />
-    <Compile Include="ViewModels\TriggerCreatorWindow\TriggerCreatorViewModel.cs" />
-    <Compile Include="ViewModels\ViewCreatorWindow\ViewCreatorViewModel.cs" />
-    <Compile Include="Views\TriggerCreator.xaml.cs">
+    <Compile Include="ViewModels\CreatorWindows\TriggerCreatorWindow\ColumnItem.cs" />
+    <Compile Include="ViewModels\CreatorWindows\TriggerCreatorWindow\TriggerCreatorViewModel.cs" />
+    <Compile Include="ViewModels\CreatorWindows\ViewCreatorWindow\ViewCreatorViewModel.cs" />
+    <Compile Include="Views\Windows\Creators\IndexCreator.xaml.cs">
+      <DependentUpon>IndexCreator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Creators\TriggerCreator.xaml.cs">
       <DependentUpon>TriggerCreator.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\TriggerGeneralTabContent.xaml.cs">
@@ -84,14 +88,18 @@
     <Compile Include="Views\UserControls\ViewGeneralTabContent.xaml.cs">
       <DependentUpon>ViewGeneralTabContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewCreator.xaml.cs">
+    <Compile Include="Views\Windows\Creators\ViewCreator.xaml.cs">
       <DependentUpon>ViewCreator.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Resources\Themes\Dark\Dark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <Page Include="Views\TriggerCreator.xaml">
+    <Page Include="Views\Windows\Creators\IndexCreator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Creators\TriggerCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,7 +111,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ViewCreator.xaml">
+    <Page Include="Views\Windows\Creators\ViewCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,19 +191,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Page Include="Views\Preferences.xaml">
+    <Page Include="Views\Windows\Preferences.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\QueryEditor.xaml">
+    <Page Include="Views\Windows\QueryEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TableCreator.xaml">
+    <Page Include="Views\Windows\Creators\TableCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UnhandledExceptionWindow.xaml">
+    <Page Include="Views\Windows\UnhandledExceptionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,15 +219,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\About.xaml">
+    <Page Include="Views\Windows\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SelectQueryWindow.cs.xaml">
+    <Page Include="Views\Windows\SelectQueryWindow.cs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
+    <Page Include="Views\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -257,19 +265,19 @@
     <Compile Include="ViewModels\PreferencesWindow\PreferencesViewModel.cs" />
     <Compile Include="ViewModels\QueryEditorWindow\QueryEditorViewModel.cs" />
     <Compile Include="ViewModels\SelectQueryWindow\OrderItem.cs" />
-    <Compile Include="ViewModels\TableCreatorWindow\ColumnDefinitionItem.cs" />
-    <Compile Include="ViewModels\TableCreatorWindow\ForeignKeyDefinitionItem.cs" />
-    <Compile Include="ViewModels\TableCreatorWindow\TableCreatorViewModel.cs" />
-    <Compile Include="Views\Preferences.xaml.cs">
+    <Compile Include="ViewModels\CreatorWindows\TableCreatorWindow\ColumnDefinitionItem.cs" />
+    <Compile Include="ViewModels\CreatorWindows\TableCreatorWindow\ForeignKeyDefinitionItem.cs" />
+    <Compile Include="ViewModels\CreatorWindows\TableCreatorWindow\TableCreatorViewModel.cs" />
+    <Compile Include="Views\Windows\Preferences.xaml.cs">
       <DependentUpon>Preferences.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QueryEditor.xaml.cs">
+    <Compile Include="Views\Windows\QueryEditor.xaml.cs">
       <DependentUpon>QueryEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TableCreator.xaml.cs">
+    <Compile Include="Views\Windows\Creators\TableCreator.xaml.cs">
       <DependentUpon>TableCreator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UnhandledExceptionWindow.xaml.cs">
+    <Compile Include="Views\Windows\UnhandledExceptionWindow.xaml.cs">
       <DependentUpon>UnhandledExceptionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\DatabaseGeneralTabContent.xaml.cs">
@@ -298,13 +306,13 @@
     <Compile Include="ViewModels\MainTabControl\Tables\TableRecordsDataItem.cs" />
     <Compile Include="ViewModels\SelectQueryWindow\SelectItem.cs" />
     <Compile Include="ViewModels\SelectQueryWindow\SelectQueryViewModel.cs" />
-    <Compile Include="Views\About.xaml.cs">
+    <Compile Include="Views\Windows\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SelectQueryWindow.cs.xaml.cs">
+    <Compile Include="Views\Windows\SelectQueryWindow.cs.xaml.cs">
       <DependentUpon>SelectQueryWindow.cs.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
+    <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Navigation;
 
-namespace SQLiteKei.Views
+namespace SQLiteKei.Views.Windows
 {
     /// <summary>
     /// Interaction logic for About.xaml

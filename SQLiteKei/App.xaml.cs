@@ -1,8 +1,7 @@
 ﻿using log4net;
 
 using SQLiteKei.Util;
-using SQLiteKei.Views;
-
+using SQLiteKei.Views.Windows;
 using System;
 using System.Threading;
 using System.Windows;

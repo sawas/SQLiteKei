@@ -5,7 +5,7 @@ using System.Linq;
 using SQLiteKei.DataAccess.QueryBuilders.Enums;
 using SQLiteKei.ViewModels.Base;
 
-namespace SQLiteKei.ViewModels.TableCreatorWindow
+namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
 {
     public class ColumnDefinitionItem : NotifyingModel
     {

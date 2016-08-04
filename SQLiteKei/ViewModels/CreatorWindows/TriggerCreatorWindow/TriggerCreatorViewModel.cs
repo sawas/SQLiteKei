@@ -14,7 +14,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 
-namespace SQLiteKei.ViewModels.TriggerCreatorWindow
+namespace SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow
 {
     public class TriggerCreatorViewModel : NotifyingModel
     {

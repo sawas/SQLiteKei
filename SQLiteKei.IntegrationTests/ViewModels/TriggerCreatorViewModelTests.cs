@@ -2,7 +2,7 @@
 
 using SQLiteKei.IntegrationTests.Base;
 using SQLiteKei.ViewModels.Common;
-using SQLiteKei.ViewModels.TriggerCreatorWindow;
+using SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow;
 
 namespace SQLiteKei.IntegrationTests.ViewModels
 {

@@ -10,7 +10,7 @@ using SQLiteKei.ViewModels.Common;
 using System;
 using System.Collections.Generic;
 
-namespace SQLiteKei.ViewModels.ViewCreatorWindow
+namespace SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow
 {
     /// <summary>
     /// ViewModel for the ViewCreator

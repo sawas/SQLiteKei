@@ -2,7 +2,7 @@
 
 using System.Windows;
 
-namespace SQLiteKei.Views
+namespace SQLiteKei.Views.Windows
 {
     /// <summary>
     /// Interaction logic for GenerateSelectQueryWindow.xaml

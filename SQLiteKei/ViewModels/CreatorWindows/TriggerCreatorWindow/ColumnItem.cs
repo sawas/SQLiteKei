@@ -1,6 +1,6 @@
 ﻿using SQLiteKei.ViewModels.Base;
 
-namespace SQLiteKei.ViewModels.TriggerCreatorWindow
+namespace SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow
 {
     public class ColumnItem : NotifyingModel
     {

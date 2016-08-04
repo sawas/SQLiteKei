@@ -3,7 +3,7 @@ using SQLiteKei.DataAccess.Database;
 
 using System.Collections.ObjectModel;
 
-namespace SQLiteKei.ViewModels.TableCreatorWindow
+namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
 {
     /// <summary>
     /// ViewModel item that defines a foreign key.

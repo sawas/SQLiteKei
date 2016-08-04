@@ -5,7 +5,7 @@ using SQLiteKei.Util;
 using SQLiteKei.ViewModels.DBTreeView;
 using SQLiteKei.ViewModels.DBTreeView.Base;
 using SQLiteKei.ViewModels.MainWindow;
-using SQLiteKei.Views;
+using SQLiteKei.Views.Windows.Creators;
 
 using System;
 using System.Diagnostics;
@@ -16,7 +16,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace SQLiteKei
+namespace SQLiteKei.Views.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -64,6 +64,11 @@ namespace SQLiteKei
         private void OpenViewCreator(object sender, RoutedEventArgs e)
         {
             new ViewCreator(viewModel.TreeViewItems).ShowDialog();
+        }
+
+        private void OpenIndexCreator(object sender, RoutedEventArgs e)
+        {
+            new IndexCreator(viewModel.TreeViewItems).ShowDialog();
         }
 
         private void OpenTriggerCreator(object sender, RoutedEventArgs e)

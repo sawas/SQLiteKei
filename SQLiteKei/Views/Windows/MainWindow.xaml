@@ -1,4 +1,4 @@
-﻿<Window x:Name="Window" x:Class="SQLiteKei.MainWindow"
+﻿<Window x:Name="Window" x:Class="SQLiteKei.Views.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -71,32 +71,32 @@
         </Menu>
         <DockPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Button Style="{DynamicResource MenuButton}" Click="CreateNewDatabase" ToolTip="{x:Static localisation:Resources.Tooltip_NewDatabase}" >
-                <Image Source="../Resources/Icons/Database_New.png"></Image>
+                <Image Source="../../Resources/Icons/Database_New.png"></Image>
             </Button>
             <Button Style="{DynamicResource MenuButton}" Click="OpenDatabase" ToolTip="{x:Static localisation:Resources.Tooltip_OpenDatabase}" >
-                <Image Source="../Resources/Icons/Database_Open.png" />
+                <Image Source="../../Resources/Icons/Database_Open.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" Click="CloseDatabase" ToolTip="{x:Static localisation:Resources.Tooltip_CloseDatabase}">
-                <Image Source="../Resources/Icons/Database_Close.png" />
+                <Image Source="../../Resources/Icons/Database_Close.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" Click="DeleteDatabase" ToolTip="{x:Static localisation:Resources.Tooltip_DeleteDatabase}">
-                <Image Source="../Resources/Icons/Database_Delete.png" />
+                <Image Source="../../Resources/Icons/Database_Delete.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" Click="RefreshTree" ToolTip="Refresh">
-                <Image Source="../Resources/Icons/Refresh.png" />
+                <Image Source="../../Resources/Icons/Refresh.png" />
             </Button>
             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5, 5, 0, 5" />
             <Button Style="{DynamicResource MenuButton}" VerticalAlignment="Top" Click="OpenQueryEditor" ToolTip="{x:Static localisation:Resources.Tooltip_WriteSQLStatement}">
-                <Image Source="../Resources/Icons/SQL_Statement.png" />
+                <Image Source="../../Resources/Icons/SQL_Statement.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenTableCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateTable}" >
-                <Image Source="../Resources/Icons/Table_New.png" />
+                <Image Source="../../Resources/Icons/Table_New.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenViewCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateView}" >
-                <Image Source="../Resources/Icons/Placeholder.png" />
+                <Image Source="../../Resources/Icons/Placeholder.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenTriggerCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateTrigger}" >
-                <Image Source="../Resources/Icons/Placeholder.png" />
+                <Image Source="../../Resources/Icons/Placeholder.png" />
             </Button>
         </DockPanel>
         <Grid Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
@@ -123,13 +123,13 @@
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_DeleteDatabase}" Click="DeleteDatabase" />
                                 </ContextMenu>
                             </DockPanel.ContextMenu>
-                            <Image Source="../Resources/Icons/TreeItem_Database.png" Height="16" Width="16" Margin="4 1"/>
+                            <Image Source="../../Resources/Icons/TreeItem_Database.png" Height="16" Width="16" Margin="4 1"/>
                             <TextBlock Text="{Binding DisplayName}" ToolTip="{Binding DatabasePath}" />
                         </DockPanel>
                     </HierarchicalDataTemplate>
                     <HierarchicalDataTemplate DataType="{x:Type model:FolderItem}" ItemsSource="{Binding Items}">
                         <DockPanel>
-                            <Image Source="../Resources/Icons/TreeItem_Folder.png" Height="16" Width="16" Margin="4 1"/>
+                            <Image Source="../../Resources/Icons/TreeItem_Folder.png" Height="16" Width="16" Margin="4 1"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding DisplayName}" />
                                 <TextBlock Text=" (" />
@@ -145,7 +145,7 @@
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_NewTable}" Click="OpenTableCreator"/>
                                 </ContextMenu>
                             </DockPanel.ContextMenu>
-                            <Image Source="../Resources/Icons/TreeItem_Folder.png" Height="16" Width="16" Margin="4 1"/>
+                            <Image Source="../../Resources/Icons/TreeItem_Folder.png" Height="16" Width="16" Margin="4 1"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding DisplayName}" />
                                 <TextBlock Text=" (" />
@@ -161,7 +161,7 @@
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_NewView}" Click="OpenViewCreator"/>
                                 </ContextMenu>
                             </DockPanel.ContextMenu>
-                            <Image Source="../Resources/Icons/TreeItem_Folder.png" Height="16" Width="16" Margin="4 1"/>
+                            <Image Source="../../Resources/Icons/TreeItem_Folder.png" Height="16" Width="16" Margin="4 1"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding DisplayName}" />
                                 <TextBlock Text=" (" />
@@ -177,7 +177,7 @@
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_NewTrigger}" Click="OpenTriggerCreator"/>
                                 </ContextMenu>
                             </DockPanel.ContextMenu>
-                            <Image Source="../Resources/Icons/TreeItem_Folder.png" Height="16" Width="16" Margin="4 1"/>
+                            <Image Source="../../Resources/Icons/TreeItem_Folder.png" Height="16" Width="16" Margin="4 1"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding DisplayName}" />
                                 <TextBlock Text=" (" />
@@ -195,7 +195,7 @@
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_DeleteTable}" Click="DeleteTable" />
                                 </ContextMenu>
                             </DockPanel.ContextMenu>
-                            <Image Source="../Resources/Icons/TreeItem_Table.png" Height="16" Width="16" Margin="4 1"/>
+                            <Image Source="../../Resources/Icons/TreeItem_Table.png" Height="16" Width="16" Margin="4 1"/>
                             <TextBlock Text="{Binding Path=DisplayName}" />
                         </DockPanel>
                     </DataTemplate>
@@ -206,7 +206,7 @@
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_DeleteView}" Click="DeleteView" />
                                 </ContextMenu>
                             </DockPanel.ContextMenu>
-                            <Image Source="../Resources/Icons/TreeItem_View.png" Height="16" Width="16" Margin="4 1"/>
+                            <Image Source="../../Resources/Icons/TreeItem_View.png" Height="16" Width="16" Margin="4 1"/>
                             <TextBlock Text="{Binding Path=DisplayName}" />
                         </DockPanel>
                     </DataTemplate>
@@ -217,7 +217,7 @@
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_DeleteIndex}" Click="DeleteIndex"/>
                                 </ContextMenu>
                             </DockPanel.ContextMenu>
-                            <Image Source="../Resources/Icons/TreeItem_Index.png" Height="16" Width="16" Margin="4 1"/>
+                            <Image Source="../../Resources/Icons/TreeItem_Index.png" Height="16" Width="16" Margin="4 1"/>
                             <TextBlock Text="{Binding Path=DisplayName}" />
                         </DockPanel>
                     </DataTemplate>
@@ -228,7 +228,7 @@
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_DeleteTrigger}" Click="DeleteTrigger"/>
                                 </ContextMenu>
                             </DockPanel.ContextMenu>
-                            <Image Source="../Resources/Icons/TreeItem_Trigger.png" Height="16" Width="16" Margin="4 1"/>
+                            <Image Source="../../Resources/Icons/TreeItem_Trigger.png" Height="16" Width="16" Margin="4 1"/>
                             <TextBlock Text="{Binding Path=DisplayName}" />
                         </DockPanel>
                     </DataTemplate>
