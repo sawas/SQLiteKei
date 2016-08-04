@@ -69,10 +69,10 @@
     </ApplicationDefinition>
     <Compile Include="Util\MainTreeHandler.cs" />
     <Compile Include="ViewModels\CreatorWindows\IndexCreator\IndexCreatorViewModel.cs" />
-    <Compile Include="ViewModels\DBTreeView\TriggerFolderItem.cs" />
-    <Compile Include="ViewModels\DBTreeView\ViewFolderItem.cs" />
-    <Compile Include="ViewModels\MainTabControl\Trigger\GeneralTriggerViewModel.cs" />
-    <Compile Include="ViewModels\MainTabControl\Views\GeneralViewViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\TriggerFolderItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\ViewFolderItem.cs" />
+    <Compile Include="ViewModels\MainWindow\MainTabControl\Trigger\GeneralTriggerViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\MainTabControl\Views\GeneralViewViewModel.cs" />
     <Compile Include="ViewModels\CreatorWindows\TriggerCreatorWindow\ColumnItem.cs" />
     <Compile Include="ViewModels\CreatorWindows\TriggerCreatorWindow\TriggerCreatorViewModel.cs" />
     <Compile Include="ViewModels\CreatorWindows\ViewCreatorWindow\ViewCreatorViewModel.cs" />
@@ -260,7 +260,7 @@
     </Compile>
     <Compile Include="ViewModels\Base\NotifyingItem.cs" />
     <Compile Include="ViewModels\Common\DatabaseSelectItem.cs" />
-    <Compile Include="ViewModels\MainTabControl\Tables\RecordsTabViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\MainTabControl\Tables\RecordsTabViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\PreferencesWindow\PreferencesViewModel.cs" />
     <Compile Include="ViewModels\QueryEditorWindow\QueryEditorViewModel.cs" />
@@ -289,21 +289,21 @@
     <Compile Include="Views\UserControls\TableRecordsTabContent.xaml.cs">
       <DependentUpon>TableRecordsTabContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\DBTreeView\Base\DirectoryItem.cs" />
-    <Compile Include="ViewModels\DBTreeView\Base\TreeItem.cs" />
-    <Compile Include="ViewModels\DBTreeView\DatabaseItem.cs" />
-    <Compile Include="ViewModels\DBTreeView\FolderItem.cs" />
-    <Compile Include="ViewModels\DBTreeView\IndexItem.cs" />
-    <Compile Include="ViewModels\DBTreeView\Mapping\SchemaToViewModelMapper.cs" />
-    <Compile Include="ViewModels\DBTreeView\TableFolderItem.cs" />
-    <Compile Include="ViewModels\DBTreeView\TableItem.cs" />
-    <Compile Include="ViewModels\DBTreeView\TriggerItem.cs" />
-    <Compile Include="ViewModels\DBTreeView\ViewItem.cs" />
-    <Compile Include="ViewModels\MainTabControl\Databases\GeneralDatabaseViewModel.cs" />
-    <Compile Include="ViewModels\MainTabControl\Databases\TableOverviewDataItem.cs" />
-    <Compile Include="ViewModels\MainTabControl\Tables\ColumnDataItem.cs" />
-    <Compile Include="ViewModels\MainTabControl\Tables\GeneralTableViewModel.cs" />
-    <Compile Include="ViewModels\MainTabControl\Tables\TableRecordsDataItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\Base\DirectoryItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\Base\TreeItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\DatabaseItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\FolderItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\IndexItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\Mapping\SchemaToViewModelMapper.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\TableFolderItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\TableItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\TriggerItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\ViewItem.cs" />
+    <Compile Include="ViewModels\MainWindow\MainTabControl\Databases\GeneralDatabaseViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\MainTabControl\Databases\TableOverviewDataItem.cs" />
+    <Compile Include="ViewModels\MainWindow\MainTabControl\Tables\ColumnDataItem.cs" />
+    <Compile Include="ViewModels\MainWindow\MainTabControl\Tables\GeneralTableViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\MainTabControl\Tables\TableRecordsDataItem.cs" />
     <Compile Include="ViewModels\SelectQueryWindow\SelectItem.cs" />
     <Compile Include="ViewModels\SelectQueryWindow\SelectQueryViewModel.cs" />
     <Compile Include="Views\Windows\About.xaml.cs">
@@ -352,7 +352,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\MainTabControl\Indexes\" />
+    <Folder Include="ViewModels\MainWindow\MainTabControl\Indexes\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Logo_128x128.png" />

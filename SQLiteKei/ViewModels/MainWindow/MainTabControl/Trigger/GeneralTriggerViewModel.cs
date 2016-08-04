@@ -7,7 +7,7 @@ using SQLiteKei.ViewModels.Base;
 
 using System;
 
-namespace SQLiteKei.ViewModels.MainTabControl.Trigger
+namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Trigger
 {
     public class GeneralTriggerViewModel : NotifyingModel
     {

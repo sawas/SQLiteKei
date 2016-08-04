@@ -8,7 +8,7 @@ using SQLiteKei.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 
-namespace SQLiteKei.ViewModels.MainTabControl.Tables
+namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 {
     public class GeneralTableViewModel : NotifyingModel
     {

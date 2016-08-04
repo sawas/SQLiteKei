@@ -1,6 +1,6 @@
 ﻿using SQLiteKei.ViewModels.Base;
 
-namespace SQLiteKei.ViewModels.DBTreeView.Base
+namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Base
 {
     /// <summary>
     /// The base class for tree view items.

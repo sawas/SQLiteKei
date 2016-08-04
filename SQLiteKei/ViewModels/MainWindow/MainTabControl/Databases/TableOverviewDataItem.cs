@@ -1,4 +1,4 @@
-﻿namespace SQLiteKei.ViewModels.MainTabControl.Databases
+﻿namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases
 {
     /// <summary>
     /// A ViewModel that is used in the main tab view to display general table data when a database item is selected.

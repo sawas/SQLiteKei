@@ -1,11 +1,12 @@
-﻿using System;
+﻿using SQLiteKei.DataAccess.Database;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-using SQLiteKei.DataAccess.Database;
 
-namespace SQLiteKei.ViewModels.MainTabControl.Databases
+namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases
 {
     /// <summary>
     /// A ViewModel that is used in the main tab view to display data when a database is selected.

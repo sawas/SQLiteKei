@@ -1,4 +1,4 @@
-﻿namespace SQLiteKei.ViewModels.MainTabControl.Tables
+﻿namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 {
     /// <summary>
     /// A ViewModel that is used in the table records tab.

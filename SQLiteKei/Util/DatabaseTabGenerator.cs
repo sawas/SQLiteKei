@@ -1,9 +1,9 @@
-﻿using SQLiteKei.ViewModels.DBTreeView;
-using SQLiteKei.ViewModels.DBTreeView.Base;
-using SQLiteKei.ViewModels.MainTabControl.Databases;
-using SQLiteKei.ViewModels.MainTabControl.Tables;
-using SQLiteKei.ViewModels.MainTabControl.Trigger;
-using SQLiteKei.ViewModels.MainTabControl.Views;
+﻿using SQLiteKei.ViewModels.MainWindow.DBTreeView;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
+using SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases;
+using SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables;
+using SQLiteKei.ViewModels.MainWindow.MainTabControl.Trigger;
+using SQLiteKei.ViewModels.MainWindow.MainTabControl.Views;
 using SQLiteKei.Views.UserControls;
 
 using System.Collections.Generic;

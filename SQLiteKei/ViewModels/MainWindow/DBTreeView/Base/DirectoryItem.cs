@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace SQLiteKei.ViewModels.DBTreeView.Base
+namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Base
 {
     /// <summary>
     /// The base class for tree items that contain a list of child items.

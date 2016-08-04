@@ -1,9 +1,8 @@
 ﻿using NUnit.Framework;
 
 using SQLiteKei.Util;
-using SQLiteKei.ViewModels.DBTreeView;
-using SQLiteKei.ViewModels.DBTreeView.Base;
-
+using SQLiteKei.ViewModels.MainWindow.DBTreeView;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 using System.Collections.ObjectModel;
 using System.Linq;
 

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace SQLiteKei.ViewModels.DBTreeView.Mapping
+namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
 {
     /// <summary>
     /// A mapping class that opens a connection to the provided database and builds a hierarchical ViewModel structure.

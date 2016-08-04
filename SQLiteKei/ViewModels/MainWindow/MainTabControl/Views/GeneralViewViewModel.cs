@@ -10,7 +10,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Data;
 
-namespace SQLiteKei.ViewModels.MainTabControl.Views
+namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Views
 {
     public class GeneralViewViewModel : NotifyingModel
     {

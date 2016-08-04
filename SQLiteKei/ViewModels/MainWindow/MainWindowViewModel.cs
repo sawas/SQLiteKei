@@ -4,15 +4,15 @@ using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
 using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.Base;
-using SQLiteKei.ViewModels.DBTreeView;
-using SQLiteKei.ViewModels.DBTreeView.Base;
-using SQLiteKei.ViewModels.DBTreeView.Mapping;
 
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 
 namespace SQLiteKei.ViewModels.MainWindow
 {

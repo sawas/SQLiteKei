@@ -1,4 +1,4 @@
-﻿using SQLiteKei.ViewModels.MainTabControl.Views;
+﻿using SQLiteKei.ViewModels.MainWindow.MainTabControl.Views;
 
 using System.Windows.Controls;
 

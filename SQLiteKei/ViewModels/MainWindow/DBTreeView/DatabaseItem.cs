@@ -1,6 +1,6 @@
-﻿using SQLiteKei.ViewModels.DBTreeView.Base;
+﻿using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 
-namespace SQLiteKei.ViewModels.DBTreeView
+namespace SQLiteKei.ViewModels.MainWindow.DBTreeView
 {
     /// <summary>
     /// A tree item representing a database.

@@ -1,8 +1,8 @@
 ﻿using log4net;
 
 using SQLiteKei.Util.Interfaces;
-using SQLiteKei.ViewModels.DBTreeView.Base;
-using SQLiteKei.ViewModels.DBTreeView.Mapping;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping;
 
 using System;
 using System.Collections.Generic;

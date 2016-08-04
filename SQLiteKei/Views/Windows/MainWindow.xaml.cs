@@ -2,9 +2,9 @@
 
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
-using SQLiteKei.ViewModels.DBTreeView;
-using SQLiteKei.ViewModels.DBTreeView.Base;
 using SQLiteKei.ViewModels.MainWindow;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 using SQLiteKei.Views.Windows.Creators;
 
 using System;

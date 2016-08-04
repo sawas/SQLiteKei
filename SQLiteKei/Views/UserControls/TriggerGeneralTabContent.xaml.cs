@@ -1,4 +1,4 @@
-﻿using SQLiteKei.ViewModels.MainTabControl.Trigger;
+﻿using SQLiteKei.ViewModels.MainWindow.MainTabControl.Trigger;
 
 using System.Windows.Controls;
 

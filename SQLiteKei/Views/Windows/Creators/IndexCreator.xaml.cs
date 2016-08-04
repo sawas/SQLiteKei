@@ -1,7 +1,7 @@
 ﻿using SQLiteKei.ViewModels.Common;
 using SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow;
-using SQLiteKei.ViewModels.DBTreeView;
-using SQLiteKei.ViewModels.DBTreeView.Base;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 
 using System.Collections.Generic;
 using System.Windows;

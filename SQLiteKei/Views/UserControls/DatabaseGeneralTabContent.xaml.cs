@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-using SQLiteKei.ViewModels.MainTabControl.Databases;
+using SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases;
 
 namespace SQLiteKei.Views.UserControls
 {

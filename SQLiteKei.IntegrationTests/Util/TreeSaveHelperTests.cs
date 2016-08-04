@@ -7,8 +7,8 @@ using NUnit.Framework;
 
 using SQLiteKei.Util;
 using SQLiteKei.IntegrationTests.Base;
-using SQLiteKei.ViewModels.DBTreeView;
-using SQLiteKei.ViewModels.DBTreeView.Base;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 
 namespace SQLiteKei.IntegrationTests.Util
 {
