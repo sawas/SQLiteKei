@@ -138,6 +138,9 @@
   <data name="ContextMenuItem_DeleteDatabase" xml:space="preserve">
     <value>ContextMenuItem_DeleteDatabase</value>
   </data>
+  <data name="ContextMenuItem_DeleteIndex" xml:space="preserve">
+    <value>ContextMenuItem_DeleteIndex</value>
+  </data>
   <data name="ContextMenuItem_DeleteTable" xml:space="preserve">
     <value>ContextMenuItem_DeleteTable</value>
   </data>
@@ -250,6 +253,9 @@
   <data name="MessageBoxTitle_EmptyTable" xml:space="preserve">
     <value>MessageBoxTitle_EmptyTable</value>
   </data>
+  <data name="MessageBoxTitle_IndexDeletion" xml:space="preserve">
+    <value>MessageBoxTitle_IndexDeletion</value>
+  </data>
   <data name="MessageBoxTitle_ReindexTable" xml:space="preserve">
     <value>MessageBoxTitle_ReindexTable</value>
   </data>
@@ -267,6 +273,9 @@
   </data>
   <data name="MessageBox_EmptyTable" xml:space="preserve">
     <value>MessageBox_EmptyTable</value>
+  </data>
+  <data name="MessageBox_IndexDeleteWarning" xml:space="preserve">
+    <value>MessageBox_IndexDeleteWarning</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>MessageBox_ReindexTable</value>

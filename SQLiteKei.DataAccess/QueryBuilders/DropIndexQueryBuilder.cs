@@ -3,27 +3,27 @@
 namespace SQLiteKei.DataAccess.QueryBuilders
 {
     /// <summary>
-    /// A query builder for DROP TRIGGER statements.
+    /// A query builder for DROP INDEX statements.
     /// </summary>
-    public class DropTriggerQueryBuilder : QueryBuilderBase
+    public class DropIndexQueryBuilder : QueryBuilderBase
     {
-        private readonly string triggerName;
+        private readonly string indexName;
 
         private bool ifExists;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DropTriggerQueryBuilder"/> class.
+        /// Initializes a new instance of the <see cref="DropIndexQueryBuilder"/> class.
         /// </summary>
-        /// <param name="triggerName">Name of the trigger.</param>
-        public DropTriggerQueryBuilder(string triggerName)
+        /// <param name="indexName">Name of the index.</param>
+        public DropIndexQueryBuilder(string indexName)
         {
-            this.triggerName = triggerName;
+            this.indexName = indexName;
         }
 
         /// <summary>
         /// Defines if the drop statement should include an IF EXISTS or not.
         /// </summary>
-        public DropTriggerQueryBuilder IfExists(bool value = true)
+        public DropIndexQueryBuilder IfExists(bool value = true)
         {
             ifExists = value;
             return this;
@@ -36,9 +36,9 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         public override string Build()
         {
             if (ifExists)
-                return string.Format("DROP TRIGGER IF EXISTS '{0}'", triggerName);
+                return string.Format("DROP INDEX IF EXISTS '{0}'", indexName);
 
-            return string.Format("DROP TRIGGER '{0}'", triggerName);
+            return string.Format("DROP INDEX '{0}'", indexName);
         }
     }
 }

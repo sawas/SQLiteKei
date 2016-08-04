@@ -10,7 +10,7 @@ namespace SQLiteKei.DataAccess.UnitTests.Queries
         [Test]
         public void Build_WithValidData_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "DROP VIEW IF EXISTS ViewName";
+            const string EXPECTED_QUERY = "DROP VIEW IF EXISTS 'ViewName'";
 
             var result = QueryBuilder.DropView("ViewName").IfExists().Build();
 
@@ -20,7 +20,7 @@ namespace SQLiteKei.DataAccess.UnitTests.Queries
         [Test]
         public void Build_WithoutIfExistsMethodCall_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "DROP VIEW ViewName";
+            const string EXPECTED_QUERY = "DROP VIEW 'ViewName'";
 
             var result = QueryBuilder.DropView("ViewName").Build();
 

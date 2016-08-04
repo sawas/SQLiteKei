@@ -138,6 +138,9 @@
   <data name="ContextMenuItem_DeleteDatabase" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="ContextMenuItem_DeleteIndex" xml:space="preserve">
+    <value>Delete Index</value>
+  </data>
   <data name="ContextMenuItem_DeleteTable" xml:space="preserve">
     <value>Delete Table</value>
   </data>
@@ -246,6 +249,9 @@
   <data name="MessageBoxTitle_EmptyTable" xml:space="preserve">
     <value>Empty Table</value>
   </data>
+  <data name="MessageBoxTitle_IndexDeletion" xml:space="preserve">
+    <value>Delete Index</value>
+  </data>
   <data name="MessageBoxTitle_ReindexTable" xml:space="preserve">
     <value>Reindex Table</value>
   </data>
@@ -263,6 +269,9 @@
   </data>
   <data name="MessageBox_EmptyTable" xml:space="preserve">
     <value>Do you really want to empty the table '{0}'? All entries will be removed.</value>
+  </data>
+  <data name="MessageBox_IndexDeleteWarning" xml:space="preserve">
+    <value>Do you really want to delete the index '{0}'?</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>Are you sure that you want to reindex the table '{0}'?</value>

@@ -64,6 +64,7 @@
     <Compile Include="Database\DatabaseHandler.Commands.cs" />
     <Compile Include="Database\DatabaseHandler.cs" />
     <Compile Include="Database\DisposableDbHandler.cs" />
+    <Compile Include="Database\IndexHandler.cs" />
     <Compile Include="Database\TableHandler.cs" />
     <Compile Include="Database\TriggerHandler.cs" />
     <Compile Include="Database\ViewHandler.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="QueryBuilders\Base\ConditionalQueryBuilder.cs" />
     <Compile Include="QueryBuilders\Base\QueryBuilderBase.cs" />
     <Compile Include="QueryBuilders\CreateTriggerQueryBuilder.cs" />
+    <Compile Include="QueryBuilders\DropIndexQueryBuilder.cs" />
     <Compile Include="QueryBuilders\DropTriggerQueryBuilder.cs" />
     <Compile Include="QueryBuilders\DropViewQueryBuilder.cs" />
     <Compile Include="QueryBuilders\CreateTableQueryBuilder.cs" />

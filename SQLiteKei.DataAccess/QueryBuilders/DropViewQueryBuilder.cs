@@ -36,9 +36,9 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         public override string Build()
         {
             if (ifExists)
-                return string.Format("DROP VIEW IF EXISTS {0}", viewName);
+                return string.Format("DROP VIEW IF EXISTS '{0}'", viewName);
 
-            return string.Format("DROP VIEW {0}", viewName);
+            return string.Format("DROP VIEW '{0}'", viewName);
         }
     }
 }

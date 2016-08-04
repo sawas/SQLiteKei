@@ -182,6 +182,12 @@ namespace SQLiteKei
             viewModel.DeleteView(viewItem);
         }
 
+        private void DeleteIndex(object sender, RoutedEventArgs e)
+        {
+            var viewItem = (IndexItem)DBTreeView.SelectedItem;
+            viewModel.DeleteIndex(viewItem);
+        }
+
         private void DeleteTrigger(object sender, RoutedEventArgs e)
         {
             var triggerItem = (TriggerItem)DBTreeView.SelectedItem;

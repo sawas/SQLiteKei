@@ -138,6 +138,9 @@
   <data name="ContextMenuItem_DeleteDatabase" xml:space="preserve">
     <value>Löschen</value>
   </data>
+  <data name="ContextMenuItem_DeleteIndex" xml:space="preserve">
+    <value>Index löschen</value>
+  </data>
   <data name="ContextMenuItem_DeleteTable" xml:space="preserve">
     <value>Tabelle löschen</value>
   </data>
@@ -246,6 +249,9 @@
   <data name="MessageBoxTitle_EmptyTable" xml:space="preserve">
     <value>Tabelle leeren</value>
   </data>
+  <data name="MessageBoxTitle_IndexDeletion" xml:space="preserve">
+    <value>Index löschen</value>
+  </data>
   <data name="MessageBoxTitle_ReindexTable" xml:space="preserve">
     <value>Tabelle neu indizieren</value>
   </data>
@@ -263,6 +269,9 @@
   </data>
   <data name="MessageBox_EmptyTable" xml:space="preserve">
     <value>Möchten Sie die Tabelle '{0}' wirklich leeren? Hiermit werden alle Einträge aus der Tabelle entfernt.</value>
+  </data>
+  <data name="MessageBox_IndexDeleteWarning" xml:space="preserve">
+    <value>Wollen Sie den Index '{0}' wirklich löschen?</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie die Tabelle '{0}' neu indizieren möchten?</value>

@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace SQLiteKei.IntegrationTests.DatabaseHandlers
 {
-    [TestFixture]
+    [TestFixture, Explicit]
     public class ViewHandlerTests : IntegrationTestBase
     {
         private ViewHandler viewHandler;

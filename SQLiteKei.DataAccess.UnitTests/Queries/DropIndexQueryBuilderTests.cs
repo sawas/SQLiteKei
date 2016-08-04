@@ -5,14 +5,14 @@ using SQLiteKei.DataAccess.QueryBuilders;
 namespace SQLiteKei.DataAccess.UnitTests.Queries
 {
     [TestFixture]
-    public class DropTriggerQueryBuilderTests
+    public class DropIndexQueryBuilderTests
     {
         [Test]
         public void Build_WithValidData_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "DROP TRIGGER IF EXISTS 'TriggerName'";
+            const string EXPECTED_QUERY = "DROP INDEX IF EXISTS 'IndexName'";
 
-            var result = QueryBuilder.DropTrigger("TriggerName").IfExists().Build();
+            var result = QueryBuilder.DropIndex("IndexName").IfExists().Build();
 
             Assert.AreEqual(EXPECTED_QUERY, result);
         }
@@ -20,9 +20,9 @@ namespace SQLiteKei.DataAccess.UnitTests.Queries
         [Test]
         public void Build_WithoutIfExistsMethodCall_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "DROP TRIGGER 'TriggerName'";
+            const string EXPECTED_QUERY = "DROP INDEX 'IndexName'";
 
-            var result = QueryBuilder.DropTrigger("TriggerName").Build();
+            var result = QueryBuilder.DropIndex("IndexName").Build();
 
             Assert.AreEqual(EXPECTED_QUERY, result);
         }

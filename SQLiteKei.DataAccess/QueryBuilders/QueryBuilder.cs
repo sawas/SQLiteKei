@@ -85,6 +85,16 @@
         }
 
         /// <summary>
+        /// Begins a DROP statement for the specified index.
+        /// </summary>
+        /// <param name="viewName">Name of the view.</param>
+        /// <returns></returns>
+        public static DropIndexQueryBuilder DropIndex(string indexName)
+        {
+            return new DropIndexQueryBuilder(indexName);
+        }
+
+        /// <summary>
         /// Begins a DROP statement for the specified trigger.
         /// </summary>
         /// <param name="triggerName">Name of the trigger.</param>

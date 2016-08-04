@@ -200,5 +200,28 @@ namespace SQLiteKei.ViewModels.MainWindow
                 StatusBarInfo = statusInfo;
             }
         }
+
+        internal void DeleteIndex(IndexItem indexItem)
+        {
+            var message = LocalisationHelper.GetString("MessageBox_IndexDeleteWarning", indexItem.DisplayName);
+            var result = MessageBox.Show(message, LocalisationHelper.GetString("MessageBoxTitle_IndexDeletion"), MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result != MessageBoxResult.Yes) return;
+
+            try
+            {
+                using (var indexHandler = new IndexHandler(Properties.Settings.Default.CurrentDatabase))
+                {
+                    indexHandler.DropIndex(indexItem.DisplayName);
+                    RemoveItemFromTree(indexItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Failed to delete index '" + indexItem.DisplayName + "'.", ex);
+                var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
+                StatusBarInfo = statusInfo;
+            }
+        }
     }
 }

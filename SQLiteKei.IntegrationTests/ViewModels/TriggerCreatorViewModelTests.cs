@@ -6,7 +6,7 @@ using SQLiteKei.ViewModels.TriggerCreatorWindow;
 
 namespace SQLiteKei.IntegrationTests.ViewModels
 {
-    [TestFixture]
+    [TestFixture, Explicit]
     public class TriggerCreatorViewModelTests : IntegrationTestBase
     {
         private TriggerCreatorViewModel viewModel;
