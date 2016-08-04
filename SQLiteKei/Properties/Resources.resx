@@ -156,6 +156,9 @@
   <data name="ContextMenuItem_NewDatabase" xml:space="preserve">
     <value>ContextMenuItem_NewDatabase</value>
   </data>
+  <data name="ContextMenuItem_NewIndex" xml:space="preserve">
+    <value>ContextMenuItem_NewIndex</value>
+  </data>
   <data name="ContextMenuItem_NewTable" xml:space="preserve">
     <value>ContextMenuItem_NewTable</value>
   </data>
@@ -210,6 +213,9 @@
   </data>
   <data name="MenuItemHeader_About" xml:space="preserve">
     <value>MenuItemHeader_About</value>
+  </data>
+  <data name="MenuItemHeader_CreateIndex" xml:space="preserve">
+    <value>MenuItemHeader_CreateIndex</value>
   </data>
   <data name="MenuItemHeader_CreateTable" xml:space="preserve">
     <value>MenuItemHeader_CreateTable</value>
@@ -414,6 +420,9 @@
   </data>
   <data name="Tooltip_CloseDatabase" xml:space="preserve">
     <value>Tooltip_CloseDatabase</value>
+  </data>
+  <data name="Tooltip_CreateIndex" xml:space="preserve">
+    <value>Tooltip_CreateIndex</value>
   </data>
   <data name="Tooltip_CreateTable" xml:space="preserve">
     <value>Tooltip_CreateTable</value>

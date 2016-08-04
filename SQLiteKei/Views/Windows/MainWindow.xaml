@@ -58,6 +58,7 @@
             <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Tools}">
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_CreateTable}" Click="OpenTableCreator"/>
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_CreateView}" Click="OpenViewCreator"/>
+                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_CreateIndex}" Click="OpenIndexCreator"/>
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_CreateTrigger}" Click="OpenTriggerCreator"/>
                 <Separator/>
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_QueryEditor}" Click="OpenQueryEditor"/>
@@ -95,6 +96,9 @@
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenViewCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateView}" >
                 <Image Source="../../Resources/Icons/Placeholder.png" />
             </Button>
+            <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenIndexCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateIndex}" >
+                <Image Source="../../Resources/Icons/Placeholder.png" />
+            </Button>
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenTriggerCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateTrigger}" >
                 <Image Source="../../Resources/Icons/Placeholder.png" />
             </Button>
@@ -127,8 +131,13 @@
                             <TextBlock Text="{Binding DisplayName}" ToolTip="{Binding DatabasePath}" />
                         </DockPanel>
                     </HierarchicalDataTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type model:FolderItem}" ItemsSource="{Binding Items}">
+                    <HierarchicalDataTemplate DataType="{x:Type model:IndexFolderItem}" ItemsSource="{Binding Items}">
                         <DockPanel>
+                            <DockPanel.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_NewIndex}" Click="OpenIndexCreator"/>
+                                </ContextMenu>
+                            </DockPanel.ContextMenu>
                             <Image Source="../../Resources/Icons/TreeItem_Folder.png" Height="16" Width="16" Margin="4 1"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding DisplayName}" />

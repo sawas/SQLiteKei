@@ -34,7 +34,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
 
             TableFolderItem tableFolder = MapTables();
             ViewFolderItem viewFolder = MapViews();
-            FolderItem indexFolder = MapIndexes();
+            IndexFolderItem indexFolder = MapIndexes();
             TriggerFolderItem triggerFolder = MapTriggers();
 
             var databaseItem = new DatabaseItem()
@@ -102,13 +102,13 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
             return viewFolder;
         }
 
-        private FolderItem MapIndexes()
+        private IndexFolderItem MapIndexes()
         {
             var indexes = dbHandler.GetIndexes();
 
             IEnumerable indexNames = indexes.Select(x => x.Name);
 
-            var indexFolder = new FolderItem { DisplayName = LocalisationHelper.GetString("TreeItem_Indexes") };
+            var indexFolder = new IndexFolderItem { DisplayName = LocalisationHelper.GetString("TreeItem_Indexes") };
 
             foreach (string indexName in indexNames)
             {

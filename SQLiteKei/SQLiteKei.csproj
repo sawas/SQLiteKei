@@ -292,7 +292,7 @@
     <Compile Include="ViewModels\MainWindow\DBTreeView\Base\DirectoryItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\Base\TreeItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\DatabaseItem.cs" />
-    <Compile Include="ViewModels\MainWindow\DBTreeView\FolderItem.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\IndexFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\IndexItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\Mapping\SchemaToViewModelMapper.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\TableFolderItem.cs" />

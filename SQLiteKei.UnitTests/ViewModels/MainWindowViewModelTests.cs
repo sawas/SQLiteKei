@@ -18,13 +18,13 @@ namespace SQLiteKei.IntegrationTests.ViewModels
 
         private TableItem LookupItem;
 
-        private FolderItem LookupItemParent;
+        private IndexFolderItem LookupItemParent;
 
         private DatabaseItem LookupItemDatabase;
 
         private TableItem ComparisonItem;
 
-        private FolderItem ComparisonItemParent;
+        private IndexFolderItem ComparisonItemParent;
 
         [SetUp]
         public void Setup()
@@ -35,7 +35,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
                 DatabasePath = "Database1"
             };
 
-            LookupItemParent = new FolderItem
+            LookupItemParent = new IndexFolderItem
             {
                 DisplayName = "Name",
                 DatabasePath = "Database1",
@@ -55,7 +55,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
                 DatabasePath = "Database2"
             };
 
-            ComparisonItemParent = new FolderItem
+            ComparisonItemParent = new IndexFolderItem
             {
                 DisplayName = "Name",
                 DatabasePath = "Database2",
