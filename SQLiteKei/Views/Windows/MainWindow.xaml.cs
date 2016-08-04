@@ -31,7 +31,6 @@ namespace SQLiteKei.Views.Windows
         {
             viewModel = new MainWindowViewModel(new TreeSaveHelper());
             DataContext = viewModel;
-            KeyDown += Window_KeyDown;
 
             InitializeComponent();
         }
@@ -202,31 +201,7 @@ namespace SQLiteKei.Views.Windows
         protected override void OnClosed(EventArgs e)
         {
             viewModel.SaveTree();
-        }
-
-        private void OpenDocumentation(object sender, RoutedEventArgs e)
-        {
-            OpenDocumentation();
-        }
-
-        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.F1)
-                OpenDocumentation();
-        }
-
-        private void OpenDocumentation()
-        {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "Documentation.pdf");
-            try
-            {
-                Process.Start(path);
-            }
-            catch(Exception ex)
-            {
-                log.Error("Failed to open documentation.", ex);
-            }
-        }
+        }        
 
         private void OpenFileDirectory(object sender, RoutedEventArgs e)
         {

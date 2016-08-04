@@ -1,18 +1,21 @@
 ﻿using log4net;
 
+using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
 using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.Base;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 
 namespace SQLiteKei.ViewModels.MainWindow
 {
@@ -44,6 +47,7 @@ namespace SQLiteKei.ViewModels.MainWindow
             TreeViewItems = treeSaveHelper.Load();
 
             MainTreeHandler.Register(TreeViewItems);
+            documentationCommand = new DelegateCommand(OpenDocumentation);
         }
 
         public void OpenDatabase(string databasePath)
@@ -223,5 +227,22 @@ namespace SQLiteKei.ViewModels.MainWindow
                 StatusBarInfo = statusInfo;
             }
         }
+
+        private void OpenDocumentation()
+        {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "Documentation.pdf");
+            try
+            {
+                Process.Start(path);
+            }
+            catch (Exception ex)
+            {
+                log.Error("Failed to open documentation.", ex);
+            }
+        }
+
+        private DelegateCommand documentationCommand;
+
+        public DelegateCommand DocumentationCommand { get { return documentationCommand; } }
     }
 }

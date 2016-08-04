@@ -9,6 +9,9 @@
         Title="SQLite Kei" 
         Width="1024" Height="768" MinWidth="900" MinHeight="700"
         WindowState="Maximized">
+    <Window.InputBindings>
+        <KeyBinding Key="F1" Command="{Binding DocumentationCommand}" />
+    </Window.InputBindings>
     <Window.Resources>
         <Style x:Key="MenuButton" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"/>
@@ -66,7 +69,7 @@
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Preferences}" Click="OpenPreferences"/>
             </MenuItem>
             <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Help}">
-                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Documentation}" Click="OpenDocumentation"/>
+                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Documentation}" Command="{Binding DocumentationCommand}"/>
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_About}" Click="OpenAbout"/>
             </MenuItem>
         </Menu>
