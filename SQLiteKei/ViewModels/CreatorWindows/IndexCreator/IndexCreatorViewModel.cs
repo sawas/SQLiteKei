@@ -18,6 +18,20 @@ namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreator
             set { selectedDatabase = value; }
         }
 
+        private string indexName;
+        public string IndexName
+        {
+            get { return indexName; }
+            set { indexName = value; }
+        }
+
+        private bool isIfNotExists;
+        public bool IsIfNotExists
+        {
+            get { return isIfNotExists; }
+            set { isIfNotExists = value; }
+        }
+
         public List<DatabaseSelectItem> Databases { get; set; }
 
         public IndexCreatorViewModel()

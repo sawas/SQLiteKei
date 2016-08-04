@@ -3,10 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SQLiteKei.Views"
+        xmlns:cmodel="clr-namespace:SQLiteKei.ViewModels.Common"
+        xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         mc:Ignorable="d"
-        Title="IndexCreator" Height="300" Width="300">
+        WindowStartupLocation="CenterScreen"
+        Title="{x:Static localisation:Resources.WindowTitle_ViewCreator}">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" />
+            <ComboBox Width="150" Height="20" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
+                        <TextBlock Text="{Binding DatabaseName}" VerticalAlignment="Center" ToolTip="{Binding DatabasePath}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Content="{x:Static localisation:Resources.IndexCreator_Label_IndexName}" />
+            <TextBox Height="25" Text="{Binding IndexName, UpdateSourceTrigger=PropertyChanged}" Width="125" VerticalContentAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Window>

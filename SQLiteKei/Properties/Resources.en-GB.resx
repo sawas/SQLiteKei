@@ -207,6 +207,9 @@
   <data name="DatabaseGeneralTab_Tables" xml:space="preserve">
     <value>Tables:</value>
   </data>
+  <data name="IndexCreator_Label_IndexName" xml:space="preserve">
+    <value>Index Name</value>
+  </data>
   <data name="MenuItemHeader_About" xml:space="preserve">
     <value>About</value>
   </data>
@@ -518,6 +521,9 @@
   </data>
   <data name="WindowTitle_About" xml:space="preserve">
     <value>About</value>
+  </data>
+  <data name="WindowTitle_IndexCreator" xml:space="preserve">
+    <value>Create Index</value>
   </data>
   <data name="WindowTitle_Preferences" xml:space="preserve">
     <value>Preferences</value>

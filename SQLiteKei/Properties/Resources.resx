@@ -211,6 +211,9 @@
   <data name="Documentation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Documentation.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="IndexCreator_Label_IndexName" xml:space="preserve">
+    <value>IndexCreator_Label_IndexName</value>
+  </data>
   <data name="MenuItemHeader_About" xml:space="preserve">
     <value>MenuItemHeader_About</value>
   </data>
@@ -522,6 +525,9 @@
   </data>
   <data name="WindowTitle_About" xml:space="preserve">
     <value>WindowTitle_About</value>
+  </data>
+  <data name="WindowTitle_IndexCreator" xml:space="preserve">
+    <value>WindowTitle_IndexCreator</value>
   </data>
   <data name="WindowTitle_Preferences" xml:space="preserve">
     <value>WindowTitle_Preferences</value>

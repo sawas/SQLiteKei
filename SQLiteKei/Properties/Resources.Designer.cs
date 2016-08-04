@@ -341,6 +341,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IndexCreator_Label_IndexName.
+        /// </summary>
+        public static string IndexCreator_Label_IndexName {
+            get {
+                return ResourceManager.GetString("IndexCreator_Label_IndexName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MenuItemHeader_About.
         /// </summary>
         public static string MenuItemHeader_About {
@@ -1273,6 +1282,15 @@ namespace SQLiteKei.Properties {
         public static string WindowTitle_About {
             get {
                 return ResourceManager.GetString("WindowTitle_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WindowTitle_IndexCreator.
+        /// </summary>
+        public static string WindowTitle_IndexCreator {
+            get {
+                return ResourceManager.GetString("WindowTitle_IndexCreator", resourceCulture);
             }
         }
         

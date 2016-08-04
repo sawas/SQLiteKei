@@ -18,7 +18,7 @@
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" />
+            <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" VerticalAlignment="Center" />
             <ComboBox Width="150" Height="20" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
@@ -26,7 +26,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Label Content="{x:Static localisation:Resources.TableCreator_Label_TableName}" />
+            <Label Content="{x:Static localisation:Resources.TableCreator_Label_TableName}" VerticalAlignment="Center" />
             <TextBox Height="25" Text="{Binding TableName, UpdateSourceTrigger=PropertyChanged}" Width="125" VerticalContentAlignment="Center"/>
         </StackPanel>
         <TabControl Grid.Row="1">
@@ -87,7 +87,7 @@
             </Grid.ColumnDefinitions>
             <Button Style="{DynamicResource ButtonDark}" Grid.Column="0" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Create}" 
                     Command="{Binding CreateCommand}" IsEnabled="{Binding IsValidTableDefinition}"/>
-            <TextBox Grid.Column="1" Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding StatusInfo}" />
+            <TextBox Grid.Column="1" Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding StatusInfo}" VerticalAlignment="Center" />
             <Button Style="{DynamicResource ButtonDark}" Grid.Column="2" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Cancel}" IsCancel="True" />
         </Grid>
     </Grid>
