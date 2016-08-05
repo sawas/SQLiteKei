@@ -6,7 +6,10 @@
              xmlns:localisation="clr-namespace:SQLiteKei.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1000">
-    <Grid DataContext="{Binding ElementName=Control}">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="50" Height="Auto"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
@@ -16,34 +19,35 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TableGeneralTab_TableName}"/>
-                    <TextBox Style="{DynamicResource FocusHighlightTextBox}" Text="{Binding TableInfo.TableName}" />
+                    <TextBox Style="{DynamicResource FocusHighlightTextBox}" Text="{Binding TableName}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TableGeneralTab_Columns}" />
-                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" MinWidth="25" Text="{Binding TableInfo.ColumnCount}"/>
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" MinWidth="25" Text="{Binding ColumnCount}"/>
                     <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TableGeneralTab_Records}" />
-                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding TableInfo.RowCount}"/>
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding RowCount}"/>
                 </StackPanel>
                 <StackPanel>
                     <GroupBox Header="{x:Static localisation:Resources.TableGeneralTab_TableCreateStatement}">
                         <ScrollViewer Height="90" VerticalScrollBarVisibility="Auto">
-                            <TextBox Text="{Binding TableInfo.TableCreateStatement}" BorderThickness="0" IsReadOnly="True" TextWrapping="Wrap" Margin="0" />
+                            <TextBox Text="{Binding TableCreateStatement}" BorderThickness="0" IsReadOnly="True" TextWrapping="Wrap" Margin="0" />
                         </ScrollViewer>
                     </GroupBox>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Empty}" Height="25" Width="100" Margin="15 0 0 0" Click="EmptyTable"  />
-            <Button Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Reindex}" Height="25" Width="100" Margin="5 0" Click="ReindexTable"   />
+            <Button Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Empty}" Height="25" Width="100" Margin="15 0 0 0" Command="{Binding EmptyCommand}" />
+            <Button Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Reindex}" Height="25" Width="100" Margin="5 0" Command="{Binding ReindexCommand}"  />
         </StackPanel>
         <GroupBox Grid.Row="2" Header="{x:Static localisation:Resources.TabContent_GroupBoxHeader_Columns}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="Auto">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid>
-                    <DataGrid x:Name="ColumnDataGrid" Grid.Column="0" Margin="5" ItemsSource="{Binding TableInfo.ColumnData}" 
-                      HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True" HeadersVisibility="Column">
+                    <DataGrid x:Name="ColumnDataGrid" Grid.Column="0" Margin="5" ItemsSource="{Binding ColumnData}" 
+                        HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                        AutoGenerateColumns="False"
+                        IsReadOnly="True" HeadersVisibility="Column"
+                        Visibility="{Binding ColumnsFound, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                             <DataGridTextColumn Header="Data Type" Binding="{Binding DataType}"/>
@@ -52,7 +56,9 @@
                             <DataGridTextColumn Header="Default" Binding="{Binding DefaultValue}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label x:Name="NoColumnsFoundLabel" Content="{x:Static localisation:Resources.TableGeneralTab_NoColumnsFound}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
+                    <Label Content="{x:Static localisation:Resources.TableGeneralTab_NoColumnsFound}" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"
+                           Visibility="{Binding NoColumnsFound, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                 </Grid>
             </ScrollViewer>
         </GroupBox>

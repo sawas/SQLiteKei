@@ -1,5 +1,5 @@
 ﻿using log4net;
-
+using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.Models;
 using SQLiteKei.Util;
@@ -7,6 +7,8 @@ using SQLiteKei.ViewModels.Base;
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 {
@@ -49,6 +51,10 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
         public int ColumnCount { get; set; }
 
+        public bool ColumnsFound { get; set; }
+
+        public bool NoColumnsFound { get; set; }
+
         private string tableCreateStatement;
         public string TableCreateStatement
         {
@@ -64,6 +70,9 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             this.tableName = tableName;
 
             Initialize();
+
+            emptyCommand = new DelegateCommand(EmptyTable);
+            reindexCommand = new DelegateCommand(ReindexTable);
         }
 
         private void Initialize()
@@ -80,6 +89,11 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                     ColumnData.Add(MapToColumnData(column));
                 }
             }
+
+            if (ColumnData.Any())
+                ColumnsFound = true;
+            else
+                NoColumnsFound = true;
         }
 
         private ColumnDataItem MapToColumnData(Column column)
@@ -94,8 +108,14 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             };
         }
 
-        internal void EmptyTable()
+        private void EmptyTable()
         {
+            var message = LocalisationHelper.GetString("MessageBox_EmptyTable", tableName);
+            var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_EmptyTable");
+            var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result != MessageBoxResult.Yes) return;
+
             using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
             {
                 tableHandler.EmptyTable(TableName);
@@ -103,12 +123,26 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             }
         }
 
-        internal void ReindexTable()
+        private DelegateCommand emptyCommand;
+        
+        public DelegateCommand EmptyCommand { get { return emptyCommand; } }
+
+        private void ReindexTable()
         {
+            var message = LocalisationHelper.GetString("MessageBox_ReindexTable", tableName);
+            var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_ReindexTable");
+            var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result != MessageBoxResult.Yes) return;
+
             using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
             {
                 tableHandler.ReindexTable(TableName);
             }
         }
+
+        private DelegateCommand reindexCommand;
+
+        public DelegateCommand ReindexCommand { get { return reindexCommand; } }
     }
 }

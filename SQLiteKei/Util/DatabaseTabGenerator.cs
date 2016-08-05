@@ -65,10 +65,7 @@ namespace SQLiteKei.Util
             var generalTab = new TabItem
             {
                 Header = LocalisationHelper.GetString("TabHeader_GeneralTable", tableItem.DisplayName),
-                Content = new TableGeneralTabContent
-                {
-                    TableInfo = new GeneralTableViewModel(tableItem.DisplayName)
-                }
+                Content = new TableGeneralTabContent(new GeneralTableViewModel(tableItem.DisplayName))
             };
 
             var recordsTab = new TabItem
