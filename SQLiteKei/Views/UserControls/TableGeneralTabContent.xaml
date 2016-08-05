@@ -46,8 +46,19 @@
                     <DataGrid x:Name="ColumnDataGrid" Grid.Column="0" Margin="5" ItemsSource="{Binding ColumnData}" 
                         HorizontalAlignment="Stretch" VerticalAlignment="Top"
                         AutoGenerateColumns="False"
-                        IsReadOnly="True" HeadersVisibility="Column"
-                        Visibility="{Binding ColumnsFound, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        IsReadOnly="True" HeadersVisibility="Column">
+                        <DataGrid.Style>
+                            <Style BasedOn="{StaticResource {x:Type DataGrid}}" TargetType="{x:Type DataGrid}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ColumnsFound}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ColumnsFound}" Value="False">
+                                        <Setter Property="Visibility" Value="Hidden" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Style>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                             <DataGridTextColumn Header="Data Type" Binding="{Binding DataType}"/>
@@ -57,8 +68,20 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="{x:Static localisation:Resources.TableGeneralTab_NoColumnsFound}" 
-                           HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"
-                           Visibility="{Binding NoColumnsFound, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                           HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold">
+                        <Label.Style>
+                            <Style BasedOn="{StaticResource {x:Type Label}}" TargetType="{x:Type Label}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ColumnsFound}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ColumnsFound}" Value="True">
+                                        <Setter Property="Visibility" Value="Hidden" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
                 </Grid>
             </ScrollViewer>
         </GroupBox>

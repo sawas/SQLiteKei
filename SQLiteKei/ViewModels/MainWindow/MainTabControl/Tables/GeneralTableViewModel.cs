@@ -53,8 +53,6 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
         public bool ColumnsFound { get; set; }
 
-        public bool NoColumnsFound { get; set; }
-
         private string tableCreateStatement;
         public string TableCreateStatement
         {
@@ -92,8 +90,6 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
             if (ColumnData.Any())
                 ColumnsFound = true;
-            else
-                NoColumnsFound = true;
         }
 
         private ColumnDataItem MapToColumnData(Column column)
