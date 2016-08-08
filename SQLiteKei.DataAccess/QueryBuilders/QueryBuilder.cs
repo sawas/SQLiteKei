@@ -55,6 +55,16 @@
         }
 
         /// <summary>
+        /// Begins a CREATE statement for the specified index.
+        /// </summary>
+        /// <param name="indexName">Name of the index.</param>
+        /// <returns></returns>
+        public static CreateIndexBuilder CreateIndex(string indexName)
+        {
+            return new CreateIndexBuilder(indexName);
+        }
+
+        /// <summary>
         /// Begins a CREATE statement for the specified trigger.
         /// </summary>
         /// <param name="triggerName">Name of the trigger.</param>
