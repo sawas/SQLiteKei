@@ -207,6 +207,18 @@
   <data name="DatabaseGeneralTab_Tables" xml:space="preserve">
     <value>Tables:</value>
   </data>
+  <data name="IndexCreator_ColumnAction_Ascending" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
+  <data name="IndexCreator_ColumnAction_Descending" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="IndexCreator_ColumnAction_DoNotUse" xml:space="preserve">
+    <value>Do not use</value>
+  </data>
+  <data name="IndexCreator_GroupBoxHeader_ColumnActions" xml:space="preserve">
+    <value>Spaltenverwendung</value>
+  </data>
   <data name="IndexCreator_Label_IndexName" xml:space="preserve">
     <value>Index Name</value>
   </data>

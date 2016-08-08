@@ -211,6 +211,18 @@
   <data name="Documentation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Documentation.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="IndexCreator_ColumnAction_Ascending" xml:space="preserve">
+    <value>IndexCreator_ColumnAction_Ascending</value>
+  </data>
+  <data name="IndexCreator_ColumnAction_Descending" xml:space="preserve">
+    <value>IndexCreator_ColumnAction_Descending</value>
+  </data>
+  <data name="IndexCreator_ColumnAction_DoNotUse" xml:space="preserve">
+    <value>IndexCreator_ColumnAction_DoNotUse</value>
+  </data>
+  <data name="IndexCreator_GroupBoxHeader_ColumnActions" xml:space="preserve">
+    <value>IndexCreator_GroupBoxHeader_ColumnActions</value>
+  </data>
   <data name="IndexCreator_Label_IndexName" xml:space="preserve">
     <value>IndexCreator_Label_IndexName</value>
   </data>

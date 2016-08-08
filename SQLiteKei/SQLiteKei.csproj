@@ -68,7 +68,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Util\MainTreeHandler.cs" />
-    <Compile Include="ViewModels\CreatorWindows\IndexCreator\IndexCreatorViewModel.cs" />
+    <Compile Include="ViewModels\CreatorWindows\IndexCreatorWindow\IndexCreatorViewModel.cs" />
+    <Compile Include="ViewModels\CreatorWindows\IndexCreatorWindow\ColumnItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\ViewFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\MainTabControl\Trigger\GeneralTriggerViewModel.cs" />

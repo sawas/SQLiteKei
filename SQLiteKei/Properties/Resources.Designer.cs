@@ -341,6 +341,42 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IndexCreator_ColumnAction_Ascending.
+        /// </summary>
+        public static string IndexCreator_ColumnAction_Ascending {
+            get {
+                return ResourceManager.GetString("IndexCreator_ColumnAction_Ascending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IndexCreator_ColumnAction_Descending.
+        /// </summary>
+        public static string IndexCreator_ColumnAction_Descending {
+            get {
+                return ResourceManager.GetString("IndexCreator_ColumnAction_Descending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IndexCreator_ColumnAction_DoNotUse.
+        /// </summary>
+        public static string IndexCreator_ColumnAction_DoNotUse {
+            get {
+                return ResourceManager.GetString("IndexCreator_ColumnAction_DoNotUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IndexCreator_GroupBoxHeader_ColumnActions.
+        /// </summary>
+        public static string IndexCreator_GroupBoxHeader_ColumnActions {
+            get {
+                return ResourceManager.GetString("IndexCreator_GroupBoxHeader_ColumnActions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IndexCreator_Label_IndexName.
         /// </summary>
         public static string IndexCreator_Label_IndexName {

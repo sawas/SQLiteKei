@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:model="clr-namespace:SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow"
         xmlns:cmodel="clr-namespace:SQLiteKei.ViewModels.Common"
         xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="{x:Static localisation:Resources.WindowTitle_ViewCreator}">
+        Title="{x:Static localisation:Resources.WindowTitle_IndexCreator}"
+        Width="450">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
@@ -15,7 +17,7 @@
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" />
+            <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" VerticalContentAlignment="Center" />
             <ComboBox Width="150" Height="20" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
@@ -23,8 +25,48 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Label Content="{x:Static localisation:Resources.IndexCreator_Label_IndexName}" />
+            <Label Content="{x:Static localisation:Resources.IndexCreator_Label_IndexName}" VerticalContentAlignment="Center" />
             <TextBox Height="25" Text="{Binding IndexName, UpdateSourceTrigger=PropertyChanged}" Width="125" VerticalContentAlignment="Center"/>
+            <CheckBox IsChecked="{Binding IsIfNotExists}" VerticalAlignment="Center" Margin="10 0 0 0" >
+                <Label Content="If Not Exists" Margin="-2 0 0 0" />
+            </CheckBox>
         </StackPanel>
+        <StackPanel Grid.Row="1">
+            <GroupBox Header="Index Definition">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="ON" />
+                    <ComboBox MinWidth="100" ItemsSource="{Binding Tables}" SelectedItem="{Binding SelectedTable}"/>
+                    <CheckBox IsChecked="{Binding IsUnique}" VerticalAlignment="Center" Margin="10 0 0 0" >
+                        <Label Content="Unique" Margin="-2 0 0 0" />
+                    </CheckBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="{x:Static localisation:Resources.IndexCreator_GroupBoxHeader_ColumnActions}">
+                <ItemsControl ItemsSource="{Binding Columns}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type model:ColumnItem}">
+                            <DockPanel LastChildFill="False">
+                                <Label Content="{Binding ColumnName}" Width="100" />
+                                <ComboBox MinWidth="100" ItemsSource="{Binding AvailableActions}" SelectedItem="{Binding SelectedAction}"/>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </GroupBox>
+            <GroupBox Header="WHERE">
+                
+            </GroupBox>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button Style="{DynamicResource ButtonDark}" Grid.Column="0" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Create}"
+                    Command="{Binding CreateCommand}"/>
+            <TextBox Grid.Column="1" Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding StatusInfo}" VerticalAlignment="Center" />
+            <Button Style="{DynamicResource ButtonDark}" Grid.Column="2" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Cancel}" IsCancel="True" />
+        </Grid>
     </Grid>
 </Window>

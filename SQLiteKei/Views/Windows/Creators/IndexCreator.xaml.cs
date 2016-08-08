@@ -1,5 +1,5 @@
 ﻿using SQLiteKei.ViewModels.Common;
-using SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow;
+using SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 
@@ -15,7 +15,7 @@ namespace SQLiteKei.Views.Windows.Creators
     {
         public IndexCreator(IEnumerable<TreeItem> databases)
         {
-            var viewModel = new ViewCreatorViewModel();
+            var viewModel = new IndexCreatorViewModel();
 
             foreach (DatabaseItem database in databases)
             {
