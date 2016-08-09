@@ -217,7 +217,7 @@
     <value>Do not use</value>
   </data>
   <data name="IndexCreator_GroupBoxHeader_ColumnActions" xml:space="preserve">
-    <value>Spaltenverwendung</value>
+    <value>Column Usage</value>
   </data>
   <data name="IndexCreator_Label_IndexName" xml:space="preserve">
     <value>Index Name</value>

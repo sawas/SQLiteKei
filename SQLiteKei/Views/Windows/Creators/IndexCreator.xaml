@@ -47,17 +47,20 @@
                     </StackPanel>
                     <Grid Grid.Row="2">
                         <Grid.RowDefinitions>
-                            <RowDefinition MaxHeight="150" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
                         <GroupBox Grid.Row="0" Header="{x:Static localisation:Resources.IndexCreator_GroupBoxHeader_ColumnActions}">
                             <ScrollViewer VerticalScrollBarVisibility="Auto">
                                 <ItemsControl ItemsSource="{Binding Columns}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate DataType="{x:Type model:ColumnItem}">
-                                            <DockPanel LastChildFill="False">
-                                                <Label Content="{Binding ColumnName}" Width="100" />
-                                                <ComboBox MinWidth="100" ItemsSource="{Binding AvailableActions}" SelectedItem="{Binding SelectedAction}"/>
+                                            <DockPanel LastChildFill="True" Height="30" Margin="5 0">
+                                                <ComboBox Height="25" Width="100" ItemsSource="{Binding AvailableActions}" SelectedItem="{Binding SelectedAction}" />
+                                                <TextBlock Height="20" 
+                                                           Margin="5 0" VerticalAlignment="Center"
+                                                           Text="{Binding ColumnName}" TextTrimming="CharacterEllipsis" 
+                                                           ToolTip="{Binding ColumnName}" />
                                             </DockPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
