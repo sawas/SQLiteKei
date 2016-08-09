@@ -1,6 +1,7 @@
 ﻿using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 using SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases;
+using SQLiteKei.ViewModels.MainWindow.MainTabControl.Indexes;
 using SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables;
 using SQLiteKei.ViewModels.MainWindow.MainTabControl.Trigger;
 using SQLiteKei.ViewModels.MainWindow.MainTabControl.Views;
@@ -8,8 +9,6 @@ using SQLiteKei.Views.UserControls;
 
 using System.Collections.Generic;
 using System.Windows.Controls;
-using System;
-using SQLiteKei.ViewModels.MainWindow.MainTabControl.Indexes;
 
 namespace SQLiteKei.Util
 {

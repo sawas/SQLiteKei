@@ -1,5 +1,6 @@
 ﻿using SQLiteKei.DataAccess.Models;
 
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
@@ -89,7 +90,10 @@ namespace SQLiteKei.DataAccess.Database
                 {
                     indexes.Add(new Index
                     {
-                        Name = row.ItemArray[5].ToString()
+                        Name = row.ItemArray[5].ToString(),
+                        Table = row.ItemArray[2].ToString(),
+                        IsUnique = Convert.ToBoolean(row.ItemArray[7]),
+                        SqlStatement = row.ItemArray[25].ToString()
                     });
                 }
             }
