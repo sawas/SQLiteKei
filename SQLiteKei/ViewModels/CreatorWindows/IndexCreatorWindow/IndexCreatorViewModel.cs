@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System;
 using System.ComponentModel;
+using System.Linq;
 
 namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow
 {
@@ -119,7 +120,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow
 
         private void CollectionItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            UpdateSql();
+            UpdateModel();
         }
 
         private void UpdateAvailableTables()
@@ -160,9 +161,13 @@ namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow
 
         private void VerifyModel()
         {
+            var selectedColumns = Columns
+                .Where(x => !x.SelectedAction.Equals(LocalisationHelper.GetString("IndexCreator_ColumnAction_DoNotUse")));
+
             IsValidModel = selectedDatabase != null
                 && !string.IsNullOrEmpty(indexName)
-                && !string.IsNullOrEmpty(selectedTable);
+                && !string.IsNullOrEmpty(selectedTable)
+                && selectedColumns.Any();
 
             if (!IsValidModel)
                 StatusInfo = LocalisationHelper.GetString("IndexCreator_StatusInfo_InvalidModel");
