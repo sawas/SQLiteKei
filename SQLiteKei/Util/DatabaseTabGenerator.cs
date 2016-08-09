@@ -8,6 +8,8 @@ using SQLiteKei.Views.UserControls;
 
 using System.Collections.Generic;
 using System.Windows.Controls;
+using System;
+using SQLiteKei.ViewModels.MainWindow.MainTabControl.Indexes;
 
 namespace SQLiteKei.Util
 {
@@ -32,6 +34,8 @@ namespace SQLiteKei.Util
                 return GenerateTableTabs((TableItem)treeItem);
             if (treeItem.GetType() == typeof(ViewItem))
                 return GenerateViewTabs((ViewItem)treeItem);
+            if (treeItem.GetType() == typeof(IndexItem))
+                return GenerateIndexTabs((IndexItem)treeItem);
             if (treeItem.GetType() == typeof(TriggerItem))
                 return GenerateTriggerTabs((TriggerItem)treeItem);
             return GenerateDefaultTabs();
@@ -86,6 +90,17 @@ namespace SQLiteKei.Util
             {
                 Header = LocalisationHelper.GetString("TabHeader_GeneralView", viewItem.DisplayName),
                 Content = new ViewGeneralTabContent(new GeneralViewViewModel(viewItem.DisplayName))
+            };
+
+            return new List<TabItem> { generalTab };
+        }
+
+        private static List<TabItem> GenerateIndexTabs(IndexItem indexItem)
+        {
+            var generalTab = new TabItem
+            {
+                Header = LocalisationHelper.GetString("TabHeader_GeneralIndex", indexItem.DisplayName),
+                Content = new IndexGeneralTabContent(new GeneralIndexViewModel(indexItem.DisplayName))
             };
 
             return new List<TabItem> { generalTab };

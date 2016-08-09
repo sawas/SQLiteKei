@@ -72,11 +72,15 @@
     <Compile Include="ViewModels\CreatorWindows\IndexCreatorWindow\ColumnItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\ViewFolderItem.cs" />
+    <Compile Include="ViewModels\MainWindow\MainTabControl\Indexes\GeneralIndexViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainTabControl\Trigger\GeneralTriggerViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainTabControl\Views\GeneralViewViewModel.cs" />
     <Compile Include="ViewModels\CreatorWindows\TriggerCreatorWindow\ColumnItem.cs" />
     <Compile Include="ViewModels\CreatorWindows\TriggerCreatorWindow\TriggerCreatorViewModel.cs" />
     <Compile Include="ViewModels\CreatorWindows\ViewCreatorWindow\ViewCreatorViewModel.cs" />
+    <Compile Include="Views\UserControls\IndexGeneralTabContent.xaml.cs">
+      <DependentUpon>IndexGeneralTabContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\Creators\IndexCreator.xaml.cs">
       <DependentUpon>IndexCreator.xaml</DependentUpon>
     </Compile>
@@ -96,6 +100,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <Page Include="Views\UserControls\IndexGeneralTabContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\Creators\IndexCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -352,9 +360,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\MainWindow\MainTabControl\Indexes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Icons\Logo_128x128.png" />
     <Resource Include="Resources\Icons\Logo_16x16.png" />

@@ -809,6 +809,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TabHeader_GeneralIndex.
+        /// </summary>
+        public static string TabHeader_GeneralIndex {
+            get {
+                return ResourceManager.GetString("TabHeader_GeneralIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TabHeader_GeneralTable.
         /// </summary>
         public static string TabHeader_GeneralTable {

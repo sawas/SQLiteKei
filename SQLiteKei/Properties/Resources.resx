@@ -367,6 +367,9 @@
   <data name="TabHeader_General" xml:space="preserve">
     <value>TabHeader_General</value>
   </data>
+  <data name="TabHeader_GeneralIndex" xml:space="preserve">
+    <value>TabHeader_GeneralIndex</value>
+  </data>
   <data name="TabHeader_GeneralTable" xml:space="preserve">
     <value>TabHeader_GeneralTable</value>
   </data>
