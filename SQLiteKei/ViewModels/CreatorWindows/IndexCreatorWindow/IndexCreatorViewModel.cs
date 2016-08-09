@@ -58,6 +58,13 @@ namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow
             set { whereStatement = value; }
         }
 
+        private string sqlStatement;
+        public string SqlStatement
+        {
+            get { return sqlStatement; }
+            set { sqlStatement = value; NotifyPropertyChanged("SqlStatement"); }
+        }
+
         public IndexCreatorViewModel()
         {
             Databases = new List<DatabaseSelectItem>();

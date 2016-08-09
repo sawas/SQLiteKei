@@ -9,55 +9,76 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="{x:Static localisation:Resources.WindowTitle_IndexCreator}"
-        Width="450">
+        Width="450" MinWidth="450">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" VerticalContentAlignment="Center" />
-            <ComboBox Width="150" Height="20" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
-                        <TextBlock Text="{Binding DatabaseName}" VerticalAlignment="Center" ToolTip="{Binding DatabasePath}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <Label Content="{x:Static localisation:Resources.IndexCreator_Label_IndexName}" VerticalContentAlignment="Center" />
-            <TextBox Height="25" Text="{Binding IndexName, UpdateSourceTrigger=PropertyChanged}" Width="125" VerticalContentAlignment="Center"/>
-            <CheckBox IsChecked="{Binding IsIfNotExists}" VerticalAlignment="Center" Margin="10 0 0 0" >
-                <Label Content="If Not Exists" Margin="-2 0 0 0" />
-            </CheckBox>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <GroupBox Header="Index Definition">
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="ON" />
-                    <ComboBox MinWidth="100" ItemsSource="{Binding Tables}" SelectedItem="{Binding SelectedTable}"/>
-                    <CheckBox IsChecked="{Binding IsUnique}" VerticalAlignment="Center" Margin="10 0 0 0" >
-                        <Label Content="Unique" Margin="-2 0 0 0" />
-                    </CheckBox>
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="{x:Static localisation:Resources.IndexCreator_GroupBoxHeader_ColumnActions}">
-                <ItemsControl ItemsSource="{Binding Columns}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type model:ColumnItem}">
-                            <DockPanel LastChildFill="False">
-                                <Label Content="{Binding ColumnName}" Width="100" />
-                                <ComboBox MinWidth="100" ItemsSource="{Binding AvailableActions}" SelectedItem="{Binding SelectedAction}"/>
-                            </DockPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </GroupBox>
-            <GroupBox Header="WHERE">
-                
-            </GroupBox>
-        </StackPanel>
-        <Grid Grid.Row="2">
+        <TabControl Grid.Row="0">
+            <TabItem Header="Definition">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" VerticalContentAlignment="Center" />
+                        <ComboBox Width="150" Height="20" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
+                                    <TextBlock Text="{Binding DatabaseName}" VerticalAlignment="Center" ToolTip="{Binding DatabasePath}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Label Margin="5 0 0 0"  Content="{x:Static localisation:Resources.IndexCreator_Label_IndexName}" VerticalContentAlignment="Center" />
+                        <TextBox Height="25" Text="{Binding IndexName, UpdateSourceTrigger=PropertyChanged}" Width="125" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Label Content="ON" />
+                        <ComboBox MinWidth="100" Height="20" ItemsSource="{Binding Tables}" SelectedItem="{Binding SelectedTable}"/>
+                        <CheckBox IsChecked="{Binding IsIfNotExists}" VerticalAlignment="Center" Margin="10 0" >
+                            <Label Content="If Not Exists" Margin="-2 0 0 0" />
+                        </CheckBox>
+                        <CheckBox IsChecked="{Binding IsUnique}" VerticalAlignment="Center">
+                            <Label Content="Unique" Margin="-2 0 0 0" />
+                        </CheckBox>
+                    </StackPanel>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition MaxHeight="150" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <GroupBox Grid.Row="0" Header="{x:Static localisation:Resources.IndexCreator_GroupBoxHeader_ColumnActions}">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ItemsControl ItemsSource="{Binding Columns}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type model:ColumnItem}">
+                                            <DockPanel LastChildFill="False">
+                                                <Label Content="{Binding ColumnName}" Width="100" />
+                                                <ComboBox MinWidth="100" ItemsSource="{Binding AvailableActions}" SelectedItem="{Binding SelectedAction}"/>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </GroupBox>
+                        <GroupBox Grid.Row="1" Header="WHERE">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
+                                <TextBox TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding WhereStatement, UpdateSourceTrigger=PropertyChanged}" />
+                            </ScrollViewer>
+                        </GroupBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="SQL">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding SqlStatement}" />
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
