@@ -9,7 +9,12 @@ namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow
     {
         public string ColumnName { get; private set; }
 
-        public string SelectedAction { get; set; }
+        private string selectedAction;
+        public string SelectedAction
+        {
+            get { return selectedAction; }
+            set { selectedAction = value;  NotifyPropertyChanged("SelectedAction"); }
+        }
 
         public List<string> AvailableActions { get; private set; }
 

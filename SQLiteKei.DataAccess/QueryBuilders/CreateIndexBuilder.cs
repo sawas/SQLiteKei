@@ -12,6 +12,8 @@ namespace SQLiteKei.DataAccess.QueryBuilders
     {
         private string indexName;
 
+        private bool isUnique;
+
         private bool isIfNotExists;
 
         private string targetTable;
@@ -25,6 +27,12 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             this.indexName = indexName;
 
             indexedColumns = new List<string>();
+        }
+
+        public CreateIndexBuilder Unique(bool value = true)
+        {
+            isUnique = value;
+            return this;
         }
 
         public CreateIndexBuilder IfNotExists(bool value = true)
@@ -62,7 +70,12 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         public override string Build()
         {
-            var stringBuilder = new StringBuilder("CREATE INDEX");
+            var stringBuilder = new StringBuilder("CREATE");
+
+            if (isUnique)
+                stringBuilder.Append(" UNIQUE");
+
+            stringBuilder.Append(" INDEX");
 
             if (isIfNotExists)
                 stringBuilder.Append(" IF NOT EXISTS");
@@ -76,7 +89,8 @@ namespace SQLiteKei.DataAccess.QueryBuilders
                 stringBuilder.Append(string.Format(" ({0})", columnsToAdd));
             }
 
-            stringBuilder.Append("\nWHERE " + whereStatement);
+            if(!string.IsNullOrWhiteSpace(whereStatement))
+                stringBuilder.Append("\nWHERE " + whereStatement);
 
             return stringBuilder.ToString();
         }

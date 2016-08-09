@@ -222,6 +222,12 @@
   <data name="IndexCreator_Label_IndexName" xml:space="preserve">
     <value>Index Name</value>
   </data>
+  <data name="IndexCreator_StatusInfo_InvalidModel" xml:space="preserve">
+    <value>Not all necessary fields have been defined</value>
+  </data>
+  <data name="IndexCreator_StatusInfo_Success" xml:space="preserve">
+    <value>SQL executed successfully!</value>
+  </data>
   <data name="MenuItemHeader_About" xml:space="preserve">
     <value>About</value>
   </data>

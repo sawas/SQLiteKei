@@ -386,6 +386,24 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IndexCreator_StatusInfo_InvalidModel.
+        /// </summary>
+        public static string IndexCreator_StatusInfo_InvalidModel {
+            get {
+                return ResourceManager.GetString("IndexCreator_StatusInfo_InvalidModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IndexCreator_StatusInfo_Success.
+        /// </summary>
+        public static string IndexCreator_StatusInfo_Success {
+            get {
+                return ResourceManager.GetString("IndexCreator_StatusInfo_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MenuItemHeader_About.
         /// </summary>
         public static string MenuItemHeader_About {

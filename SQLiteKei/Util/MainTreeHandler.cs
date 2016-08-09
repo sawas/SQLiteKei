@@ -47,6 +47,16 @@ namespace SQLiteKei.Util
             AddItem<ViewFolderItem, ViewItem>(viewName, targetDatabasePath);
         }
 
+        /// <summary>
+        /// Adds an index item to the specified target database.
+        /// </summary>
+        /// <param name="indexName">Name of the index.</param>
+        /// <param name="targetDatabasePath">The target database path.</param>
+        public static void AddIndex(string indexName, string targetDatabasePath)
+        {
+            AddItem<IndexFolderItem, IndexItem>(indexName, targetDatabasePath);
+        }
+
         /// <summary>trigger item to the specified target database.
         /// </summary>
         /// <param name="triggerName">Name of the trigger.</param>

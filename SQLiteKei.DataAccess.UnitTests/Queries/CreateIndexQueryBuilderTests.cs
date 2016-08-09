@@ -11,9 +11,10 @@ namespace SQLiteKei.DataAccess.UnitTests.Queries
         [Test]
         public void Build_WithValidValues_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "CREATE INDEX IF NOT EXISTS 'IndexName'\nON 'TableName' ('Column1' ASC, 'Column2' DESC)\nWHERE Condition";
+            const string EXPECTED_QUERY = "CREATE UNIQUE INDEX IF NOT EXISTS 'IndexName'\nON 'TableName' ('Column1' ASC, 'Column2' DESC)\nWHERE Condition";
 
             var result = QueryBuilder.CreateIndex("IndexName")
+                .Unique()
                 .IfNotExists()
                 .On("TableName")
                 .IndexColumn("Column1", OrderType.Ascending)
