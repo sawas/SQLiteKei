@@ -38,6 +38,9 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                     catch (Exception ex)
                     {
                         logger.Warn("Failed to rename table '" + tableName + "' from table overview.", ex);
+                        var message = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
+
+                        MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
             }

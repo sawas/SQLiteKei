@@ -404,6 +404,33 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IndexGeneralTab_IndexCreateStatement.
+        /// </summary>
+        public static string IndexGeneralTab_IndexCreateStatement {
+            get {
+                return ResourceManager.GetString("IndexGeneralTab_IndexCreateStatement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IndexGeneralTab_IndexName.
+        /// </summary>
+        public static string IndexGeneralTab_IndexName {
+            get {
+                return ResourceManager.GetString("IndexGeneralTab_IndexName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IndexGeneralTab_IsUnique.
+        /// </summary>
+        public static string IndexGeneralTab_IsUnique {
+            get {
+                return ResourceManager.GetString("IndexGeneralTab_IsUnique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MenuItemHeader_About.
         /// </summary>
         public static string MenuItemHeader_About {
@@ -553,6 +580,24 @@ namespace SQLiteKei.Properties {
         public static string MessageBox_IndexDeleteWarning {
             get {
                 return ResourceManager.GetString("MessageBox_IndexDeleteWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MessageBox_IndexUniquenessWarning.
+        /// </summary>
+        public static string MessageBox_IndexUniquenessWarning {
+            get {
+                return ResourceManager.GetString("MessageBox_IndexUniquenessWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MessageBox_NameChangeWarning.
+        /// </summary>
+        public static string MessageBox_NameChangeWarning {
+            get {
+                return ResourceManager.GetString("MessageBox_NameChangeWarning", resourceCulture);
             }
         }
         
@@ -1219,6 +1264,15 @@ namespace SQLiteKei.Properties {
         public static string TriggerGeneralTab_Button_UpdateDefinition {
             get {
                 return ResourceManager.GetString("TriggerGeneralTab_Button_UpdateDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerGeneralTab_TriggerCreateStatement.
+        /// </summary>
+        public static string TriggerGeneralTab_TriggerCreateStatement {
+            get {
+                return ResourceManager.GetString("TriggerGeneralTab_TriggerCreateStatement", resourceCulture);
             }
         }
         

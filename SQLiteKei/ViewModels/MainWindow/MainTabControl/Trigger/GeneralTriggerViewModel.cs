@@ -6,6 +6,7 @@ using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 
 using System;
+using System.Windows;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Trigger
 {
@@ -35,6 +36,9 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Trigger
                     catch (Exception ex)
                     {
                         logger.Warn("Failed to rename trigger '" + triggerName + "' from trigger overview.", ex);
+                        var message = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
+
+                        MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
             }

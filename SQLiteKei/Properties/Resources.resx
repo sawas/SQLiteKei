@@ -232,6 +232,15 @@
   <data name="IndexCreator_StatusInfo_Success" xml:space="preserve">
     <value>IndexCreator_StatusInfo_Success</value>
   </data>
+  <data name="IndexGeneralTab_IndexCreateStatement" xml:space="preserve">
+    <value>IndexGeneralTab_IndexCreateStatement</value>
+  </data>
+  <data name="IndexGeneralTab_IndexName" xml:space="preserve">
+    <value>IndexGeneralTab_IndexName</value>
+  </data>
+  <data name="IndexGeneralTab_IsUnique" xml:space="preserve">
+    <value>IndexGeneralTab_IsUnique</value>
+  </data>
   <data name="MenuItemHeader_About" xml:space="preserve">
     <value>MenuItemHeader_About</value>
   </data>
@@ -303,6 +312,12 @@
   </data>
   <data name="MessageBox_IndexDeleteWarning" xml:space="preserve">
     <value>MessageBox_IndexDeleteWarning</value>
+  </data>
+  <data name="MessageBox_IndexUniquenessWarning" xml:space="preserve">
+    <value>MessageBox_IndexUniquenessWarning</value>
+  </data>
+  <data name="MessageBox_NameChangeWarning" xml:space="preserve">
+    <value>MessageBox_NameChangeWarning</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>MessageBox_ReindexTable</value>
@@ -504,6 +519,9 @@
   </data>
   <data name="TriggerGeneralTab_Button_UpdateDefinition" xml:space="preserve">
     <value>TriggerGeneralTab_Button_UpdateDefinition</value>
+  </data>
+  <data name="TriggerGeneralTab_TriggerCreateStatement" xml:space="preserve">
+    <value>TriggerGeneralTab_TriggerCreateStatement</value>
   </data>
   <data name="TriggerGeneralTab_TriggerName" xml:space="preserve">
     <value>TriggerGeneralTab_TriggerName</value>

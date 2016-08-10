@@ -8,6 +8,7 @@ using SQLiteKei.ViewModels.Base;
 
 using System;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Data;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Views
@@ -36,6 +37,9 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Views
                     catch(Exception ex)
                     {
                         logger.Warn("Failed to rename view '" + viewName + "' from view overview.", ex);
+                        var message = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
+
+                        MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
             }

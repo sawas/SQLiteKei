@@ -228,6 +228,15 @@
   <data name="IndexCreator_StatusInfo_Success" xml:space="preserve">
     <value>SQL erfolgreich ausgeführt!</value>
   </data>
+  <data name="IndexGeneralTab_IndexCreateStatement" xml:space="preserve">
+    <value>Statement zur Erstellung dieses Indexes</value>
+  </data>
+  <data name="IndexGeneralTab_IndexName" xml:space="preserve">
+    <value>Indexname:</value>
+  </data>
+  <data name="IndexGeneralTab_IsUnique" xml:space="preserve">
+    <value>Erzwingt Eindeutigkeit:</value>
+  </data>
   <data name="MenuItemHeader_About" xml:space="preserve">
     <value>Über</value>
   </data>
@@ -299,6 +308,17 @@
   </data>
   <data name="MessageBox_IndexDeleteWarning" xml:space="preserve">
     <value>Wollen Sie den Index '{0}' wirklich löschen?</value>
+  </data>
+  <data name="MessageBox_IndexUniquenessWarning" xml:space="preserve">
+    <value>Die UNIQUE-Beschränkung konnte nicht akualisiert werden. 
+Die Hauptursache hierfür ist in der Regel eine Verletzung dieser Beschränkung.
+
+Originale Fehlermeldung: {0}</value>
+  </data>
+  <data name="MessageBox_NameChangeWarning" xml:space="preserve">
+    <value>Der Name des Elements konnte nicht geändert werden.
+
+Originale Fehlermeldung: {0}</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie die Tabelle '{0}' neu indizieren möchten?</value>
@@ -500,6 +520,9 @@
   </data>
   <data name="TriggerGeneralTab_Button_UpdateDefinition" xml:space="preserve">
     <value>Aktualisieren</value>
+  </data>
+  <data name="TriggerGeneralTab_TriggerCreateStatement" xml:space="preserve">
+    <value>Statement zur Erstellung dieses Triggers</value>
   </data>
   <data name="TriggerGeneralTab_TriggerName" xml:space="preserve">
     <value>Name des Triggers:</value>

@@ -7,24 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <GroupBox Header="{x:Static localisation:Resources.TabContent_GroupBoxHeader_About}">
-            <StackPanel Orientation="Horizontal">
-                <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TriggerGeneralTab_TriggerName}" />
-                <TextBox Style="{DynamicResource FocusHighlightTextBox}" Text="{Binding TriggerName}" />
-                <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="ON" />
-                <TextBox Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding Target}" />
-            </StackPanel>
-        </GroupBox>
-        <GroupBox Grid.Row="1" Header="SQL">
-            <StackPanel>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
-                    <TextBox IsReadOnly="True" Text="{Binding SqlStatement}" TextWrapping="Wrap"/>
-                </ScrollViewer>
-            </StackPanel>
-        </GroupBox>
+        <StackPanel>
+            <GroupBox Header="{x:Static localisation:Resources.TabContent_GroupBoxHeader_About}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="{x:Static localisation:Resources.TriggerGeneralTab_TriggerName}" />
+                    <TextBox Style="{DynamicResource FocusHighlightTextBox}" Text="{Binding TriggerName}" />
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" FontWeight="Bold" Text="ON" />
+                    <TextBox Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding Target}" />
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="{x:Static localisation:Resources.TriggerGeneralTab_TriggerCreateStatement}">
+                <StackPanel>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
+                        <TextBox IsReadOnly="True" Text="{Binding SqlStatement}" TextWrapping="Wrap"/>
+                    </ScrollViewer>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
     </Grid>
 </UserControl>

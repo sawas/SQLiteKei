@@ -54,7 +54,7 @@ namespace SQLiteKei.DataAccess.Database
 
                 command.CommandText = string.Format("BEGIN; {0}; {1}; COMMIT;", dropCommand, newSQL);
                 command.ExecuteNonQuery();
-                logger.Info("Updated trigger name from" + oldName + "' to '" + newName + "'.");
+                logger.Info("Updated trigger name from " + oldName + "' to '" + newName + "'.");
             }
         }
 

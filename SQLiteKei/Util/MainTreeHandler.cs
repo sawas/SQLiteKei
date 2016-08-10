@@ -112,6 +112,17 @@ namespace SQLiteKei.Util
         }
 
         /// <summary>
+        /// Updates the name of the index tree item on the specified database.
+        /// </summary>
+        /// <param name="oldName">The old name.</param>
+        /// <param name="newName">The new name.</param>
+        /// <param name="targetDatabasePath">The target database path.</param>
+        public static void UpdateIndexName(string oldName, string newName, string targetDatabasePath)
+        {
+            UpdateItemName<IndexFolderItem>(oldName, newName, targetDatabasePath);
+        }
+
+        /// <summary>
         /// Updates the name of the trigger tree item on the specified database.
         /// </summary>
         /// <param name="oldName">The old name.</param>
