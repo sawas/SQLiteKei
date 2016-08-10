@@ -83,6 +83,9 @@ namespace SQLiteKei.Util
             var folder = GetSubFolderOf<TFolderType>(database);
             if (folder == null) return;
 
+            var result = folder.Items.SingleOrDefault(i => i.DisplayName.Equals(itemName));
+            if (result != null) return;
+
             folder.Items.Add(new TItemType { DisplayName = itemName, DatabasePath = targetDatabasePath });
         }
 
