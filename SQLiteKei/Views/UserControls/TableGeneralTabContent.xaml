@@ -50,8 +50,8 @@
                     <DataGrid x:Name="ColumnDataGrid" Grid.Column="0" Margin="5" 
                               ItemsSource="{Binding Columns}" SelectedItem="{Binding SelectedColumn}"
                               HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                              AutoGenerateColumns="False"
-                              IsReadOnly="True" HeadersVisibility="Column">
+                              AutoGenerateColumns="False" HeadersVisibility="Column"
+                              CanUserAddRows="False">
                         <DataGrid.InputBindings>
                             <KeyBinding Key="Delete" Command="{Binding DeleteColumnCommand}" />
                         </DataGrid.InputBindings>
@@ -68,11 +68,11 @@
                             </Style>
                         </DataGrid.Style>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Data Type" Binding="{Binding DataType}"/>
-                            <DataGridTextColumn Header="Primary" Binding="{Binding IsPrimary}"/>
-                            <DataGridTextColumn Header="NotNull" Binding="{Binding IsNotNullable}"/>
-                            <DataGridTextColumn Header="Default" Binding="{Binding DefaultValue}" Width="*"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="False"/>
+                            <DataGridTextColumn Header="Data Type" Binding="{Binding DataType}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Primary" Binding="{Binding IsPrimary}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="NotNull" Binding="{Binding IsNotNullable}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Default" Binding="{Binding DefaultValue}" Width="*" IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Grid.Column="0" Content="{x:Static localisation:Resources.TableGeneralTab_NoColumnsFound}" 
