@@ -160,6 +160,10 @@ namespace SQLiteKei.DataAccess.Database
             }
         }
 
+        public void RenameColumn(string oldName, string newName, string tableName)
+        {
+        }
+
         /// <summary>
         /// Deletes the specified column. Note: All Foreign Key constraints on the table will be lost.
         /// </summary>

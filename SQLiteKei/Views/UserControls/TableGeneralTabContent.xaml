@@ -68,7 +68,7 @@
                             </Style>
                         </DataGrid.Style>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="False"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" IsReadOnly="False"/>
                             <DataGridTextColumn Header="Data Type" Binding="{Binding DataType}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Primary" Binding="{Binding IsPrimary}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="NotNull" Binding="{Binding IsNotNullable}" IsReadOnly="True"/>

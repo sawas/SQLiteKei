@@ -115,6 +115,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             return new ColumnDataItem
             {
                 Name = column.Name,
+                TableName = tableName,
                 DataType = column.DataType,
                 IsNotNullable = column.IsNotNullable,
                 IsPrimary = column.IsPrimary,
