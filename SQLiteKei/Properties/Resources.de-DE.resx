@@ -282,6 +282,9 @@
   <data name="MessageBoxTitle_DatabaseDeletion" xml:space="preserve">
     <value>Datenbanklöschung</value>
   </data>
+  <data name="MessageBoxTitle_DeleteColumn" xml:space="preserve">
+    <value>Spalte löschen</value>
+  </data>
   <data name="MessageBoxTitle_EmptyTable" xml:space="preserve">
     <value>Tabelle leeren</value>
   </data>
@@ -299,6 +302,16 @@
   </data>
   <data name="MessageBoxTitle_ViewDeletion" xml:space="preserve">
     <value>View löschen</value>
+  </data>
+  <data name="MessageBox_ColumnDeleteWarning" xml:space="preserve">
+    <value>Wollen Sie die Spalte '{0}' wirklich löschen?
+
+Warnung: Wenn Sie diese Funktion nutzen, dann verlieren sie damit alle Fremdschlüssel-Referenzen dieser Tabelle! (Zeilenwerte und sonstige Definitionen der Spalten bleiben erhalten)</value>
+  </data>
+  <data name="MessageBox_ColumnDeletionFailed" xml:space="preserve">
+    <value>Die Spalte konnte nicht gelöscht werden.
+
+Ursprüngliche Meldung: {0}</value>
   </data>
   <data name="MessageBox_DatabaseDeleteWarning" xml:space="preserve">
     <value>Wollen Sie die Datenbank '{0}' wirklich löschen? Achtung: dies wird die Datenbank von Ihrem Dateisystem entfernen!</value>

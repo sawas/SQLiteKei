@@ -557,11 +557,38 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MessageBoxTitle_DeleteColumn.
+        /// </summary>
+        public static string MessageBox_ColumnDeleteWarning {
+            get {
+                return ResourceManager.GetString("MessageBox_ColumnDeleteWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MessageBox_ColumnDeletionFailed.
+        /// </summary>
+        public static string MessageBox_ColumnDeletionFailed {
+            get {
+                return ResourceManager.GetString("MessageBox_ColumnDeletionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MessageBox_DatabaseDeleteWarning.
         /// </summary>
         public static string MessageBox_DatabaseDeleteWarning {
             get {
                 return ResourceManager.GetString("MessageBox_DatabaseDeleteWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MessageBox_DeleteColumn.
+        /// </summary>
+        public static string MessageBox_DeleteColumn {
+            get {
+                return ResourceManager.GetString("MessageBox_DeleteColumn", resourceCulture);
             }
         }
         

@@ -304,8 +304,17 @@
   <data name="MessageBoxTitle_ViewDeletion" xml:space="preserve">
     <value>MessageBoxTitle_ViewDeletion</value>
   </data>
+  <data name="MessageBox_ColumnDeleteWarning" xml:space="preserve">
+    <value>MessageBoxTitle_DeleteColumn</value>
+  </data>
+  <data name="MessageBox_ColumnDeletionFailed" xml:space="preserve">
+    <value>MessageBox_ColumnDeletionFailed</value>
+  </data>
   <data name="MessageBox_DatabaseDeleteWarning" xml:space="preserve">
     <value>MessageBox_DatabaseDeleteWarning</value>
+  </data>
+  <data name="MessageBox_DeleteColumn" xml:space="preserve">
+    <value>MessageBox_DeleteColumn</value>
   </data>
   <data name="MessageBox_EmptyTable" xml:space="preserve">
     <value>MessageBox_EmptyTable</value>

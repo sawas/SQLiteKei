@@ -7,7 +7,7 @@ using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 
@@ -53,7 +53,12 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             set { rowCount = value; NotifyPropertyChanged("RowCount"); }
         }
 
-        public int ColumnCount { get; set; }
+        private int columnCount;
+        public int ColumnCount
+        {
+            get { return columnCount; }
+            set { columnCount = value; NotifyPropertyChanged("ColumnCount"); }
+        }
 
         public bool ColumnsFound { get; set; }
 
@@ -71,11 +76,11 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             set { selectedColumn = value; }
         }
 
-        public List<ColumnDataItem> Columns { get; set; }
+        public ObservableCollection<ColumnDataItem> Columns { get; set; }
 
         public GeneralTableViewModel(string tableName)
         {
-            Columns = new List<ColumnDataItem>();
+            Columns = new ObservableCollection<ColumnDataItem>();
             this.tableName = tableName;
 
             Initialize();
@@ -158,9 +163,9 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         {
             if (selectedColumn != null)
             {
-                var message = LocalisationHelper.GetString("MessageBox_ReindexTable", tableName);
-                var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_ReindexTable");
-                var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var message = LocalisationHelper.GetString("MessageBox_ColumnDeleteWarning", selectedColumn.Name);
+                var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_DeleteColumn");
+                var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                 if (result != MessageBoxResult.Yes) return;
 
@@ -169,11 +174,16 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                     using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
                     {
                         tableHandler.DeleteColumn(TableName, selectedColumn.Name);
+                        Columns.Remove(selectedColumn);
+                        ColumnCount--;
                     }
                 }
                 catch (Exception ex)
                 {
                     logger.Error("Failed to delete column '" + selectedColumn.Name + "' on table '" + tableName + "'.", ex);
+                    var errorMessage = LocalisationHelper.GetString("MessageBox_ColumnDeletionFailed", ex.Message);
+
+                    MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 };
                 
             }

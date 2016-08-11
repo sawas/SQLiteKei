@@ -160,6 +160,11 @@ namespace SQLiteKei.DataAccess.Database
             }
         }
 
+        /// <summary>
+        /// Deletes the specified column. Note: All Foreign Key constraints on the table will be lost.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <param name="columnName">Name of the column.</param>
         public void DeleteColumn(string tableName, string columnName)
         {
             var columns = GetColumns(tableName);
