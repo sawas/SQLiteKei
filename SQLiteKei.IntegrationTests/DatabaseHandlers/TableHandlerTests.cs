@@ -39,21 +39,6 @@ namespace SQLiteKei.IntegrationTests.DatabaseHandlers
         }
 
         [Test]
-        public void GetCreateStatement_ValidTableName_ReturnsValidCreateStatement()
-        {
-            var result = tableHandler.GetCreateStatement("TEST10");
-
-            Assert.AreEqual("CREATE TABLE TEST10 (ColumnA10 varchar(60), ColumnB10 int)", result);
-        }
-
-        [Test]
-        public void GetCreateStatement_WithInvalidTableName_ThrowsException()
-        {
-            Assert.Throws(typeof(TableNotFoundException),
-                () => tableHandler.GetCreateStatement("TABLE_INVALID"));
-        }
-
-        [Test]
         public void EmptyTable_WithValidTableName_EmptiesTable()
         {
             tableHandler.EmptyTable("TEST10");

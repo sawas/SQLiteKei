@@ -32,7 +32,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                             tableHandler.RenameTable(tableName, value);
                             MainTreeHandler.UpdateTableName(tableName, value, Properties.Settings.Default.CurrentDatabase);
                             tableName = value;
-                            TableCreateStatement = tableHandler.GetCreateStatement(tableName);
+                            TableCreateStatement = tableHandler.GetTable(tableName).CreateStatement;
                         }
                     }
                     catch (Exception ex)
@@ -87,11 +87,12 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
         private void Initialize()
         {
-            using (var dbHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
+            using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
             {
-                TableCreateStatement = dbHandler.GetCreateStatement(TableName);
-                RowCount = dbHandler.GetRowCount(TableName);
-                var columns = dbHandler.GetColumns(TableName);
+                var table = tableHandler.GetTable(tableName);
+                TableCreateStatement = table.CreateStatement;
+                RowCount = tableHandler.GetRowCount(TableName);
+                var columns = tableHandler.GetColumns(TableName);
                 ColumnCount = columns.Count;
 
                 foreach (var column in columns)
@@ -157,7 +158,23 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         {
             if (selectedColumn != null)
             {
+                var message = LocalisationHelper.GetString("MessageBox_ReindexTable", tableName);
+                var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_ReindexTable");
+                var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+                if (result != MessageBoxResult.Yes) return;
+
+                try
+                {
+                    using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
+                    {
+                        tableHandler.DeleteColumn(TableName, selectedColumn.Name);
+                    }
+                }
+                catch
+                {
+                };
+                
             }
         }
 

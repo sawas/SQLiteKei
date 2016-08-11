@@ -43,7 +43,6 @@ namespace SQLiteKei.DataAccess.Database
             {
                 tables.Add(new Table
                 {
-                    DatabaseName = row.ItemArray[0].ToString(),
                     Name = row.ItemArray[2].ToString(),
                     CreateStatement = row.ItemArray[6].ToString(),
                 });

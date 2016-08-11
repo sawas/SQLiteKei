@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Linq;
 
 namespace SQLiteKei.DataAccess.Database
 {
@@ -21,6 +22,19 @@ namespace SQLiteKei.DataAccess.Database
 
         public TableHandler(string databasePath) : base(databasePath)
         {
+        }
+
+        public Table GetTable(string tableName)
+        {
+            logger.Info("Loading table '" + tableName + "'.");
+            var tables = connection.GetSchema("Tables").AsEnumerable();
+            var table = tables.SingleOrDefault(x => x.ItemArray[2].Equals(tableName));
+
+            return new Table
+            {
+                Name = table.ItemArray[2].ToString(),
+                CreateStatement = table.ItemArray[6].ToString()
+            };
         }
 
         /// <summary>
@@ -53,28 +67,6 @@ namespace SQLiteKei.DataAccess.Database
                 }
             }
             return columns;
-        }
-
-        /// <summary>
-        /// Gets the create statement for the specified table.
-        /// </summary>
-        /// <param name="tableName">Name of the table.</param>
-        /// <returns></returns>
-        /// <exception cref="TableNotFoundException">Could not find table: {tableName}</exception>
-        public string GetCreateStatement(string tableName)
-        {
-            var tables = connection.GetSchema("Tables").AsEnumerable();
-
-            foreach (var table in tables)
-            {
-                if (table.ItemArray[2].Equals(tableName))
-                {
-                    return table.ItemArray[6].ToString();
-                }
-            }
-
-            logger.Error("Could not find table '" + tableName + "'");
-            throw new TableNotFoundException(tableName);
         }
 
         /// <summary>
@@ -162,6 +154,27 @@ namespace SQLiteKei.DataAccess.Database
                 command.CommandText = string.Format("REINDEX '{0}'", tableName);
                 command.ExecuteNonQuery();
                 logger.Info("Reindexed table '" + tableName + "'.");
+            }
+        }
+
+        public void DeleteColumn(string tableName, string columnName)
+        {
+            var columns = GetColumns(tableName);
+
+            var queryBuilder = QueryBuilder.CreateTable("SQLiteKei_TMP1");
+
+            foreach(var column in columns)
+            {
+                //queryBuilder.AddColumn(column.Name, )
+            }
+
+            using (var command = connection.CreateCommand())
+            {
+                var asdasd = "BEGIN TRANSACTION"
+                    + "CREATE TEMPORARY TABLE SQLiteKei_TMP1"
+                    + "INSERT INTO ";
+                command.CommandText = string.Format("BEGIN TRANSACTION"
+                    );
             }
         }
     }

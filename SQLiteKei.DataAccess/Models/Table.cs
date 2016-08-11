@@ -6,15 +6,7 @@
     public class Table
     {
         /// <summary>
-        /// Gets or sets the name of the on which the table was created.
-        /// </summary>
-        /// <value>
-        /// The name of the database.
-        /// </value>
-        public string DatabaseName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the table..
+        /// Gets or sets the name of the table.
         /// </summary>
         /// <value>
         /// The name.
