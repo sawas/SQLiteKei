@@ -64,17 +64,25 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             set { tableCreateStatement = value; NotifyPropertyChanged("TableCreateStatement"); }
         }
 
-        public List<ColumnDataItem> ColumnData { get; set; }
+        private ColumnDataItem selectedColumn;
+        public ColumnDataItem SelectedColumn
+        {
+            get { return selectedColumn; }
+            set { selectedColumn = value; }
+        }
+
+        public List<ColumnDataItem> Columns { get; set; }
 
         public GeneralTableViewModel(string tableName)
         {
-            ColumnData = new List<ColumnDataItem>();
+            Columns = new List<ColumnDataItem>();
             this.tableName = tableName;
 
             Initialize();
 
             emptyCommand = new DelegateCommand(EmptyTable);
             reindexCommand = new DelegateCommand(ReindexTable);
+            deleteColumnCommand = new DelegateCommand(DeleteColumn);
         }
 
         private void Initialize()
@@ -88,11 +96,11 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
                 foreach (var column in columns)
                 {
-                    ColumnData.Add(MapToColumnData(column));
+                    Columns.Add(MapToColumnData(column));
                 }
             }
 
-            if (ColumnData.Any())
+            if (Columns.Any())
                 ColumnsFound = true;
         }
 
@@ -144,5 +152,17 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         private DelegateCommand reindexCommand;
 
         public DelegateCommand ReindexCommand { get { return reindexCommand; } }
+
+        private void DeleteColumn()
+        {
+            if (selectedColumn != null)
+            {
+
+            }
+        }
+
+        private DelegateCommand deleteColumnCommand;
+
+        public DelegateCommand DeleteColumnCommand { get { return deleteColumnCommand; } }
     }
 }
