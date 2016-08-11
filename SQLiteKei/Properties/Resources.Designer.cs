@@ -1007,6 +1007,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TableGeneralTab_ButtonText_Delete.
+        /// </summary>
+        public static string TableGeneralTab_ButtonText_Delete {
+            get {
+                return ResourceManager.GetString("TableGeneralTab_ButtonText_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TableGeneralTab_ButtonText_Empty.
         /// </summary>
         public static string TableGeneralTab_ButtonText_Empty {

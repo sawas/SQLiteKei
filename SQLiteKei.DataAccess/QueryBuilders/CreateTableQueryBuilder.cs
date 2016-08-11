@@ -144,7 +144,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
             if(!Columns.Any())
             {
-                throw new ColumnDefinitionException("No columns defined.");
+                throw new ColumnDefinitionException("At least one column needs to be defined.");
             }
 
             string columns = string.Join(",\n", Columns);

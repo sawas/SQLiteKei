@@ -438,6 +438,9 @@ Original Message: {0}</value>
   <data name="TableCreator_TableCreateSuccess" xml:space="preserve">
     <value>Table created successfully!</value>
   </data>
+  <data name="TableGeneralTab_ButtonText_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="TableGeneralTab_ButtonText_Empty" xml:space="preserve">
     <value>Empty</value>
   </data>

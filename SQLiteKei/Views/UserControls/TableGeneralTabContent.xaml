@@ -43,6 +43,10 @@
         <GroupBox Grid.Row="2" Header="{x:Static localisation:Resources.TabContent_GroupBoxHeader_Columns}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="Auto">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="115" />
+                    </Grid.ColumnDefinitions>
                     <DataGrid x:Name="ColumnDataGrid" Grid.Column="0" Margin="5" 
                               ItemsSource="{Binding Columns}" SelectedItem="{Binding SelectedColumn}"
                               HorizontalAlignment="Stretch" VerticalAlignment="Top"
@@ -71,7 +75,7 @@
                             <DataGridTextColumn Header="Default" Binding="{Binding DefaultValue}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label Content="{x:Static localisation:Resources.TableGeneralTab_NoColumnsFound}" 
+                    <Label Grid.Column="0" Content="{x:Static localisation:Resources.TableGeneralTab_NoColumnsFound}" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold">
                         <Label.Style>
                             <Style BasedOn="{StaticResource {x:Type Label}}" TargetType="{x:Type Label}">
@@ -86,6 +90,10 @@
                             </Style>
                         </Label.Style>
                     </Label>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0 5">
+                        <Button  Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Delete}" 
+                                 Height="25" Width="100" Command="{Binding DeleteColumnCommand}" />
+                    </StackPanel>
                 </Grid>
             </ScrollViewer>
         </GroupBox>

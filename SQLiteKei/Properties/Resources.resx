@@ -433,6 +433,9 @@
   <data name="TableCreator_TableCreateSuccess" xml:space="preserve">
     <value>TableCreator_TableCreateSuccess</value>
   </data>
+  <data name="TableGeneralTab_ButtonText_Delete" xml:space="preserve">
+    <value>TableGeneralTab_ButtonText_Delete</value>
+  </data>
   <data name="TableGeneralTab_ButtonText_Empty" xml:space="preserve">
     <value>TableGeneralTab_ButtonText_Empty</value>
   </data>

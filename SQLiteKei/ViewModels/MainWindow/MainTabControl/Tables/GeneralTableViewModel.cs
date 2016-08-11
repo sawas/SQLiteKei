@@ -183,7 +183,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                     logger.Error("Failed to delete column '" + selectedColumn.Name + "' on table '" + tableName + "'.", ex);
                     var errorMessage = LocalisationHelper.GetString("MessageBox_ColumnDeletionFailed", ex.Message);
 
-                    MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 };
                 
             }

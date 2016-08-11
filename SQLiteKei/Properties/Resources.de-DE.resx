@@ -438,6 +438,9 @@ Originale Fehlermeldung: {0}</value>
   <data name="TableCreator_TableCreateSuccess" xml:space="preserve">
     <value>Tabelle erfolgreich erzeugt!</value>
   </data>
+  <data name="TableGeneralTab_ButtonText_Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
   <data name="TableGeneralTab_ButtonText_Empty" xml:space="preserve">
     <value>Leeren</value>
   </data>
