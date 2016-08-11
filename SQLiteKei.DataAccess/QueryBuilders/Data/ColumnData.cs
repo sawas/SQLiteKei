@@ -11,7 +11,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders.Data
     {
         public string ColumnName { get; set; }
 
-        public DataType DataType { get; set; }
+        public string DataType { get; set; }
 
         public bool IsPrimary { get; set; }
 

@@ -44,7 +44,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         /// or
         /// Multiple primary keys defined.
         /// </exception>
-        public CreateTableQueryBuilder AddColumn(string columnName, DataType dataType, bool isPrimary = false, bool isNotNull = true, object defaultValue = null)
+        public CreateTableQueryBuilder AddColumn(string columnName, string dataType, bool isPrimary = false, bool isNotNull = true, object defaultValue = null)
         {
             if(string.IsNullOrWhiteSpace(columnName))
             {

@@ -16,8 +16,8 @@ namespace SQLiteKei.UnitTests.Queries
 
             var result = QueryBuilder
                 .CreateTable("Table")
-                .AddColumn("Column1", DataType.Integer, true)
-                .AddColumn("Column2", DataType.Text)
+                .AddColumn("Column1", "Integer", true)
+                .AddColumn("Column2", "Text")
                 .AddForeignKey("Column1", "ReferencedTable", "ReferencedColumn")
                 .Build();
 
@@ -29,7 +29,7 @@ namespace SQLiteKei.UnitTests.Queries
         {
             Assert.Throws(typeof(CreateQueryBuilderException),
                 () => QueryBuilder.CreateTable(null)
-                .AddColumn("Column", DataType.Bool)
+                .AddColumn("Column", "Bool")
                 .Build());
         }
 
@@ -38,7 +38,7 @@ namespace SQLiteKei.UnitTests.Queries
         {
             Assert.Throws(typeof(CreateQueryBuilderException),
                 () => QueryBuilder.CreateTable(string.Empty)
-                .AddColumn("Column", DataType.Bool)
+                .AddColumn("Column", "Bool")
                 .Build());
         }
 
@@ -47,7 +47,7 @@ namespace SQLiteKei.UnitTests.Queries
         {
             Assert.Throws(typeof(CreateQueryBuilderException),
                 () => QueryBuilder.CreateTable("  ")
-                .AddColumn("Column", DataType.Bool)
+                .AddColumn("Column", "Bool")
                 .Build());
         }
 
@@ -64,8 +64,8 @@ namespace SQLiteKei.UnitTests.Queries
         {
             Assert.Throws(typeof(ColumnDefinitionException),
                 () => QueryBuilder.CreateTable("Table")
-                .AddColumn("Column", DataType.Bool)
-                .AddColumn("Column", DataType.Blob)
+                .AddColumn("Column", "Bool")
+                .AddColumn("Column", "Blob")
                 .Build());
         }
 
@@ -74,8 +74,8 @@ namespace SQLiteKei.UnitTests.Queries
         {
             Assert.Throws(typeof(ColumnDefinitionException),
                 () => QueryBuilder.CreateTable("Table")
-                .AddColumn("Column", DataType.Bool, true)
-                .AddColumn("Column1", DataType.Blob, true)
+                .AddColumn("Column", "Bool", true)
+                .AddColumn("Column1", "Blob", true)
                 .Build());
         }
 
@@ -84,7 +84,7 @@ namespace SQLiteKei.UnitTests.Queries
         {
             Assert.Throws(typeof(ColumnDefinitionException),
                 () => QueryBuilder.CreateTable("Table")
-                .AddColumn(null, DataType.Bool));
+                .AddColumn(null, "Bool"));
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace SQLiteKei.UnitTests.Queries
         {
             Assert.Throws(typeof(ColumnDefinitionException),
                 () => QueryBuilder.CreateTable("Table")
-                .AddColumn(string.Empty, DataType.Bool));
+                .AddColumn(string.Empty, "Bool"));
         }
 
         [Test]
@@ -100,7 +100,7 @@ namespace SQLiteKei.UnitTests.Queries
         {
             Assert.Throws(typeof(ColumnDefinitionException),
                 () => QueryBuilder.CreateTable("Table")
-                .AddColumn("  ", DataType.Bool));
+                .AddColumn("  ", "Bool"));
         }
 
         [Test]

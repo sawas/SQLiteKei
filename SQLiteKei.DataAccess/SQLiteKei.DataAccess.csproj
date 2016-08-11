@@ -91,7 +91,6 @@
     <Compile Include="QueryBuilders\Data\ForeignKeyData.cs" />
     <Compile Include="QueryBuilders\Data\OrderData.cs" />
     <Compile Include="QueryBuilders\DropTableQueryBuilder.cs" />
-    <Compile Include="QueryBuilders\Enums\DataType.cs" />
     <Compile Include="QueryBuilders\Enums\OrderType.cs" />
     <Compile Include="QueryBuilders\QueryBuilder.cs" />
     <Compile Include="QueryBuilders\SelectQueryBuilder.cs" />

@@ -130,7 +130,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
                 foreach (var definition in ColumnDefinitions)
                 {
                     builder.AddColumn(definition.ColumnName,
-                        definition.DataType,
+                        definition.DataType.ToString(),
                         definition.IsPrimary,
                         definition.IsNotNull,
                         definition.DefaultValue);

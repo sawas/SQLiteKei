@@ -4,7 +4,7 @@ using SQLiteKei.DataAccess.Exceptions;
 using SQLiteKei.DataAccess.Helpers;
 using SQLiteKei.DataAccess.Models;
 using SQLiteKei.DataAccess.QueryBuilders;
-
+using SQLiteKei.DataAccess.QueryBuilders.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -165,7 +165,7 @@ namespace SQLiteKei.DataAccess.Database
 
             foreach(var column in columns)
             {
-                //queryBuilder.AddColumn(column.Name, )
+                queryBuilder.AddColumn(column.Name, column.DataType, column.IsPrimary, column.IsNotNullable, column.DefaultValue);
             }
 
             using (var command = connection.CreateCommand())

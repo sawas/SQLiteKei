@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using SQLiteKei.DataAccess.QueryBuilders.Enums;
 using SQLiteKei.ViewModels.Base;
+using SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow.Enums;
 
 namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
 {

@@ -70,6 +70,7 @@
     <Compile Include="Util\MainTreeHandler.cs" />
     <Compile Include="ViewModels\CreatorWindows\IndexCreatorWindow\IndexCreatorViewModel.cs" />
     <Compile Include="ViewModels\CreatorWindows\IndexCreatorWindow\ColumnItem.cs" />
+    <Compile Include="ViewModels\CreatorWindows\TableCreatorWindow\Enums\DataType.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\ViewFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\MainTabControl\Indexes\GeneralIndexViewModel.cs" />
