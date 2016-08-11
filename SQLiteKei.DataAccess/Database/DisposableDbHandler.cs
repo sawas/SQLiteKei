@@ -1,4 +1,6 @@
-﻿using System;
+﻿using log4net;
+using SQLiteKei.DataAccess.Helpers;
+using System;
 using System.Data.SQLite;
 
 namespace SQLiteKei.DataAccess.Database
@@ -8,6 +10,8 @@ namespace SQLiteKei.DataAccess.Database
     /// </summary>
     public abstract class DisposableDbHandler : IDisposable
     {
+        protected ILog logger = LogHelper.GetLogger();
+
         internal SQLiteConnection connection;
 
         protected DisposableDbHandler(string databasePath)
@@ -17,12 +21,19 @@ namespace SQLiteKei.DataAccess.Database
 
         private void InitializeConnection(string databasePath)
         {
-            connection = new SQLiteConnection(databasePath)
+            try
             {
-                ConnectionString = string.Format("Data Source={0}", databasePath)
-            };
+                connection = new SQLiteConnection(databasePath)
+                {
+                    ConnectionString = string.Format("Data Source={0}", databasePath)
+                };
 
-            connection.Open();
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Could not initialize connection to SQLite database.", ex);
+            }
         }
 
         public void Dispose()

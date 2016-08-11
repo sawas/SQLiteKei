@@ -51,6 +51,6 @@
         /// <value>
         /// The default value.
         /// </value>
-        public object DefaultValue { get; set; }
+        public string DefaultValue { get; set; }
     }
 }

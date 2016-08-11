@@ -12,7 +12,9 @@ namespace SQLiteKei.DataAccess.QueryBuilders
     /// </summary>
     public class CreateTableQueryBuilder
     {
-        private string table; 
+        private string table;
+
+        private bool isTemporary;
 
         private List<ColumnData> Columns { get; set; }
 
@@ -86,6 +88,17 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         }
 
         /// <summary>
+        /// Defines the table as temporary.
+        /// </summary>
+        /// <param name="value">if set to <c>true</c> [value].</param>
+        /// <returns></returns>
+        public CreateTableQueryBuilder AsTemporary(bool value = true)
+        {
+            isTemporary = value;
+            return this;
+        }
+
+        /// <summary>
         /// Adds the foreign key.
         /// </summary>
         /// <param name="localColumn">The local column.</param>
@@ -135,14 +148,17 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             }
 
             string columns = string.Join(",\n", Columns);
-            
-            if(ForeignKeys.Any())
+
+            var temporary = isTemporary ? " TEMPORARY" : string.Empty;
+
+            if (ForeignKeys.Any())
             {
                 string foreignKeys = string.Join(",\n", ForeignKeys);
-                return string.Format("CREATE TABLE '{0}'\n(\n{1},\n{2}\n);", table, columns, foreignKeys);
+                
+                return string.Format("CREATE{0} TABLE '{1}'\n(\n{2},\n{3}\n);", temporary, table, columns, foreignKeys);
             }
 
-            return string.Format("CREATE TABLE '{0}'\n(\n{1}\n);", table, columns);
+            return string.Format("CREATE{0} TABLE '{1}'\n(\n{2}\n);", temporary, table, columns);
         }
     }
 }

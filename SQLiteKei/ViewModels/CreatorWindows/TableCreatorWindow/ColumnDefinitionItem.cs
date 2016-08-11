@@ -52,8 +52,8 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
             }
         }
 
-        private object defaultValue;
-        public object DefaultValue
+        private string defaultValue;
+        public string DefaultValue
         {
             get { return defaultValue; }
             set { defaultValue = value; NotifyPropertyChanged("DefaultValue"); }

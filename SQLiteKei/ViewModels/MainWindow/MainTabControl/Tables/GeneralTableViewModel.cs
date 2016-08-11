@@ -171,8 +171,9 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                         tableHandler.DeleteColumn(TableName, selectedColumn.Name);
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
+                    logger.Error("Failed to delete column '" + selectedColumn.Name + "' on table '" + tableName + "'.", ex);
                 };
                 
             }

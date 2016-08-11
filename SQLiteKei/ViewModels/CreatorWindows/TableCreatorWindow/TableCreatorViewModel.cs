@@ -211,22 +211,20 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
             if (!string.IsNullOrEmpty(SqlStatement))
             {
                 var database = SelectedDatabase as DatabaseSelectItem;
-                var dbHandler = new DatabaseHandler(database.DatabasePath);
-
-                try
+                using (var dbHandler = new DatabaseHandler(database.DatabasePath))
                 {
-                    if (SqlStatement.StartsWith("CREATE TABLE", StringComparison.CurrentCultureIgnoreCase))
+                    try
                     {
                         dbHandler.ExecuteNonQuery(SqlStatement);
                         StatusInfo = LocalisationHelper.GetString("TableCreator_TableCreateSuccess");
 
                         MainTreeHandler.AddTable(tableName, selectedDatabase.DatabasePath);
                     }
-                }
-                catch (Exception ex)
-                {
-                    logger.Error("An error occured when the user tried to create a table from the TableCreator.", ex);
-                    StatusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
+                    catch (Exception ex)
+                    {
+                        logger.Error("An error occured when the user tried to create a table from the TableCreator.", ex);
+                        StatusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
+                    }
                 }
             }
         }

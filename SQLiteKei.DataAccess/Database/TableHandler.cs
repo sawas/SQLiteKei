@@ -4,7 +4,7 @@ using SQLiteKei.DataAccess.Exceptions;
 using SQLiteKei.DataAccess.Helpers;
 using SQLiteKei.DataAccess.Models;
 using SQLiteKei.DataAccess.QueryBuilders;
-using SQLiteKei.DataAccess.QueryBuilders.Enums;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,12 +18,15 @@ namespace SQLiteKei.DataAccess.Database
     /// </summary>
     public class TableHandler : DisposableDbHandler
     {
-        private ILog logger = LogHelper.GetLogger();
-
         public TableHandler(string databasePath) : base(databasePath)
         {
         }
 
+        /// <summary>
+        /// Gets the table with the specified name.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
         public Table GetTable(string tableName)
         {
             logger.Info("Loading table '" + tableName + "'.");
@@ -61,7 +64,7 @@ namespace SQLiteKei.DataAccess.Database
                         Name = (string)row.ItemArray[1],
                         DataType = (string)row.ItemArray[2],
                         IsNotNullable = Convert.ToBoolean(row.ItemArray[3]),
-                        DefaultValue = row.ItemArray[4],
+                        DefaultValue = row.ItemArray[4].ToString(),
                         IsPrimary = Convert.ToBoolean(row.ItemArray[5])
                     });
                 }
@@ -161,20 +164,32 @@ namespace SQLiteKei.DataAccess.Database
         {
             var columns = GetColumns(tableName);
 
-            var queryBuilder = QueryBuilder.CreateTable("SQLiteKei_TMP1");
+            var tmpQueryBuilder = QueryBuilder.CreateTable("SQLiteKei_TMP1").AsTemporary();
+            var originalQueryBuilder = QueryBuilder.CreateTable(tableName);
+            var columnsToPreserve = new List<string>();
 
             foreach(var column in columns)
             {
-                queryBuilder.AddColumn(column.Name, column.DataType, column.IsPrimary, column.IsNotNullable, column.DefaultValue);
+                if(!column.Name.Equals(columnName))
+                {
+                    tmpQueryBuilder.AddColumn(column.Name, column.DataType, column.IsPrimary, column.IsNotNullable, column.DefaultValue);
+                    originalQueryBuilder.AddColumn(column.Name, column.DataType, column.IsPrimary, column.IsNotNullable, column.DefaultValue);
+                    columnsToPreserve.Add(column.Name);
+                }
             }
-
+            
             using (var command = connection.CreateCommand())
             {
-                var asdasd = "BEGIN TRANSACTION"
-                    + "CREATE TEMPORARY TABLE SQLiteKei_TMP1"
-                    + "INSERT INTO ";
-                command.CommandText = string.Format("BEGIN TRANSACTION"
-                    );
+                command.CommandText = "BEGIN TRANSACTION;\n"
+                    + tmpQueryBuilder.Build() + "\n"
+                    + string.Format("INSERT INTO SQLiteKei_TMP1 SELECT {0} FROM '{1}';\n", string.Join(",", columnsToPreserve), tableName)
+                    + QueryBuilder.DropTable(tableName).Build() + ";\n"
+                    + originalQueryBuilder.Build() + "\n"
+                    + string.Format("INSERT INTO {0} SELECT {1} FROM 'SQLiteKei_TMP1';\n", tableName, string.Join(",", columnsToPreserve))
+                    + QueryBuilder.DropTable("SQLiteKei_TMP1").Build() + ";\n"
+                    + "COMMIT;";
+
+                command.ExecuteNonQuery();
             }
         }
     }

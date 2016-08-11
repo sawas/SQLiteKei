@@ -1,6 +1,4 @@
-﻿using SQLiteKei.DataAccess.QueryBuilders.Enums;
-
-using System.Text;
+﻿using System.Text;
 
 namespace SQLiteKei.DataAccess.QueryBuilders.Data
 {
@@ -29,8 +27,8 @@ namespace SQLiteKei.DataAccess.QueryBuilders.Data
             if (IsNotNull || IsPrimary)
                 column.Append(" NOT NULL");
 
-            if (DefaultValue != null)
-                column.Append(" DEFAULT '" + DefaultValue + "'");
+            if (DefaultValue != null && !string.IsNullOrEmpty(DefaultValue.ToString()))
+                column.Append(" DEFAULT " + DefaultValue.ToString() + "");
 
             return column.ToString();
         }
