@@ -70,6 +70,7 @@
     <Compile Include="Database\ViewHandler.cs" />
     <Compile Include="Exceptions\ColumnDefinitionException.cs" />
     <Compile Include="Exceptions\CreateQueryBuilderException.cs" />
+    <Compile Include="Exceptions\QueryBuilderException.cs" />
     <Compile Include="Exceptions\SelectQueryBuilderException.cs" />
     <Compile Include="Exceptions\TableNotFoundException.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Models\Trigger.cs" />
     <Compile Include="Models\View.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryBuilders\AlterTableQueryBuilder.cs" />
     <Compile Include="QueryBuilders\Base\ConditionalQueryBuilder.cs" />
     <Compile Include="QueryBuilders\Base\QueryBuilderBase.cs" />
     <Compile Include="QueryBuilders\CreateIndexBuilder.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="QueryBuilders\Data\ForeignKeyData.cs" />
     <Compile Include="QueryBuilders\Data\OrderData.cs" />
     <Compile Include="QueryBuilders\DropTableQueryBuilder.cs" />
+    <Compile Include="QueryBuilders\Enums\AlterType.cs" />
     <Compile Include="QueryBuilders\Enums\OrderType.cs" />
     <Compile Include="QueryBuilders\QueryBuilder.cs" />
     <Compile Include="QueryBuilders\SelectQueryBuilder.cs" />

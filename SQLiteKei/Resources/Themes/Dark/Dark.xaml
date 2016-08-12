@@ -33,6 +33,7 @@
     <Style TargetType="{x:Type creatorWindows:ViewCreator}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type creatorWindows:TriggerCreator}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type creatorWindows:IndexCreator}" BasedOn="{StaticResource {x:Type Window}}" />
+    <Style TargetType="{x:Type creatorWindows:ColumnCreator}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type generalWindows:About}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type generalWindows:UnhandledExceptionWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 

@@ -7,6 +7,7 @@ using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.CreatorWindows.ColumnCreatorWindow;
 using SQLiteKei.Views.Windows.Creators;
+
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -197,16 +198,17 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
         private void AddColumn()
         {
-            var result = new ColumnCreator(new ColumnCreatorViewModel(tableName)).ShowDialog();
+            new ColumnCreator(new ColumnCreatorViewModel(tableName)).ShowDialog();
 
-            if (result == true)
-                ReloadColumns();
+            ReloadColumns();
         }
 
         private void ReloadColumns()
         {
             using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
             {
+                Columns.Clear();
+
                 var columns = tableHandler.GetColumns(TableName);
                 ColumnCount = columns.Count;
 

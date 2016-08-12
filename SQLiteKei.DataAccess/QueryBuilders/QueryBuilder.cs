@@ -113,5 +113,15 @@
         {
             return new DropTriggerQueryBuilder(triggerName);
         }
+
+        /// <summary>
+        /// Begins an ALTER statement for the specified table.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
+        public static AlterTableQueryBuilder AlterTable(string tableName)
+        {
+            return new AlterTableQueryBuilder(tableName);
+        }
     }
 }

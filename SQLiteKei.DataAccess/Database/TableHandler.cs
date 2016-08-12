@@ -160,9 +160,16 @@ namespace SQLiteKei.DataAccess.Database
             }
         }
 
-        public void AddColumn(string tableName)
+        public void AddColumn(string tableName, string columnName, string dataType, bool isNullable = false, string defaultValue = null)
         {
-
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = QueryBuilder.AlterTable(tableName)
+                    .AddColumn(columnName, dataType, isNullable, defaultValue)
+                    .Build();
+                command.ExecuteNonQuery();
+                logger.Info("Added column '" + columnName + "' on table '" + tableName + "'.");
+            }
         }
 
         /// <summary>

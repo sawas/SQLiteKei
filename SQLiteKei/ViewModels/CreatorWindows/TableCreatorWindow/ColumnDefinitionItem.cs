@@ -62,6 +62,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
         public ColumnDefinitionItem()
         {
             columnName = "<Name>";
+            DataType = DataType.Varchar;
         }
     }
 }

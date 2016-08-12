@@ -126,11 +126,17 @@
   <data name="ButtonText_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="ButtonText_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="ButtonText_Create" xml:space="preserve">
     <value>Create</value>
   </data>
   <data name="ButtonText_Execute" xml:space="preserve">
     <value>Execute</value>
+  </data>
+  <data name="ColumnCreator_StatusInfo_Success" xml:space="preserve">
+    <value>Column created successfully!</value>
   </data>
   <data name="ContextMenuItem_CloseDatabase" xml:space="preserve">
     <value>Close</value>
@@ -592,6 +598,9 @@ Original Message: {0}</value>
   </data>
   <data name="WindowTitle_About" xml:space="preserve">
     <value>About</value>
+  </data>
+  <data name="WindowTitle_ColumnCreator" xml:space="preserve">
+    <value>Create Column</value>
   </data>
   <data name="WindowTitle_IndexCreator" xml:space="preserve">
     <value>Create Index</value>

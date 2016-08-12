@@ -28,7 +28,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders.Data
                 column.Append(" NOT NULL");
 
             if (DefaultValue != null && !string.IsNullOrEmpty(DefaultValue.ToString()))
-                column.Append(" DEFAULT " + DefaultValue.ToString() + "");
+                column.Append(" DEFAULT '" + DefaultValue.ToString() + "'");
 
             return column.ToString();
         }

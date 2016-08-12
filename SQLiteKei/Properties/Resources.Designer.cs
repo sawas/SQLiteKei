@@ -88,6 +88,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ButtonText_Close.
+        /// </summary>
+        public static string ButtonText_Close {
+            get {
+                return ResourceManager.GetString("ButtonText_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ButtonText_Create.
         /// </summary>
         public static string ButtonText_Create {
@@ -102,6 +111,15 @@ namespace SQLiteKei.Properties {
         public static string ButtonText_Execute {
             get {
                 return ResourceManager.GetString("ButtonText_Execute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ColumnCreator_StatusInfo_Success.
+        /// </summary>
+        public static string ColumnCreator_StatusInfo_Success {
+            get {
+                return ResourceManager.GetString("ColumnCreator_StatusInfo_Success", resourceCulture);
             }
         }
         
@@ -1462,6 +1480,15 @@ namespace SQLiteKei.Properties {
         public static string WindowTitle_About {
             get {
                 return ResourceManager.GetString("WindowTitle_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WindowTitle_ColumnCreator.
+        /// </summary>
+        public static string WindowTitle_ColumnCreator {
+            get {
+                return ResourceManager.GetString("WindowTitle_ColumnCreator", resourceCulture);
             }
         }
         

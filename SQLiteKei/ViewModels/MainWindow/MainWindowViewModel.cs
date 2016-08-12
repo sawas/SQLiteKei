@@ -177,8 +177,7 @@ namespace SQLiteKei.ViewModels.MainWindow
             catch (Exception ex)
             {
                 log.Error("Failed to delete view '" + viewItem.DisplayName + "'.", ex);
-                var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
-                StatusBarInfo = statusInfo;
+                StatusBarInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
             }
         }
 

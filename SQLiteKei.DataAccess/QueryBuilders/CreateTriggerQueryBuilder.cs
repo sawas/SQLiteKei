@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using SQLiteKei.DataAccess.QueryBuilders.Base;
 
-using SQLiteKei.DataAccess.QueryBuilders.Base;
-using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SQLiteKei.DataAccess.QueryBuilders
 {

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\AlterTableQueryBuilderTests.cs" />
     <Compile Include="Queries\CreateIndexQueryBuilderTests.cs" />
     <Compile Include="Queries\CreateTriggerQueryBuilderTests.cs" />
     <Compile Include="Queries\DropIndexQueryBuilderTests.cs" />

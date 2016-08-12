@@ -126,11 +126,17 @@
   <data name="ButtonText_Cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
+  <data name="ButtonText_Close" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
   <data name="ButtonText_Create" xml:space="preserve">
     <value>Erzeugen</value>
   </data>
   <data name="ButtonText_Execute" xml:space="preserve">
     <value>Ausführen</value>
+  </data>
+  <data name="ColumnCreator_StatusInfo_Success" xml:space="preserve">
+    <value>Spalte erfolgreich erzeugt!</value>
   </data>
   <data name="ContextMenuItem_CloseDatabase" xml:space="preserve">
     <value>Trennen</value>
@@ -592,6 +598,9 @@ Originale Fehlermeldung: {0}</value>
   </data>
   <data name="WindowTitle_About" xml:space="preserve">
     <value>Über</value>
+  </data>
+  <data name="WindowTitle_ColumnCreator" xml:space="preserve">
+    <value>Spalte erstellen</value>
   </data>
   <data name="WindowTitle_IndexCreator" xml:space="preserve">
     <value>Create Index</value>
