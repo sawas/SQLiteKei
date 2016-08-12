@@ -162,6 +162,44 @@ namespace SQLiteKei.DataAccess.Database
 
         public void RenameColumn(string oldName, string newName, string tableName)
         {
+            var originalColumns = GetColumns(tableName);
+
+            var tmpQueryBuilder = QueryBuilder.CreateTable("SQLiteKei_TMP1").AsTemporary();
+            var originalQueryBuilder = QueryBuilder.CreateTable(tableName);
+            var newColumns = new List<string>();
+            var oldColumns = new List<string>();
+
+            foreach (var column in originalColumns)
+            {
+                if(column.Name.Equals(oldName))
+                {
+                    tmpQueryBuilder.AddColumn(newName, column.DataType, column.IsPrimary, column.IsNotNullable, column.DefaultValue);
+                    originalQueryBuilder.AddColumn(newName, column.DataType, column.IsPrimary, column.IsNotNullable, column.DefaultValue);
+                    newColumns.Add(newName);
+                    oldColumns.Add(column.Name);
+                }
+                else
+                {
+                    tmpQueryBuilder.AddColumn(column.Name, column.DataType, column.IsPrimary, column.IsNotNullable, column.DefaultValue);
+                    originalQueryBuilder.AddColumn(column.Name, column.DataType, column.IsPrimary, column.IsNotNullable, column.DefaultValue);
+                    newColumns.Add(column.Name);
+                    oldColumns.Add(column.Name);
+                }
+            }
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "BEGIN TRANSACTION;\n"
+                    + tmpQueryBuilder.Build() + "\n"
+                    + string.Format("INSERT INTO SQLiteKei_TMP1 SELECT {0} FROM '{1}';\n", string.Join(",", oldColumns), tableName)
+                    + QueryBuilder.DropTable(tableName).Build() + ";\n"
+                    + originalQueryBuilder.Build() + "\n"
+                    + string.Format("INSERT INTO {0} SELECT {1} FROM 'SQLiteKei_TMP1';\n", tableName, string.Join(",", newColumns))
+                    + QueryBuilder.DropTable("SQLiteKei_TMP1").Build() + ";\n"
+                    + "COMMIT;";
+
+                command.ExecuteNonQuery();
+            }
         }
 
         /// <summary>

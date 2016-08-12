@@ -575,6 +575,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MessageBox_ColumnRenameWarning.
+        /// </summary>
+        public static string MessageBox_ColumnRenameWarning {
+            get {
+                return ResourceManager.GetString("MessageBox_ColumnRenameWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MessageBox_DatabaseDeleteWarning.
         /// </summary>
         public static string MessageBox_DatabaseDeleteWarning {
@@ -697,6 +706,15 @@ namespace SQLiteKei.Properties {
         public static string MessageBoxTitle_ReindexTable {
             get {
                 return ResourceManager.GetString("MessageBoxTitle_ReindexTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MessageBoxTitle_RenameColumn.
+        /// </summary>
+        public static string MessageBoxTitle_RenameColumn {
+            get {
+                return ResourceManager.GetString("MessageBoxTitle_RenameColumn", resourceCulture);
             }
         }
         

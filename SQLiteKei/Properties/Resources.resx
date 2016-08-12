@@ -295,6 +295,9 @@
   <data name="MessageBoxTitle_ReindexTable" xml:space="preserve">
     <value>MessageBoxTitle_ReindexTable</value>
   </data>
+  <data name="MessageBoxTitle_RenameColumn" xml:space="preserve">
+    <value>MessageBoxTitle_RenameColumn</value>
+  </data>
   <data name="MessageBoxTitle_TableDeletion" xml:space="preserve">
     <value>MessageBoxTitle_TableDeletion</value>
   </data>
@@ -309,6 +312,9 @@
   </data>
   <data name="MessageBox_ColumnDeletionFailed" xml:space="preserve">
     <value>MessageBox_ColumnDeletionFailed</value>
+  </data>
+  <data name="MessageBox_ColumnRenameWarning" xml:space="preserve">
+    <value>MessageBox_ColumnRenameWarning</value>
   </data>
   <data name="MessageBox_DatabaseDeleteWarning" xml:space="preserve">
     <value>MessageBox_DatabaseDeleteWarning</value>

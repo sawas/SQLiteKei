@@ -294,6 +294,9 @@
   <data name="MessageBoxTitle_ReindexTable" xml:space="preserve">
     <value>Tabelle neu indizieren</value>
   </data>
+  <data name="MessageBoxTitle_RenameColumn" xml:space="preserve">
+    <value>Spalte umbenennen</value>
+  </data>
   <data name="MessageBoxTitle_TableDeletion" xml:space="preserve">
     <value>Tabelle löschen</value>
   </data>
@@ -312,6 +315,11 @@ Warnung: Wenn Sie diese Funktion nutzen, dann verlieren sie damit alle Fremdschl
     <value>Die Spalte konnte nicht gelöscht werden.
 
 Ursprüngliche Meldung: {0}</value>
+  </data>
+  <data name="MessageBox_ColumnRenameWarning" xml:space="preserve">
+    <value>Wollen Sie die Spalte '{0}' wirklich umbenennen?
+
+Warnung: Wenn Sie diese Funktion nutzen, dann verlieren sie damit alle Fremdschlüssel-Referenzen dieser Tabelle! (Zeilenwerte und sonstige Definitionen der Spalten bleiben erhalten)</value>
   </data>
   <data name="MessageBox_DatabaseDeleteWarning" xml:space="preserve">
     <value>Wollen Sie die Datenbank '{0}' wirklich löschen? Achtung: dies wird die Datenbank von Ihrem Dateisystem entfernen!</value>

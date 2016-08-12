@@ -294,6 +294,9 @@
   <data name="MessageBoxTitle_ReindexTable" xml:space="preserve">
     <value>Reindex Table</value>
   </data>
+  <data name="MessageBoxTitle_RenameColumn" xml:space="preserve">
+    <value>Rename Column</value>
+  </data>
   <data name="MessageBoxTitle_TableDeletion" xml:space="preserve">
     <value>Delete Table</value>
   </data>
@@ -312,6 +315,11 @@ Warning: Using this function, you will lose all FOREIGN KEY constraints on this 
     <value>The column could not be deleted.
 
 Original message: {0}</value>
+  </data>
+  <data name="MessageBox_ColumnRenameWarning" xml:space="preserve">
+    <value>Do you really want to rename the column '{0}'?
+
+Warning: Using this function, you will lose all FOREIGN KEY constraints on this table! (Values and general column definitions will be preserved)</value>
   </data>
   <data name="MessageBox_DatabaseDeleteWarning" xml:space="preserve">
     <value>Do you really want to delete the database '{0}'? Warning: this will delete the database from your file system!</value>

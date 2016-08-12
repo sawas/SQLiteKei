@@ -186,7 +186,6 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
                     MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 };
-                
             }
         }
 

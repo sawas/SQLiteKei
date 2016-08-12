@@ -16,9 +16,20 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         public string Name
         {
             get { return name; }
-            set {
-                if (!string.IsNullOrWhiteSpace(value))
+            set
+            {
+                if (string.IsNullOrWhiteSpace(name))
                 {
+                    name = value;
+                }
+                else if (!string.IsNullOrWhiteSpace(value))
+                {
+                    var message = LocalisationHelper.GetString("MessageBox_ColumnRenameWarning", name);
+                    var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_RenameColumn");
+                    var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                    if (result != MessageBoxResult.Yes) return;
+
                     try
                     {
                         using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
@@ -30,9 +41,9 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                     catch (Exception ex)
                     {
                         logger.Warn("Failed to rename column '" + name + "' from table overview.", ex);
-                        var message = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
+                        var errorMessage = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
 
-                        MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
             }
