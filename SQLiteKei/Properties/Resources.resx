@@ -445,6 +445,9 @@
   <data name="TableGeneralTab_ButtonText_Empty" xml:space="preserve">
     <value>TableGeneralTab_ButtonText_Empty</value>
   </data>
+  <data name="TableGeneralTab_ButtonText_New" xml:space="preserve">
+    <value>TableGeneralTab_ButtonText_New</value>
+  </data>
   <data name="TableGeneralTab_ButtonText_Reindex" xml:space="preserve">
     <value>TableGeneralTab_ButtonText_Reindex</value>
   </data>

@@ -13,6 +13,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
+
 namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
 {
     public class TableCreatorViewModel : NotifyingModel

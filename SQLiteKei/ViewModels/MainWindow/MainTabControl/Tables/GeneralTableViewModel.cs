@@ -5,7 +5,8 @@ using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.Models;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
-
+using SQLiteKei.ViewModels.CreatorWindows.ColumnCreatorWindow;
+using SQLiteKei.Views.Windows.Creators;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -88,6 +89,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             emptyCommand = new DelegateCommand(EmptyTable);
             reindexCommand = new DelegateCommand(ReindexTable);
             deleteColumnCommand = new DelegateCommand(DeleteColumn);
+            addColumnCommand = new DelegateCommand(AddColumn);
         }
 
         private void Initialize()
@@ -192,5 +194,31 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         private DelegateCommand deleteColumnCommand;
 
         public DelegateCommand DeleteColumnCommand { get { return deleteColumnCommand; } }
+
+        private void AddColumn()
+        {
+            var result = new ColumnCreator(new ColumnCreatorViewModel(tableName)).ShowDialog();
+
+            if (result == true)
+                ReloadColumns();
+        }
+
+        private void ReloadColumns()
+        {
+            using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
+            {
+                var columns = tableHandler.GetColumns(TableName);
+                ColumnCount = columns.Count;
+
+                foreach (var column in columns)
+                {
+                    Columns.Add(MapToColumnData(column));
+                }
+            }
+        }
+
+        private DelegateCommand addColumnCommand;
+
+        public DelegateCommand AddColumnCommand { get { return addColumnCommand; } }
     }
 }

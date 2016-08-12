@@ -452,6 +452,9 @@ Originale Fehlermeldung: {0}</value>
   <data name="TableGeneralTab_ButtonText_Empty" xml:space="preserve">
     <value>Leeren</value>
   </data>
+  <data name="TableGeneralTab_ButtonText_New" xml:space="preserve">
+    <value>Neu</value>
+  </data>
   <data name="TableGeneralTab_ButtonText_Reindex" xml:space="preserve">
     <value>Neu Indexieren</value>
   </data>

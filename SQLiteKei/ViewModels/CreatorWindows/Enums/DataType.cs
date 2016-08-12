@@ -1,4 +1,4 @@
-﻿namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow.Enums
+﻿namespace SQLiteKei.ViewModels.CreatorWindow.Enums
 {
     public enum DataType
     {

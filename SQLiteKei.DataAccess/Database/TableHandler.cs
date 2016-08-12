@@ -160,6 +160,17 @@ namespace SQLiteKei.DataAccess.Database
             }
         }
 
+        public void AddColumn(string tableName)
+        {
+
+        }
+
+        /// <summary>
+        /// Renames the specified column.
+        /// </summary>
+        /// <param name="oldName">The old name.</param>
+        /// <param name="newName">The new name.</param>
+        /// <param name="tableName">Name of the table on which the column was defined.</param>
         public void RenameColumn(string oldName, string newName, string tableName)
         {
             var originalColumns = GetColumns(tableName);

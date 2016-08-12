@@ -1043,6 +1043,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TableGeneralTab_ButtonText_New.
+        /// </summary>
+        public static string TableGeneralTab_ButtonText_New {
+            get {
+                return ResourceManager.GetString("TableGeneralTab_ButtonText_New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TableGeneralTab_ButtonText_Reindex.
         /// </summary>
         public static string TableGeneralTab_ButtonText_Reindex {

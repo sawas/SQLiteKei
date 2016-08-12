@@ -68,9 +68,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Util\MainTreeHandler.cs" />
+    <Compile Include="ViewModels\CreatorWindows\ColumnCreatorWindow\ColumnCreatorViewModel.cs" />
     <Compile Include="ViewModels\CreatorWindows\IndexCreatorWindow\IndexCreatorViewModel.cs" />
     <Compile Include="ViewModels\CreatorWindows\IndexCreatorWindow\ColumnItem.cs" />
-    <Compile Include="ViewModels\CreatorWindows\TableCreatorWindow\Enums\DataType.cs" />
+    <Compile Include="ViewModels\CreatorWindows\Enums\DataType.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\ViewFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\MainTabControl\Indexes\GeneralIndexViewModel.cs" />
@@ -81,6 +82,9 @@
     <Compile Include="ViewModels\CreatorWindows\ViewCreatorWindow\ViewCreatorViewModel.cs" />
     <Compile Include="Views\UserControls\IndexGeneralTabContent.xaml.cs">
       <DependentUpon>IndexGeneralTabContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Creators\ColumnCreator.xaml.cs">
+      <DependentUpon>ColumnCreator.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\Creators\IndexCreator.xaml.cs">
       <DependentUpon>IndexCreator.xaml</DependentUpon>
@@ -102,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <Page Include="Views\UserControls\IndexGeneralTabContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Creators\ColumnCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

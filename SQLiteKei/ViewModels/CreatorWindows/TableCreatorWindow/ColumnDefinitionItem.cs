@@ -1,9 +1,9 @@
-﻿using System;
+﻿using SQLiteKei.ViewModels.Base;
+using SQLiteKei.ViewModels.CreatorWindow.Enums;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using SQLiteKei.ViewModels.Base;
-using SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow.Enums;
 
 namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
 {
