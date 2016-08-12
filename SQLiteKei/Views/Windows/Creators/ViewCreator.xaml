@@ -3,19 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:model="clr-namespace:SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow"
         xmlns:cmodel="clr-namespace:SQLiteKei.ViewModels.Common"
         xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="{x:Static localisation:Resources.WindowTitle_ViewCreator}"
-        Height="300" Width="500"
-        MinHeight="300" MinWidth="500">
+        MinWidth="700" Width="700"
+        MinHeight="300" Height="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <Label Content="{x:Static localisation:Resources.CreatorWindow_Label_Database}" VerticalAlignment="Center" />
             <ComboBox Width="150" Height="20" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}">
@@ -49,5 +54,20 @@
             <TextBox Grid.Column="1" Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding StatusInfo}" VerticalAlignment="Center" />
             <Button Style="{DynamicResource ButtonDark}" Grid.Column="2" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Close}" IsCancel="True" />
         </Grid>
+        <TreeView Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding Tables}" MinWidth="150">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type model:TableTreeItem}" ItemsSource="{Binding Columns}">
+                    <DockPanel>
+                        <Image Source="../../../Resources/Icons/TreeItem_Table.png" Height="16" Width="16" Margin="4 1"/>
+                        <TextBlock Text="{Binding DisplayName}" />
+                    </DockPanel>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type model:ColumnTreeItem}">
+                    <DockPanel Margin="2">
+                        <TextBlock Text="{Binding DisplayName}" />
+                    </DockPanel>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
     </Grid>
 </Window>
