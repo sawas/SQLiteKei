@@ -135,6 +135,9 @@
   <data name="ButtonText_Execute" xml:space="preserve">
     <value>Ausführen</value>
   </data>
+  <data name="ButtonText_Rename" xml:space="preserve">
+    <value>Umbenennen</value>
+  </data>
   <data name="ColumnCreator_StatusInfo_Success" xml:space="preserve">
     <value>Spalte erfolgreich erzeugt!</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="ContextMenuItem_OpenFileDirectory" xml:space="preserve">
     <value>Im Explorer anzeigen</value>
+  </data>
+  <data name="ContextMenuItem_Rename" xml:space="preserve">
+    <value>Umbenennen</value>
   </data>
   <data name="ContextMenuItem_RenameDatabase" xml:space="preserve">
     <value>Umbenennen</value>

@@ -115,6 +115,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ButtonText_Rename.
+        /// </summary>
+        public static string ButtonText_Rename {
+            get {
+                return ResourceManager.GetString("ButtonText_Rename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ColumnCreator_StatusInfo_Success.
         /// </summary>
         public static string ColumnCreator_StatusInfo_Success {
@@ -246,6 +255,15 @@ namespace SQLiteKei.Properties {
         public static string ContextMenuItem_OpenFileDirectory {
             get {
                 return ResourceManager.GetString("ContextMenuItem_OpenFileDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ContextMenuItem_Rename.
+        /// </summary>
+        public static string ContextMenuItem_Rename {
+            get {
+                return ResourceManager.GetString("ContextMenuItem_Rename", resourceCulture);
             }
         }
         

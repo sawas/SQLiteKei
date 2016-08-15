@@ -203,6 +203,7 @@
                             <DockPanel.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_EmptyTable}" Click="EmptyTable" />
+                                    <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_Rename}" Click="Rename" />
                                     <Separator />
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_DeleteTable}" Click="DeleteTable" />
                                 </ContextMenu>

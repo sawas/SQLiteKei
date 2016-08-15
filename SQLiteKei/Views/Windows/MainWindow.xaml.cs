@@ -2,6 +2,7 @@
 
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
+using SQLiteKei.ViewModels.ElementRenameWindow;
 using SQLiteKei.ViewModels.MainWindow;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
@@ -196,6 +197,12 @@ namespace SQLiteKei.Views.Windows
         {
             var triggerItem = (TriggerItem)DBTreeView.SelectedItem;
             viewModel.DeleteTrigger(triggerItem);
+        }
+
+        private void Rename(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = DBTreeView.SelectedItem as TreeItem;
+            new ElementRenameWindow(new ElementRenameViewModel(selectedItem)).ShowDialog();
         }
 
         protected override void OnClosed(EventArgs e)
