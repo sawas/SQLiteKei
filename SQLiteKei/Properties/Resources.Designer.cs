@@ -377,6 +377,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ElementRenameWindow_Success.
+        /// </summary>
+        public static string ElementRenameWindow_Success {
+            get {
+                return ResourceManager.GetString("ElementRenameWindow_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IndexCreator_ColumnAction_Ascending.
         /// </summary>
         public static string IndexCreator_ColumnAction_Ascending {
@@ -1534,6 +1543,15 @@ namespace SQLiteKei.Properties {
         public static string WindowTitle_QueryEditor {
             get {
                 return ResourceManager.GetString("WindowTitle_QueryEditor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WindowTitle_RenameElement.
+        /// </summary>
+        public static string WindowTitle_RenameElement {
+            get {
+                return ResourceManager.GetString("WindowTitle_RenameElement", resourceCulture);
             }
         }
         

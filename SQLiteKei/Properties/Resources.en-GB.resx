@@ -219,6 +219,9 @@
   <data name="DatabaseGeneralTab_Tables" xml:space="preserve">
     <value>Tables:</value>
   </data>
+  <data name="ElementRenameWindow_Success" xml:space="preserve">
+    <value>Successfully renamed!</value>
+  </data>
   <data name="IndexCreator_ColumnAction_Ascending" xml:space="preserve">
     <value>Ascending</value>
   </data>
@@ -616,6 +619,9 @@ Original Message: {0}</value>
   </data>
   <data name="WindowTitle_QueryEditor" xml:space="preserve">
     <value>Query Editor</value>
+  </data>
+  <data name="WindowTitle_RenameElement" xml:space="preserve">
+    <value>Rename '{0}'</value>
   </data>
   <data name="WindowTitle_SelectQueryCreator" xml:space="preserve">
     <value>Create SELECT Statement</value>

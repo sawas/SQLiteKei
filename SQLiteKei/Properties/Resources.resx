@@ -223,6 +223,9 @@
   <data name="Documentation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Documentation.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ElementRenameWindow_Success" xml:space="preserve">
+    <value>ElementRenameWindow_Success</value>
+  </data>
   <data name="IndexCreator_ColumnAction_Ascending" xml:space="preserve">
     <value>IndexCreator_ColumnAction_Ascending</value>
   </data>
@@ -609,6 +612,9 @@
   </data>
   <data name="WindowTitle_QueryEditor" xml:space="preserve">
     <value>WindowTitle_QueryEditor</value>
+  </data>
+  <data name="WindowTitle_RenameElement" xml:space="preserve">
+    <value>WindowTitle_RenameElement</value>
   </data>
   <data name="WindowTitle_SelectQueryCreator" xml:space="preserve">
     <value>WindowTitle_SelectQueryCreator</value>

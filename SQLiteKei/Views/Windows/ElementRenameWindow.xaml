@@ -5,31 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         mc:Ignorable="d"
-        Title="ElementRenameWindow" Height="120" Width="300"
+        Title="{Binding WindowTitle}" Width="350"
+        Height="100" MinHeight="100" MaxHeight="100"
         WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Height="60">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" />
-        <DockPanel Grid.Row="1">
-            <Label Content="New Name" />
+        <DockPanel Grid.Row="0" Margin="5 5 5 0">
+            <Label Content="Name" />
             <TextBox Text="{Binding NewName}"/>
         </DockPanel>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="1" Margin="5 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding StatusInfo}" />
+            <TextBox Grid.Column="0" Style="{DynamicResource SelectableLabelTextBox}" 
+                     Height="25" Text="{Binding StatusInfo}" />
             <Button Grid.Column="1" Style="{DynamicResource ButtonDark}" 
-                    Margin="5 3" Padding="5 0" 
+                    Height="25" Margin="5 0" Padding="5 0" 
                     Content="{x:Static localisation:Resources.ButtonText_Rename}" 
                     Command="{Binding RenameCommand}"/>
-            <Button Grid.Column="2" Style="{DynamicResource ButtonDark}" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Close}" IsCancel="True" />
+            <Button Grid.Column="2" Style="{DynamicResource ButtonDark}" Height="25" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Close}" IsCancel="True" />
         </Grid>
     </Grid>
 </Window>

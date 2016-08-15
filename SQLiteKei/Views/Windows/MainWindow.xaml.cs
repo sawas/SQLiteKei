@@ -202,7 +202,7 @@ namespace SQLiteKei.Views.Windows
         private void Rename(object sender, RoutedEventArgs e)
         {
             var selectedItem = DBTreeView.SelectedItem as TreeItem;
-            new ElementRenameWindow(new ElementRenameViewModel(selectedItem)).ShowDialog();
+            new ElementRenameWindow(new ElementRenameViewModel(selectedItem)).ShowDialog();            
         }
 
         protected override void OnClosed(EventArgs e)
