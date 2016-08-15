@@ -25,7 +25,10 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TextBox Grid.Column="0" Style="{DynamicResource SelectableLabelTextBox}" Text="{Binding StatusInfo}" />
-            <Button Grid.Column="1" Style="{DynamicResource ButtonDark}" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Rename}" />
+            <Button Grid.Column="1" Style="{DynamicResource ButtonDark}" 
+                    Margin="5 3" Padding="5 0" 
+                    Content="{x:Static localisation:Resources.ButtonText_Rename}" 
+                    Command="{Binding RenameCommand}"/>
             <Button Grid.Column="2" Style="{DynamicResource ButtonDark}" Margin="5 3" Padding="5 0" Content="{x:Static localisation:Resources.ButtonText_Close}" IsCancel="True" />
         </Grid>
     </Grid>
