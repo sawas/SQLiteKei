@@ -2,7 +2,7 @@
 
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
-
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -25,6 +25,20 @@ namespace SQLiteKei.Util
         {
             mainTree = tree;
             logger.Info("Registered main tree on MainTreeHandler");
+        }
+
+        /// <summary>
+        /// Updates the database name.
+        /// </summary>
+        /// <param name="oldPath">The old path.</param>
+        /// <param name="newPath">The new path.</param>
+        public static void UpdateDatabase(string oldPath, string newPath)
+        {
+            var mapper = new SchemaToViewModelMapper();
+            var database = mainTree.SingleOrDefault(x => x.DatabasePath.Equals(oldPath));
+
+            mainTree.Remove(database);
+            mainTree.Add(mapper.MapSchemaToViewModel(newPath));
         }
 
         /// <summary>

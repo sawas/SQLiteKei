@@ -9,6 +9,7 @@ using SQLiteKei.Util;
 
 using System;
 using System.Windows;
+using System.IO;
 
 namespace SQLiteKei.ViewModels.ElementRenameWindow
 {
@@ -74,7 +75,13 @@ namespace SQLiteKei.ViewModels.ElementRenameWindow
 
         private void RenameDatabase()
         {
-            throw new NotImplementedException();
+            var originalFileDirectory = Path.GetDirectoryName(originalElement.DatabasePath);
+            var originalFileEnding = Path.GetExtension(originalElement.DatabasePath);
+            var newFileName = string.Format("{0}{1}", NewName, originalFileEnding);
+            var newDatabasePath = Path.Combine(originalFileDirectory, newFileName);
+
+            File.Move(originalElement.DatabasePath, newDatabasePath);
+            MainTreeHandler.UpdateDatabase(originalElement.DatabasePath, newDatabasePath);
         }
 
         private void RenameTable()
