@@ -82,7 +82,7 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Misc">
-                <StackPanel>
+                <StackPanel Margin="5 2">
                     <CheckBox IsChecked="{Binding IsDistinct}">
                         <Label Content="DISTINCT" />
                     </CheckBox>
