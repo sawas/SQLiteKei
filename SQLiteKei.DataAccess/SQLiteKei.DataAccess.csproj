@@ -75,6 +75,7 @@
     <Compile Include="Exceptions\TableNotFoundException.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
     <Compile Include="Models\Column.cs" />
+    <Compile Include="Models\DbSettings.cs" />
     <Compile Include="Models\Index.cs" />
     <Compile Include="Models\Table.cs" />
     <Compile Include="Models\Trigger.cs" />

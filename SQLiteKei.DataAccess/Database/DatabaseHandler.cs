@@ -124,5 +124,10 @@ namespace SQLiteKei.DataAccess.Database
         {
             return connection.GetSchema(collectionName).AsEnumerable();
         }
+
+        public DbSettings GetSettings()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
