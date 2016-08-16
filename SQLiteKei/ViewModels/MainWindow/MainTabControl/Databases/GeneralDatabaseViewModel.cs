@@ -60,6 +60,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases
                         RowCount = tableRowCount
                     });
                 }
+                TableOverviewData.Sort((x, y) => string.Compare(x.Name, y.Name));
 
                 var fileInfo = new FileInfo(FilePath);
                 FileSize = GetSize(fileInfo.Length);
