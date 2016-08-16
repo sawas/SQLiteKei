@@ -2,9 +2,11 @@
 
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
@@ -62,6 +64,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
             {
                 tableFolder.Items.Add(item);
             }
+            tableFolder.Items = new ObservableCollection<TreeItem>(tableFolder.Items.OrderBy(x => x.DisplayName));
 
             return tableFolder;
         }
@@ -98,6 +101,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
                     DatabasePath = databasePath
                 });
             }
+            viewFolder.Items = new ObservableCollection<TreeItem>(viewFolder.Items.OrderBy(x => x.DisplayName));
 
             return viewFolder;
         }
@@ -118,6 +122,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
                     DatabasePath = databasePath
                 });
             }
+            indexFolder.Items = new ObservableCollection<TreeItem>(indexFolder.Items.OrderBy(x => x.DisplayName));
 
             return indexFolder;
         }
@@ -137,6 +142,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
                     DatabasePath = databasePath
                 });
             }
+            triggerFolder.Items = new ObservableCollection<TreeItem>(triggerFolder.Items.OrderBy(x => x.DisplayName));
 
             return triggerFolder;
         }
