@@ -77,9 +77,14 @@
                                 </DataTemplate>
                             </ItemsControl.Resources>
                         </ItemsControl>
-                        <Button Style="{StaticResource ButtonLight}" Content="+" Click="AddOrderStatement"/>
+                        <Button Style="{StaticResource ButtonLight}" Content="+" Command="{Binding AddOrderStatementCommand}"/>
                     </StackPanel>
                 </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Misc">
+                <CheckBox IsChecked="{Binding IsDistinct}">
+                    <Label Content="DISTINCT" />    
+                </CheckBox>
             </TabItem>
             <TabItem Header="SQL">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">

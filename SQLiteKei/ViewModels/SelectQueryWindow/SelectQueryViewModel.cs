@@ -9,6 +9,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System;
+using SQLiteKei.Commands;
 
 namespace SQLiteKei.ViewModels.SelectQueryWindow
 {
@@ -32,6 +33,20 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
             set { selectQuery = value; NotifyPropertyChanged("SelectQuery"); }
         }
 
+        private bool isDistinct;
+        public bool IsDistinct
+        {
+            get { return isDistinct; }
+            set { isDistinct = value; UpdateSelectQuery(); }
+        }
+
+        private bool isLimit;
+        public bool IsLimit
+        {
+            get { return isLimit; }
+            set { isLimit = value; UpdateSelectQuery(); }
+        }
+
         public SelectQueryViewModel(string tableName)
         {
             this.tableName = tableName;
@@ -44,6 +59,8 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
             Selects.CollectionChanged += CollectionContentChanged;
             Orders = new ObservableCollection<OrderItem>();
             Orders.CollectionChanged += CollectionContentChanged;
+
+            addOrderStatementCommand = new DelegateCommand(AddOrderStatement);
 
             InitializeItems();
             UpdateSelectQuery();
@@ -92,7 +109,10 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
 
         private void UpdateSelectQuery()
         {
-            selectQueryBuilder = new SelectQueryBuilder();
+            selectQueryBuilder = QueryBuilder.Select().From(tableName);
+
+            if(isDistinct)
+                selectQueryBuilder.Distinct();
 
             var canBeWildcard = DetermineIfSelectCanBeWildcard();
 
@@ -116,7 +136,8 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
 
             AddWhereClauses();
             AddOrderClauses();
-            SelectQuery = selectQueryBuilder.From(tableName).Build();
+
+            SelectQuery = selectQueryBuilder.Build();
         }
 
         /// <summary>
@@ -187,7 +208,7 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
             }
         }
 
-        internal void AddOrderStatement()
+        private void AddOrderStatement()
         {
             var databasePath = Properties.Settings.Default.CurrentDatabase;
             using (var databaseHandler = new TableHandler(databasePath))
@@ -203,5 +224,9 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
                 Orders.Add(orderItem);
             }
         }
+
+        private DelegateCommand addOrderStatementCommand;
+
+        public DelegateCommand AddOrderStatementCommand { get { return addOrderStatementCommand; } }
     }
 }

@@ -15,9 +15,10 @@ namespace SQLiteKei.UnitTests.Queries
         [Test]
         public void Build_WithValidData_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "SELECT Column1, Column2 AS Alias\nFROM 'Table'\nWHERE Column1 = 2\nOR Column2 = 3\nORDER BY Column2 DESC, Column1";
+            const string EXPECTED_QUERY = "SELECT DISTINCT Column1, Column2 AS Alias\nFROM 'Table'\nWHERE Column1 = 2\nOR Column2 = 3\nORDER BY Column2 DESC, Column1";
 
             var result = QueryBuilder.Select("Column1")
+                .Distinct()
                 .AddSelect("Column2", "Alias")
                 .From("Table")
                 .Where("Column1").Is(2)

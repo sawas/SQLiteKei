@@ -28,7 +28,7 @@ namespace SQLiteKei.Util
         }
 
         /// <summary>
-        /// Updates the database name.
+        /// Updates the database information.
         /// </summary>
         /// <param name="oldPath">The old path.</param>
         /// <param name="newPath">The new path.</param>

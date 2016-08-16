@@ -20,11 +20,5 @@ namespace SQLiteKei.Views.Windows
             DialogResult = true;
             Close();
         }
-
-        private void AddOrderStatement(object sender, RoutedEventArgs e)
-        {
-            var viewModel = DataContext as SelectQueryViewModel;
-            viewModel.AddOrderStatement();
-        }
     }
 }

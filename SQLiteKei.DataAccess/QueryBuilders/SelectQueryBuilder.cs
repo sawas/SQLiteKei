@@ -13,6 +13,8 @@ namespace SQLiteKei.DataAccess.QueryBuilders
     {
         private string table;
 
+        private bool isDistinct;
+
         private Dictionary<string, string> selects;
 
         public List<string> WhereClauses { get; private set; } 
@@ -40,6 +42,12 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             selects.Add(select, alias);
             WhereClauses = new List<string>();
             OrderClauses = new List<OrderData>();
+        }
+
+        public SelectQueryBuilder Distinct(bool value = true)
+        {
+            isDistinct = value;
+            return this;
         }
 
         public SelectQueryBuilder AddSelect(string select)
@@ -104,7 +112,12 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
             string finalSelect = GetFinalSelect();
 
-            var resultString = string.Format("SELECT {0}\nFROM '{1}'", finalSelect, table);
+            string resultString;
+
+            if(isDistinct)
+                resultString = string.Format("SELECT DISTINCT {0}\nFROM '{1}'", finalSelect, table);
+            else
+                resultString = string.Format("SELECT {0}\nFROM '{1}'", finalSelect, table);
 
             if (WhereClauses.Any())
             {
