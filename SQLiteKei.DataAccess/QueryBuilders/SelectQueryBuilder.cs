@@ -21,6 +21,10 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         private List<OrderData> OrderClauses { get; set; }
 
+        private long limit;
+
+        private long limitOffset;
+
         public SelectQueryBuilder()
         {
             selects = new Dictionary<string, string>();
@@ -104,6 +108,14 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             return this;
         }
 
+        public SelectQueryBuilder Limit(long limit, long offset = 0)
+        {
+            this.limit = limit;
+            this.limitOffset = offset;
+
+            return this;
+        }
+
         //TODO replace string concatination with StringBuilder
         public override string Build()
         {
@@ -114,7 +126,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
             string resultString;
 
-            if(isDistinct)
+            if (isDistinct)
                 resultString = string.Format("SELECT DISTINCT {0}\nFROM '{1}'", finalSelect, table);
             else
                 resultString = string.Format("SELECT {0}\nFROM '{1}'", finalSelect, table);
@@ -125,10 +137,18 @@ namespace SQLiteKei.DataAccess.QueryBuilders
                 resultString += string.Format("\nWHERE {0}", combinedWhereClauses);
             }
 
-            if(OrderClauses.Any())
+            if (OrderClauses.Any())
             {
                 var combinedOrderClauses = string.Join(", ", OrderClauses.Select(x => x.ToString()));
                 resultString += string.Format("\nORDER BY {0}", combinedOrderClauses);
+            }
+
+            if (limit > 0)
+            {
+                resultString += string.Format("\nLIMIT {0}", limit);
+
+                if (limitOffset > 0)
+                    resultString += string.Format(" OFFSET {0}", limitOffset);
             }
 
             return resultString;

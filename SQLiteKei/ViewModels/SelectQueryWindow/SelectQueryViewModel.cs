@@ -1,4 +1,5 @@
-﻿using SQLiteKei.DataAccess.Database;
+﻿using SQLiteKei.Commands;
+using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.DataAccess.QueryBuilders.Where;
 using SQLiteKei.DataAccess.QueryBuilders.Base;
@@ -9,7 +10,6 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System;
-using SQLiteKei.Commands;
 
 namespace SQLiteKei.ViewModels.SelectQueryWindow
 {
@@ -45,6 +45,20 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
         {
             get { return isLimit; }
             set { isLimit = value; UpdateSelectQuery(); }
+        }
+
+        private string limit;
+        public string Limit
+        {
+            get { return limit; }
+            set { limit = value; UpdateSelectQuery(); }
+        }
+
+        private string limitOffset;
+        public string LimitOffset
+        {
+            get { return limitOffset; }
+            set { limitOffset = value; UpdateSelectQuery(); }
         }
 
         public SelectQueryViewModel(string tableName)
@@ -136,8 +150,33 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
 
             AddWhereClauses();
             AddOrderClauses();
+            SetLimit();
+            
 
             SelectQuery = selectQueryBuilder.Build();
+        }
+
+        private void SetLimit()
+        {
+            if (isLimit)
+            {
+                long parsedLimit;
+                var limitParseResult = long.TryParse(limit, out parsedLimit);
+
+                if (limitParseResult && string.IsNullOrWhiteSpace(limitOffset))
+                {
+                    selectQueryBuilder.Limit(parsedLimit);
+                    return;
+                }
+
+                long parsedOffset;
+                var offsetParseResult = long.TryParse(limitOffset, out parsedOffset);
+
+                if (limitParseResult && offsetParseResult)
+                {
+                    selectQueryBuilder.Limit(parsedLimit, parsedOffset);
+                }                
+            }
         }
 
         /// <summary>

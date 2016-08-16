@@ -82,9 +82,19 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Misc">
-                <CheckBox IsChecked="{Binding IsDistinct}">
-                    <Label Content="DISTINCT" />    
-                </CheckBox>
+                <StackPanel>
+                    <CheckBox IsChecked="{Binding IsDistinct}">
+                        <Label Content="DISTINCT" />
+                    </CheckBox>
+                    <DockPanel LastChildFill="False">
+                        <CheckBox IsChecked="{Binding IsLimit}">
+                            <Label Content="LIMIT" />
+                        </CheckBox>
+                        <TextBox Text="{Binding Limit, UpdateSourceTrigger=PropertyChanged}" MinWidth="40" />
+                        <Label Content="OFFSET" />
+                        <TextBox Text="{Binding LimitOffset, UpdateSourceTrigger=PropertyChanged}" MinWidth="40" />
+                    </DockPanel>
+                </StackPanel>
             </TabItem>
             <TabItem Header="SQL">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
