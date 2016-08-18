@@ -7,6 +7,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Version">
+            <StackPanel>
+                <DockPanel>
+                    <Label Content="Schema-Version" />    
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="User-Version" />
+                </DockPanel>
+            </StackPanel>
             
+        </GroupBox>
+        <GroupBox Grid.Row="1">
+            
+        </GroupBox>
+        <GroupBox Grid.Column="1" Grid.RowSpan="2">
+            
+        </GroupBox>
     </Grid>
 </UserControl>

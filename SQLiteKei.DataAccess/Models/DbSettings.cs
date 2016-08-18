@@ -11,5 +11,10 @@ namespace SQLiteKei.DataAccess.Models
     /// </summary>
     public class DbSettings
     {
+        public short? UserVersion { get; set; }
+
+        public short? SchemaVersion { get; set; }
+
+        public int? ApplicationId { get; set; }
     }
 }

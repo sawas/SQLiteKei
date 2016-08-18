@@ -1,4 +1,5 @@
 ﻿using SQLiteKei.DataAccess.Models;
+using SQLiteKei.DataAccess.Util.Extensions;
 
 using System;
 using System.Collections.Generic;
@@ -125,9 +126,32 @@ namespace SQLiteKei.DataAccess.Database
             return connection.GetSchema(collectionName).AsEnumerable();
         }
 
+        /// <summary>
+        /// Gets the database settings. Settings that could not be loaded will be null.
+        /// </summary>
+        /// <returns></returns>
         public DbSettings GetSettings()
         {
-            throw new NotImplementedException();
+            var settings = new DbSettings
+            {
+                SchemaVersion = Pragma("schema_version").ConvertTo<short?>(),
+                UserVersion = Pragma("user_version").ConvertTo<short?>(),
+                ApplicationId = Pragma("application_id").ConvertTo<int?>()
+            };
+            
+            return settings;
+        }
+
+        private object Pragma(string pragmaName)
+        {
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = string.Format("PRAGMA {0};", pragmaName);
+                var resultTable = new DataTable();
+                resultTable.Load(command.ExecuteReader());
+
+                return resultTable.Rows[0].ItemArray[0];
+            }
         }
     }
 }

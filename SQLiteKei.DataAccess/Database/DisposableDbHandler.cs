@@ -1,5 +1,7 @@
 ﻿using log4net;
-using SQLiteKei.DataAccess.Helpers;
+
+using SQLiteKei.DataAccess.Util;
+
 using System;
 using System.Data.SQLite;
 

@@ -2,7 +2,7 @@
 
 using System.Runtime.CompilerServices;
 
-namespace SQLiteKei.DataAccess.Helpers
+namespace SQLiteKei.DataAccess.Util
 {
     /// <summary>
     /// Class that assists with logging.

@@ -1,6 +1,6 @@
 ﻿using log4net;
 
-using SQLiteKei.DataAccess.Helpers;
+using SQLiteKei.DataAccess.Util;
 using SQLiteKei.DataAccess.Models;
 using SQLiteKei.DataAccess.QueryBuilders;
 

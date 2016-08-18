@@ -73,7 +73,8 @@
     <Compile Include="Exceptions\QueryBuilderException.cs" />
     <Compile Include="Exceptions\SelectQueryBuilderException.cs" />
     <Compile Include="Exceptions\TableNotFoundException.cs" />
-    <Compile Include="Helpers\LogHelper.cs" />
+    <Compile Include="Util\Extensions\ParseExtensions.cs" />
+    <Compile Include="Util\LogHelper.cs" />
     <Compile Include="Models\Column.cs" />
     <Compile Include="Models\DbSettings.cs" />
     <Compile Include="Models\Index.cs" />
