@@ -134,9 +134,16 @@ namespace SQLiteKei.DataAccess.Database
         {
             var settings = new DbSettings
             {
-                SchemaVersion = Pragma("schema_version").ConvertTo<short?>(),
-                UserVersion = Pragma("user_version").ConvertTo<short?>(),
-                ApplicationId = Pragma("application_id").ConvertTo<int?>()
+                SchemaVersion = Pragma("Schema_Version").ConvertTo<short?>(),
+                UserVersion = Pragma("User_Version").ConvertTo<short?>(),
+                ApplicationId = Pragma("Application_Id").ConvertTo<int?>(),
+                PageSize = Pragma("Page_Size").ConvertTo<int?>(),
+                MaxPageCount = Pragma("Max_Page_Count").ConvertTo<int?>(),
+                PageCount = Pragma("Page_Count").ConvertTo<int?>(),
+                FreeListCount = Pragma("Freelist_Count").ConvertTo<int?>(),
+                JournalMode = Pragma("Journal_Mode").ToString(),
+                JournalSizeLimit = Pragma("Journal_Size_Limit").ConvertTo<int?>(),
+                CacheSize = Pragma("Cache_Size").ConvertTo<int?>()
             };
             
             return settings;
@@ -154,13 +161,34 @@ namespace SQLiteKei.DataAccess.Database
             }
         }
 
+        /// <summary>
+        /// Updates the database settings with the given parameters.
+        /// </summary>
+        /// <param name="newSettings">The new settings.</param>
         public void UpdateSettings(DbSettings newSettings)
         {
-            //using (var command = connection.CreateCommand())
-            //{
-            //    command.CommandText = string.Format("PRAGMA {0}={1}", pragmaName, value);
-            //    command.ExecuteNonQuery();
-            //}
+            var currentSettings = GetSettings();
+
+            UpdateSetting("Schema_Version", currentSettings.SchemaVersion, newSettings.SchemaVersion);
+            UpdateSetting("User_Version", currentSettings.UserVersion, newSettings.UserVersion);
+            UpdateSetting("Application_Id", currentSettings.ApplicationId, newSettings.ApplicationId);
+            UpdateSetting("Page_Size", currentSettings.PageSize, newSettings.PageSize);
+            UpdateSetting("Max_Page_Count", currentSettings.MaxPageCount, newSettings.MaxPageCount);
+            UpdateSetting("Journal_Mode", currentSettings.JournalMode, newSettings.JournalMode);
+            UpdateSetting("Journal_Size_Limit", currentSettings.JournalSizeLimit, newSettings.JournalSizeLimit);
+            UpdateSetting("Cache_Size", currentSettings.CacheSize, newSettings.CacheSize);
+        }
+
+        private void UpdateSetting(string pragmaName, object currentValue, object newValue)
+        {
+            if (!currentValue.Equals(newValue))
+            {
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = string.Format("PRAGMA {0}={1}", pragmaName, newValue);
+                    var result= command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

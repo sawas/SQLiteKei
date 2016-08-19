@@ -27,7 +27,7 @@ namespace SQLiteKei.DataAccess.Database
             {
                 connection = new SQLiteConnection(databasePath)
                 {
-                    ConnectionString = string.Format("Data Source={0}", databasePath)
+                    ConnectionString = string.Format("Data Source={0};Pooling=true", databasePath)
                 };
 
                 connection.Open();

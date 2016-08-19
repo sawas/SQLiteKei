@@ -60,13 +60,7 @@ namespace SQLiteKei.Util
                 }
             };
 
-            var settingsTab = new TabItem
-            {
-                Header = "Settings",
-                Content = new DatabaseSettingsTabContent(new DatabaseSettingsViewModel())
-            };
-
-            return new List<TabItem> { generalTab, settingsTab };
+            return new List<TabItem> { generalTab };
         }
 
         private static List<TabItem> GenerateTableTabs(TableItem tableItem)
