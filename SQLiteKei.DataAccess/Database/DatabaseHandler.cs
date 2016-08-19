@@ -129,7 +129,7 @@ namespace SQLiteKei.DataAccess.Database
         /// <summary>
         /// Gets the database settings. Settings that could not be loaded will be null.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The database settings.</returns>
         public DbSettings GetSettings()
         {
             var settings = new DbSettings
@@ -152,6 +152,15 @@ namespace SQLiteKei.DataAccess.Database
 
                 return resultTable.Rows[0].ItemArray[0];
             }
+        }
+
+        public void UpdateSettings(DbSettings newSettings)
+        {
+            //using (var command = connection.CreateCommand())
+            //{
+            //    command.CommandText = string.Format("PRAGMA {0}={1}", pragmaName, value);
+            //    command.ExecuteNonQuery();
+            //}
         }
     }
 }

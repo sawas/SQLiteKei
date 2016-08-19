@@ -63,7 +63,7 @@ namespace SQLiteKei.Util
             var settingsTab = new TabItem
             {
                 Header = "Settings",
-                Content = new DatabaseSettingsTabContent()
+                Content = new DatabaseSettingsTabContent(new DatabaseSettingsViewModel())
             };
 
             return new List<TabItem> { generalTab, settingsTab };
