@@ -165,9 +165,6 @@
   <data name="ContextMenuItem_EmptyTable" xml:space="preserve">
     <value>ContextMenuItem_EmptyTable</value>
   </data>
-  <data name="ContextMenuItem_MoveTable" xml:space="preserve">
-    <value>ContextMenuItem_MoveTable</value>
-  </data>
   <data name="ContextMenuItem_NewDatabase" xml:space="preserve">
     <value>ContextMenuItem_NewDatabase</value>
   </data>
@@ -499,6 +496,21 @@
   <data name="TableGeneralTab_TableName" xml:space="preserve">
     <value>TableGeneralTab_TableName</value>
   </data>
+  <data name="TableMigrator_CopySemiSuccess" xml:space="preserve">
+    <value>TableMigrator_CopySemiSuccess</value>
+  </data>
+  <data name="TableMigrator_CopySuccess" xml:space="preserve">
+    <value>TableMigrator_CopySuccess</value>
+  </data>
+  <data name="TableMigrator_NewName" xml:space="preserve">
+    <value>TableMigrator_NewName</value>
+  </data>
+  <data name="TableMigrator_OnlyStructure" xml:space="preserve">
+    <value>TableMigrator_OnlyStructure</value>
+  </data>
+  <data name="TableMigrator_TargetDatabase" xml:space="preserve">
+    <value>TableMigrator_TargetDatabase</value>
+  </data>
   <data name="TableRecordsTab_Filter" xml:space="preserve">
     <value>TableRecordsTab_Filter</value>
   </data>
@@ -633,9 +645,6 @@
   </data>
   <data name="WindowTitle_TableMigrator_Copy" xml:space="preserve">
     <value>WindowTitle_TableMigrator_Copy</value>
-  </data>
-  <data name="WindowTitle_TableMigrator_Move" xml:space="preserve">
-    <value>WindowTitle_TableMigrator_Move</value>
   </data>
   <data name="WindowTitle_TriggerCreator" xml:space="preserve">
     <value>WindowTitle_TriggerCreator</value>

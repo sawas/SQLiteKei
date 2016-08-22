@@ -6,17 +6,18 @@
         xmlns:cmodel="clr-namespace:SQLiteKei.ViewModels.Common"
         xmlns:localisation="clr-namespace:SQLiteKei.Properties"
         mc:Ignorable="d"
-        MinHeight="160" Height="160" MaxHeight="160"
-        MinWidth="300" Width="300"
+        MinHeight="102" Height="102" MaxHeight="102"
+        MinWidth="700" Width="700"
+        WindowStartupLocation="CenterScreen"
         Title="{Binding WindowTitle}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <StackPanel Margin="5">
             <DockPanel Margin="0 0 0 5">
-                <Label Content="Target Database" Width="100" />
+                <Label Content="{x:Static localisation:Resources.TableMigrator_TargetDatabase}" Width="100" />
                 <ComboBox Width="150" Height="25" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}" HorizontalAlignment="Left">
                     <ComboBox.ItemTemplate>
                         <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
@@ -24,14 +25,12 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
+                <CheckBox IsChecked="{Binding IsOnlyStructure}" Margin="5 0">
+                    <Label Content="{x:Static localisation:Resources.TableMigrator_OnlyStructure}" Margin="-4 0 0 0"/>
+                </CheckBox>
+                <Label Content="{x:Static localisation:Resources.TableMigrator_NewName}"/>
+                <TextBox Text="{Binding TargetTableName}" />
             </DockPanel>
-            <DockPanel Margin="0 0 0 5">
-                <Label Content="New Name" Width="100"/>
-                <TextBox Text="{Binding TargetTableName, UpdateSourceTrigger=PropertyChanged}" />
-            </DockPanel>
-            <CheckBox IsChecked="{Binding IsOnlyStructure}" Margin="5 0">
-                <Label Content="Only Structure" />
-            </CheckBox>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

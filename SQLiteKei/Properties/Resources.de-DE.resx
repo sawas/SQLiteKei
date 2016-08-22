@@ -165,9 +165,6 @@
   <data name="ContextMenuItem_EmptyTable" xml:space="preserve">
     <value>Leeren</value>
   </data>
-  <data name="ContextMenuItem_MoveTable" xml:space="preserve">
-    <value>Verschieben</value>
-  </data>
   <data name="ContextMenuItem_NewDatabase" xml:space="preserve">
     <value>Neu</value>
   </data>
@@ -506,6 +503,21 @@ Originale Fehlermeldung: {0}</value>
   <data name="TableGeneralTab_TableName" xml:space="preserve">
     <value>Tabellenname:</value>
   </data>
+  <data name="TableMigrator_CopySemiSuccess" xml:space="preserve">
+    <value>Die Tabelle wurde erfolgreich kopiert, jedoch konnten nicht alle Werte übernommen werden.</value>
+  </data>
+  <data name="TableMigrator_CopySuccess" xml:space="preserve">
+    <value>Erfolgreich kopiert!</value>
+  </data>
+  <data name="TableMigrator_NewName" xml:space="preserve">
+    <value>Name der neuen Tabelle</value>
+  </data>
+  <data name="TableMigrator_OnlyStructure" xml:space="preserve">
+    <value>Nur Struktur kopieren</value>
+  </data>
+  <data name="TableMigrator_TargetDatabase" xml:space="preserve">
+    <value>Zieldatenbank</value>
+  </data>
   <data name="TableRecordsTab_Filter" xml:space="preserve">
     <value>Durchsuchen</value>
   </data>
@@ -640,9 +652,6 @@ Originale Fehlermeldung: {0}</value>
   </data>
   <data name="WindowTitle_TableMigrator_Copy" xml:space="preserve">
     <value>Tabelle '{0}' kopieren</value>
-  </data>
-  <data name="WindowTitle_TableMigrator_Move" xml:space="preserve">
-    <value>Tabelle '{0}' verschieben</value>
   </data>
   <data name="WindowTitle_TriggerCreator" xml:space="preserve">
     <value>Trigger erstellen</value>

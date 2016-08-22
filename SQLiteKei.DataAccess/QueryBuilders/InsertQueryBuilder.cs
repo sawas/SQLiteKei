@@ -20,7 +20,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         {
             foreach(var value in values)
             {
-                this.values.Add("'" + value + "'");
+                this.values.Add("\"" + value + "\"");
             }
 
 

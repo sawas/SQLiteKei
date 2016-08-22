@@ -73,6 +73,26 @@ namespace SQLiteKei.DataAccess.Database
         }
 
         /// <summary>
+        /// Returns a datatable with all rows of the specified table.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
+        public DataRowCollection GetRows(string tableName)
+        {
+            logger.Info("Loading rows for table '" + tableName + "'.");
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = QueryBuilder.Select().From(tableName).Build();
+
+                var resultTable = new DataTable();
+                resultTable.Load(command.ExecuteReader());
+
+                return resultTable.Rows;
+            }
+        }
+
+        /// <summary>
         /// Gets the row count for the specified table.
         /// </summary>
         /// <param name="tableName">Name of the table.</param>

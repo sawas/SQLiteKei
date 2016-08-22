@@ -165,9 +165,6 @@
   <data name="ContextMenuItem_EmptyTable" xml:space="preserve">
     <value>Empty</value>
   </data>
-  <data name="ContextMenuItem_MoveTable" xml:space="preserve">
-    <value>Move</value>
-  </data>
   <data name="ContextMenuItem_NewDatabase" xml:space="preserve">
     <value>New Database</value>
   </data>
@@ -506,6 +503,21 @@ Original Message: {0}</value>
   <data name="TableGeneralTab_TableName" xml:space="preserve">
     <value>Table Name:</value>
   </data>
+  <data name="TableMigrator_CopySemiSuccess" xml:space="preserve">
+    <value>Table copied successfully, but not all records could be copied.</value>
+  </data>
+  <data name="TableMigrator_CopySuccess" xml:space="preserve">
+    <value>Successfully copied!</value>
+  </data>
+  <data name="TableMigrator_NewName" xml:space="preserve">
+    <value>Name of the new table</value>
+  </data>
+  <data name="TableMigrator_OnlyStructure" xml:space="preserve">
+    <value>Only Copy Structure</value>
+  </data>
+  <data name="TableMigrator_TargetDatabase" xml:space="preserve">
+    <value>Target Database</value>
+  </data>
   <data name="TableRecordsTab_Filter" xml:space="preserve">
     <value>Search</value>
   </data>
@@ -640,9 +652,6 @@ Original Message: {0}</value>
   </data>
   <data name="WindowTitle_TableMigrator_Copy" xml:space="preserve">
     <value>Copy table '{0}'</value>
-  </data>
-  <data name="WindowTitle_TableMigrator_Move" xml:space="preserve">
-    <value>Move table '{0}'</value>
   </data>
   <data name="WindowTitle_TriggerCreator" xml:space="preserve">
     <value>Create Trigger</value>

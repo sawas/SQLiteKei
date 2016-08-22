@@ -176,18 +176,10 @@ namespace SQLiteKei.Views.Windows
             viewModel.EmptyTable(tableItem.DisplayName);
         }
 
-        private void MoveTable(object sender, RoutedEventArgs e)
-        {
-            var treeItem = DBTreeView.SelectedItem as TableItem;
-            var tableMigratorViewModel = new TableMigratorViewModel(viewModel.TreeViewItems, treeItem.DisplayName, MigrationType.Move);
-
-            new TableMigrator(tableMigratorViewModel).ShowDialog();
-        }
-
         private void CopyTable(object sender, RoutedEventArgs e)
         {
             var treeItem = DBTreeView.SelectedItem as TableItem;
-            var tableMigratorViewModel = new TableMigratorViewModel(viewModel.TreeViewItems, treeItem.DisplayName, MigrationType.Copy);
+            var tableMigratorViewModel = new TableMigratorViewModel(viewModel.TreeViewItems, treeItem.DisplayName);
 
             new TableMigrator(tableMigratorViewModel).ShowDialog();
         }

@@ -205,15 +205,6 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ContextMenuItem_MoveTable.
-        /// </summary>
-        public static string ContextMenuItem_MoveTable {
-            get {
-                return ResourceManager.GetString("ContextMenuItem_MoveTable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ContextMenuItem_NewDatabase.
         /// </summary>
         public static string ContextMenuItem_NewDatabase {
@@ -1205,6 +1196,51 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TableMigrator_CopySemiSuccess.
+        /// </summary>
+        public static string TableMigrator_CopySemiSuccess {
+            get {
+                return ResourceManager.GetString("TableMigrator_CopySemiSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TableMigrator_CopySuccess.
+        /// </summary>
+        public static string TableMigrator_CopySuccess {
+            get {
+                return ResourceManager.GetString("TableMigrator_CopySuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TableMigrator_NewName.
+        /// </summary>
+        public static string TableMigrator_NewName {
+            get {
+                return ResourceManager.GetString("TableMigrator_NewName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TableMigrator_OnlyStructure.
+        /// </summary>
+        public static string TableMigrator_OnlyStructure {
+            get {
+                return ResourceManager.GetString("TableMigrator_OnlyStructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TableMigrator_TargetDatabase.
+        /// </summary>
+        public static string TableMigrator_TargetDatabase {
+            get {
+                return ResourceManager.GetString("TableMigrator_TargetDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TableRecordsTab_Filter.
         /// </summary>
         public static string TableRecordsTab_Filter {
@@ -1606,15 +1642,6 @@ namespace SQLiteKei.Properties {
         public static string WindowTitle_TableMigrator_Copy {
             get {
                 return ResourceManager.GetString("WindowTitle_TableMigrator_Copy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to WindowTitle_TableMigrator_Move.
-        /// </summary>
-        public static string WindowTitle_TableMigrator_Move {
-            get {
-                return ResourceManager.GetString("WindowTitle_TableMigrator_Move", resourceCulture);
             }
         }
         

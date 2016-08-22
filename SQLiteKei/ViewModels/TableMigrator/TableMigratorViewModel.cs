@@ -5,21 +5,22 @@ using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.Properties;
 using SQLiteKei.Util;
+using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.Common;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
+
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace SQLiteKei.ViewModels.TableMigrator
 {
-    public class TableMigratorViewModel
+    public class TableMigratorViewModel : NotifyingModel
     {
         private readonly ILog logger = LogHelper.GetLogger();
 
         private string tableName;
-
-        private MigrationType migrationType;
 
         public string WindowTitle { get; set; }
 
@@ -38,20 +39,20 @@ namespace SQLiteKei.ViewModels.TableMigrator
 
         public bool IsOnlyStructure { get; set; }
 
-        public string StatusInfo { get; set; }
-
-        public TableMigratorViewModel(IEnumerable<TreeItem> databases, string tableName, MigrationType migrationType)
+        private string statusInfo;
+        public string StatusInfo
         {
-            this.tableName = tableName;
-            this.migrationType = migrationType;
+            get { return statusInfo; }
+            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+        }
+
+        public TableMigratorViewModel(IEnumerable<TreeItem> databases, string tableName)
+        {
+            this.tableName = TargetTableName = tableName;
             sourceDatabase = Settings.Default.CurrentDatabase;
+            WindowTitle = LocalisationHelper.GetString("WindowTitle_TableMigrator_Copy", tableName);
 
-            if (migrationType == MigrationType.Copy)
-                WindowTitle = LocalisationHelper.GetString("WindowTitle_TableMigrator_Copy", tableName);
-            else
-                WindowTitle = LocalisationHelper.GetString("WindowTitle_TableMigrator_Move", tableName);
-
-            executeCommand = new DelegateCommand(Execute);
+            executeCommand = new DelegateCommand(Copy);
 
             Databases = new List<DatabaseSelectItem>();
 
@@ -68,7 +69,7 @@ namespace SQLiteKei.ViewModels.TableMigrator
             }
         }
 
-        private void Execute()
+        private void Copy()
         {
             if (selectedDatabase == null)
             {
@@ -80,42 +81,81 @@ namespace SQLiteKei.ViewModels.TableMigrator
                 return;
             }
 
+            CopyTable();
+        }
+
+        private void CopyTable()
+        {
+            logger.Info("Copying table '" + tableName + "' as '" + TargetTableName
+                + "' from database " + Environment.NewLine + sourceDatabase + Environment.NewLine
+                + " to database " + Environment.NewLine + selectedDatabase.DatabasePath);
+
+            bool isSuccessfullTableCopy = false;
+
             try
             {
-                if (migrationType == MigrationType.Copy)
-                    Copy();
-                else
-                    Move();
+                using (var sourceTableHandler = new TableHandler(sourceDatabase))
+                using (var targetDbHandler = new DatabaseHandler(selectedDatabase.DatabasePath))
+                {
+                    var originalTable = sourceTableHandler.GetTable(tableName);
+                    var createStatement = originalTable.CreateStatement.Replace(tableName, TargetTableName);
+
+                    targetDbHandler.ExecuteNonQuery(createStatement);
+
+                    MainTreeHandler.AddTable(TargetTableName, selectedDatabase.DatabasePath);
+
+                    StatusInfo = LocalisationHelper.GetString("TableMigrator_CopySuccess");
+                    isSuccessfullTableCopy = true;
+                    logger.Info("Successfully copied table structure to target database.");
+                }
             }
             catch (Exception ex)
             {
-
+                logger.Error("A table could not be copied.", ex);
+                StatusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
             }
-            
-        }
 
-        private void Copy()
-        {
-            using (var sourceTableHandler = new TableHandler(sourceDatabase))
-            using (var targetDbHandler = new DatabaseHandler(selectedDatabase.DatabasePath))
+            if (!IsOnlyStructure && isSuccessfullTableCopy)
             {
-                var originalTable = sourceTableHandler.GetTable(tableName);
-                var createStatement = originalTable.CreateStatement.Replace(tableName, TargetTableName);
-
-                targetDbHandler.ExecuteNonQuery(createStatement);
-
-                MainTreeHandler.AddTable(TargetTableName, selectedDatabase.DatabasePath);
-
-                if(!IsOnlyStructure)
-                {
-
-                }
+                CopyValues();
             }
         }
 
-        private void Move()
+        private void CopyValues()
         {
+            logger.Info("Copying values.");
 
+            try
+            {
+                using (var sourceTableHandler = new TableHandler(sourceDatabase))
+                using (var targetDbHandler = new DatabaseHandler(selectedDatabase.DatabasePath))
+                {
+                    var records = sourceTableHandler.GetRows(tableName);
+                    var values = new List<string>();
+
+                    var i = 0;
+
+                    foreach (DataRow row in records)
+                    {
+                        values.Clear();
+
+                        foreach (var value in row.ItemArray)
+                        {
+                            values.Add(value.ToString());
+                        }
+
+                        var command = QueryBuilder.InsertInto(TargetTableName).Values(values).Build();
+                        targetDbHandler.ExecuteNonQuery(command);
+                    }
+                }
+                StatusInfo = LocalisationHelper.GetString("TableMigrator_CopySuccess");
+                logger.Info("Successfully copied values");
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Failed to copy table values.", ex);
+                StatusInfo = LocalisationHelper.GetString("TableMigrator_CopySemiSuccess");
+            }
         }
 
         private DelegateCommand executeCommand;
