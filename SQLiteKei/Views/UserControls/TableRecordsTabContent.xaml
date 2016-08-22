@@ -13,13 +13,13 @@
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0">
-            <Button DockPanel.Dock="Left" Width="50" Height="25" Margin="3 0 0 0" Style="{StaticResource ButtonLight}" x:Name="SelectButton" Content="Select"  HorizontalAlignment="Left" Click="ExecuteSelect" />
+            <Button DockPanel.Dock="Left" Height="25" Margin="3 0 0 0" Padding="5 0" Style="{DynamicResource ButtonLight}" Content="Select" Command="{Binding SelectCommand}" />
+            <Button DockPanel.Dock="Left" Height="25" Margin="3 0 0 0" Padding="5 0" Style="{DynamicResource ButtonLight}" Content="Select All" Command="{Binding SelectAllCommand}" />
             <TextBox DockPanel.Dock="Right" Width="100" Height="25" HorizontalAlignment="Right" VerticalContentAlignment="Center" Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" />
             <Label DockPanel.Dock="Right" Content="{x:Static localisation:Resources.TableRecordsTab_Filter}" HorizontalAlignment="Right" />
         </DockPanel>
         <DataGrid x:Name="RecordsDataGrid" Grid.Row="1" HeadersVisibility="Column" ItemsSource="{Binding DataGridCollection}">
         </DataGrid>
-        <TextBox x:Name="StatusBar" Grid.Row="2" Style="{StaticResource SelectableStatusBar}"
-                 VerticalAlignment="Center"/>
+        <TextBox Text="{Binding StatusInfo}" Grid.Row="2" Style="{DynamicResource SelectableLabelTextBox}" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

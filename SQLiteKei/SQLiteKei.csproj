@@ -331,7 +331,6 @@
     <Compile Include="ViewModels\MainWindow\MainTabControl\Databases\TableOverviewDataItem.cs" />
     <Compile Include="ViewModels\MainWindow\MainTabControl\Tables\ColumnDataItem.cs" />
     <Compile Include="ViewModels\MainWindow\MainTabControl\Tables\GeneralTableViewModel.cs" />
-    <Compile Include="ViewModels\MainWindow\MainTabControl\Tables\TableRecordsDataItem.cs" />
     <Compile Include="ViewModels\SelectQueryWindow\SelectItem.cs" />
     <Compile Include="ViewModels\SelectQueryWindow\SelectQueryViewModel.cs" />
     <Compile Include="Views\Windows\About.xaml.cs">

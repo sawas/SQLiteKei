@@ -74,10 +74,7 @@ namespace SQLiteKei.Util
             var recordsTab = new TabItem
             {
                 Header = LocalisationHelper.GetString("TabHeader_TableRecords"),
-                Content = new TableRecordsTabContent
-                {
-                    TableInfo = new TableRecordsDataItem(tableItem.DisplayName)
-                }
+                Content = new TableRecordsTabContent(new RecordsTabViewModel(tableItem.DisplayName))
             };
 
             return new List<TabItem> { generalTab, recordsTab };
