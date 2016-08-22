@@ -22,6 +22,20 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
 
         private SelectQueryBuilder selectQueryBuilder;
 
+        private bool isSelectAll;
+        public bool IsSelectAll
+        {
+            get { return isSelectAll; }
+            set
+            {
+                foreach (var select in Selects)
+                {
+                    select.IsSelected = value;
+                }
+                isSelectAll = value;
+            }
+        }
+
         public ObservableCollection<SelectItem> Selects { get; set; }
 
         public ObservableCollection<OrderItem> Orders { get; set; }

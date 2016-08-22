@@ -407,6 +407,9 @@ Originale Fehlermeldung: {0}</value>
   <data name="QueryEditor_SaveQuery" xml:space="preserve">
     <value>Speichern</value>
   </data>
+  <data name="SelectQueryEditor_SelectAll" xml:space="preserve">
+    <value>Alle auswählen</value>
+  </data>
   <data name="TabContent_GroupBoxHeader_About" xml:space="preserve">
     <value>Über</value>
   </data>

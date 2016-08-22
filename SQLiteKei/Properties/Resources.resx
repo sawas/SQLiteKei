@@ -400,6 +400,9 @@
   <data name="QueryEditor_SaveQuery" xml:space="preserve">
     <value>QueryEditor_SaveQuery</value>
   </data>
+  <data name="SelectQueryEditor_SelectAll" xml:space="preserve">
+    <value>SelectQueryEditor_SelectUnselectAll</value>
+  </data>
   <data name="TabContent_GroupBoxHeader_About" xml:space="preserve">
     <value>TabContent_GroupBoxHeader_About</value>
   </data>

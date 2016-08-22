@@ -20,21 +20,29 @@
         </Grid.RowDefinitions>
         <TabControl x:Name="tabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TabItem Header="Select">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Selects}">
-                        <ItemsControl.Resources>
-                            <DataTemplate DataType="{x:Type viewmodel:SelectItem}">
-                                <DockPanel Height="25">
-                                    <CheckBox IsChecked="{Binding IsSelected}" Margin="5 0" VerticalAlignment="Center" />
-                                    <TextBlock Text="{Binding ColumnName}" TextTrimming="CharacterEllipsis" ToolTip="{Binding ColumnName}" 
+                <StackPanel>
+                    <DockPanel Height="25">
+                        <CheckBox IsChecked="{Binding IsSelectAll}" Margin="5 0" VerticalAlignment="Center" >
+                            <Label Content="{x:Static localisation:Resources.SelectQueryEditor_SelectAll}"
+                                   VerticalAlignment="Center" Margin="-4 0" />
+                        </CheckBox>
+                    </DockPanel>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding Selects}">
+                            <ItemsControl.Resources>
+                                <DataTemplate DataType="{x:Type viewmodel:SelectItem}">
+                                    <DockPanel Height="25">
+                                        <CheckBox IsChecked="{Binding IsSelected}" Margin="5 0" VerticalAlignment="Center" />
+                                        <TextBlock Text="{Binding ColumnName}" TextTrimming="CharacterEllipsis" ToolTip="{Binding ColumnName}" 
                                                Width="125" VerticalAlignment="Center" Foreground="{DynamicResource ApplicationFontColor}" />
-                                    <Label Content="AS" FontWeight="DemiBold" />
-                                    <TextBox Text="{Binding Alias}" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" ></TextBox>
-                                </DockPanel>
-                            </DataTemplate>
-                        </ItemsControl.Resources>
-                    </ItemsControl>
-                </ScrollViewer>
+                                        <Label Content="AS" FontWeight="DemiBold" />
+                                        <TextBox Text="{Binding Alias}" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" ></TextBox>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ItemsControl.Resources>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </StackPanel>
             </TabItem>
             <TabItem Header="Where">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">

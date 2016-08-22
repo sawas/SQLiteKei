@@ -407,6 +407,9 @@ Original Message: {0}</value>
   <data name="QueryEditor_SaveQuery" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="SelectQueryEditor_SelectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
   <data name="TabContent_GroupBoxHeader_About" xml:space="preserve">
     <value>About</value>
   </data>

@@ -908,6 +908,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SelectQueryEditor_SelectUnselectAll.
+        /// </summary>
+        public static string SelectQueryEditor_SelectAll {
+            get {
+                return ResourceManager.GetString("SelectQueryEditor_SelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TabContent_GroupBoxHeader_About.
         /// </summary>
         public static string TabContent_GroupBoxHeader_About {
