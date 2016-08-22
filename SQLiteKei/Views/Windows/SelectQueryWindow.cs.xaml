@@ -16,7 +16,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="24"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <TabControl x:Name="tabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TabItem Header="Select">
@@ -102,9 +102,11 @@
                 </ScrollViewer>
             </TabItem>
         </TabControl>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button Style="{StaticResource ButtonDark}" Content="{x:Static localisation:Resources.ButtonText_Cancel}" Margin="3 2" IsCancel="True" />
-            <Button Style="{StaticResource ButtonDark}" Content="{x:Static localisation:Resources.ButtonText_Execute}" Margin="3 2" Click="Execute" />
-        </StackPanel>
+        <DockPanel Grid.Row="1" FlowDirection="RightToLeft" LastChildFill="False">
+            <Button Style="{StaticResource ButtonDark}" Content="{x:Static localisation:Resources.ButtonText_Cancel}" 
+                    Height="25" Padding="5 0" Margin="5 0" IsCancel="True" />
+            <Button Style="{StaticResource ButtonDark}" Content="{x:Static localisation:Resources.ButtonText_Execute}" 
+                    Height="25" Padding="5 0" Click="Execute" />
+        </DockPanel>
     </Grid>
 </Window>
