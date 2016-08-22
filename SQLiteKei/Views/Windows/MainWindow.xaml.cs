@@ -6,6 +6,7 @@ using SQLiteKei.ViewModels.ElementRenameWindow;
 using SQLiteKei.ViewModels.MainWindow;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
+using SQLiteKei.ViewModels.TableMigrator;
 using SQLiteKei.Views.Windows.Creators;
 
 using System;
@@ -173,6 +174,22 @@ namespace SQLiteKei.Views.Windows
         {
             var tableItem = (TableItem)DBTreeView.SelectedItem;
             viewModel.EmptyTable(tableItem.DisplayName);
+        }
+
+        private void MoveTable(object sender, RoutedEventArgs e)
+        {
+            var treeItem = DBTreeView.SelectedItem as TableItem;
+            var tableMigratorViewModel = new TableMigratorViewModel(viewModel.TreeViewItems, treeItem.DisplayName, MigrationType.Move);
+
+            new TableMigrator(tableMigratorViewModel).ShowDialog();
+        }
+
+        private void CopyTable(object sender, RoutedEventArgs e)
+        {
+            var treeItem = DBTreeView.SelectedItem as TableItem;
+            var tableMigratorViewModel = new TableMigratorViewModel(viewModel.TreeViewItems, treeItem.DisplayName, MigrationType.Copy);
+
+            new TableMigrator(tableMigratorViewModel).ShowDialog();
         }
 
         private void DeleteTable(object sender, RoutedEventArgs e)

@@ -83,6 +83,8 @@
     <Compile Include="ViewModels\CreatorWindows\TriggerCreatorWindow\ColumnItem.cs" />
     <Compile Include="ViewModels\CreatorWindows\TriggerCreatorWindow\TriggerCreatorViewModel.cs" />
     <Compile Include="ViewModels\CreatorWindows\ViewCreatorWindow\ViewCreatorViewModel.cs" />
+    <Compile Include="ViewModels\TableMigrator\MigrationType.cs" />
+    <Compile Include="ViewModels\TableMigrator\TableMigratorViewModel.cs" />
     <Compile Include="Views\UserControls\IndexGeneralTabContent.xaml.cs">
       <DependentUpon>IndexGeneralTabContent.xaml</DependentUpon>
     </Compile>
@@ -228,6 +230,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Windows\TableMigrator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\UnhandledExceptionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -304,6 +310,9 @@
     </Compile>
     <Compile Include="Views\Windows\Creators\TableCreator.xaml.cs">
       <DependentUpon>TableCreator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\TableMigrator.xaml.cs">
+      <DependentUpon>TableMigrator.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\UnhandledExceptionWindow.xaml.cs">
       <DependentUpon>UnhandledExceptionWindow.xaml</DependentUpon>

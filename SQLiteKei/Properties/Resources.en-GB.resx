@@ -144,6 +144,9 @@
   <data name="ContextMenuItem_CloseDatabase" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="ContextMenuItem_CopyTable" xml:space="preserve">
+    <value>Copy</value>
+  </data>
   <data name="ContextMenuItem_DeleteDatabase" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="ContextMenuItem_EmptyTable" xml:space="preserve">
     <value>Empty</value>
+  </data>
+  <data name="ContextMenuItem_MoveTable" xml:space="preserve">
+    <value>Move</value>
   </data>
   <data name="ContextMenuItem_NewDatabase" xml:space="preserve">
     <value>New Database</value>
@@ -631,6 +637,12 @@ Original Message: {0}</value>
   </data>
   <data name="WindowTitle_TableCreator" xml:space="preserve">
     <value>Create Table</value>
+  </data>
+  <data name="WindowTitle_TableMigrator_Copy" xml:space="preserve">
+    <value>Copy table '{0}'</value>
+  </data>
+  <data name="WindowTitle_TableMigrator_Move" xml:space="preserve">
+    <value>Move table '{0}'</value>
   </data>
   <data name="WindowTitle_TriggerCreator" xml:space="preserve">
     <value>Create Trigger</value>

@@ -144,6 +144,9 @@
   <data name="ContextMenuItem_CloseDatabase" xml:space="preserve">
     <value>Trennen</value>
   </data>
+  <data name="ContextMenuItem_CopyTable" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
   <data name="ContextMenuItem_DeleteDatabase" xml:space="preserve">
     <value>Löschen</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="ContextMenuItem_EmptyTable" xml:space="preserve">
     <value>Leeren</value>
+  </data>
+  <data name="ContextMenuItem_MoveTable" xml:space="preserve">
+    <value>Verschieben</value>
   </data>
   <data name="ContextMenuItem_NewDatabase" xml:space="preserve">
     <value>Neu</value>
@@ -631,6 +637,12 @@ Originale Fehlermeldung: {0}</value>
   </data>
   <data name="WindowTitle_TableCreator" xml:space="preserve">
     <value>Tabelle erstellen</value>
+  </data>
+  <data name="WindowTitle_TableMigrator_Copy" xml:space="preserve">
+    <value>Tabelle '{0}' kopieren</value>
+  </data>
+  <data name="WindowTitle_TableMigrator_Move" xml:space="preserve">
+    <value>Tabelle '{0}' verschieben</value>
   </data>
   <data name="WindowTitle_TriggerCreator" xml:space="preserve">
     <value>Trigger erstellen</value>

@@ -113,11 +113,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <TreeView x:Name="DBTreeView" 
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                          SelectedItemChanged="DBTreeView_SelectedItemChanged"
-                          ItemsSource="{Binding TreeViewItems}"
-                          MouseRightButtonDown="TreeViewRightMouseButtonDown"
-                          Margin="5 0 0 0" Padding="0 4">
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                      SelectedItemChanged="DBTreeView_SelectedItemChanged"
+                      ItemsSource="{Binding TreeViewItems}"
+                      MouseRightButtonDown="TreeViewRightMouseButtonDown"
+                      Margin="5 0 0 0" Padding="0 4" 
+                      AllowDrop="True">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type model:DatabaseItem}" ItemsSource="{Binding Items}">
                         <DockPanel>
@@ -205,12 +206,20 @@
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_EmptyTable}" Click="EmptyTable" />
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_Rename}" Click="Rename" />
                                     <Separator />
+                                    <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_CopyTable}" Click="CopyTable" />
+                                    <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_MoveTable}" Click="MoveTable" />
+                                    <Separator />
                                     <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_DeleteTable}" Click="DeleteTable" />
                                 </ContextMenu>
                             </DockPanel.ContextMenu>
                             <Image Source="../../Resources/Icons/TreeItem_Table.png" Height="16" Width="16" Margin="4 1"/>
                             <TextBlock Text="{Binding Path=DisplayName}" />
                         </DockPanel>
+                        <DataTemplate.Triggers>
+                            <EventTrigger RoutedEvent="DragEnter">
+                                
+                            </EventTrigger>
+                        </DataTemplate.Triggers>
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type model:ViewItem}">
                         <DockPanel>
@@ -252,6 +261,7 @@
                         </DockPanel>
                     </DataTemplate>
                 </TreeView.Resources>
+                
                 <TreeView.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_OpenDatabase}" Click="OpenDatabase" />

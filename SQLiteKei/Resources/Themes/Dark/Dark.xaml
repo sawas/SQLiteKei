@@ -30,6 +30,7 @@
     <Style TargetType="{x:Type generalWindows:QueryEditor}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type generalWindows:SelectQueryWindow}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type generalWindows:ElementRenameWindow}" BasedOn="{StaticResource {x:Type Window}}" />
+    <Style TargetType="{x:Type generalWindows:TableMigrator}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type creatorWindows:TableCreator}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type creatorWindows:ViewCreator}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type creatorWindows:TriggerCreator}" BasedOn="{StaticResource {x:Type Window}}" />

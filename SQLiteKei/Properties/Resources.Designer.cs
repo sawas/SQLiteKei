@@ -142,6 +142,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ContextMenuItem_CopyTable.
+        /// </summary>
+        public static string ContextMenuItem_CopyTable {
+            get {
+                return ResourceManager.GetString("ContextMenuItem_CopyTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ContextMenuItem_DeleteDatabase.
         /// </summary>
         public static string ContextMenuItem_DeleteDatabase {
@@ -192,6 +201,15 @@ namespace SQLiteKei.Properties {
         public static string ContextMenuItem_EmptyTable {
             get {
                 return ResourceManager.GetString("ContextMenuItem_EmptyTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ContextMenuItem_MoveTable.
+        /// </summary>
+        public static string ContextMenuItem_MoveTable {
+            get {
+                return ResourceManager.GetString("ContextMenuItem_MoveTable", resourceCulture);
             }
         }
         
@@ -1579,6 +1597,24 @@ namespace SQLiteKei.Properties {
         public static string WindowTitle_TableCreator {
             get {
                 return ResourceManager.GetString("WindowTitle_TableCreator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WindowTitle_TableMigrator_Copy.
+        /// </summary>
+        public static string WindowTitle_TableMigrator_Copy {
+            get {
+                return ResourceManager.GetString("WindowTitle_TableMigrator_Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WindowTitle_TableMigrator_Move.
+        /// </summary>
+        public static string WindowTitle_TableMigrator_Move {
+            get {
+                return ResourceManager.GetString("WindowTitle_TableMigrator_Move", resourceCulture);
             }
         }
         
