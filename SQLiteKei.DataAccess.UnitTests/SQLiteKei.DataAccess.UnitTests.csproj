@@ -54,6 +54,7 @@
     <Compile Include="Queries\CreateTableQueryBuilderTests.cs" />
     <Compile Include="Queries\CreateViewQueryBuilderTests.cs" />
     <Compile Include="Queries\DropTableQueryBuilderTests.cs" />
+    <Compile Include="Queries\InsertQueryBuilderTests.cs" />
     <Compile Include="Queries\SelectQueryBuilderTests.cs" />
   </ItemGroup>
   <ItemGroup>

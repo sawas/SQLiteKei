@@ -115,6 +115,16 @@
         }
 
         /// <summary>
+        /// Begins an INSERT INTO statement for the specified table.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
+        public static InsertQueryBuilder InsertInto(string tableName)
+        {
+            return new InsertQueryBuilder(tableName);
+        }
+
+        /// <summary>
         /// Begins an ALTER statement for the specified table.
         /// </summary>
         /// <param name="tableName">Name of the table.</param>
