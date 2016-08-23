@@ -3,6 +3,7 @@
 using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.QueryBuilders;
+using SQLiteKei.DataTypes.Collections;
 using SQLiteKei.Extensions;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
@@ -10,10 +11,8 @@ using SQLiteKei.ViewModels.SelectQueryWindow;
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Windows.Data;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 {
@@ -23,28 +22,14 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
         private string tableName;
 
-        private ICollectionView dataGridCollection;
-        public ICollectionView DataGridCollection
+        private PagableCollectionView dataGridCollection;
+        public PagableCollectionView DataGridCollection
         {
             get { return dataGridCollection; }
-            set
+            set 
             {
-                dataGridCollection = value;
-                if (dataGridCollection.CanFilter)
-                    dataGridCollection.Filter = Filter;
+                dataGridCollection = value; 
                 NotifyPropertyChanged("DataGridCollection"); 
-            }
-        }
-
-        private string searchString;
-        public string SearchString
-        {
-            get { return searchString; }
-            set
-            {
-                searchString = value;
-                NotifyPropertyChanged("SearchString");
-                FilterCollection();
             }
         }
 
@@ -59,33 +44,71 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         {
             this.tableName = tableName;
 
-            DataGridCollection = new ListCollectionView(new List<object>());
+            DataGridCollection = new PagableCollectionView(new List<object>());
 
             selectCommand = new DelegateCommand(Select);
             selectAllCommand = new DelegateCommand(SelectAll);
+            gotoNextCommand = new DelegateCommand(GotoNextPage);
+            gotoPreviousCommand = new DelegateCommand(GotoPreviousPage);
+            gotoLastCommand = new DelegateCommand(GotoLastPage);
+            gotoFirstCommand = new DelegateCommand(GotoFirstPage);
         }
 
-        private void FilterCollection()
+        public int ItemsPerPage
         {
-            if (dataGridCollection != null)
-            {
-                dataGridCollection.Refresh();
-            }
+            get { return DataGridCollection.ItemsPerPage; }
+            set { DataGridCollection.ItemsPerPage = value; NotifyPropertyChanged("TotalPages"); NotifyPropertyChanged("CurrentPage"); }
         }
 
-        private bool Filter(object obj)
+        public int CurrentPage
         {
-            if (string.IsNullOrEmpty(searchString))
-            {
-                return true;
-            }
-
-            var rowView = obj as DataRowView;
-            var row = rowView.Row;
-
-            return row.ItemArray.Select(entry => entry.ToString())
-                .Any(value => value.Contains(searchString, StringComparison.OrdinalIgnoreCase));
+            get { return DataGridCollection.PageCount == 0 ? 0 : DataGridCollection.CurrentPage; }
         }
+
+        public int TotalPages
+        {
+            get { return DataGridCollection.PageCount; }
+        }
+
+        private void GotoNextPage()
+        {
+            DataGridCollection.MoveToNextPage();
+            NotifyPropertyChanged("CurrentPage");
+        }
+
+        private DelegateCommand gotoNextCommand;
+
+        public DelegateCommand GotoNextCommand { get { return gotoNextCommand; } }
+
+        private void GotoPreviousPage()
+        {
+            DataGridCollection.MoveToPreviousPage();
+            NotifyPropertyChanged("CurrentPage");
+        }
+
+        private DelegateCommand gotoPreviousCommand;
+
+        public DelegateCommand GotoPreviousCommand { get { return gotoPreviousCommand; } }
+
+        private void GotoLastPage()
+        {
+            DataGridCollection.MoveToLastPage();
+            NotifyPropertyChanged("CurrentPage");
+        }
+
+        private DelegateCommand gotoLastCommand;
+
+        public DelegateCommand GotoLastCommand { get { return gotoLastCommand; } }
+
+        private void GotoFirstPage()
+        {
+            DataGridCollection.MoveToFirstPage();
+            NotifyPropertyChanged("CurrentPage");
+        }
+
+        private DelegateCommand gotoFirstCommand;
+
+        public DelegateCommand GotoFirstCommand { get { return gotoFirstCommand; } }
 
         private void Select()
         {
@@ -128,8 +151,10 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                 {
                     var resultTable = dbHandler.ExecuteReader(selectQuery);
 
-                    DataGridCollection = new ListCollectionView(resultTable.DefaultView);
+                    DataGridCollection = new PagableCollectionView(resultTable.DefaultView, ItemsPerPage);
                     StatusInfo = string.Format("Rows returned: {0}", resultTable.Rows.Count);
+                    NotifyPropertyChanged("CurrentPage");
+                    NotifyPropertyChanged("TotalPages");
                 }
             }
             catch (Exception ex)

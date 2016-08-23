@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataTypes\Collections\PagableCollectionView.cs" />
     <Compile Include="Util\MainTreeHandler.cs" />
     <Compile Include="ViewModels\CreatorWindows\ColumnCreatorWindow\ColumnCreatorViewModel.cs" />
     <Compile Include="ViewModels\CreatorWindows\IndexCreatorWindow\IndexCreatorViewModel.cs" />

@@ -5,20 +5,29 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:localisation="clr-namespace:SQLiteKei.Properties"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0">
+        <DockPanel Grid.Row="0" LastChildFill="False">
             <Button DockPanel.Dock="Left" Height="25" Margin="3 0 0 0" Padding="5 0" Style="{DynamicResource ButtonLight}" Content="Select" Command="{Binding SelectCommand}" />
             <Button DockPanel.Dock="Left" Height="25" Margin="3 0 0 0" Padding="5 0" Style="{DynamicResource ButtonLight}" Content="Select All" Command="{Binding SelectAllCommand}" />
-            <TextBox DockPanel.Dock="Right" Width="100" Height="25" HorizontalAlignment="Right" VerticalContentAlignment="Center" Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" />
-            <Label DockPanel.Dock="Right" Content="{x:Static localisation:Resources.TableRecordsTab_Filter}" HorizontalAlignment="Right" />
+            <Button DockPanel.Dock="Right" Height="25" Margin="3 0 0 0" Padding="5 0" Style="{DynamicResource ButtonLight}" Content=">>" Command="{Binding GotoLastCommand}" />
+            <Button DockPanel.Dock="Right" Height="25" Margin="3 0 0 0" Padding="5 0" Style="{DynamicResource ButtonLight}" Content=">" Command="{Binding GotoNextCommand}" />
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="5 0" Height="25">
+                <TextBlock Text="{Binding CurrentPage}" VerticalAlignment="Center" />
+                <TextBlock Text="/" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding TotalPages}" VerticalAlignment="Center" />
+            </StackPanel>
+            <Button DockPanel.Dock="Right" Height="25" Margin="3 0 0 0" Padding="5 0" Style="{DynamicResource ButtonLight}" Content="&lt;" Command="{Binding GotoPreviousCommand}" />
+            <Button DockPanel.Dock="Right" Height="25" Margin="3 0 0 0" Padding="5 0" Style="{DynamicResource ButtonLight}" Content="&lt;&lt;" Command="{Binding GotoFirstCommand}" />
+            <TextBox DockPanel.Dock="Right"  Height="25" Text="{Binding ItemsPerPage, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" />
+            <Label DockPanel.Dock="Right" Content="{x:Static localisation:Resources.TableRecordsTab_ElementsPerPage}" VerticalAlignment="Center" />
         </DockPanel>
-        <DataGrid IsReadOnly="True" Grid.Row="1" HeadersVisibility="Column" ItemsSource="{Binding DataGridCollection}">
+        <DataGrid IsReadOnly="True" Grid.Row="1" HeadersVisibility="Column" ItemsSource="{Binding DataGridCollection}" >
         </DataGrid>
         <TextBox Text="{Binding StatusInfo}" Grid.Row="2" Style="{DynamicResource SelectableLabelTextBox}" VerticalAlignment="Center"/>
     </Grid>

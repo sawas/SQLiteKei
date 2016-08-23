@@ -1241,11 +1241,11 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TableRecordsTab_Filter.
+        ///   Looks up a localized string similar to TableRecordsTab_ElementsPerPage.
         /// </summary>
-        public static string TableRecordsTab_Filter {
+        public static string TableRecordsTab_ElementsPerPage {
             get {
-                return ResourceManager.GetString("TableRecordsTab_Filter", resourceCulture);
+                return ResourceManager.GetString("TableRecordsTab_ElementsPerPage", resourceCulture);
             }
         }
         

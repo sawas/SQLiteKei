@@ -518,8 +518,8 @@ Originale Fehlermeldung: {0}</value>
   <data name="TableMigrator_TargetDatabase" xml:space="preserve">
     <value>Zieldatenbank</value>
   </data>
-  <data name="TableRecordsTab_Filter" xml:space="preserve">
-    <value>Durchsuchen</value>
+  <data name="TableRecordsTab_ElementsPerPage" xml:space="preserve">
+    <value>Elemente pro Seite</value>
   </data>
   <data name="Tooltip_CloseDatabase" xml:space="preserve">
     <value>Datenbank trennen</value>

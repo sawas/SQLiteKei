@@ -511,8 +511,8 @@
   <data name="TableMigrator_TargetDatabase" xml:space="preserve">
     <value>TableMigrator_TargetDatabase</value>
   </data>
-  <data name="TableRecordsTab_Filter" xml:space="preserve">
-    <value>TableRecordsTab_Filter</value>
+  <data name="TableRecordsTab_ElementsPerPage" xml:space="preserve">
+    <value>TableRecordsTab_ElementsPerPage</value>
   </data>
   <data name="Tooltip_CloseDatabase" xml:space="preserve">
     <value>Tooltip_CloseDatabase</value>
