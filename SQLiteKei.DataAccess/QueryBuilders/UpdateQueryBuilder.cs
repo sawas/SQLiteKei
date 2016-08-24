@@ -50,11 +50,6 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             return null;
         }
 
-        internal override void AddWhereClause(string where)
-        {
-            WhereClauses.Add(where);
-        }
-
         public override string Build()
         {
             var combinedSets = string.Join(", ", sets);
@@ -62,7 +57,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             if (!WhereClauses.Any())
                 return string.Format("UPDATE '{0}'\nSET {1}", tableName, combinedSets);
 
-            var combinedWhereClauses = string.Join("\n", WhereClauses);
+            var combinedWhereClauses = string.Join("\nAND ", WhereClauses);
             return string.Format("UPDATE '{0}'\nSET {1}\nWHERE {2}", tableName, combinedSets, combinedWhereClauses);
         }
     }

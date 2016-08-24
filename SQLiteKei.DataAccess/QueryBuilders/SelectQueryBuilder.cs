@@ -85,11 +85,6 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             return new AndWhereClause(this, columnName);
         }
 
-        internal override void AddWhereClause(string where)
-        {
-            WhereClauses.Add(where);
-        }
-
         //TODO Unit tests for this one needed
         public override SelectQueryBuilder OrderBy(string columnName, bool descending = false)
         {

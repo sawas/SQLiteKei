@@ -213,7 +213,42 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
         internal void DeleteRow(IList<DataGridCellInfo> currentRow)
         {
-            throw new NotImplementedException();
+            StatusInfo = string.Empty;
+
+            try
+            {
+                var queryBuilder = QueryBuilder.DeleteFrom(tableName);
+
+                foreach (DataGridCellInfo cell in currentRow)
+                {
+                    var column = cell.Column.Header.ToString();
+
+                    var cellContent = cell.Column.GetCellContent(cell.Item);
+                    string cellContentValue;
+
+                    var cellContentTextBox = cellContent as TextBox;
+
+                    if (cellContentTextBox == null)
+                    {
+                        var cellContentTextBlock = cellContent as TextBlock;
+                        cellContentValue = cellContentTextBlock.Text;
+                    }
+                    else
+                        cellContentValue = cellContentTextBox.Text;
+
+                    queryBuilder = queryBuilder.Where(column)
+                        .Is(cellContentValue) as DeleteQueryBuilder;
+                }
+                var command = queryBuilder.Build();
+
+                ExecuteCommand(command);
+                SelectAll();
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Failed to update delete row from table '" + tableName + "'.", ex);
+                StatusInfo = ex.Message.Replace("SQL logic error or missing database ", "SQL Error - ");
+            }
         }
 
         private void ExecuteCommand(string command)

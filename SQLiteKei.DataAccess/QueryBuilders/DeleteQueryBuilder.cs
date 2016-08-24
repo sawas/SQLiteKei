@@ -1,10 +1,8 @@
 ﻿using SQLiteKei.DataAccess.QueryBuilders.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using SQLiteKei.DataAccess.QueryBuilders.Where;
+using System.Collections.Generic;
 
 namespace SQLiteKei.DataAccess.QueryBuilders
 {
@@ -18,18 +16,10 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         public DeleteQueryBuilder(string tableName)
         {
             this.tableName = tableName;
+            WhereClauses = new List<string>();
         }
 
-        public override WhereClause And(string columnName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override WhereClause Or(string columnName)
-        {
-            throw new NotImplementedException();
-        }
-
+        [Obsolete("Don't use")]
         public override SelectQueryBuilder OrderBy(string columnName, bool descending = false)
         {
             throw new NotImplementedException();
@@ -37,17 +27,24 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         public override WhereClause Where(string columnName)
         {
-            throw new NotImplementedException();
+            return new WhereClause(this, columnName);
         }
 
-        internal override void AddWhereClause(string where)
+        public override WhereClause Or(string columnName)
         {
-            throw new NotImplementedException();
+            return new OrWhereClause(this, columnName);
+        }
+
+        public override WhereClause And(string columnName)
+        {
+            return new AndWhereClause(this, columnName);
         }
 
         public override string Build()
         {
-            throw new NotImplementedException();
+            var combinedWhereClauses = string.Join("\nAND ", WhereClauses);
+
+            return string.Format("DELETE FROM '{0}'\nWHERE {1}", tableName, combinedWhereClauses);
         }
     }
 }
