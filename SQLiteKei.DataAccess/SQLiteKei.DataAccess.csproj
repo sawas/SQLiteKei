@@ -73,6 +73,7 @@
     <Compile Include="Exceptions\QueryBuilderException.cs" />
     <Compile Include="Exceptions\SelectQueryBuilderException.cs" />
     <Compile Include="Exceptions\TableNotFoundException.cs" />
+    <Compile Include="QueryBuilders\DeleteQueryBuilder.cs" />
     <Compile Include="QueryBuilders\InsertQueryBuilder.cs" />
     <Compile Include="QueryBuilders\UpdateQueryBuilder.cs" />
     <Compile Include="Util\Extensions\ConvertExtensions.cs" />

@@ -17,8 +17,6 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         private Dictionary<string, string> selects;
 
-        public List<string> WhereClauses { get; private set; } 
-
         private List<OrderData> OrderClauses { get; set; }
 
         private long limit;
@@ -74,10 +72,6 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         public override WhereClause Where(string columnName)
         {
-            if(WhereClauses.Any())
-                throw new SelectQueryBuilderException("More than one where statement has been defined. "
-                                                      + "You should use the And or Or methods for more than one where clause.");
-
             return new WhereClause(this, columnName);
         }
 

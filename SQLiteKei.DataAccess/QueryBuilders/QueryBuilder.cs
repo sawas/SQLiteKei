@@ -45,6 +45,16 @@
         }
 
         /// <summary>
+        /// Begins a DELETE statement for the specified table.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
+        public static DeleteQueryBuilder DeleteFrom(string tableName)
+        {
+            return new DeleteQueryBuilder(tableName);
+        }
+
+        /// <summary>
         /// Begins a CREATE statement for the specified table.
         /// </summary>
         /// <param name="tableName">Name of the table.</param>

@@ -202,7 +202,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
                 var command = queryBuilder.Build();
 
-                ExecuteUpdate(command);
+                ExecuteCommand(command);
             }
             catch (Exception ex)
             {
@@ -211,7 +211,12 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             }
         }
 
-        private void ExecuteUpdate(string command)
+        internal void DeleteRow(IList<DataGridCellInfo> currentRow)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ExecuteCommand(string command)
         {
             using (var dbHandler = new DatabaseHandler(Settings.Default.CurrentDatabase))
             {

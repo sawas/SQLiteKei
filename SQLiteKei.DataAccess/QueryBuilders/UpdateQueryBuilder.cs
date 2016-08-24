@@ -16,14 +16,11 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         private List<string> sets;
 
-        private List<string> whereClauses;
-
         public UpdateQueryBuilder(string tableName)
         {
             this.tableName = tableName;
             sets = new List<string>();
-            whereClauses = new List<string>();
-
+            WhereClauses = new List<string>();
         }
 
         public UpdateQueryBuilder Set(string columnName, string value)
@@ -55,17 +52,17 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         internal override void AddWhereClause(string where)
         {
-            whereClauses.Add(where);
+            WhereClauses.Add(where);
         }
 
         public override string Build()
         {
             var combinedSets = string.Join(", ", sets);
 
-            if (!whereClauses.Any())
+            if (!WhereClauses.Any())
                 return string.Format("UPDATE '{0}'\nSET {1}", tableName, combinedSets);
 
-            var combinedWhereClauses = string.Join("\n", whereClauses);
+            var combinedWhereClauses = string.Join("\n", WhereClauses);
             return string.Format("UPDATE '{0}'\nSET {1}\nWHERE {2}", tableName, combinedSets, combinedWhereClauses);
         }
     }
