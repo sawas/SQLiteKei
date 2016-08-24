@@ -9,10 +9,10 @@ namespace SQLiteKei.Views.Windows
     /// </summary>
     public partial class SelectQueryWindow : Window
     {
-        public SelectQueryWindow(string tableName)
+        public SelectQueryWindow(SelectQueryViewModel viewModel)
         {
             InitializeComponent();
-            DataContext = new SelectQueryViewModel(tableName);
+            DataContext = viewModel;
         }
 
         private void Execute(object sender, RoutedEventArgs e)

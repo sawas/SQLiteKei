@@ -105,19 +105,27 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
         public DelegateCommand GotoFirstCommand { get { return gotoFirstCommand; } }
 
+        private SelectQueryViewModel lastSelect;
+
         private void Select()
         {
-            var createSelectWindow = new SQLiteKei.Views.Windows.SelectQueryWindow(tableName);
+            SQLiteKei.Views.Windows.SelectQueryWindow window;
 
-            if (createSelectWindow.ShowDialog().Value)
+            if (lastSelect == null)
+                window = new SQLiteKei.Views.Windows.SelectQueryWindow(new SelectQueryViewModel(tableName));
+            else
+                window = new SQLiteKei.Views.Windows.SelectQueryWindow(lastSelect);
+
+            if (window.ShowDialog().Value)
             {
                 StatusInfo = string.Empty;
-                var windowViewModel = createSelectWindow.DataContext as SelectQueryViewModel;
+                var windowViewModel = window.DataContext as SelectQueryViewModel;
 
                 logger.Info("Executing Select command on table records tab:" 
                     + Environment.NewLine 
                     + windowViewModel.SelectQuery.Replace("\n", Environment.NewLine));
                 Execute(windowViewModel.SelectQuery);
+                lastSelect = windowViewModel;
             }
         }
 
