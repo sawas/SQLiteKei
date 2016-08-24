@@ -4,12 +4,14 @@ using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.DataTypes.Collections;
+using SQLiteKei.Properties;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.SelectQueryWindow;
 
 using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 {
@@ -154,6 +156,58 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             {
                 logger.Error("Select query failed.", ex);
                 StatusInfo = ex.Message.Replace("SQL logic error or missing database ", "SQL Error - ");
+            }
+        }
+
+        internal void UpdateValue(IList<DataGridCellInfo> currentRow, string columnName, string newValue)
+        {
+            StatusInfo = string.Empty;
+
+            try
+            {
+                var queryBuilder = QueryBuilder.Update(tableName)
+                    .Set(columnName, newValue);
+
+                foreach (DataGridCellInfo cell in currentRow)
+                {
+                    var column = cell.Column.Header.ToString();
+
+                    if (!column.Equals(columnName))
+                    {
+                        var cellContent = cell.Column.GetCellContent(cell.Item);
+                        string cellContentValue;
+
+                        var cellContentTextBox = cellContent as TextBox;
+
+                        if (cellContentTextBox == null)
+                        {
+                            var cellContentTextBlock = cellContent as TextBlock;
+                            cellContentValue = cellContentTextBlock.Text;
+                        }
+                        else
+                            cellContentValue = cellContentTextBox.Text;
+
+                        queryBuilder = queryBuilder.Where(column)
+                            .Is(cellContentValue) as UpdateQueryBuilder;
+                    }
+                }
+
+                var command = queryBuilder.Build();
+
+                ExecuteUpdate(command);
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Failed to update cell on table '" + tableName + "'.", ex);
+                StatusInfo = ex.Message.Replace("SQL logic error or missing database ", "SQL Error - ");
+            }
+        }
+
+        private void ExecuteUpdate(string command)
+        {
+            using (var dbHandler = new DatabaseHandler(Settings.Default.CurrentDatabase))
+            {
+                dbHandler.ExecuteNonQuery(command);
             }
         }
     }

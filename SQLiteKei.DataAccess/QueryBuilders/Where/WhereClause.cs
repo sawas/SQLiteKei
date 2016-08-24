@@ -20,7 +20,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders.Where
         public ConditionalQueryBuilder Is(object value)
         {
             resultString.Append(" = ");
-            resultString.Append(value);
+            resultString.Append("'" + value + "'");
 
             queryBuilder.AddWhereClause(resultString.ToString());
             return queryBuilder;
@@ -29,7 +29,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders.Where
         public ConditionalQueryBuilder IsGreaterThan(object value)
         {
             resultString.Append(" > ");
-            resultString.Append(value);
+            resultString.Append("'" + value + "'");
 
             queryBuilder.AddWhereClause(resultString.ToString());
             return queryBuilder;
@@ -38,7 +38,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders.Where
         public ConditionalQueryBuilder IsGreaterThanOrEqual(object value)
         {
             resultString.Append(" >= ");
-            resultString.Append(value);
+            resultString.Append("'" + value + "'");
 
             queryBuilder.AddWhereClause(resultString.ToString());
             return queryBuilder;
@@ -47,7 +47,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders.Where
         public ConditionalQueryBuilder IsLessThan(object value)
         {
             resultString.Append(" < ");
-            resultString.Append(value);
+            resultString.Append("'" + value + "'");
 
             queryBuilder.AddWhereClause(resultString.ToString());
             return queryBuilder;
@@ -56,7 +56,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders.Where
         public ConditionalQueryBuilder IsLessThanOrEqual(object value)
         {
             resultString.Append(" <= ");
-            resultString.Append(value);
+            resultString.Append("'" + value + "'");
 
             queryBuilder.AddWhereClause(resultString.ToString());
             return queryBuilder;

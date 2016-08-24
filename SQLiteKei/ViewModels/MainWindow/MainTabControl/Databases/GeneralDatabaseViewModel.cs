@@ -72,7 +72,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases
         private string GetSize(long value)
         {
             int suffix = 0;
-            decimal decimalValue = (decimal)value;
+            decimal decimalValue = value;
 
             while(Math.Round(decimalValue / 1024) >= 1)
             {

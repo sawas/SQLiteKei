@@ -35,6 +35,16 @@
         }
 
         /// <summary>
+        /// Begins an UPDATE statement for the specified table.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
+        public static UpdateQueryBuilder Update(string tableName)
+        {
+            return new UpdateQueryBuilder(tableName);
+        }
+
+        /// <summary>
         /// Begins a CREATE statement for the specified table.
         /// </summary>
         /// <param name="tableName">Name of the table.</param>

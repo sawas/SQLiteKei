@@ -27,7 +27,7 @@
             <TextBox DockPanel.Dock="Right"  Height="25" Text="{Binding ItemsPerPage, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" />
             <Label DockPanel.Dock="Right" Content="{x:Static localisation:Resources.TableRecordsTab_ElementsPerPage}" VerticalAlignment="Center" />
         </DockPanel>
-        <DataGrid IsReadOnly="True" Grid.Row="1" HeadersVisibility="Column" ItemsSource="{Binding DataGridCollection}" >
+        <DataGrid x:Name="SelectResultGrid" CanUserAddRows="False" Grid.Row="1" HeadersVisibility="Column" ItemsSource="{Binding DataGridCollection}" CellEditEnding="DataGrid_CellEditEnding" >
         </DataGrid>
         <TextBox Text="{Binding StatusInfo}" Grid.Row="2" Style="{DynamicResource SelectableLabelTextBox}" VerticalAlignment="Center"/>
     </Grid>

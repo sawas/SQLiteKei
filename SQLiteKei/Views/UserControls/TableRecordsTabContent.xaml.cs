@@ -1,7 +1,4 @@
-﻿using log4net;
-
-using SQLiteKei.DataAccess.Database;
-using SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables;
+﻿using SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables;
 
 using System.Windows.Controls;
 
@@ -16,6 +13,18 @@ namespace SQLiteKei.Views.UserControls
         {
             DataContext = viewModel;
             InitializeComponent();
+        }
+
+        private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            if(e.EditAction == DataGridEditAction.Commit)
+            {
+                var currentRow = SelectResultGrid.SelectedCells;
+                var columnName = e.Column.Header.ToString();
+                var newValue = ((TextBox)e.EditingElement).Text;
+
+                ((RecordsTabViewModel)DataContext).UpdateValue(currentRow, columnName, newValue);
+            }
         }
     }
 }
