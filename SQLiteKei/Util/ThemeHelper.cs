@@ -1,4 +1,5 @@
 ﻿using log4net;
+
 using System.Reflection;
 using System.Windows;
 using System.Windows.Markup;

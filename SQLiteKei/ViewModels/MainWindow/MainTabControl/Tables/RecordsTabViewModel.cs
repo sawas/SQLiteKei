@@ -4,15 +4,12 @@ using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.DataTypes.Collections;
-using SQLiteKei.Extensions;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.SelectQueryWindow;
 
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 {
@@ -26,11 +23,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         public PagableCollectionView DataGridCollection
         {
             get { return dataGridCollection; }
-            set 
-            {
-                dataGridCollection = value; 
-                NotifyPropertyChanged("DataGridCollection"); 
-            }
+            set { dataGridCollection = value; NotifyPropertyChanged("DataGridCollection"); }
         }
 
         private string statusInfo;
