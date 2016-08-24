@@ -56,6 +56,7 @@
     <Compile Include="Queries\DropTableQueryBuilderTests.cs" />
     <Compile Include="Queries\InsertQueryBuilderTests.cs" />
     <Compile Include="Queries\SelectQueryBuilderTests.cs" />
+    <Compile Include="Queries\UpdateQueryBuilderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SQLiteKei.DataAccess\SQLiteKei.DataAccess.csproj">

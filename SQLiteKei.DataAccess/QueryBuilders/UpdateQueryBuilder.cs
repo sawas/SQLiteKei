@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace SQLiteKei.DataAccess.QueryBuilders
 {
+    /// <summary>
+    /// A builder class that allows the creation of UPDATE queries.
+    /// </summary>
     public class UpdateQueryBuilder : ConditionalQueryBuilder
     {
         private readonly string tableName;
@@ -60,10 +63,10 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             var combinedSets = string.Join(", ", sets);
 
             if (!whereClauses.Any())
-                return string.Format("UPDATE {0}\nSET {1}", tableName, combinedSets);
+                return string.Format("UPDATE '{0}'\nSET {1}", tableName, combinedSets);
 
             var combinedWhereClauses = string.Join("\n", whereClauses);
-            return string.Format("UPDATE {0}\nSET {1}\nWHERE {2}", tableName, combinedSets, combinedWhereClauses);
+            return string.Format("UPDATE '{0}'\nSET {1}\nWHERE {2}", tableName, combinedSets, combinedWhereClauses);
         }
     }
 }
