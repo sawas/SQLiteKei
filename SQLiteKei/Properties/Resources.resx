@@ -319,6 +319,9 @@
   <data name="MessageBoxTitle_TableDeletion" xml:space="preserve">
     <value>MessageBoxTitle_TableDeletion</value>
   </data>
+  <data name="MessageBoxTitle_TableRecordDelete" xml:space="preserve">
+    <value>MessageBoxTitle_TableRecordDelete</value>
+  </data>
   <data name="MessageBoxTitle_TriggerDeletion" xml:space="preserve">
     <value>MessageBoxTitle_TriggerDeletion</value>
   </data>
@@ -357,6 +360,9 @@
   </data>
   <data name="MessageBox_TableDeleteWarning" xml:space="preserve">
     <value>MessageBox_TableDeleteWarning</value>
+  </data>
+  <data name="MessageBox_TableRecordDeleteWarning" xml:space="preserve">
+    <value>MessageBox_TableRecordDeleteWarning</value>
   </data>
   <data name="MessageBox_TriggerDeleteWarning" xml:space="preserve">
     <value>MessageBox_TriggerDeleteWarning</value>

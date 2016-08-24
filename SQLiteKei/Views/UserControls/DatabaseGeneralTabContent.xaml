@@ -38,7 +38,7 @@
             <DataGrid x:Name="TableDataGrid" Grid.Column = "0" HorizontalAlignment="Left" Margin="5" ItemsSource="{Binding DatabaseInfo.TableOverviewData}" VerticalAlignment="Top"
                       AutoGenerateColumns="False"
                       HeadersVisibility="Column"
-                      CanUserAddRows="False">
+                      CanUserAddRows="False" CanUserDeleteRows="False">
                 <DataGrid.Columns>
                         <DataGridTextColumn Header="{x:Static localisation:Resources.DatabaseGeneralTab_TableName}" Binding="{Binding Name}" IsReadOnly="False" />
                         <DataGridTextColumn Header="{x:Static localisation:Resources.DatabaseGeneralTab_TableColumns}" Binding="{Binding ColumnCount}" IsReadOnly="True" />

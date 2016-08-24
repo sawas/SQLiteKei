@@ -11,6 +11,7 @@ using SQLiteKei.ViewModels.SelectQueryWindow;
 
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
@@ -214,6 +215,12 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         internal void DeleteRow(IList<DataGridCellInfo> currentRow)
         {
             StatusInfo = string.Empty;
+
+            var message = LocalisationHelper.GetString("MessageBox_TableRecordDeleteWarning");
+            var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_TableRecordDelete");
+            var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result != MessageBoxResult.Yes) return;
 
             try
             {

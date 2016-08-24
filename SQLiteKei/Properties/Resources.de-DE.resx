@@ -318,6 +318,9 @@
   <data name="MessageBoxTitle_TableDeletion" xml:space="preserve">
     <value>Tabelle löschen</value>
   </data>
+  <data name="MessageBoxTitle_TableRecordDelete" xml:space="preserve">
+    <value>Datensatz löschen</value>
+  </data>
   <data name="MessageBoxTitle_TriggerDeletion" xml:space="preserve">
     <value>Trigger löschen</value>
   </data>
@@ -364,6 +367,9 @@ Originale Fehlermeldung: {0}</value>
   </data>
   <data name="MessageBox_TableDeleteWarning" xml:space="preserve">
     <value>Wollen Sie die Tabelle '{0}' wirklich löschen?</value>
+  </data>
+  <data name="MessageBox_TableRecordDeleteWarning" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie diesen Datensatz löschen wollen?</value>
   </data>
   <data name="MessageBox_TriggerDeleteWarning" xml:space="preserve">
     <value>Wollen Sie den Trigger '{0}' wirklich löschen?</value>
