@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="{x:Static localisation:Resources.WindowTitle_QueryEditor}"
-        Height="500" Width="450" MinHeight="500" MinWidth="450">
+        Height="500" Width="600" MinHeight="500" MinWidth="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
@@ -18,14 +18,16 @@
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" LastChildFill="False">
-            <Label DockPanel.Dock="Left" Content="{x:Static localisation:Resources.QueryEditor_Label_Database}" />
+            <Label DockPanel.Dock="Left" Content="{x:Static localisation:Resources.QueryEditor_Label_Database}" VerticalAlignment="Center" />
             <ComboBox DockPanel.Dock="Left" Width="150" Height="20" ItemsSource="{Binding Databases}" SelectedItem="{Binding SelectedDatabase}" VerticalAlignment="Center">
                 <ComboBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type cmodel:DatabaseSelectItem}">
-                        <TextBlock Text="{Binding DatabaseName}" VerticalAlignment="Center" ToolTip="{Binding DatabasePath}"></TextBlock>
+                        <TextBlock Text="{Binding DatabaseName}" VerticalAlignment="Center" ToolTip="{Binding DatabasePath}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            <Label DockPanel.Dock="Left" Content="{x:Static localisation:Resources.QueryEditor_Templates}" VerticalAlignment="Center" />
+            <ComboBox DockPanel.Dock="Left" Width="150" Height="20" ItemsSource="{Binding AvailableTemplates}" SelectedItem="{Binding SelectedTemplate}" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" />
             <Button DockPanel.Dock="Right" Style="{StaticResource ButtonDark}" Height="25" Width="50" Margin="5 0" Content="{x:Static localisation:Resources.QueryEditor_LoadQuery}" Command="{Binding LoadCommand}" />
             <Button DockPanel.Dock="Right" Style="{StaticResource ButtonDark}" Height="25" Width="50" Content="{x:Static localisation:Resources.QueryEditor_SaveQuery}" Command="{Binding SaveCommand}" />
         </DockPanel>

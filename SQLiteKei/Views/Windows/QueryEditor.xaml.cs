@@ -38,5 +38,12 @@ namespace SQLiteKei.Views.Windows
 
             viewModel.SelectedText = textBox.SelectedText;
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+
+            comboBox.SelectedIndex = -1;
+        }
     }
 }

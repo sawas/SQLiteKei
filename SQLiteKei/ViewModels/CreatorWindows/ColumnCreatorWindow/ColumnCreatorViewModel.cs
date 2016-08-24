@@ -27,7 +27,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.ColumnCreatorWindow
         {
             get
             {
-                return Enum.GetValues(typeof(DataType))
+                return Enum.GetNames(typeof(DataType))
                     .Cast<DataType>();
             }
         }

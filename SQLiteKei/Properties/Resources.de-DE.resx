@@ -410,6 +410,9 @@ Originale Fehlermeldung: {0}</value>
   <data name="QueryEditor_SaveQuery" xml:space="preserve">
     <value>Speichern</value>
   </data>
+  <data name="QueryEditor_Templates" xml:space="preserve">
+    <value>Vorlagen</value>
+  </data>
   <data name="SelectQueryEditor_SelectAll" xml:space="preserve">
     <value>Alle auswählen</value>
   </data>

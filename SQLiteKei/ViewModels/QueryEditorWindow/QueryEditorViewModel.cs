@@ -22,6 +22,23 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
 
         public List<DatabaseSelectItem> Databases { get; set; }
 
+        private string selectedTemplate;
+        public string SelectedTemplate
+        {
+            get { return selectedTemplate; }
+            set
+            {
+                var templateGenerator = new QueryTemplateGenerator();
+
+                if(string.IsNullOrWhiteSpace(sqlStatement))
+                    SqlStatement = templateGenerator.GetTemplateFor(value);
+                else
+                    SqlStatement += "\n" + templateGenerator.GetTemplateFor(value);
+            }
+        }
+
+        public IEnumerable<string> AvailableTemplates { get; set; }
+
         private string sqlStatement;
         public string SqlStatement
         {
@@ -48,7 +65,10 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
         public QueryEditorViewModel()
         {
             Databases = new List<DatabaseSelectItem>();
+            AvailableTemplates = QueryTemplateGenerator.GetAvailableTemplates();
             dataGrid = new ListCollectionView(new List<object>());
+
+            selectedTemplate = LocalisationHelper.GetString("QueryEditor_Templates");
 
             executeCommand = new DelegateCommand(Execute);
             saveCommand = new DelegateCommand(SaveQuery);

@@ -917,6 +917,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to QueryEditor_Templates.
+        /// </summary>
+        public static string QueryEditor_Templates {
+            get {
+                return ResourceManager.GetString("QueryEditor_Templates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SelectQueryEditor_SelectUnselectAll.
         /// </summary>
         public static string SelectQueryEditor_SelectAll {
