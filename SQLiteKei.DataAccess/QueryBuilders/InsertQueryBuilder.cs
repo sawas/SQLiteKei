@@ -18,11 +18,12 @@ namespace SQLiteKei.DataAccess.QueryBuilders
 
         public InsertQueryBuilder Values(IEnumerable<string> values)
         {
+            this.values.Clear();
+
             foreach(var value in values)
             {
                 this.values.Add("\"" + value + "\"");
             }
-
 
             return this;
         }
@@ -31,7 +32,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
         {
             var valueList = string.Join(",", values);
 
-            return string.Format("INSERT INTO '{0}'\nVALUES ({1})", tableName, valueList);
+            return string.Format("INSERT INTO '{0}' VALUES ({1});", tableName, valueList);
         }
     }
 }

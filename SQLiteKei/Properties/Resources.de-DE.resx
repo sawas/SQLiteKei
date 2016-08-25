@@ -371,6 +371,11 @@ Originale Fehlermeldung: {0}</value>
   <data name="MessageBox_TableRecordDeleteWarning" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie diesen Datensatz löschen wollen?</value>
   </data>
+  <data name="MessageBox_TableSQLExportFailed" xml:space="preserve">
+    <value>Die Tabelle konnte nicht exportiert werden.
+
+Ursprüngliche Meldung: {0}</value>
+  </data>
   <data name="MessageBox_TriggerDeleteWarning" xml:space="preserve">
     <value>Wollen Sie den Trigger '{0}' wirklich löschen?</value>
   </data>

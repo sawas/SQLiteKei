@@ -371,6 +371,11 @@ Original Message: {0}</value>
   <data name="MessageBox_TableRecordDeleteWarning" xml:space="preserve">
     <value>Do you really want to delete this data record?</value>
   </data>
+  <data name="MessageBox_TableSQLExportFailed" xml:space="preserve">
+    <value>The table export failed.
+
+Original message: {0}</value>
+  </data>
   <data name="MessageBox_TriggerDeleteWarning" xml:space="preserve">
     <value>Do you really want to delete the trigger '{0}'?</value>
   </data>

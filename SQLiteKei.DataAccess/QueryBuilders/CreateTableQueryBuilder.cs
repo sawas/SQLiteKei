@@ -1,6 +1,5 @@
 ﻿using SQLiteKei.DataAccess.Exceptions;
 using SQLiteKei.DataAccess.QueryBuilders.Data;
-using SQLiteKei.DataAccess.QueryBuilders.Enums;
 
 using System.Collections.Generic;
 using System.Linq;

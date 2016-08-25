@@ -3,15 +3,21 @@
 using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.Models;
+using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.CreatorWindows.ColumnCreatorWindow;
 using SQLiteKei.Views.Windows.Creators;
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 {
@@ -42,7 +48,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                         logger.Warn("Failed to rename table '" + tableName + "' from table overview.", ex);
                         var message = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
 
-                        MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        System.Windows.MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
             }
@@ -91,6 +97,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             reindexCommand = new DelegateCommand(ReindexTable);
             deleteColumnCommand = new DelegateCommand(DeleteColumn);
             addColumnCommand = new DelegateCommand(AddColumn);
+            exportSQLCommand = new DelegateCommand(ExportToSql);
         }
 
         private void Initialize()
@@ -130,7 +137,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         {
             var message = LocalisationHelper.GetString("MessageBox_EmptyTable", tableName);
             var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_EmptyTable");
-            var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var result = System.Windows.MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (result != MessageBoxResult.Yes) return;
 
@@ -149,7 +156,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         {
             var message = LocalisationHelper.GetString("MessageBox_ReindexTable", tableName);
             var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_ReindexTable");
-            var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = System.Windows.MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result != MessageBoxResult.Yes) return;
 
@@ -169,7 +176,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             {
                 var message = LocalisationHelper.GetString("MessageBox_ColumnDeleteWarning", selectedColumn.Name);
                 var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_DeleteColumn");
-                var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                var result = System.Windows.MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                 if (result != MessageBoxResult.Yes) return;
 
@@ -187,7 +194,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                     logger.Error("Failed to delete column '" + selectedColumn.Name + "' on table '" + tableName + "'.", ex);
                     var errorMessage = LocalisationHelper.GetString("MessageBox_ColumnDeletionFailed", ex.Message);
 
-                    MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    System.Windows.MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 };
             }
         }
@@ -222,5 +229,66 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         private DelegateCommand addColumnCommand;
 
         public DelegateCommand AddColumnCommand { get { return addColumnCommand; } }
+
+        private void ExportToSql()
+        {
+            using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
+            {
+                var tableCreateStatement = tableHandler.GetTable(tableName).CreateStatement;
+
+                if (!tableCreateStatement.EndsWith(";"))
+                    tableCreateStatement += ";";
+
+                var stringBuilder = new StringBuilder(tableCreateStatement);
+                stringBuilder.Append(Environment.NewLine);
+
+                var rows = tableHandler.GetRows(tableName);
+
+                var valueList = new List<string>();
+                var queryBuilder = QueryBuilder.InsertInto(tableName);
+
+                foreach (DataRow row in rows)
+                {
+                    valueList.Clear();
+
+                    foreach (var value in row.ItemArray)
+                    {
+                        valueList.Add(value.ToString());
+                    }
+                    queryBuilder.Values(valueList);
+                    stringBuilder.Append(Environment.NewLine + queryBuilder.Build());
+                }
+                Export(stringBuilder.ToString());
+            }
+        }
+
+        private void Export(string exportedSQL)
+        {
+            using (var fileDialog = new SaveFileDialog())
+            {
+                fileDialog.Filter = "SQL Files(*.sql)|*.sql";
+                fileDialog.FileName = tableName + ".sql";
+
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        File.WriteAllText(fileDialog.FileName, exportedSQL);
+                        logger.Info("Exported table SQL to file.");
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Info("Could not export table SQL to file " + fileDialog.FileName, ex);
+                        var errorMessage = LocalisationHelper.GetString("MessageBox_TableSQLExportFailed", ex.Message);
+
+                        System.Windows.MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
+            }
+        }
+
+        private DelegateCommand exportSQLCommand;
+
+        public DelegateCommand ExportSQLCommand { get { return exportSQLCommand; } }
     }
 }

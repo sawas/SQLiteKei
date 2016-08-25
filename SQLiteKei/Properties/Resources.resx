@@ -364,6 +364,9 @@
   <data name="MessageBox_TableRecordDeleteWarning" xml:space="preserve">
     <value>MessageBox_TableRecordDeleteWarning</value>
   </data>
+  <data name="MessageBox_TableSQLExportFailed" xml:space="preserve">
+    <value>MessageBox_TableSQLExportFailed</value>
+  </data>
   <data name="MessageBox_TriggerDeleteWarning" xml:space="preserve">
     <value>MessageBox_TriggerDeleteWarning</value>
   </data>

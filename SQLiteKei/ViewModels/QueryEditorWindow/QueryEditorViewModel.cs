@@ -138,7 +138,7 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
                     try
                     {
                         File.WriteAllText(fileDialog.FileName, sqlStatement);
-                        logger.Info("Loaded query to file.");
+                        logger.Info("Saved query to file.");
                     }
                     catch (Exception ex)
                     {

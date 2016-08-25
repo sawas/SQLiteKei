@@ -13,7 +13,7 @@ namespace SQLiteKei.DataAccess.UnitTests.Queries
         [Test]
         public void Build_WithValidValues_ReturnsValidQuery()
         {
-            const string EXPECTED_QUERY = "INSERT INTO 'TableName'\nVALUES (\"1\",\"3\",\"abc\")";
+            const string EXPECTED_QUERY = "INSERT INTO 'TableName' VALUES (\"1\",\"3\",\"abc\");";
 
             var values = new List<string>
             {

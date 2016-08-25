@@ -719,6 +719,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MessageBox_TableSQLExportFailed.
+        /// </summary>
+        public static string MessageBox_TableSQLExportFailed {
+            get {
+                return ResourceManager.GetString("MessageBox_TableSQLExportFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MessageBox_TriggerDeleteWarning.
         /// </summary>
         public static string MessageBox_TriggerDeleteWarning {
