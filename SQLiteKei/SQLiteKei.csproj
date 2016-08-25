@@ -75,6 +75,7 @@
     <Compile Include="ViewModels\CreatorWindows\Enums\DataType.cs" />
     <Compile Include="ViewModels\CreatorWindows\ViewCreatorWindow\ColumnTreeItem.cs" />
     <Compile Include="ViewModels\CreatorWindows\ViewCreatorWindow\TableTreeItem.cs" />
+    <Compile Include="ViewModels\CSVExportWindow\CSVExportViewModel.cs" />
     <Compile Include="ViewModels\ElementRenameWindow\ElementRenameViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\ViewFolderItem.cs" />
@@ -215,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Page Include="Views\Windows\CSVExportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\ElementRenameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -300,6 +305,9 @@
     <Compile Include="ViewModels\CreatorWindows\TableCreatorWindow\ColumnDefinitionItem.cs" />
     <Compile Include="ViewModels\CreatorWindows\TableCreatorWindow\ForeignKeyDefinitionItem.cs" />
     <Compile Include="ViewModels\CreatorWindows\TableCreatorWindow\TableCreatorViewModel.cs" />
+    <Compile Include="Views\Windows\CSVExportWindow.xaml.cs">
+      <DependentUpon>CSVExportWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\ElementRenameWindow.xaml.cs">
       <DependentUpon>ElementRenameWindow.xaml</DependentUpon>
     </Compile>

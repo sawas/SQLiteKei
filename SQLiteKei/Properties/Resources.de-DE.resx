@@ -135,6 +135,9 @@
   <data name="ButtonText_Execute" xml:space="preserve">
     <value>Ausführen</value>
   </data>
+  <data name="ButtonText_Export" xml:space="preserve">
+    <value>Exportieren</value>
+  </data>
   <data name="ButtonText_Rename" xml:space="preserve">
     <value>Umbenennen</value>
   </data>
@@ -194,6 +197,24 @@
   </data>
   <data name="CreatorWindow_Label_Database" xml:space="preserve">
     <value>Datenbank</value>
+  </data>
+  <data name="CSVExportWindow_CSVExportFor" xml:space="preserve">
+    <value>CSV-Export für die Tabelle '{0}'</value>
+  </data>
+  <data name="CSVExportWindow_Enclosure" xml:space="preserve">
+    <value>Werte umschließen</value>
+  </data>
+  <data name="CSVExportWindow_ExportSuccess" xml:space="preserve">
+    <value>Erfolgreich exportiert!</value>
+  </data>
+  <data name="CSVExportWindow_GroupBoxHeader_Options" xml:space="preserve">
+    <value>Optionen</value>
+  </data>
+  <data name="CSVExportWindow_IncludeColumnHeaders" xml:space="preserve">
+    <value>Erste Zeile sind Spaltennamen</value>
+  </data>
+  <data name="CSVExportWindow_Separator" xml:space="preserve">
+    <value>Trennzeichen</value>
   </data>
   <data name="DatabaseGeneralTab_DatabaseName" xml:space="preserve">
     <value>Datenbankname:</value>
@@ -364,6 +385,11 @@ Originale Fehlermeldung: {0}</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie die Tabelle '{0}' neu indizieren möchten?</value>
+  </data>
+  <data name="MessageBox_TableCSVExportFailed" xml:space="preserve">
+    <value>Die Tabelle konnte nicht exportiert werden.
+
+Ursprüngliche Meldung: {0}</value>
   </data>
   <data name="MessageBox_TableDeleteWarning" xml:space="preserve">
     <value>Wollen Sie die Tabelle '{0}' wirklich löschen?</value>

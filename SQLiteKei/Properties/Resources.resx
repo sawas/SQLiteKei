@@ -135,6 +135,9 @@
   <data name="ButtonText_Execute" xml:space="preserve">
     <value>ButtonText_Execute</value>
   </data>
+  <data name="ButtonText_Export" xml:space="preserve">
+    <value>ButtonText_Export</value>
+  </data>
   <data name="ButtonText_Rename" xml:space="preserve">
     <value>ButtonText_Rename</value>
   </data>
@@ -194,6 +197,24 @@
   </data>
   <data name="CreatorWindow_Label_Database" xml:space="preserve">
     <value>TableCreator_Label_Database</value>
+  </data>
+  <data name="CSVExportWindow_CSVExportFor" xml:space="preserve">
+    <value>CSVExportWindow_CSVExportFor</value>
+  </data>
+  <data name="CSVExportWindow_Enclosure" xml:space="preserve">
+    <value>CSVExportWindow_Enclosure</value>
+  </data>
+  <data name="CSVExportWindow_ExportSuccess" xml:space="preserve">
+    <value>CSVExportWindow_ExportSuccess</value>
+  </data>
+  <data name="CSVExportWindow_GroupBoxHeader_Options" xml:space="preserve">
+    <value>CSVExportWindow_GroupBoxHeader_Options</value>
+  </data>
+  <data name="CSVExportWindow_IncludeColumnHeaders" xml:space="preserve">
+    <value>CSVExportWindow_IncludeColumnHeaders</value>
+  </data>
+  <data name="CSVExportWindow_Separator" xml:space="preserve">
+    <value>CSVExportWindow_Separator</value>
   </data>
   <data name="DatabaseGeneralTab_DatabaseName" xml:space="preserve">
     <value>DatabaseGeneralTab_DatabaseName</value>
@@ -357,6 +378,9 @@
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>MessageBox_ReindexTable</value>
+  </data>
+  <data name="MessageBox_TableCSVExportFailed" xml:space="preserve">
+    <value>MessageBox_TableCSVExportFailed</value>
   </data>
   <data name="MessageBox_TableDeleteWarning" xml:space="preserve">
     <value>MessageBox_TableDeleteWarning</value>

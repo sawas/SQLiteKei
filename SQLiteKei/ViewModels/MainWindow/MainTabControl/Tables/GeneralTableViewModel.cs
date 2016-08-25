@@ -7,6 +7,7 @@ using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.CreatorWindows.ColumnCreatorWindow;
+using SQLiteKei.ViewModels.CSVExportWindow;
 using SQLiteKei.Views.Windows.Creators;
 
 using System;
@@ -98,6 +99,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
             deleteColumnCommand = new DelegateCommand(DeleteColumn);
             addColumnCommand = new DelegateCommand(AddColumn);
             exportSQLCommand = new DelegateCommand(ExportToSql);
+            exportCSVCommand = new DelegateCommand(ExportToCSV);
         }
 
         private void Initialize()
@@ -149,7 +151,6 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         }
 
         private DelegateCommand emptyCommand;
-        
         public DelegateCommand EmptyCommand { get { return emptyCommand; } }
 
         private void ReindexTable()
@@ -167,7 +168,6 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         }
 
         private DelegateCommand reindexCommand;
-
         public DelegateCommand ReindexCommand { get { return reindexCommand; } }
 
         private void DeleteColumn()
@@ -200,7 +200,6 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         }
 
         private DelegateCommand deleteColumnCommand;
-
         public DelegateCommand DeleteColumnCommand { get { return deleteColumnCommand; } }
 
         private void AddColumn()
@@ -227,7 +226,6 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         }
 
         private DelegateCommand addColumnCommand;
-
         public DelegateCommand AddColumnCommand { get { return addColumnCommand; } }
 
         private void ExportToSql()
@@ -242,10 +240,10 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                 var stringBuilder = new StringBuilder(tableCreateStatement);
                 stringBuilder.Append(Environment.NewLine);
 
-                var rows = tableHandler.GetRows(tableName);
-
                 var valueList = new List<string>();
                 var queryBuilder = QueryBuilder.InsertInto(tableName);
+
+                var rows = tableHandler.GetRows(tableName);
 
                 foreach (DataRow row in rows)
                 {
@@ -258,11 +256,11 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                     queryBuilder.Values(valueList);
                     stringBuilder.Append(Environment.NewLine + queryBuilder.Build());
                 }
-                Export(stringBuilder.ToString());
+                ExportSQL(stringBuilder.ToString());
             }
         }
 
-        private void Export(string exportedSQL)
+        private void ExportSQL(string exportedSQL)
         {
             using (var fileDialog = new SaveFileDialog())
             {
@@ -288,7 +286,15 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         }
 
         private DelegateCommand exportSQLCommand;
-
         public DelegateCommand ExportSQLCommand { get { return exportSQLCommand; } }
+
+        public void ExportToCSV()
+        {
+            new SQLiteKei.Views.Windows.CSVExportWindow(new CSVExportViewModel(tableName))
+                .ShowDialog();
+        }
+
+        private DelegateCommand exportCSVCommand;
+        public DelegateCommand ExportCSVCommand { get { return exportCSVCommand; } } 
     }
 }

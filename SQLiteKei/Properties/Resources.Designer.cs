@@ -115,6 +115,15 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ButtonText_Export.
+        /// </summary>
+        public static string ButtonText_Export {
+            get {
+                return ResourceManager.GetString("ButtonText_Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ButtonText_Rename.
         /// </summary>
         public static string ButtonText_Rename {
@@ -291,6 +300,60 @@ namespace SQLiteKei.Properties {
         public static string CreatorWindow_Label_Database {
             get {
                 return ResourceManager.GetString("CreatorWindow_Label_Database", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CSVExportWindow_CSVExportFor.
+        /// </summary>
+        public static string CSVExportWindow_CSVExportFor {
+            get {
+                return ResourceManager.GetString("CSVExportWindow_CSVExportFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CSVExportWindow_Enclosure.
+        /// </summary>
+        public static string CSVExportWindow_Enclosure {
+            get {
+                return ResourceManager.GetString("CSVExportWindow_Enclosure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CSVExportWindow_ExportSuccess.
+        /// </summary>
+        public static string CSVExportWindow_ExportSuccess {
+            get {
+                return ResourceManager.GetString("CSVExportWindow_ExportSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CSVExportWindow_GroupBoxHeader_Options.
+        /// </summary>
+        public static string CSVExportWindow_GroupBoxHeader_Options {
+            get {
+                return ResourceManager.GetString("CSVExportWindow_GroupBoxHeader_Options", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CSVExportWindow_IncludeColumnHeaders.
+        /// </summary>
+        public static string CSVExportWindow_IncludeColumnHeaders {
+            get {
+                return ResourceManager.GetString("CSVExportWindow_IncludeColumnHeaders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CSVExportWindow_Separator.
+        /// </summary>
+        public static string CSVExportWindow_Separator {
+            get {
+                return ResourceManager.GetString("CSVExportWindow_Separator", resourceCulture);
             }
         }
         
@@ -697,6 +760,15 @@ namespace SQLiteKei.Properties {
         public static string MessageBox_ReindexTable {
             get {
                 return ResourceManager.GetString("MessageBox_ReindexTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MessageBox_TableCSVExportFailed.
+        /// </summary>
+        public static string MessageBox_TableCSVExportFailed {
+            get {
+                return ResourceManager.GetString("MessageBox_TableCSVExportFailed", resourceCulture);
             }
         }
         

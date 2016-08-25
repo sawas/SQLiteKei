@@ -39,7 +39,8 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Empty}" Height="25" Width="100" Margin="15 0 0 0" Command="{Binding EmptyCommand}" />
             <Button Style="{DynamicResource ButtonLight}" Content="{x:Static localisation:Resources.TableGeneralTab_ButtonText_Reindex}" Height="25" Width="100" Margin="5 0 0 0" Command="{Binding ReindexCommand}"  />
-            <Button Style="{DynamicResource ButtonLight}" Content="SQL Export" Height="25" Width="100" Margin="5 0" Command="{Binding ExportSQLCommand}"  />
+            <Button Style="{DynamicResource ButtonLight}" Content="SQL Export" Height="25" Width="100" Margin="5 0 0 0" Command="{Binding ExportSQLCommand}"  />
+            <Button Style="{DynamicResource ButtonLight}" Content="CSV Export" Height="25" Width="100" Margin="5 0" Command="{Binding ExportCSVCommand}"  />
         </StackPanel>
         <GroupBox Grid.Row="2" Header="{x:Static localisation:Resources.TabContent_GroupBoxHeader_Columns}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="Auto">
             <ScrollViewer VerticalScrollBarVisibility="Auto">

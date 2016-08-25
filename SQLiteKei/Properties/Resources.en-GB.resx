@@ -135,6 +135,9 @@
   <data name="ButtonText_Execute" xml:space="preserve">
     <value>Execute</value>
   </data>
+  <data name="ButtonText_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
   <data name="ButtonText_Rename" xml:space="preserve">
     <value>Rename</value>
   </data>
@@ -194,6 +197,24 @@
   </data>
   <data name="CreatorWindow_Label_Database" xml:space="preserve">
     <value>Database</value>
+  </data>
+  <data name="CSVExportWindow_CSVExportFor" xml:space="preserve">
+    <value>CSV export for table '{0}'</value>
+  </data>
+  <data name="CSVExportWindow_Enclosure" xml:space="preserve">
+    <value>Values enclosed by</value>
+  </data>
+  <data name="CSVExportWindow_ExportSuccess" xml:space="preserve">
+    <value>Successfully exported!</value>
+  </data>
+  <data name="CSVExportWindow_GroupBoxHeader_Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="CSVExportWindow_IncludeColumnHeaders" xml:space="preserve">
+    <value>First row contains column headers</value>
+  </data>
+  <data name="CSVExportWindow_Separator" xml:space="preserve">
+    <value>Separator</value>
   </data>
   <data name="DatabaseGeneralTab_DatabaseName" xml:space="preserve">
     <value>Database Name:</value>
@@ -364,6 +385,11 @@ Original Message: {0}</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>Are you sure that you want to reindex the table '{0}'?</value>
+  </data>
+  <data name="MessageBox_TableCSVExportFailed" xml:space="preserve">
+    <value>The table export failed.
+
+Original message: {0}</value>
   </data>
   <data name="MessageBox_TableDeleteWarning" xml:space="preserve">
     <value>Do you really want to delete the table '{0}'?</value>
