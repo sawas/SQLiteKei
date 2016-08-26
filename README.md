@@ -24,13 +24,13 @@ SQLite Kei is .NET based management tool for SQLite databases.
 If you want to help out, feel free to test the newest versions and report any issues, may it be bugs or (feature) suggestions.
 
 ##Project Structure
-**SQLiteKei** - The main project which represents the UI and business layer.
-**SQLiteKei.DataAccess** - Provides functionality to access an sqlite database and to create SQL queries using custom QueryBuilders
+- **SQLiteKei** - The main project which represents the UI and business layer.
+- **SQLiteKei.DataAccess** - Provides functionality to access an sqlite database and to create SQL queries using custom QueryBuilders
 
 ###Test Projects
-**SQLiteKei.UnitTests** - The unit tests for the main project.
-**SQLiteKei.DataAccess.UnitTests** - The unit tests for the DataAccess project.
-**SQLiteKei.IntegrationTests** - The main project for integration tests of all projects. Note: tests need the NUnit 3 Runner to be started from VS locally. R# does not support the [OneTimeSetup] and [OneTimeTearDown] features of NUnit which replaced [TestFixtureSetup] and [TestFixtureTearDown] respectively.
+- **SQLiteKei.UnitTests** - The unit tests for the main project.
+- **SQLiteKei.DataAccess.UnitTests** - The unit tests for the DataAccess project.
+- **SQLiteKei.IntegrationTests** - The main project for integration tests of all projects. Note: tests need the NUnit 3 Runner to be started from VS locally. R# does not support the [OneTimeSetup] and [OneTimeTearDown] features of NUnit which replaced [TestFixtureSetup] and [TestFixtureTearDown] respectively.
 
 ##Trivia
 - About the project name: I was looking for a working title and noticed that all the cool stuff like Manager, Management, Studio, Administrator, etcetera all were in use already. Since I like to use random Japanese words as working titles for my projects I picked the Japanese Kanji 系 (written as 'kei') which means "system" or "lineage".
