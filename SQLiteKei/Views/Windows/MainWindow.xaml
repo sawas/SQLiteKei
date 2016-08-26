@@ -91,16 +91,16 @@
                 <Image Source="../../Resources/Icons/SQL_Statement.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenTableCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateTable}" >
-                <Image Source="../../Resources/Icons/Table_New.png" />
+                <Image Source="../../Resources/Icons/TopMenu_NewTable.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenViewCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateView}" >
-                <Image Source="../../Resources/Icons/Placeholder.png" />
+                <Image Source="../../Resources/Icons/TopMenu_NewView.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenIndexCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateIndex}" >
-                <Image Source="../../Resources/Icons/Placeholder.png" />
+                <Image Source="../../Resources/Icons/TopMenu_NewIndex.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" HorizontalAlignment="Left" Click="OpenTriggerCreator" ToolTip="{x:Static localisation:Resources.Tooltip_CreateTrigger}" >
-                <Image Source="../../Resources/Icons/Placeholder.png" />
+                <Image Source="../../Resources/Icons/TopMenu_NewTrigger.png" />
             </Button>
         </DockPanel>
         <Grid Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
