@@ -576,9 +576,6 @@ Ursprüngliche Meldung: {0}</value>
   <data name="Tooltip_CreateView" xml:space="preserve">
     <value>View erzeugen</value>
   </data>
-  <data name="Tooltip_DeleteDatabase" xml:space="preserve">
-    <value>Datenbank löschen</value>
-  </data>
   <data name="Tooltip_NewDatabase" xml:space="preserve">
     <value>Neue Datenbank erstellen</value>
   </data>

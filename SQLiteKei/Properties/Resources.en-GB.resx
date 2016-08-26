@@ -576,9 +576,6 @@ Original message: {0}</value>
   <data name="Tooltip_CreateView" xml:space="preserve">
     <value>Create View</value>
   </data>
-  <data name="Tooltip_DeleteDatabase" xml:space="preserve">
-    <value>Delete Database</value>
-  </data>
   <data name="Tooltip_NewDatabase" xml:space="preserve">
     <value>Create new Database</value>
   </data>

@@ -412,7 +412,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Database_Close.png" />
-    <Resource Include="Resources\Icons\Database_Delete.png" />
     <Resource Include="Resources\Icons\Database_New.png" />
     <Resource Include="Resources\Icons\Database_Open.png" />
   </ItemGroup>

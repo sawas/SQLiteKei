@@ -83,9 +83,6 @@
             <Button Style="{DynamicResource MenuButton}" Click="CloseDatabase" ToolTip="{x:Static localisation:Resources.Tooltip_CloseDatabase}">
                 <Image Source="../../Resources/Icons/Database_Close.png" />
             </Button>
-            <Button Style="{DynamicResource MenuButton}" Click="DeleteDatabase" ToolTip="{x:Static localisation:Resources.Tooltip_DeleteDatabase}">
-                <Image Source="../../Resources/Icons/Database_Delete.png" />
-            </Button>
             <Button Style="{DynamicResource MenuButton}" Click="RefreshTree" ToolTip="Refresh">
                 <Image Source="../../Resources/Icons/Refresh.png" />
             </Button>

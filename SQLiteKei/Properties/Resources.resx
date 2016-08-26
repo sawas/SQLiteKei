@@ -565,9 +565,6 @@
   <data name="Tooltip_CreateView" xml:space="preserve">
     <value>Tooltip_NewView</value>
   </data>
-  <data name="Tooltip_DeleteDatabase" xml:space="preserve">
-    <value>Tooltip_DeleteDatabase</value>
-  </data>
   <data name="Tooltip_NewDatabase" xml:space="preserve">
     <value>Tooltip_NewDatabase</value>
   </data>

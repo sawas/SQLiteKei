@@ -1403,15 +1403,6 @@ namespace SQLiteKei.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tooltip_DeleteDatabase.
-        /// </summary>
-        public static string Tooltip_DeleteDatabase {
-            get {
-                return ResourceManager.GetString("Tooltip_DeleteDatabase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Tooltip_NewDatabase.
         /// </summary>
         public static string Tooltip_NewDatabase {

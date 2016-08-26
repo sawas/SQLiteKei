@@ -12,9 +12,8 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
-
 using System.Windows;
+using System.Windows.Forms;
 
 namespace SQLiteKei.ViewModels.CSVExportWindow
 {
