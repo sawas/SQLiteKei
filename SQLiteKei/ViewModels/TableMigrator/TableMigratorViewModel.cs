@@ -133,8 +133,6 @@ namespace SQLiteKei.ViewModels.TableMigrator
                     var records = sourceTableHandler.GetRows(tableName);
                     var values = new List<string>();
 
-                    var i = 0;
-
                     foreach (DataRow row in records)
                     {
                         values.Clear();
