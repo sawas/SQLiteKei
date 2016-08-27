@@ -235,9 +235,9 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
                     return clause.IsGreaterThan(compareValue);
                 case ">=":
                     return clause.IsGreaterThanOrEqual(compareValue);
-                case "&lt;":
+                case "<":
                     return clause.IsLessThan(compareValue);
-                case "&lt;=":
+                case "<=":
                     return clause.IsLessThanOrEqual(compareValue);
                 case "Like":
                     return clause.IsLike(compareValue);
