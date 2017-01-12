@@ -57,7 +57,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             if (!WhereClauses.Any())
                 return string.Format("UPDATE '{0}'\nSET {1}", tableName, combinedSets);
 
-            var combinedWhereClauses = string.Join("\nAND ", WhereClauses);
+            var combinedWhereClauses = string.Join("\n", WhereClauses);
             return string.Format("UPDATE '{0}'\nSET {1}\nWHERE {2}", tableName, combinedSets, combinedWhereClauses);
         }
     }
