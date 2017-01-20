@@ -35,7 +35,7 @@
         </StackPanel>
         <GroupBox Grid.Row="1" Header="{x:Static localisation:Resources.ViewCreator_Label_ViewDefinition}" Background="{DynamicResource GroupBoxBackgroundColor_Darker}">
             <DockPanel Grid.Row="1"  VerticalAlignment="Stretch">
-                <CheckBox DockPanel.Dock="Top" IsChecked="{Binding IsIfNotExists}" Margin="5 0 0 0">
+                <CheckBox DockPanel.Dock="Top" IsChecked="{Binding IsIfNotExists}" Margin="5 0 0 0" VerticalAlignment="Center" VerticalContentAlignment="Center">
                     <Label Content="If Not Exists" Margin="-2 0 0 0" />
                 </CheckBox>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">

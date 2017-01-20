@@ -38,10 +38,10 @@
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
                         <Label Content="ON" />
                         <ComboBox MinWidth="100" Height="20" ItemsSource="{Binding Tables}" SelectedItem="{Binding SelectedTable}"/>
-                        <CheckBox IsChecked="{Binding IsIfNotExists}" VerticalAlignment="Center" Margin="10 0" >
+                        <CheckBox IsChecked="{Binding IsIfNotExists}" VerticalAlignment="Center" Margin="10 0" VerticalContentAlignment="Center">
                             <Label Content="If Not Exists" Margin="-2 0 0 0" />
                         </CheckBox>
-                        <CheckBox IsChecked="{Binding IsUnique}" VerticalAlignment="Center">
+                        <CheckBox IsChecked="{Binding IsUnique}" VerticalAlignment="Center" VerticalContentAlignment="Center">
                             <Label Content="Unique" Margin="-2 0 0 0" />
                         </CheckBox>
                     </StackPanel>
