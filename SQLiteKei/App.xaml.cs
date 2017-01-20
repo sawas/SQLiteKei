@@ -41,8 +41,6 @@ namespace SQLiteKei
             log.Info("Running on " + Environment.OSVersion);
             log.Info("Application language is " + Thread.CurrentThread.CurrentUICulture);
             log.Info("================================================");
-
-            ThemeHelper.LoadCurrentUserTheme();
         }
 
         protected override void OnExit(ExitEventArgs e)

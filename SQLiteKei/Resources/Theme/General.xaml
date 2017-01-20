@@ -3,33 +3,33 @@
                     xmlns:generalWindows="clr-namespace:SQLiteKei.Views.Windows;assembly=SQLiteKei"
                     xmlns:creatorWindows="clr-namespace:SQLiteKei.Views.Windows.Creators;assembly=SQLiteKei">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/SQLiteKei;component/Resources/Themes/Light/Light_Button.xaml" />
-        <ResourceDictionary Source="/SQLiteKei;component/Resources/Themes/Light/Light_ComboBox.xaml" />
-        <ResourceDictionary Source="/SQLiteKei;component/Resources/Themes/Light/Light_DataGrid.xaml" />
-        <ResourceDictionary Source="/SQLiteKei;component/Resources/Themes/Light/Light_GroupBox.xaml" />
-        <ResourceDictionary Source="/SQLiteKei;component/Resources/Themes/Light/Light_Menu.xaml" />
-        <ResourceDictionary Source="/SQLiteKei;component/Resources/Themes/Light/Light_ScrollBar.xaml" />
-        <ResourceDictionary Source="/SQLiteKei;component/Resources/Themes/Light/Light_TabControl.xaml" />
-        <ResourceDictionary Source="/SQLiteKei;component/Resources/Themes/Light/Light_TextBox.xaml" />
-        <ResourceDictionary Source="/SQLiteKei;component/Resources/Themes/Light/Light_TreeView.xaml" />
+        <ResourceDictionary Source="/SQLiteKei;component/Resources/Theme/Button.xaml" />
+        <ResourceDictionary Source="/SQLiteKei;component/Resources/Theme/ComboBox.xaml" />
+        <ResourceDictionary Source="/SQLiteKei;component/Resources/Theme/DataGrid.xaml" />
+        <ResourceDictionary Source="/SQLiteKei;component/Resources/Theme/GroupBox.xaml" />
+        <ResourceDictionary Source="/SQLiteKei;component/Resources/Theme/Menu.xaml" />
+        <ResourceDictionary Source="/SQLiteKei;component/Resources/Theme/ScrollBar.xaml" />
+        <ResourceDictionary Source="/SQLiteKei;component/Resources/Theme/TabControl.xaml" />
+        <ResourceDictionary Source="/SQLiteKei;component/Resources/Theme/TextBox.xaml" />
+        <ResourceDictionary Source="/SQLiteKei;component/Resources/Theme/TreeView.xaml" />
     </ResourceDictionary.MergedDictionaries>
     
     <!-- Colors -->
-    <SolidColorBrush x:Key="ApplicationFontColor" Color="#111" />
-    <SolidColorBrush x:Key="ApplicationFontColor_Disabled" Color="#666" />
-    <SolidColorBrush x:Key="ApplicationBackground" Color="#e0e0e0" />
+    <SolidColorBrush x:Key="ApplicationFontColor" Color="#EEE" />
+    <SolidColorBrush x:Key="ApplicationFontColor_Disabled" Color="#555" />
+    <SolidColorBrush x:Key="ApplicationBackground" Color="#2D2D30" />
        
     <!-- Global base styles -->
     <Style TargetType="{x:Type Window}">
         <Setter Property="Background" Value="{StaticResource ApplicationBackground}" />
-        <Setter Property="Icon" Value="Resources/Icons/Logo_32x32.png" />
+        <Setter Property="Icon" Value="../Icons/Logo_32x32.png" />
     </Style>
 
     <Style TargetType="{x:Type generalWindows:MainWindow}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type generalWindows:Preferences}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type generalWindows:QueryEditor}" BasedOn="{StaticResource {x:Type Window}}" />
-    <Style TargetType="{x:Type generalWindows:ElementRenameWindow}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type generalWindows:SelectQueryWindow}" BasedOn="{StaticResource {x:Type Window}}" />
+    <Style TargetType="{x:Type generalWindows:ElementRenameWindow}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type generalWindows:TableMigrator}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type generalWindows:CSVExportWindow}" BasedOn="{StaticResource {x:Type Window}}" />
     <Style TargetType="{x:Type creatorWindows:TableCreator}" BasedOn="{StaticResource {x:Type Window}}" />
@@ -47,11 +47,10 @@
     <Style TargetType="{x:Type Label}">
         <Setter Property="Foreground" Value="{StaticResource ApplicationFontColor}" />
     </Style>
-
     <Style TargetType="{x:Type GridSplitter}">
-        <Setter Property="Background" Value="#C1C1C1" />
+        <Setter Property="Background" Value="#3F3F46" />
     </Style>
     <Style TargetType="{x:Type Border}">
-        <Setter Property="BorderBrush" Value="#C1C1C1" />
+        <Setter Property="BorderBrush" Value="#3F3F46" />
     </Style>
 </ResourceDictionary>

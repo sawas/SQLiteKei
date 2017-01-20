@@ -397,14 +397,8 @@
   <data name="MessageBox_ViewDeleteWarning" xml:space="preserve">
     <value>MessageBox_ViewDeleteWarning</value>
   </data>
-  <data name="Preferences_ApplicationTheme" xml:space="preserve">
-    <value>Preferences_ApplicationTheme</value>
-  </data>
   <data name="Preferences_GroupBoxHeader_Languages" xml:space="preserve">
     <value>Preferences_GroupBoxHeader_Languages</value>
-  </data>
-  <data name="Preferences_GroupBoxHeader_Themes" xml:space="preserve">
-    <value>Preferences_GroupBoxHeader_Themes</value>
   </data>
   <data name="Preferences_Language" xml:space="preserve">
     <value>Preferences_Language</value>

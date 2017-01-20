@@ -43,22 +43,6 @@ namespace SQLiteKei.ViewModels.PreferencesWindow
                     return LocalisationHelper.GetString("Preferences_Language_English");
             };
         }
-
-        public List<string> AvailableThemes { get; set; }
-
-        private string selectedTheme;
-        public string SelectedTheme
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(selectedTheme))
-                    selectedTheme = Properties.Settings.Default.UITheme;
-
-                return selectedTheme;
-            }
-            set { selectedTheme = value; }
-        }
-
         public PreferencesViewModel()
         {
             AvailableLanguages = new List<string>
@@ -67,18 +51,12 @@ namespace SQLiteKei.ViewModels.PreferencesWindow
                 LocalisationHelper.GetString("Preferences_Language_English")
             };
 
-            AvailableThemes = new List<string>
-            {
-                "Dark", "Light"
-            };
-
             applySettingsCommand = new DelegateCommand(ApplySettings);
         }
 
         private void ApplySettings()
         {
             ApplyLanguage();
-            ApplyApplicationTheme();
 
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
@@ -102,23 +80,6 @@ namespace SQLiteKei.ViewModels.PreferencesWindow
             }
 
             log.Info("Applied application language " + Properties.Settings.Default.UILanguage);
-        }
-
-        private void ApplyApplicationTheme()
-        {
-            if (selectedTheme.Equals(Properties.Settings.Default.UITheme)) return;
-
-            log.Info("Applying '" + selectedTheme + "' application theme.");
-
-            try
-            {
-                ThemeHelper.LoadTheme(selectedTheme);
-                Properties.Settings.Default.UITheme = selectedTheme;
-            }
-            catch(Exception ex)
-            {
-                log.Error("Could not apply application theme '" + selectedTheme + "'.", ex);
-            }
         }
     }
 }

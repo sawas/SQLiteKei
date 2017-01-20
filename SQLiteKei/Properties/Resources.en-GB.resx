@@ -408,14 +408,8 @@ Original message: {0}</value>
   <data name="MessageBox_ViewDeleteWarning" xml:space="preserve">
     <value>Do you really want to delete the view '{0}'?</value>
   </data>
-  <data name="Preferences_ApplicationTheme" xml:space="preserve">
-    <value>Current Theme</value>
-  </data>
   <data name="Preferences_GroupBoxHeader_Languages" xml:space="preserve">
     <value>Languages</value>
-  </data>
-  <data name="Preferences_GroupBoxHeader_Themes" xml:space="preserve">
-    <value>Application Theme</value>
   </data>
   <data name="Preferences_Language" xml:space="preserve">
     <value>Language</value>

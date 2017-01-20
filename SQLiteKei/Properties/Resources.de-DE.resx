@@ -408,14 +408,8 @@ Ursprüngliche Meldung: {0}</value>
   <data name="MessageBox_ViewDeleteWarning" xml:space="preserve">
     <value>Wollen Sie die View '{0}' wirklich löschen?</value>
   </data>
-  <data name="Preferences_ApplicationTheme" xml:space="preserve">
-    <value>Aktuelles Farbschema</value>
-  </data>
   <data name="Preferences_GroupBoxHeader_Languages" xml:space="preserve">
     <value>Sprachen</value>
-  </data>
-  <data name="Preferences_GroupBoxHeader_Themes" xml:space="preserve">
-    <value>Anwendungs-Farbschema</value>
   </data>
   <data name="Preferences_Language" xml:space="preserve">
     <value>Sprache</value>
