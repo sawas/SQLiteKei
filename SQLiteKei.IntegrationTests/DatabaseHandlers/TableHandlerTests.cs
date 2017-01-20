@@ -60,7 +60,7 @@ namespace SQLiteKei.IntegrationTests.DatabaseHandlers
         [Test]
         public void DropTable_WithValidTableName_DropsTable()
         {
-            tableHandler.DropTable("TEST1");
+            tableHandler.Drop("TEST1");
 
             var tables = connection.GetSchema("Tables").AsEnumerable();
             var result = tables.SingleOrDefault(x => x.ItemArray[1].Equals("TEST1"));

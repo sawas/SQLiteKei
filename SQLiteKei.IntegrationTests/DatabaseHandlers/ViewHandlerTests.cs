@@ -33,7 +33,7 @@ namespace SQLiteKei.IntegrationTests.DatabaseHandlers
         [Test]
         public void DropView_DropsViewFromDatabase()
         {
-            viewHandler.DropView("View1");
+            viewHandler.Drop("View1");
 
             var result = FindView("View1");
 

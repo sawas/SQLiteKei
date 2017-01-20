@@ -62,7 +62,7 @@ namespace SQLiteKei.DataAccess.Database
         /// Drops the specified trigger.
         /// </summary>
         /// <param name="triggerName">Name of the trigger.</param>
-        public void DropTrigger(string triggerName)
+        public void Drop(string triggerName)
         {
             using (var command = connection.CreateCommand())
             {

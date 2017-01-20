@@ -1,6 +1,4 @@
-﻿using log4net;
-
-using SQLiteKei.DataAccess.Database;
+﻿using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.ElementRenameWindow;
 using SQLiteKei.ViewModels.MainWindow;
@@ -26,8 +24,6 @@ namespace SQLiteKei.Views.Windows
     public partial class MainWindow
     {
         private readonly MainWindowViewModel viewModel;
-
-        private readonly ILog log = LogHelper.GetLogger();
 
         public MainWindow()
         {
@@ -110,24 +106,6 @@ namespace SQLiteKei.Views.Windows
             }
         }
 
-        private void DeleteDatabase(object sender, RoutedEventArgs e)
-        {
-            var selectedItem = DBTreeView.SelectedItem as DatabaseItem;
-
-            if (selectedItem != null)
-            {
-                var message = LocalisationHelper.GetString("MessageBox_DatabaseDeleteWarning", selectedItem.DisplayName);
-                var result = System.Windows.MessageBox.Show(message, LocalisationHelper.GetString("MessageBoxTitle_DatabaseDeletion"), MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                if (result != MessageBoxResult.Yes) return;
-                if (!File.Exists(selectedItem.DatabasePath))
-                    throw new FileNotFoundException("Database file could not be found.");
-
-                File.Delete(selectedItem.DatabasePath);
-                viewModel.CloseDatabase(selectedItem.DatabasePath);
-            }
-        }
-
         private void RefreshTree(object sender, RoutedEventArgs e)
         {
             viewModel.RefreshTree();
@@ -142,7 +120,7 @@ namespace SQLiteKei.Views.Windows
             viewModel.SelectedItem = currentSelection;
             var tabs = DatabaseTabGenerator.GenerateTabsFor(currentSelection);
 
-            foreach (TabItem tab in tabs)
+            foreach (var tab in tabs)
                 MainTabControl.Items.Add(tab);
         }
 
@@ -184,28 +162,9 @@ namespace SQLiteKei.Views.Windows
             new TableMigrator(tableMigratorViewModel).ShowDialog();
         }
 
-        private void DeleteTable(object sender, RoutedEventArgs e)
+        private void Delete(object sender, RoutedEventArgs e)
         {
-            var tableItem = (TableItem)DBTreeView.SelectedItem;
-            viewModel.DeleteTable(tableItem);
-        }
-
-        private void DeleteView(object sender, RoutedEventArgs e)
-        {
-            var viewItem = (ViewItem)DBTreeView.SelectedItem;
-            viewModel.DeleteView(viewItem);
-        }
-
-        private void DeleteIndex(object sender, RoutedEventArgs e)
-        {
-            var viewItem = (IndexItem)DBTreeView.SelectedItem;
-            viewModel.DeleteIndex(viewItem);
-        }
-
-        private void DeleteTrigger(object sender, RoutedEventArgs e)
-        {
-            var triggerItem = (TriggerItem)DBTreeView.SelectedItem;
-            viewModel.DeleteTrigger(triggerItem);
+            viewModel.Delete(DBTreeView.SelectedItem as TreeItem);
         }
 
         private void Rename(object sender, RoutedEventArgs e)

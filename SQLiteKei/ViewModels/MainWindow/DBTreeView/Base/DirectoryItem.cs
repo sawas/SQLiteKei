@@ -12,7 +12,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Base
         /// <summary>
         /// Initializes a new instance of the <see cref="DirectoryItem"/> class.
         /// </summary>
-        public DirectoryItem()
+        protected DirectoryItem()
         {
             Items = new ObservableCollection<TreeItem>();
         }

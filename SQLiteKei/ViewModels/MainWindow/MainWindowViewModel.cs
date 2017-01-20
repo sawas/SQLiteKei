@@ -6,12 +6,12 @@ using SQLiteKei.Util;
 using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 
 using System;
 using System.Collections.ObjectModel;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -71,31 +71,6 @@ namespace SQLiteKei.ViewModels.MainWindow
             log.Info("Closed database '" + db.DisplayName + "'.");
         }
 
-        public void RemoveItemFromTree(TreeItem treeItem)
-        {
-            RemoveItemFromHierarchy(TreeViewItems, treeItem);
-        }
-
-        private void RemoveItemFromHierarchy(ICollection<TreeItem> treeItems, TreeItem treeItem)
-        {
-            foreach (var item in treeItems)
-            {
-                if (item == treeItem)
-                {
-                    treeItems.Remove(item);
-                    log.Info(string.Format("Removed item of type {0} from tree hierarchy.", item.GetType()));
-                    break;
-                }
-
-                var directory = item as DirectoryItem;
-
-                if (directory != null && directory.Items.Any())
-                {
-                    RemoveItemFromHierarchy(directory.Items, treeItem);
-                }
-            }
-        }
-
         public void RefreshTree()
         {
             log.Info("Refreshing the database tree.");
@@ -136,100 +111,27 @@ namespace SQLiteKei.ViewModels.MainWindow
             }
         }
 
-        internal void DeleteTable(TableItem tableItem)
+        internal void Delete(TreeItem treeItem)
         {
-            var message = LocalisationHelper.GetString("MessageBox_TableDeleteWarning", tableItem.DisplayName);
-            var result = MessageBox.Show(message, LocalisationHelper.GetString("MessageBoxTitle_TableDeletion"), MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            if (result != MessageBoxResult.Yes) return;
+            var factory = new DeleteStrategyFactory();
 
             try
             {
-                using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
-                {
-                    tableHandler.DropTable(tableItem.DisplayName);
-                    RemoveItemFromTree(tableItem);
-                }
+                var deleteStrategy = factory.Create(treeItem);
+                deleteStrategy.Execute(treeViewItems, treeItem);
             }
             catch (Exception ex)
             {
-                log.Error("Failed to delete table '" + tableItem.DisplayName + "'.", ex);
+                log.Error("Failed to delete item '" + treeItem.DisplayName + "' of type  " + treeItem.GetType() + ".", ex);
                 var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
                 StatusBarInfo = statusInfo;
             }
-        }
-
-        public void DeleteView(ViewItem viewItem)
-        {
-            var message = LocalisationHelper.GetString("MessageBox_ViewDeleteWarning", viewItem.DisplayName);
-            var result = MessageBox.Show(message, LocalisationHelper.GetString("MessageBoxTitle_ViewDeletion"), MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            if (result != MessageBoxResult.Yes) return;
-
-            try
-            {
-                using (var viewHandler = new ViewHandler(Properties.Settings.Default.CurrentDatabase))
-                {
-                    viewHandler.DropView(viewItem.DisplayName);
-                    RemoveItemFromTree(viewItem);
-                }
-            }
-            catch (Exception ex)
-            {
-                log.Error("Failed to delete view '" + viewItem.DisplayName + "'.", ex);
-                StatusBarInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
-            }
-        }
-
-        internal void DeleteTrigger(TriggerItem triggerItem)
-        {
-            var message = LocalisationHelper.GetString("MessageBox_TriggerDeleteWarning", triggerItem.DisplayName);
-            var result = MessageBox.Show(message, LocalisationHelper.GetString("MessageBoxTitle_TriggerDeletion"), MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            if (result != MessageBoxResult.Yes) return;
-
-            try
-            {
-                using (var triggerHandler = new TriggerHandler(Properties.Settings.Default.CurrentDatabase))
-                {
-                    triggerHandler.DropTrigger(triggerItem.DisplayName);
-                    RemoveItemFromTree(triggerItem);
-                }
-            }
-            catch (Exception ex)
-            {
-                log.Error("Failed to delete trigger '" + triggerItem.DisplayName + "'.", ex);
-                var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
-                StatusBarInfo = statusInfo;
-            }
-        }
-
-        internal void DeleteIndex(IndexItem indexItem)
-        {
-            var message = LocalisationHelper.GetString("MessageBox_IndexDeleteWarning", indexItem.DisplayName);
-            var result = MessageBox.Show(message, LocalisationHelper.GetString("MessageBoxTitle_IndexDeletion"), MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            if (result != MessageBoxResult.Yes) return;
-
-            try
-            {
-                using (var indexHandler = new IndexHandler(Properties.Settings.Default.CurrentDatabase))
-                {
-                    indexHandler.DropIndex(indexItem.DisplayName);
-                    RemoveItemFromTree(indexItem);
-                }
-            }
-            catch (Exception ex)
-            {
-                log.Error("Failed to delete index '" + indexItem.DisplayName + "'.", ex);
-                var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
-                StatusBarInfo = statusInfo;
-            }
+            
         }
 
         private void OpenDocumentation()
         {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "Documentation.pdf");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "Documentation.pdf");
             try
             {
                 Process.Start(path);

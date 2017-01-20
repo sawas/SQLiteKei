@@ -95,7 +95,7 @@ namespace SQLiteKei.DataAccess.Database
         /// Drops the  specified index from the database.
         /// </summary>
         /// <param name="indexName">Name of the index.</param>
-        public void DropIndex(string indexName)
+        public void Drop(string indexName)
         {
             using (var command = connection.CreateCommand())
             {

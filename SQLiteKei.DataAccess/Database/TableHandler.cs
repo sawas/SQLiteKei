@@ -114,7 +114,7 @@ namespace SQLiteKei.DataAccess.Database
         /// Drops the specified table from the given database. Sends a plain command to the database without any further error handling.
         /// </summary>
         /// <param name="tableName">Name of the table.</param>
-        public void DropTable(string tableName)
+        public void Drop(string tableName)
         {
             using (var command = connection.CreateCommand())
             {

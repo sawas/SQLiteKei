@@ -77,6 +77,14 @@
     <Compile Include="ViewModels\CreatorWindows\ViewCreatorWindow\TableTreeItem.cs" />
     <Compile Include="ViewModels\CSVExportWindow\CSVExportViewModel.cs" />
     <Compile Include="ViewModels\ElementRenameWindow\ElementRenameViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\DeleteStrategies\DatabaseDeleteStrategy.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\DeleteStrategies\DeleteStrategyBase.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\DeleteStrategies\DeleteStrategyFactory.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\DeleteStrategies\IDeleteStrategy.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\DeleteStrategies\IndexDeleteStrategy.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\DeleteStrategies\TableDeleteStrategy.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\DeleteStrategies\TriggerDeleteStrategy.cs" />
+    <Compile Include="ViewModels\MainWindow\DBTreeView\DeleteStrategies\ViewDeleteStrategy.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\TriggerFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\DBTreeView\ViewFolderItem.cs" />
     <Compile Include="ViewModels\MainWindow\MainTabControl\Indexes\GeneralIndexViewModel.cs" />

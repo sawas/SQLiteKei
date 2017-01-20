@@ -87,7 +87,7 @@ namespace SQLiteKei.DataAccess.Database
         /// Drops the specified view.
         /// </summary>
         /// <param name="viewName">Name of the view.</param>
-        public void DropView(string viewName)
+        public void Drop(string viewName)
         {
             using (var command = connection.CreateCommand())
             {
