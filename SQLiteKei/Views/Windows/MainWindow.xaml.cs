@@ -73,37 +73,12 @@ namespace SQLiteKei.Views.Windows
             new TriggerCreator(viewModel.TreeViewItems).ShowDialog();
         }
 
-        private void CreateNewDatabase(object sender, RoutedEventArgs e)
-        {
-            using (var dialog = new SaveFileDialog())
-            {
-                dialog.Filter = "SQLite (*.sqlite)|*.sqlite";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    DatabaseHandler.CreateDatabase(dialog.FileName);
-                    viewModel.OpenDatabase(dialog.FileName);
-                }
-            }
-        }
-
         private void CloseDatabase(object sender, RoutedEventArgs e)
         {
             var selectedItem = DBTreeView.SelectedItem as TreeItem;
 
             if (selectedItem != null)
                 viewModel.CloseDatabase(selectedItem.DatabasePath);
-        }
-
-        private void OpenDatabase(object sender, RoutedEventArgs e)
-        {
-            using (var dialog = new OpenFileDialog())
-            {
-                dialog.Filter = "Database Files (*.sqlite, *.db)|*.sqlite; *db; |All Files |*.*";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    viewModel.OpenDatabase(dialog.FileName);
-                }
-            }
         }
 
         private void RefreshTree(object sender, RoutedEventArgs e)

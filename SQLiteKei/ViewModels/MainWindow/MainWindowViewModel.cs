@@ -1,21 +1,20 @@
 ﻿using log4net;
-
 using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
 using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.Base;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
-
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Forms;
+using MessageBox = System.Windows.MessageBox;
 
 namespace SQLiteKei.ViewModels.MainWindow
 {
@@ -47,28 +46,64 @@ namespace SQLiteKei.ViewModels.MainWindow
             TreeViewItems = treeSaveHelper.Load();
 
             MainTreeHandler.Register(TreeViewItems);
+
+            createDatabaseCommand = new DelegateCommand(CreateDatabase);
+            openDatabaseCommand = new DelegateCommand(OpenDatabase);
             documentationCommand = new DelegateCommand(OpenDocumentation);
         }
 
-        public void OpenDatabase(string databasePath)
+        private void CreateDatabase()
         {
-            if (TreeViewItems.Any(x => x.DatabasePath.Equals(databasePath))) 
+            using (var dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "SQLite (*.sqlite)|*.sqlite";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    DatabaseHandler.CreateDatabase(dialog.FileName);
+                    AddDatabaseToTree(dialog.FileName);
+                }
+            }
+        }
+
+        public void OpenDatabase()
+        {
+            using (var dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "Database Files (*.sqlite, *.db)|*.sqlite; *db; |All Files |*.*";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        AddDatabaseToTree(dialog.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error("Could not open database at " + dialog.FileName);
+                        StatusBarInfo = ex.Message;
+                    }
+                }
+            }
+        }
+
+        private void AddDatabaseToTree(string databasePath)
+        {
+            if (TreeViewItems.Any(x => x.DatabasePath.Equals(databasePath)))
                 return;
 
             var schemaMapper = new SchemaToViewModelMapper();
-            DatabaseItem databaseItem = schemaMapper.MapSchemaToViewModel(databasePath);
+            var databaseItem = schemaMapper.MapSchemaToViewModel(databasePath);
 
             TreeViewItems.Add(databaseItem);
 
-            log.Info("Opened database '" + databaseItem.DisplayName + "'.");
+            log.Info("Opened database '" + databaseItem.DatabasePath + "'.");
         }
 
         public void CloseDatabase(string databasePath)
         {
-            var db = TreeViewItems.SingleOrDefault(x => x.DatabasePath.Equals(databasePath));
+            var db = TreeViewItems.Single(x => x.DatabasePath.Equals(databasePath));
             TreeViewItems.Remove(db);
 
-            log.Info("Closed database '" + db.DisplayName + "'.");
+            log.Info("Closed database '" + db.DatabasePath + "'.");
         }
 
         public void RefreshTree()
@@ -142,7 +177,15 @@ namespace SQLiteKei.ViewModels.MainWindow
             }
         }
 
-        private DelegateCommand documentationCommand;
+        private readonly DelegateCommand createDatabaseCommand;
+
+        public DelegateCommand CreateDatabaseCommand { get { return createDatabaseCommand; } }
+
+        private readonly DelegateCommand openDatabaseCommand;
+
+        public DelegateCommand OpenDatabaseCommand { get { return openDatabaseCommand; } }
+
+        private readonly DelegateCommand documentationCommand;
 
         public DelegateCommand DocumentationCommand { get { return documentationCommand; } }
     }

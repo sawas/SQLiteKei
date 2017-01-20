@@ -53,8 +53,8 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_File}">
-                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_NewDatabase}" Click="CreateNewDatabase"/>
-                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_OpenDatabase}" Click="OpenDatabase"/>
+                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_NewDatabase}" Command="{Binding CreateDatabaseCommand}"/>
+                <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_OpenDatabase}" Command="{Binding OpenDatabaseCommand}"/>
                 <Separator/>
                 <MenuItem Header="{x:Static localisation:Resources.MenuItemHeader_Exit}" Click="MenuItem_Exit_Click"/>
             </MenuItem>
@@ -74,10 +74,10 @@
             </MenuItem>
         </Menu>
         <DockPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button Style="{DynamicResource MenuButton}" Click="CreateNewDatabase" ToolTip="{x:Static localisation:Resources.Tooltip_NewDatabase}" >
+            <Button Style="{DynamicResource MenuButton}" Command="{Binding CreateDatabaseCommand}"  ToolTip="{x:Static localisation:Resources.Tooltip_NewDatabase}" >
                 <Image Source="../../Resources/Icons/Database_New.png"></Image>
             </Button>
-            <Button Style="{DynamicResource MenuButton}" Click="OpenDatabase" ToolTip="{x:Static localisation:Resources.Tooltip_OpenDatabase}" >
+            <Button Style="{DynamicResource MenuButton}" Command="{Binding OpenDatabaseCommand}" ToolTip="{x:Static localisation:Resources.Tooltip_OpenDatabase}" >
                 <Image Source="../../Resources/Icons/Database_Open.png" />
             </Button>
             <Button Style="{DynamicResource MenuButton}" Click="CloseDatabase" ToolTip="{x:Static localisation:Resources.Tooltip_CloseDatabase}">
@@ -254,8 +254,8 @@
                 
                 <TreeView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_OpenDatabase}" Click="OpenDatabase" />
-                        <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_NewDatabase}" Click="CreateNewDatabase" />
+                        <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_OpenDatabase}" Command="{Binding OpenDatabaseCommand}" />
+                        <MenuItem Header="{x:Static localisation:Resources.ContextMenuItem_NewDatabase}" Command="{Binding CreateDatabaseCommand}" />
                     </ContextMenu>
                 </TreeView.ContextMenu>
             </TreeView>
