@@ -21,13 +21,18 @@ namespace SQLiteKei.ViewModels.CreatorWindows.ColumnCreatorWindow
 
         public string ColumnName { get; set; }
 
-        public DataType SelectedDataType { get; set; }
+        private DataType selectedDataType;
+        public DataType SelectedDataType
+        {
+            get { return selectedDataType; }
+            set { selectedDataType = value; NotifyPropertyChanged("SelectedDataType"); }
+        }
 
         public IEnumerable<DataType> DataTypes
         {
             get
             {
-                return Enum.GetNames(typeof(DataType))
+                return Enum.GetValues(typeof(DataType))
                     .Cast<DataType>();
             }
         }
