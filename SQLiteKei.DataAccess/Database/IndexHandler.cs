@@ -1,7 +1,4 @@
-﻿using log4net;
-
-using SQLiteKei.DataAccess.Util;
-using SQLiteKei.DataAccess.Models;
+﻿using SQLiteKei.DataAccess.Models;
 using SQLiteKei.DataAccess.QueryBuilders;
 
 using System;
@@ -15,8 +12,6 @@ namespace SQLiteKei.DataAccess.Database
     /// </summary>
     public class IndexHandler : DisposableDbHandler
     {
-        private readonly ILog logger = LogHelper.GetLogger();
-
         public IndexHandler(string databasePath) : base(databasePath)
         {
         }

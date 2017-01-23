@@ -1,7 +1,4 @@
-﻿using log4net;
-
-using SQLiteKei.DataAccess.Util;
-using SQLiteKei.DataAccess.Models;
+﻿using SQLiteKei.DataAccess.Models;
 using SQLiteKei.DataAccess.QueryBuilders;
 
 using System.Data;
@@ -14,8 +11,6 @@ namespace SQLiteKei.DataAccess.Database
     /// </summary>
     public class TriggerHandler : DisposableDbHandler
     {
-        private ILog logger = LogHelper.GetLogger();
-
         public TriggerHandler(string databasePath) : base(databasePath)
         {
         }
