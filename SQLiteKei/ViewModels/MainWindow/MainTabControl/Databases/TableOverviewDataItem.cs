@@ -2,9 +2,9 @@
 
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
+using SQLiteKei.Util.Interfaces;
 
 using System;
-using System.Windows;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases
 {
@@ -14,6 +14,8 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases
     public class TableOverviewDataItem
     {
         private ILog logger = LogHelper.GetLogger();
+
+        private IDialogService dialogService = new DialogService();
 
         private string name;
         public string Name
@@ -39,9 +41,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Databases
                     catch (Exception ex)
                     {
                         logger.Warn("Failed to rename table '" + name + "' from database overview.", ex);
-                        var errorMessage = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
-
-                        MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        dialogService.ShowMessage("MessageBox_NameChangeFailed");
                     }
                 }
             }

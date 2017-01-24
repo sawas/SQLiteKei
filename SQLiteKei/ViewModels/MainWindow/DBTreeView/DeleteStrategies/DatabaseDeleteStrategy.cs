@@ -8,9 +8,8 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies
     {
         public void Execute(ICollection<TreeItem> collection, TreeItem itemToDelete)
         {
-            var userAgrees = AskForUserAgreement("MessageBox_DatabaseDeleteWarning", "MessageBoxTitle_DatabaseDeletion", itemToDelete.DisplayName);
+            var userAgrees = dialogService.AskForUserAgreement("MessageBox_DatabaseDeleteWarning", "MessageBoxTitle_DatabaseDeletion", itemToDelete.DisplayName);
             if (!userAgrees) return;
-
 
             if (!File.Exists(itemToDelete.DatabasePath))
                     throw new FileNotFoundException("Database file could not be found.");

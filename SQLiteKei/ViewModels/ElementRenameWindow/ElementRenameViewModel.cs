@@ -6,9 +6,9 @@ using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 using SQLiteKei.Util;
+using SQLiteKei.Util.Interfaces;
 
 using System;
-using System.Windows;
 using System.IO;
 
 namespace SQLiteKei.ViewModels.ElementRenameWindow
@@ -16,6 +16,8 @@ namespace SQLiteKei.ViewModels.ElementRenameWindow
     public class ElementRenameViewModel : NotifyingModel
     {
         private readonly ILog logger = LogHelper.GetLogger();
+
+        private readonly IDialogService dialogService = new DialogService();
 
         private string windowTitle;
         public string WindowTitle
@@ -67,9 +69,7 @@ namespace SQLiteKei.ViewModels.ElementRenameWindow
             catch (Exception ex)
             {
                 logger.Warn("Failed to rename the element '" + originalElement.DisplayName + "' from RenameWindow.", ex);
-                var message = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
-
-                MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                dialogService.ShowMessage("MessageBox_NameChangeFailed");
             }
         }
 

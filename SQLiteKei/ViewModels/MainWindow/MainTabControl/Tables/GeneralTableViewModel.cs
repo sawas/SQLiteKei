@@ -5,6 +5,7 @@ using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.Models;
 using SQLiteKei.DataAccess.QueryBuilders;
 using SQLiteKei.Util;
+using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.Base;
 using SQLiteKei.ViewModels.CreatorWindows.ColumnCreatorWindow;
 using SQLiteKei.ViewModels.CSVExportWindow;
@@ -17,7 +18,6 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
@@ -25,6 +25,8 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
     public class GeneralTableViewModel : NotifyingModel
     {
         private readonly ILog logger = LogHelper.GetLogger();
+
+        private readonly IDialogService dialogService = new DialogService();
 
         private string tableName;
         public string TableName
@@ -47,9 +49,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                     catch (Exception ex)
                     {
                         logger.Warn("Failed to rename table '" + tableName + "' from table overview.", ex);
-                        var message = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
-
-                        System.Windows.MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        dialogService.ShowMessage("MessageBox_NameChangeFailed");
                     }
                 }
             }
@@ -137,11 +137,8 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
         private void EmptyTable()
         {
-            var message = LocalisationHelper.GetString("MessageBox_EmptyTable", tableName);
-            var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_EmptyTable");
-            var result = System.Windows.MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            if (result != MessageBoxResult.Yes) return;
+            var userAgrees = dialogService.AskForUserAgreement("MessageBox_EmptyTable", "MessageBoxTitle_EmptyTable", tableName);
+            if (!userAgrees) return;
 
             using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
             {
@@ -155,11 +152,8 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
         private void ReindexTable()
         {
-            var message = LocalisationHelper.GetString("MessageBox_ReindexTable", tableName);
-            var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_ReindexTable");
-            var result = System.Windows.MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            if (result != MessageBoxResult.Yes) return;
+            var userAgrees = dialogService.AskForUserAgreement("MessageBox_ReindexTable", "MessageBoxTitle_ReindexTable", tableName);
+            if (!userAgrees) return;
 
             using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
             {
@@ -174,11 +168,8 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         {
             if (selectedColumn != null)
             {
-                var message = LocalisationHelper.GetString("MessageBox_ColumnDeleteWarning", selectedColumn.Name);
-                var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_DeleteColumn");
-                var result = System.Windows.MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                if (result != MessageBoxResult.Yes) return;
+                var userAgrees = dialogService.AskForUserAgreement("MessageBox_ColumnDeleteWarning", "MessageBoxTitle_DeleteColumn", selectedColumn.Name);
+                if (!userAgrees) return;
 
                 try
                 {
@@ -192,9 +183,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                 catch (Exception ex)
                 {
                     logger.Error("Failed to delete column '" + selectedColumn.Name + "' on table '" + tableName + "'.", ex);
-                    var errorMessage = LocalisationHelper.GetString("MessageBox_ColumnDeletionFailed", ex.Message);
-
-                    System.Windows.MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    dialogService.ShowMessage("MessageBox_ColumnDeletionFailed");
                 };
             }
         }
@@ -277,9 +266,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
                     catch (Exception ex)
                     {
                         logger.Info("Could not export table SQL to file " + fileDialog.FileName, ex);
-                        var errorMessage = LocalisationHelper.GetString("MessageBox_TableSQLExportFailed", ex.Message);
-
-                        System.Windows.MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        dialogService.ShowMessage("MessageBox_TableSQLExportFailed");
                     }
                 }
             }

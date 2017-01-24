@@ -8,7 +8,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies
     {
         public void Execute(ICollection<TreeItem> collection, TreeItem itemToDelete)
         {
-            var userAgrees = AskForUserAgreement("MessageBox_ViewDeleteWarning", "MessageBoxTitle_ViewDeletion", itemToDelete.DisplayName);
+            var userAgrees = dialogService.AskForUserAgreement("MessageBox_ViewDeleteWarning", "MessageBoxTitle_ViewDeletion", itemToDelete.DisplayName);
             if (!userAgrees) return;
 
             using (var viewHandler = new ViewHandler(Properties.Settings.Default.CurrentDatabase))

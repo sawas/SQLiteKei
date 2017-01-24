@@ -354,9 +354,7 @@
 Warnung: Wenn Sie diese Funktion nutzen, dann verlieren sie damit alle Fremdschlüssel-Referenzen dieser Tabelle! (Zeilenwerte und sonstige Definitionen der Spalten bleiben erhalten)</value>
   </data>
   <data name="MessageBox_ColumnDeletionFailed" xml:space="preserve">
-    <value>Die Spalte konnte nicht gelöscht werden.
-
-Ursprüngliche Meldung: {0}</value>
+    <value>Die Spalte konnte nicht gelöscht werden.</value>
   </data>
   <data name="MessageBox_ColumnRenameWarning" xml:space="preserve">
     <value>Wollen Sie die Spalte '{0}' wirklich umbenennen?
@@ -374,22 +372,16 @@ Warnung: Wenn Sie diese Funktion nutzen, dann verlieren sie damit alle Fremdschl
   </data>
   <data name="MessageBox_IndexUniquenessWarning" xml:space="preserve">
     <value>Die UNIQUE-Beschränkung konnte nicht akualisiert werden. 
-Die Hauptursache hierfür ist in der Regel eine Verletzung dieser Beschränkung.
-
-Originale Fehlermeldung: {0}</value>
+Die Hauptursache hierfür ist in der Regel eine Verletzung dieser Beschränkung.</value>
   </data>
-  <data name="MessageBox_NameChangeWarning" xml:space="preserve">
-    <value>Der Name des Elements konnte nicht geändert werden.
-
-Originale Fehlermeldung: {0}</value>
+  <data name="MessageBox_NameChangeFailed" xml:space="preserve">
+    <value>Der Name des Elements konnte nicht geändert werden.</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie die Tabelle '{0}' neu indizieren möchten?</value>
   </data>
   <data name="MessageBox_TableCSVExportFailed" xml:space="preserve">
-    <value>Die Tabelle konnte nicht exportiert werden.
-
-Ursprüngliche Meldung: {0}</value>
+    <value>Die Tabelle konnte nicht exportiert werden.</value>
   </data>
   <data name="MessageBox_TableDeleteWarning" xml:space="preserve">
     <value>Wollen Sie die Tabelle '{0}' wirklich löschen?</value>
@@ -398,9 +390,7 @@ Ursprüngliche Meldung: {0}</value>
     <value>Sind Sie sicher, dass Sie diesen Datensatz löschen wollen?</value>
   </data>
   <data name="MessageBox_TableSQLExportFailed" xml:space="preserve">
-    <value>Die Tabelle konnte nicht exportiert werden.
-
-Ursprüngliche Meldung: {0}</value>
+    <value>Die Tabelle konnte nicht exportiert werden.</value>
   </data>
   <data name="MessageBox_TriggerDeleteWarning" xml:space="preserve">
     <value>Wollen Sie den Trigger '{0}' wirklich löschen?</value>

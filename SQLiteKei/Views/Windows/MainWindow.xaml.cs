@@ -1,5 +1,4 @@
-﻿using SQLiteKei.DataAccess.Database;
-using SQLiteKei.Util;
+﻿using SQLiteKei.Util;
 using SQLiteKei.ViewModels.ElementRenameWindow;
 using SQLiteKei.ViewModels.MainWindow;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
@@ -34,7 +33,7 @@ namespace SQLiteKei.Views.Windows
 
         private void MenuItem_Exit_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Application.Current.Shutdown();
         }
 
         private void OpenAbout(object sender, RoutedEventArgs e)
@@ -109,9 +108,9 @@ namespace SQLiteKei.Views.Windows
 
         private void ResetTabControl()
         {
-            var openTabs = MainTabControl.Items.Count;
+            var openTabCount = MainTabControl.Items.Count;
 
-            for (var i = openTabs-1; i >= 0; i--)
+            for (var i = openTabCount-1; i >= 0; i--)
                 MainTabControl.Items.RemoveAt(i);
 
             var defaultTabs = DatabaseTabGenerator.GenerateDefaultTabs();

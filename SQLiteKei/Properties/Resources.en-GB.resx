@@ -354,9 +354,7 @@
 Warning: Using this function, you will lose all FOREIGN KEY constraints on this table! (Values and general column definitions will be preserved)</value>
   </data>
   <data name="MessageBox_ColumnDeletionFailed" xml:space="preserve">
-    <value>The column could not be deleted.
-
-Original message: {0}</value>
+    <value>The column could not be deleted.</value>
   </data>
   <data name="MessageBox_ColumnRenameWarning" xml:space="preserve">
     <value>Do you really want to rename the column '{0}'?
@@ -374,22 +372,16 @@ Warning: Using this function, you will lose all FOREIGN KEY constraints on this 
   </data>
   <data name="MessageBox_IndexUniquenessWarning" xml:space="preserve">
     <value>The index' UNIQUE constraint could not be updated.
-In most cases, this is caused by a violation of the constraint.
-
-Original Message: {0}</value>
+In most cases, this is caused by a violation of the constraint.</value>
   </data>
-  <data name="MessageBox_NameChangeWarning" xml:space="preserve">
-    <value>The element's name could not be changed.
-
-Original Message: {0}</value>
+  <data name="MessageBox_NameChangeFailed" xml:space="preserve">
+    <value>The element's name could not be changed.</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>Are you sure that you want to reindex the table '{0}'?</value>
   </data>
   <data name="MessageBox_TableCSVExportFailed" xml:space="preserve">
-    <value>The table export failed.
-
-Original message: {0}</value>
+    <value>The table export failed.</value>
   </data>
   <data name="MessageBox_TableDeleteWarning" xml:space="preserve">
     <value>Do you really want to delete the table '{0}'?</value>
@@ -398,9 +390,7 @@ Original message: {0}</value>
     <value>Do you really want to delete this data record?</value>
   </data>
   <data name="MessageBox_TableSQLExportFailed" xml:space="preserve">
-    <value>The table export failed.
-
-Original message: {0}</value>
+    <value>The table export failed.</value>
   </data>
   <data name="MessageBox_TriggerDeleteWarning" xml:space="preserve">
     <value>Do you really want to delete the trigger '{0}'?</value>

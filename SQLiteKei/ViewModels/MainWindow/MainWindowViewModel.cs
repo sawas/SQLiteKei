@@ -12,9 +12,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Windows;
 using System.Windows.Forms;
-using MessageBox = System.Windows.MessageBox;
 
 namespace SQLiteKei.ViewModels.MainWindow
 {
@@ -23,6 +21,8 @@ namespace SQLiteKei.ViewModels.MainWindow
         private readonly ITreeSaveHelper treeSaveHelper;
 
         private readonly ILog log = LogHelper.GetLogger();
+
+        private readonly IDialogService dialogService = new DialogService();
 
         public TreeItem SelectedItem { get; set; }
 
@@ -126,11 +126,8 @@ namespace SQLiteKei.ViewModels.MainWindow
 
         internal void EmptyTable(string tableName)
         {
-            var message = LocalisationHelper.GetString("MessageBox_EmptyTable", tableName);
-            var messageTitle = LocalisationHelper.GetString("MessageBoxTitle_EmptyTable");
-            var result = MessageBox.Show(message, messageTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            if (result != MessageBoxResult.Yes) return;
+            var userAgrees = dialogService.AskForUserAgreement("MessageBox_EmptyTable", "MessageBoxTitle_EmptyTable", tableName);
+            if (!userAgrees) return;
 
             using (var tableHandler = new TableHandler(Properties.Settings.Default.CurrentDatabase))
             {
@@ -158,10 +155,8 @@ namespace SQLiteKei.ViewModels.MainWindow
             catch (Exception ex)
             {
                 log.Error("Failed to delete item '" + treeItem.DisplayName + "' of type  " + treeItem.GetType() + ".", ex);
-                var statusInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
-                StatusBarInfo = statusInfo;
+                StatusBarInfo = ex.Message.Replace("SQL logic error or missing database\r\n", "SQL-Error - ");
             }
-            
         }
 
         private void OpenDocumentation()

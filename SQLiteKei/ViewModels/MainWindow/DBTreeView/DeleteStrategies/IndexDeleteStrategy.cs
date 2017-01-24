@@ -8,7 +8,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies
     {
         public void Execute(ICollection<TreeItem> collection, TreeItem itemToDelete)
         {
-            var userAgrees = AskForUserAgreement("MessageBox_IndexDeleteWarning", "MessageBoxTitle_IndexDeletion", itemToDelete.DisplayName);
+            var userAgrees = dialogService.AskForUserAgreement("MessageBox_IndexDeleteWarning", "MessageBoxTitle_IndexDeletion", itemToDelete.DisplayName);
             if (!userAgrees) return;
 
             using (var indexHandler = new IndexHandler(Properties.Settings.Default.CurrentDatabase))

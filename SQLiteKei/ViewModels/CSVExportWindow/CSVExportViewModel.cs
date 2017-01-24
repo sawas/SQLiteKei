@@ -4,6 +4,7 @@ using SQLiteKei.Commands;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.DataAccess.Models;
 using SQLiteKei.Util;
+using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.Base;
 
 using System;
@@ -12,7 +13,6 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace SQLiteKei.ViewModels.CSVExportWindow
@@ -20,6 +20,8 @@ namespace SQLiteKei.ViewModels.CSVExportWindow
     public class CSVExportViewModel : NotifyingModel
     {
         private readonly ILog logger = LogHelper.GetLogger();
+
+        private readonly IDialogService dialogService = new DialogService();
 
         private readonly string tableName;
 
@@ -136,9 +138,7 @@ namespace SQLiteKei.ViewModels.CSVExportWindow
                     catch (Exception ex)
                     {
                         logger.Info("Could not export table to CSV file " + fileDialog.FileName, ex);
-                        var errorMessage = LocalisationHelper.GetString("MessageBox_TableCSVExportFailed", ex.Message);
-
-                        System.Windows.MessageBox.Show(errorMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        dialogService.ShowMessage("MessageBox_TableCSVExportFailed");
                     }
                 }
             }

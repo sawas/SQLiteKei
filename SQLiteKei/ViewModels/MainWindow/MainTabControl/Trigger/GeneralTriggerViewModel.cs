@@ -3,16 +3,18 @@
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Properties;
 using SQLiteKei.Util;
+using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.Base;
 
 using System;
-using System.Windows;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Trigger
 {
     public class GeneralTriggerViewModel : NotifyingModel
     {
         private ILog logger = LogHelper.GetLogger();
+
+        private IDialogService dialogService = new DialogService();
 
         private string triggerName;
         public string TriggerName
@@ -36,9 +38,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Trigger
                     catch (Exception ex)
                     {
                         logger.Warn("Failed to rename trigger '" + triggerName + "' from trigger overview.", ex);
-                        var message = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
-
-                        MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        dialogService.ShowMessage("MessageBox_NameChangeFailed");
                     }
                 }
             }

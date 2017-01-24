@@ -4,15 +4,17 @@ using SQLiteKei.ViewModels.Base;
 using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Properties;
 using SQLiteKei.Util;
+using SQLiteKei.Util.Interfaces;
 
 using System;
-using System.Windows;
 
 namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Indexes
 {
     public class GeneralIndexViewModel : NotifyingModel
     {
         private ILog logger = LogHelper.GetLogger();
+
+        private readonly IDialogService dialogService = new DialogService();
 
         private string indexName;
         public string IndexName
@@ -35,9 +37,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Indexes
                     catch (Exception ex)
                     {
                         logger.Warn("Failed to rename index '" + indexName + "' from view overview.", ex);
-                        var message = LocalisationHelper.GetString("MessageBox_NameChangeWarning", ex.Message);
-
-                        MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        dialogService.ShowMessage("MessageBox_NameChangeFailed");
                     }
                 }
             }
@@ -63,9 +63,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Indexes
                 catch (Exception ex)
                 {
                     logger.Warn("Failed to update index uniqueness enforcement setting on '" + indexName + "'.", ex);
-                    var message = LocalisationHelper.GetString("MessageBox_IndexUniquenessWarning", ex.Message);
-
-                    MessageBox.Show(message, "Information", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    dialogService.ShowMessage("MessageBox_IndexUniquenessWarning");
                 }
             }
         }

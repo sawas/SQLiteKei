@@ -1,5 +1,6 @@
 ﻿using log4net;
 using SQLiteKei.Util;
+using SQLiteKei.Util.Interfaces;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies
     {
         private readonly ILog log = LogHelper.GetLogger();
 
-        protected bool AskForUserAgreement(string messageBodyKey, string messageTitleKey, string itemName)
-        {
-            var fullMessage = LocalisationHelper.GetString(messageBodyKey, itemName);
-            var result = MessageBox.Show(fullMessage, LocalisationHelper.GetString(messageTitleKey), MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            return result == MessageBoxResult.Yes;
-        }
+        protected readonly IDialogService dialogService = new DialogService();
 
         protected void RemoveItemFromHierarchy(ICollection<TreeItem> treeItems, TreeItem treeItem)
         {

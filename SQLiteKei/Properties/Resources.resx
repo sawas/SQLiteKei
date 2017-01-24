@@ -373,8 +373,8 @@
   <data name="MessageBox_IndexUniquenessWarning" xml:space="preserve">
     <value>MessageBox_IndexUniquenessWarning</value>
   </data>
-  <data name="MessageBox_NameChangeWarning" xml:space="preserve">
-    <value>MessageBox_NameChangeWarning</value>
+  <data name="MessageBox_NameChangeFailed" xml:space="preserve">
+    <value>MessageBox_NameChangeFailed</value>
   </data>
   <data name="MessageBox_ReindexTable" xml:space="preserve">
     <value>MessageBox_ReindexTable</value>
