@@ -3,6 +3,8 @@ using SQLiteKei.DataAccess.QueryBuilders;
 
 using System;
 using System.Data;
+using System.Data.Common;
+using System.Data.SQLite;
 using System.Linq;
 
 namespace SQLiteKei.DataAccess.Database
@@ -13,6 +15,10 @@ namespace SQLiteKei.DataAccess.Database
     public class IndexHandler : DisposableDbHandler
     {
         public IndexHandler(string databasePath) : base(databasePath)
+        {
+        }
+
+        public IndexHandler(DbConnection connection) : base(connection)
         {
         }
 

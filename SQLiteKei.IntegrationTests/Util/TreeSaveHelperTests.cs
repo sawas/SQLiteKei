@@ -34,8 +34,8 @@ namespace SQLiteKei.IntegrationTests.Util
             {
                 new DatabaseItem
                 {
-                    DisplayName = DATABASEFILENAME,
-                    DatabasePath = targetDatabaseFilePath,
+                    DisplayName = testDatabaseFile,
+                    DatabasePath = testDatabaseFile,
                     Items = new ObservableCollection<TreeItem>
                     {
                         new TableFolderItem

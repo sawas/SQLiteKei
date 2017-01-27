@@ -3,6 +3,7 @@
 using SQLiteKei.DataAccess.Util;
 
 using System;
+using System.Data.Common;
 using System.Data.SQLite;
 
 namespace SQLiteKei.DataAccess.Database
@@ -14,11 +15,17 @@ namespace SQLiteKei.DataAccess.Database
     {
         protected ILog logger = LogHelper.GetLogger();
 
-        internal SQLiteConnection connection;
+        protected SQLiteConnection connection;
 
         protected DisposableDbHandler(string databasePath)
         {
             InitializeConnection(databasePath);
+        }
+
+        protected DisposableDbHandler(DbConnection connection)
+        {
+            this.connection = connection as SQLiteConnection;
+            connection.Open();
         }
 
         private void InitializeConnection(string databasePath)

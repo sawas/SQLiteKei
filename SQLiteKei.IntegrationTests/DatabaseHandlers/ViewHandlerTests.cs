@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace SQLiteKei.IntegrationTests.DatabaseHandlers
 {
-    [TestFixture, Explicit]
+    [TestFixture]
     public class ViewHandlerTests : IntegrationTestBase
     {
         private ViewHandler viewHandler;
@@ -17,17 +17,13 @@ namespace SQLiteKei.IntegrationTests.DatabaseHandlers
         [SetUp]
         public void SetUp()
         {
-            // Close the auto-generated connection and replace it with the one used in the IntegrationTestBase
-            viewHandler = new ViewHandler(targetDatabaseFilePath);
-            viewHandler.connection.Close();
-            viewHandler.connection = connection;
-            viewHandler.connection.Open();
+            viewHandler = new ViewHandler(connection);
         }
 
         [TearDown]
         public void TearDown()
         {
-            viewHandler.connection.Close();
+            viewHandler.Dispose();
         }
 
         [Test]

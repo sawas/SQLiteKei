@@ -2,6 +2,8 @@
 using SQLiteKei.DataAccess.QueryBuilders;
 
 using System.Data;
+using System.Data.Common;
+using System.Data.SQLite;
 using System.Linq;
 
 namespace SQLiteKei.DataAccess.Database
@@ -12,6 +14,10 @@ namespace SQLiteKei.DataAccess.Database
     public class ViewHandler : DisposableDbHandler
     {
         public ViewHandler(string databasePath) : base(databasePath)
+        {
+        }
+
+        public ViewHandler(DbConnection connection) : base(connection)
         {
         }
 

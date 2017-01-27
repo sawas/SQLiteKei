@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
-
-using System.Data.Common;
+using System;
 using System.Data.SQLite;
 using System.IO;
 
@@ -8,48 +7,41 @@ namespace SQLiteKei.IntegrationTests.Base
 {
     public class IntegrationTestBase
     {
-        protected const string DATABASEFILENAME = "TestDb";
+        protected string testDatabaseFile;
 
-        protected string testDirectory;
-
-        protected string targetDatabaseFilePath;
+        private string connectionString;
 
         protected SQLiteConnection connection;
 
         [OneTimeSetUp]
         public void CreateDatabase()
         {
-            testDirectory = Path.Combine(Path.GetTempPath(), "SQLiteKei");
+            testDatabaseFile = Path.Combine(TestContext.CurrentContext.TestDirectory, @"Resources\TestDb");
 
-            if (Directory.Exists(testDirectory))
+            if(!File.Exists(testDatabaseFile))
             {
-                Directory.Delete(testDirectory, true);
+                SQLiteConnection.CreateFile(testDatabaseFile);
             }
 
-            Directory.CreateDirectory(testDirectory);
-
-            targetDatabaseFilePath = Path.Combine(testDirectory, DATABASEFILENAME);
-            SQLiteConnection.CreateFile(targetDatabaseFilePath);
-
-            var factory = DbProviderFactories.GetFactory("System.Data.SQLite");
-            connection = new SQLiteConnection();
+            connectionString = string.Format("Data Source={0}", testDatabaseFile);
         }
 
         [SetUp]
         public void ResetFakeData()
         {
-            connection.ConnectionString = string.Format("Data Source={0}", targetDatabaseFilePath);
-            connection.Open();
+            var oneTimeConnection = new SQLiteConnection();
+            oneTimeConnection.ConnectionString = string.Format("Data Source={0}", testDatabaseFile);
+            oneTimeConnection.Open();
 
             for (var i = 1; i <= 10; i++)
             {
-                using (var dropCommand = connection.CreateCommand())
+                using (var dropCommand = oneTimeConnection.CreateCommand())
                 {
                     dropCommand.CommandText = string.Format("DROP TABLE IF EXISTS TEST{0}", i);
                     dropCommand.ExecuteNonQuery();
                 }
 
-                using (var createCommand = connection.CreateCommand())
+                using (var createCommand = oneTimeConnection.CreateCommand())
                 {
                     createCommand.CommandText = string.Format("CREATE TABLE TEST{0} (ColumnA{0} varchar({1}), ColumnB{0} int)", i, i + 50);
                     createCommand.ExecuteNonQuery();
@@ -58,7 +50,7 @@ namespace SQLiteKei.IntegrationTests.Base
                 for (var j = 1; j <= i; j++)
                 {
 
-                    using (var insertCommand = connection.CreateCommand())
+                    using (var insertCommand = oneTimeConnection.CreateCommand())
                     {
                         insertCommand.CommandText = string.Format("INSERT INTO TEST{0} VALUES('ENTRY{1}', '{1}')", i, j);
                         insertCommand.ExecuteNonQuery();
@@ -68,13 +60,19 @@ namespace SQLiteKei.IntegrationTests.Base
 
             for (var i = 1; i <= 5; i++)
             {
-                using (var createCommand = connection.CreateCommand())
+                using (var createCommand = oneTimeConnection.CreateCommand())
                 {
                     createCommand.CommandText = string.Format("CREATE VIEW IF NOT EXISTS View{0} AS SELECT * FROM TEST{0} ", i);
                     createCommand.ExecuteNonQuery();
                 }
             }
-            connection.Close();
+            oneTimeConnection.Close();
+        }
+
+        [SetUp]
+        public void EstablishConnection()
+        {
+            connection = new SQLiteConnection(connectionString);
         }
     }
 }

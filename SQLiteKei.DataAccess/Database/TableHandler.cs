@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
+using System.Data.Common;
 
 namespace SQLiteKei.DataAccess.Database
 {
@@ -19,6 +20,10 @@ namespace SQLiteKei.DataAccess.Database
     public class TableHandler : DisposableDbHandler
     {
         public TableHandler(string databasePath) : base(databasePath)
+        {
+        }
+
+        public TableHandler(DbConnection connection) : base(connection)
         {
         }
 

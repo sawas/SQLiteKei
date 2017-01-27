@@ -4,6 +4,7 @@ using SQLiteKei.DataAccess.Util.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SQLite;
 
 namespace SQLiteKei.DataAccess.Database
@@ -19,6 +20,10 @@ namespace SQLiteKei.DataAccess.Database
         }
 
         public DatabaseHandler(string databasePath) : base(databasePath)
+        {
+        }
+
+        public DatabaseHandler(DbConnection connection) : base(connection)
         {
         }
 

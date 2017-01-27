@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace SQLiteKei.IntegrationTests.DatabaseHandlers
 {
-    [TestFixture, Explicit]
+    [TestFixture]
     public class TableHandlerTests : IntegrationTestBase
     {
         private TableHandler tableHandler;
@@ -18,17 +18,7 @@ namespace SQLiteKei.IntegrationTests.DatabaseHandlers
         [SetUp]
         public void SetUp()
         {
-            // Close the auto-generated connection and replace it with the one used in the IntegrationTestBase
-            tableHandler = new TableHandler(targetDatabaseFilePath);
-            tableHandler.connection.Close();
-            tableHandler.connection = connection;
-            tableHandler.connection.Open();
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            tableHandler.connection.Close();
+            tableHandler = new TableHandler(connection);
         }
 
         [Test]

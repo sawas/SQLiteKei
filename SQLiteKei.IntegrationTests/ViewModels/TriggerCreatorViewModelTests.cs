@@ -6,7 +6,7 @@ using SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow;
 
 namespace SQLiteKei.IntegrationTests.ViewModels
 {
-    [TestFixture, Explicit]
+    [TestFixture]
     public class TriggerCreatorViewModelTests : IntegrationTestBase
     {
         private TriggerCreatorViewModel viewModel;
@@ -20,7 +20,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         [Test]
         public void IsValidModelProperty_WithValidValues_IsTrue()
         {
-            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = targetDatabaseFilePath };
+            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = testDatabaseFile };
             viewModel.SelectedTarget = "Table";
             viewModel.SelectedTriggerEntryPoint = "EntryPoint";
             viewModel.SelectedTriggerEvent = "Event";
@@ -33,7 +33,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         [Test]
         public void IsValidModelProperty_WithoutSelectedTable_IsFalse()
         {
-            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = targetDatabaseFilePath };
+            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = testDatabaseFile };
             viewModel.SelectedTarget = string.Empty;
             viewModel.SelectedTriggerEntryPoint = "EntryPoint";
             viewModel.SelectedTriggerEvent = "Event";
@@ -46,7 +46,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         [Test]
         public void IsValidModelProperty_WithoutSelectedEntryPoint_IsFalse()
         {
-            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = targetDatabaseFilePath };
+            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = testDatabaseFile };
             viewModel.SelectedTarget = "Table";
             viewModel.SelectedTriggerEntryPoint = string.Empty;
             viewModel.SelectedTriggerEvent = "Event";
@@ -59,7 +59,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         [Test]
         public void IsValidModelProperty_WithoutSelectedTriggerEvent_IsFalse()
         {
-            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = targetDatabaseFilePath };
+            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = testDatabaseFile };
             viewModel.SelectedTarget = "Table";
             viewModel.SelectedTriggerEntryPoint = "EntryPoint";
             viewModel.SelectedTriggerEvent = string.Empty;
@@ -72,7 +72,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         [Test]
         public void IsValidModelProperty_WithoutTriggerActions_IsFalse()
         {
-            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = targetDatabaseFilePath };
+            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = testDatabaseFile };
             viewModel.SelectedTarget = "Table";
             viewModel.SelectedTriggerEntryPoint = "EntryPoint";
             viewModel.SelectedTriggerEvent = "Event";
@@ -85,7 +85,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         [Test]
         public void IsValidModelProperty_WithoutTriggerName_IsFalse()
         {
-            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = targetDatabaseFilePath };
+            viewModel.SelectedDatabase = new DatabaseSelectItem { DatabaseName = "DB", DatabasePath = testDatabaseFile };
             viewModel.SelectedTarget = "Table";
             viewModel.SelectedTriggerEntryPoint = "EntryPoint";
             viewModel.SelectedTriggerEvent = "Event";
