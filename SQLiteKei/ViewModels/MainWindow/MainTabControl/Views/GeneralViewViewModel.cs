@@ -56,28 +56,28 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Views
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         private ICollectionView dataGridCollection;
         public ICollectionView DataGridCollection
         {
             get { return dataGridCollection; }
-            set { dataGridCollection = value; NotifyPropertyChanged("DataGridCollection"); }
+            set { dataGridCollection = value; NotifyPropertyChanged(); }
         }
 
         private bool couldLoadResults;
         public bool CouldLoadResults
         {
             get { return couldLoadResults; }
-            set { couldLoadResults = value; NotifyPropertyChanged("CouldLoadResults"); }
+            set { couldLoadResults = value; NotifyPropertyChanged(); }
         }
 
         private bool couldNotLoadResults;
         public bool CouldNotLoadResults
         {
             get { return couldNotLoadResults; }
-            set { couldNotLoadResults = value; NotifyPropertyChanged("CouldNotLoadResults"); }
+            set { couldNotLoadResults = value; NotifyPropertyChanged(); }
         }
 
         public GeneralViewViewModel(string viewName)

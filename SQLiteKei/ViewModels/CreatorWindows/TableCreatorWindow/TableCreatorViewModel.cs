@@ -48,7 +48,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
             set 
             { 
                 tableName = value; 
-                NotifyPropertyChanged("TableName");
+                NotifyPropertyChanged();
                 UpdateSqlStatement();
             }
         }
@@ -57,21 +57,21 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
         public string SqlStatement
         {
             get { return sqlStatement; }
-            set { sqlStatement = value; NotifyPropertyChanged("SqlStatement"); }
+            set { sqlStatement = value; NotifyPropertyChanged(); }
         }
 
         private bool isValidTableDefinition;
         public bool IsValidTableDefinition
         {
             get { return isValidTableDefinition; }
-            set { isValidTableDefinition = value; NotifyPropertyChanged("IsValidTableDefinition"); }
+            set { isValidTableDefinition = value; NotifyPropertyChanged(); }
         }
 
         private string statusInfo;
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         public TableCreatorViewModel()

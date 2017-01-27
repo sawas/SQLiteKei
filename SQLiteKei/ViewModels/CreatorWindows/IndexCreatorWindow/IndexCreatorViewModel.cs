@@ -73,21 +73,21 @@ namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow
         public string SqlStatement
         {
             get { return sqlStatement; }
-            set { sqlStatement = value; NotifyPropertyChanged("SqlStatement"); }
+            set { sqlStatement = value; NotifyPropertyChanged(); }
         }
 
         private bool isValidModel;
         public bool IsValidModel
         {
             get { return isValidModel; }
-            set { isValidModel = value; NotifyPropertyChanged("IsValidModel"); }
+            set { isValidModel = value; NotifyPropertyChanged(); }
         }
 
         private string statusInfo;
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         public IndexCreatorViewModel()

@@ -26,14 +26,14 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         public PagableCollectionView DataGridCollection
         {
             get { return dataGridCollection; }
-            set { dataGridCollection = value; NotifyPropertyChanged("DataGridCollection"); }
+            set { dataGridCollection = value; NotifyPropertyChanged(); }
         }
 
         private string statusInfo;
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         public RecordsTabViewModel(string tableName)
@@ -53,7 +53,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         public int ItemsPerPage
         {
             get { return DataGridCollection.ItemsPerPage; }
-            set { DataGridCollection.ItemsPerPage = value; NotifyPropertyChanged("TotalPages"); NotifyPropertyChanged("CurrentPage"); }
+            set { DataGridCollection.ItemsPerPage = value; NotifyPropertyChanged(); }
         }
 
         public int CurrentPage
@@ -69,7 +69,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         private void GotoNextPage()
         {
             DataGridCollection.MoveToNextPage();
-            NotifyPropertyChanged("CurrentPage");
+            NotifyPropertyChanged();
         }
 
         private DelegateCommand gotoNextCommand;
@@ -79,7 +79,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         private void GotoPreviousPage()
         {
             DataGridCollection.MoveToPreviousPage();
-            NotifyPropertyChanged("CurrentPage");
+            NotifyPropertyChanged();
         }
 
         private DelegateCommand gotoPreviousCommand;
@@ -89,7 +89,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         private void GotoLastPage()
         {
             DataGridCollection.MoveToLastPage();
-            NotifyPropertyChanged("CurrentPage");
+            NotifyPropertyChanged();
         }
 
         private DelegateCommand gotoLastCommand;
@@ -99,7 +99,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         private void GotoFirstPage()
         {
             DataGridCollection.MoveToFirstPage();
-            NotifyPropertyChanged("CurrentPage");
+            NotifyPropertyChanged();
         }
 
         private DelegateCommand gotoFirstCommand;
@@ -157,8 +157,8 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
 
                     DataGridCollection = new PagableCollectionView(resultTable.DefaultView, ItemsPerPage);
                     StatusInfo = string.Format("Rows returned: {0}", resultTable.Rows.Count);
-                    NotifyPropertyChanged("CurrentPage");
-                    NotifyPropertyChanged("TotalPages");
+                    NotifyPropertyChanged();
+                    NotifyPropertyChanged();
                 }
             }
             catch (Exception ex)

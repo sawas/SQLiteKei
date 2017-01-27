@@ -10,7 +10,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow
         public bool IsSelected
         {
             get { return isSelected; }
-            set { isSelected = value; NotifyPropertyChanged("IsSelected"); }
+            set { isSelected = value; NotifyPropertyChanged(); }
         }
     }
 }

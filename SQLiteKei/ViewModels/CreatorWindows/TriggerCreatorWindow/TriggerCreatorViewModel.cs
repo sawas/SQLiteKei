@@ -68,7 +68,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow
         public bool IsUpdateOfEvent
         {
             get { return isUpdateOfEvent; }
-            set { isUpdateOfEvent = value; NotifyPropertyChanged("IsUpdateOfEvent"); }
+            set { isUpdateOfEvent = value; NotifyPropertyChanged(); }
         }
 
         private string selectedTarget { get; set; }
@@ -107,21 +107,21 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow
         public string Sql
         {
             get { return sql; }
-            set { sql = value; NotifyPropertyChanged("SQL"); }
+            set { sql = value; NotifyPropertyChanged(); }
         }
 
         private string statusInfo;
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         private bool isValidModel;
         public bool IsValidModel
         {
             get { return isValidModel; }
-            set { isValidModel = value;  NotifyPropertyChanged("IsValidModel"); }
+            set { isValidModel = value;  NotifyPropertyChanged(); }
         }
 
         private CreateTriggerQueryBuilder queryBuilder;

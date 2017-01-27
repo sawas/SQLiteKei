@@ -12,14 +12,14 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
         public string SelectedColumn
         {
             get { return selectedColumn; }
-            set { selectedColumn = value; NotifyPropertyChanged("SelectedColumn"); }
+            set { selectedColumn = value; NotifyPropertyChanged(); }
         }
 
         private bool isDescending;
         public bool IsDescending
         {
             get { return isDescending; }
-            set { isDescending = value; NotifyPropertyChanged("IsDescending"); }
+            set { isDescending = value; NotifyPropertyChanged(); }
         }
 
         public OrderItem()

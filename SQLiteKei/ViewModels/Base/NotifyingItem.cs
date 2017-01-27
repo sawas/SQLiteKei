@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SQLiteKei.ViewModels.Base
 {
@@ -9,7 +10,7 @@ namespace SQLiteKei.ViewModels.Base
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyPropertyChanged(string property)
+        protected void NotifyPropertyChanged([CallerMemberName]string property = null)
         {
             if (PropertyChanged != null)
             {

@@ -178,7 +178,7 @@
     <value>New Table</value>
   </data>
   <data name="ContextMenuItem_NewTrigger" xml:space="preserve">
-    <value>NewTrigger</value>
+    <value>New Trigger</value>
   </data>
   <data name="ContextMenuItem_NewView" xml:space="preserve">
     <value>New View</value>

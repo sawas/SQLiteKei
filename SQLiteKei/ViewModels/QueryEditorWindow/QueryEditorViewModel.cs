@@ -43,7 +43,7 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
         public string SqlStatement
         {
             get { return sqlStatement; }
-            set { sqlStatement = value; NotifyPropertyChanged("SqlStatement"); }
+            set { sqlStatement = value; NotifyPropertyChanged(); }
         }
 
         public string SelectedText { get; set; }
@@ -52,14 +52,14 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         private ListCollectionView dataGrid;
         public ListCollectionView DataGrid
         {
             get { return dataGrid; }
-            set { dataGrid = value; NotifyPropertyChanged("DataGrid"); }
+            set { dataGrid = value; NotifyPropertyChanged(); }
         }
 
         public QueryEditorViewModel()

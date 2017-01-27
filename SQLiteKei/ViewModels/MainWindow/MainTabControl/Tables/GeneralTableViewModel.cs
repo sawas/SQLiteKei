@@ -59,14 +59,14 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         public long RowCount
         {
             get { return rowCount; }
-            set { rowCount = value; NotifyPropertyChanged("RowCount"); }
+            set { rowCount = value; NotifyPropertyChanged(); }
         }
 
         private int columnCount;
         public int ColumnCount
         {
             get { return columnCount; }
-            set { columnCount = value; NotifyPropertyChanged("ColumnCount"); }
+            set { columnCount = value; NotifyPropertyChanged(); }
         }
 
         public bool ColumnsFound { get; set; }
@@ -75,7 +75,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         public string TableCreateStatement
         {
             get { return tableCreateStatement; }
-            set { tableCreateStatement = value; NotifyPropertyChanged("TableCreateStatement"); }
+            set { tableCreateStatement = value; NotifyPropertyChanged(); }
         }
 
         private ColumnDataItem selectedColumn;

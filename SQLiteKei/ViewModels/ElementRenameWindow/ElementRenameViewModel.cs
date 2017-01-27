@@ -23,7 +23,7 @@ namespace SQLiteKei.ViewModels.ElementRenameWindow
         public string WindowTitle
         {
             get { return windowTitle; }
-            set { windowTitle = value; NotifyPropertyChanged("WindowTitle"); }
+            set { windowTitle = value; NotifyPropertyChanged(); }
         }
 
         private TreeItem originalElement;
@@ -34,7 +34,7 @@ namespace SQLiteKei.ViewModels.ElementRenameWindow
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         public ElementRenameViewModel(TreeItem treeItem)

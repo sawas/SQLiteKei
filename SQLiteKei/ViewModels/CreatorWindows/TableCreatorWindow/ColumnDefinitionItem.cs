@@ -13,7 +13,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
         public string ColumnName
         {
             get { return columnName; }
-            set { columnName = value; NotifyPropertyChanged("ColumnName"); }
+            set { columnName = value; NotifyPropertyChanged(); }
         }
 
         private bool isPrimary;
@@ -25,7 +25,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
                 isPrimary = value;
                 if (value)
                     IsNotNull = true;
-                NotifyPropertyChanged("IsPrimary");
+                NotifyPropertyChanged();
             }
         }
 
@@ -33,14 +33,14 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
         public bool IsNotNull
         {
             get { return isNotNull; }
-            set { isNotNull = value; NotifyPropertyChanged("IsNotNull"); }
+            set { isNotNull = value; NotifyPropertyChanged(); }
         }
 
         private DataType dataType;
         public DataType DataType
         {
             get { return dataType; }
-            set { dataType = value; NotifyPropertyChanged("DataType"); }
+            set { dataType = value; NotifyPropertyChanged(); }
         }
 
         public IEnumerable<DataType> DataTypes
@@ -56,7 +56,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
         public string DefaultValue
         {
             get { return defaultValue; }
-            set { defaultValue = value; NotifyPropertyChanged("DefaultValue"); }
+            set { defaultValue = value; NotifyPropertyChanged(); }
         }
 
         public ColumnDefinitionItem()

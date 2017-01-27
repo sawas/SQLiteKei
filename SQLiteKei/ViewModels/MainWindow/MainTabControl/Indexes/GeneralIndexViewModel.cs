@@ -72,7 +72,7 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Indexes
         public string SqlStatement
         {
             get { return sqlStatement; }
-            set { sqlStatement = value; NotifyPropertyChanged("SqlStatement"); }
+            set { sqlStatement = value; NotifyPropertyChanged(); }
         }
 
         public GeneralIndexViewModel(string indexName)

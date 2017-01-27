@@ -1,6 +1,5 @@
-﻿using System.Collections.ObjectModel;
-
-using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
+﻿using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
+using System.Collections.ObjectModel;
 
 namespace SQLiteKei.Util.Interfaces
 {

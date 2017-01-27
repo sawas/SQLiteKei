@@ -9,6 +9,8 @@ namespace SQLiteKei.Commands
 
         private readonly Predicate<object> canExecute; 
 
+        public event EventHandler CanExecuteChanged;
+
         public DelegateCommand(Action action, Predicate<object> canExecute = null)
         {
             this.action = action;
@@ -30,6 +32,12 @@ namespace SQLiteKei.Commands
             action();
         }
 
-        public event EventHandler CanExecuteChanged;
+        public void RaiseCanExecuteChanged()
+        {
+            if (CanExecuteChanged != null)
+            {
+                CanExecuteChanged(this, EventArgs.Empty);
+            }
+        }
     }
 }

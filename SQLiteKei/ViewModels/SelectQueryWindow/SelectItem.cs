@@ -13,28 +13,28 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
         public string Alias
         {
             get { return alias; }
-            set { alias = value; NotifyPropertyChanged("Alias"); }
+            set { alias = value; NotifyPropertyChanged(); }
         }
 
         private bool isSelected;
         public bool IsSelected
         {
             get { return isSelected; }
-            set { isSelected = value; NotifyPropertyChanged("IsSelected"); }
+            set { isSelected = value; NotifyPropertyChanged(); }
         }
 
         private string compareType;
         public string CompareType
         {
             get { return compareType; }
-            set { compareType = value; NotifyPropertyChanged("CompareType"); }
+            set { compareType = value; NotifyPropertyChanged(); }
         }
 
         private string compareValue;
         public string CompareValue
         {
             get { return compareValue; }
-            set { compareValue = value; NotifyPropertyChanged("CompareValue"); }
+            set { compareValue = value; NotifyPropertyChanged(); }
         }
     }
 }

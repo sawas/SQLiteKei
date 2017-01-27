@@ -50,14 +50,14 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Trigger
         public string SqlStatement
         {
             get { return sqlStatement; }
-            set { sqlStatement = value; NotifyPropertyChanged("SqlStatement"); }
+            set { sqlStatement = value; NotifyPropertyChanged(); }
         }
 
         private string statusInfo { get; set; }
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         public GeneralTriggerViewModel(string triggerName)

@@ -21,14 +21,14 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
         public string SelectedColumn
         {
             get { return selectedColumn; }
-            set { selectedColumn = value; NotifyPropertyChanged("SelectedColumn"); }
+            set { selectedColumn = value; NotifyPropertyChanged(); }
         }
 
         private ObservableCollection<string> availableColumns;
         public ObservableCollection<string> AvailableColumns
         {
             get { return availableColumns; }
-            set { availableColumns = value; NotifyPropertyChanged("AvailableColumns"); }
+            set { availableColumns = value; NotifyPropertyChanged(); }
         }
 
         private string selectedTable { get; set; }
@@ -76,21 +76,21 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
         public ObservableCollection<string> ReferencableTables
         {
             get { return availableTables; }
-            set { availableTables = value; NotifyPropertyChanged("ReferencableTables"); }
+            set { availableTables = value; NotifyPropertyChanged(); }
         }
 
         private string selectedReferencedColumn;
         public string SelectedReferencedColumn
         {
             get { return selectedReferencedColumn; }
-            set { selectedReferencedColumn = value; NotifyPropertyChanged("SelectedReferencedColumn"); }
+            set { selectedReferencedColumn = value; NotifyPropertyChanged(); }
         }
 
         private ObservableCollection<string> referencableColumns;
         public ObservableCollection<string> ReferencableColumns
         {
             get { return referencableColumns; }
-            set { referencableColumns = value;  NotifyPropertyChanged("ReferencableColumns"); }
+            set { referencableColumns = value;  NotifyPropertyChanged(); }
         }
 
         public ForeignKeyDefinitionItem(string selectedDatabasePath)

@@ -44,7 +44,7 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
         public string SelectQuery
         {
             get { return selectQuery; }
-            set { selectQuery = value; NotifyPropertyChanged("SelectQuery"); }
+            set { selectQuery = value; NotifyPropertyChanged(); }
         }
 
         private bool isDistinct;

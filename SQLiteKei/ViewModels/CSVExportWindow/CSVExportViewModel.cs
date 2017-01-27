@@ -41,7 +41,7 @@ namespace SQLiteKei.ViewModels.CSVExportWindow
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         public CSVExportViewModel(string tableName)

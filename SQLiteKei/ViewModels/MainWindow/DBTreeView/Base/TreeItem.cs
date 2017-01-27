@@ -18,7 +18,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Base
         public string DisplayName
         {
             get { return displayName; }
-            set { displayName = value; NotifyPropertyChanged("DisplayName"); }
+            set { displayName = value; NotifyPropertyChanged(); }
         }
 
         /// <summary>

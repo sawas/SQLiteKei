@@ -43,7 +43,7 @@ namespace SQLiteKei.ViewModels.TableMigrator
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         public TableMigratorViewModel(IEnumerable<TreeItem> databases, string tableName)

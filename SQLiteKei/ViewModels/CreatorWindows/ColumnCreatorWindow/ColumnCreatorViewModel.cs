@@ -25,7 +25,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.ColumnCreatorWindow
         public DataType SelectedDataType
         {
             get { return selectedDataType; }
-            set { selectedDataType = value; NotifyPropertyChanged("SelectedDataType"); }
+            set { selectedDataType = value; NotifyPropertyChanged(); }
         }
 
         public IEnumerable<DataType> DataTypes
@@ -45,7 +45,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.ColumnCreatorWindow
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         public ColumnCreatorViewModel(string tableName)

@@ -13,7 +13,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow
         public string SelectedAction
         {
             get { return selectedAction; }
-            set { selectedAction = value;  NotifyPropertyChanged("SelectedAction"); }
+            set { selectedAction = value;  NotifyPropertyChanged(); }
         }
 
         public List<string> AvailableActions { get; private set; }

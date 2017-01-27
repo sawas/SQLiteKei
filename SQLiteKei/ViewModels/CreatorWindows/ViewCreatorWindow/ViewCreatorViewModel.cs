@@ -50,14 +50,14 @@ namespace SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow
         public string StatusInfo
         {
             get { return statusInfo; }
-            set { statusInfo = value; NotifyPropertyChanged("StatusInfo"); }
+            set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
         private bool isValidViewDefinition;
         public bool IsValidViewDefinition
         {
             get { return isValidViewDefinition; }
-            set { isValidViewDefinition = value; NotifyPropertyChanged("IsValidViewDefinition"); }
+            set { isValidViewDefinition = value; NotifyPropertyChanged(); }
         }
 
         public ObservableCollection<TableTreeItem> Tables { get; set; }

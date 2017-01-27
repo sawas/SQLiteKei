@@ -30,14 +30,14 @@ namespace SQLiteKei.ViewModels.MainWindow
         public ObservableCollection<TreeItem> TreeViewItems
         {
             get { return treeViewItems; }
-            set { treeViewItems = value; NotifyPropertyChanged("TreeViewItems"); }
+            set { treeViewItems = value; NotifyPropertyChanged(); }
         }
 
         private string statusBarInfo;
         public string StatusBarInfo
         {
             get { return statusBarInfo; }
-            set { statusBarInfo = value; NotifyPropertyChanged("StatusBarInfo"); }
+            set { statusBarInfo = value; NotifyPropertyChanged(); }
         }
 
         public MainWindowViewModel(ITreeSaveHelper treeSaveHelper)
