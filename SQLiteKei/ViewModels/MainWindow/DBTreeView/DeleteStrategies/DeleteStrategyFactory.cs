@@ -1,5 +1,7 @@
 ﻿using System;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
+using SQLiteKei.Util.Interfaces;
+using SQLiteKei.Util;
 
 namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies
 {
@@ -13,19 +15,21 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies
         /// </summary>
         /// <param name="itemToDelete">The item to delete.</param>
         /// <returns></returns>
-        /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="NotSupportedException"></exception>
         internal IDeleteStrategy Create(TreeItem itemToDelete)
         {
+            IDialogService dialogService = new DialogService();
+
             if (itemToDelete.GetType() == typeof(DatabaseItem))
-                return new DatabaseDeleteStrategy();
+                return new DatabaseDeleteStrategy(dialogService);
             if (itemToDelete.GetType() == typeof(TableItem))
-                return new TableDeleteStrategy();
+                return new TableDeleteStrategy(dialogService);
             if (itemToDelete.GetType() == typeof(TriggerItem))
-                return new TriggerDeleteStrategy();
+                return new TriggerDeleteStrategy(dialogService);
             if (itemToDelete.GetType() == typeof(ViewItem))
-                return new ViewDeleteStrategy();
+                return new ViewDeleteStrategy(dialogService);
             if (itemToDelete.GetType() == typeof(IndexItem))
-                return new IndexDeleteStrategy();
+                return new IndexDeleteStrategy(dialogService);
 
             throw new NotSupportedException();
         }

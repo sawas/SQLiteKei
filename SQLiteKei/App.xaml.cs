@@ -1,5 +1,4 @@
 ﻿using log4net;
-
 using SQLiteKei.Util;
 using SQLiteKei.Views.Windows;
 using System;

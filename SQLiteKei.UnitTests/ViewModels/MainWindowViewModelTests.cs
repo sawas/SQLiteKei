@@ -7,7 +7,6 @@ using SQLiteKei.ViewModels.MainWindow;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace SQLiteKei.IntegrationTests.ViewModels
 {
@@ -25,6 +24,8 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         private TableItem ComparisonItem;
 
         private IndexFolderItem ComparisonItemParent;
+
+        private Mock<ITreeSaveHelper> treeSaveHelperMock;
 
         [SetUp]
         public void Setup()
@@ -62,7 +63,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
                 Items = new ObservableCollection<TreeItem> { ComparisonItem }
             };
 
-            var treeSaveHelperMock = new Mock<ITreeSaveHelper>();
+            treeSaveHelperMock = new Mock<ITreeSaveHelper>();
 
             viewModel = new MainWindowViewModel(treeSaveHelperMock.Object)
             {
@@ -86,7 +87,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         //[Test]
         //public void RemoveItemFromHierarchy_WithExistingItem_RemovesSpecifiedItem()
         //{
-        //    viewModel.RemoveItemFromTree(LookupItem);
+        //    viewModel.Delete(LookupItem);
 
         //    var result = LookupItemParent.Items.Any();
         //    Assert.IsFalse(result);
@@ -95,7 +96,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         //[Test]
         //public void RemoveItemFromHierarchy_WithExistingItem_DoesNotRemoveItemsWithSameNameFromSameDatabase()
         //{
-        //    viewModel.RemoveItemFromTree(LookupItem);
+        //    viewModel.Delete(LookupItem);
 
         //    var result = LookupItemDatabase.Items.Any();
         //    Assert.IsTrue(result);
@@ -104,10 +105,18 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         //[Test]
         //public void RemoveItemFromHierarchy_WithExistingItem_DoesNotRemoveItemsWithSameNameFromOtherDatabase()
         //{
-        //    viewModel.RemoveItemFromTree(LookupItem);
+        //    viewModel.Delete(LookupItem);
 
         //    var result = ComparisonItemParent.Items.Any();
         //    Assert.IsTrue(result);
         //}
+
+        [Test]
+        public void SaveTree_CallsSaveTreeHelper()
+        {
+            viewModel.SaveTree();
+
+            treeSaveHelperMock.Verify(x => x.Save(It.IsAny<ObservableCollection<TreeItem>>()), Times.Once);
+        }
     }
 }

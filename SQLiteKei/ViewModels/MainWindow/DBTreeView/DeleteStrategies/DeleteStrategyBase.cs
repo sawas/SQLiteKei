@@ -15,7 +15,12 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies
     {
         private readonly ILog log = LogHelper.GetLogger();
 
-        protected readonly IDialogService dialogService = new DialogService();
+        protected readonly IDialogService dialogService;
+
+        protected DeleteStrategyBase(IDialogService dialogService)
+        {
+            this.dialogService = dialogService;
+        }
 
         protected void RemoveItemFromHierarchy(ICollection<TreeItem> treeItems, TreeItem treeItem)
         {
