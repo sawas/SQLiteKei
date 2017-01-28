@@ -4,8 +4,6 @@ using SQLiteKei.DataAccess.Database;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 
-using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -56,48 +54,32 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
 
         private TableFolderItem MapTables()
         {
-            List<TableItem> tableViewItems = GenerateTableItems();
-
+            var tables = dbHandler.GetTables();
             var tableFolder = new TableFolderItem { DisplayName = LocalisationHelper.GetString("TreeItem_Tables") };
 
-            foreach (var item in tableViewItems)
+            foreach (var table in tables)
             {
-                tableFolder.Items.Add(item);
+                tableFolder.Items.Add(new TableItem
+                {
+                    DisplayName = table.Name,
+                    DatabasePath = databasePath
+                });
             }
             tableFolder.Items = new ObservableCollection<TreeItem>(tableFolder.Items.OrderBy(x => x.DisplayName));
 
             return tableFolder;
         }
 
-        private List<TableItem> GenerateTableItems()
-        {
-            var tables = dbHandler.GetTables();
-            var tableViewItems = new List<TableItem>();
-
-            foreach (var table in tables)
-            {
-                tableViewItems.Add(new TableItem
-                {
-                    DisplayName = table.Name,
-                    DatabasePath = databasePath
-                });
-            }
-
-            return tableViewItems;
-        }
-
         private ViewFolderItem MapViews()
         {
             var views = dbHandler.GetViews();
-            IEnumerable viewNames = views.Select(x => x.Name);
-
             var viewFolder = new ViewFolderItem { DisplayName = LocalisationHelper.GetString("TreeItem_Views") };
 
-            foreach (string viewName in viewNames)
+            foreach (var view in views)
             {
                 viewFolder.Items.Add(new ViewItem
                 {
-                    DisplayName = viewName,
+                    DisplayName = view.Name,
                     DatabasePath = databasePath
                 });
             }
@@ -109,16 +91,13 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
         private IndexFolderItem MapIndexes()
         {
             var indexes = dbHandler.GetIndexes();
-
-            IEnumerable indexNames = indexes.Select(x => x.Name);
-
             var indexFolder = new IndexFolderItem { DisplayName = LocalisationHelper.GetString("TreeItem_Indexes") };
 
-            foreach (string indexName in indexNames)
+            foreach (var index in indexes)
             {
                 indexFolder.Items.Add(new IndexItem
                 {
-                    DisplayName = indexName,
+                    DisplayName = index.Name,
                     DatabasePath = databasePath
                 });
             }
@@ -130,15 +109,13 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping
         private TriggerFolderItem MapTriggers()
         {
             var triggers = dbHandler.GetTriggers();
-            IEnumerable triggerNames = triggers.Select(x => x.Name);
-
             var triggerFolder = new TriggerFolderItem { DisplayName = LocalisationHelper.GetString("TreeItem_Triggers") };
 
-            foreach (string triggerName in triggerNames)
+            foreach (var trigger in triggers)
             {
                 triggerFolder.Items.Add(new TriggerItem
                 {
-                    DisplayName = triggerName,
+                    DisplayName = trigger.Name,
                     DatabasePath = databasePath
                 });
             }
