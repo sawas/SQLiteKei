@@ -3,7 +3,6 @@ using SQLiteKei.DataAccess.QueryBuilders;
 
 using System.Data;
 using System.Data.Common;
-using System.Data.SQLite;
 using System.Linq;
 
 namespace SQLiteKei.DataAccess.Database

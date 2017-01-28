@@ -28,7 +28,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow
             set { selectedDatabase = value; ValidateModel(); UpdateTableTree(); }
         }
 
-        public List<DatabaseSelectItem> Databases { get; set; }
+        public IEnumerable<DatabaseSelectItem> Databases { get; set; }
 
         private string viewName;
         public string ViewName
@@ -66,7 +66,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow
         {
             IsIfNotExists = true;
 
-            Databases = new List<DatabaseSelectItem>();
+            Databases = MainTreeHandler.GetDatabaseSelectItems();
             Tables = new ObservableCollection<TableTreeItem>();
 
             createCommand = new DelegateCommand(Create);

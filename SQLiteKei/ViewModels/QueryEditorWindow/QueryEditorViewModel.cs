@@ -20,7 +20,7 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
 
         public DatabaseSelectItem SelectedDatabase { get; set; }
 
-        public List<DatabaseSelectItem> Databases { get; set; }
+        public IEnumerable<DatabaseSelectItem> Databases { get; set; }
 
         private string selectedTemplate;
         public string SelectedTemplate
@@ -64,7 +64,7 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
 
         public QueryEditorViewModel()
         {
-            Databases = new List<DatabaseSelectItem>();
+            Databases = MainTreeHandler.GetDatabaseSelectItems();
             AvailableTemplates = QueryTemplateGenerator.GetAvailableTemplates();
             dataGrid = new ListCollectionView(new List<object>());
 

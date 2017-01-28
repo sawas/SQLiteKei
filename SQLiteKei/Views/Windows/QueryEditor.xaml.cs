@@ -1,9 +1,4 @@
-﻿using SQLiteKei.ViewModels.Common;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
-using SQLiteKei.ViewModels.QueryEditorWindow;
-
-using System.Collections.Generic;
+﻿using SQLiteKei.ViewModels.QueryEditorWindow;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,22 +9,11 @@ namespace SQLiteKei.Views.Windows
     /// </summary>
     public partial class QueryEditor : Window
     {
-        public QueryEditor(IEnumerable<TreeItem> databases)
+        public QueryEditor()
         {
-            var viewModel = new QueryEditorViewModel();
-
-            foreach(DatabaseItem database in databases)
-            {
-                viewModel.Databases.Add(new DatabaseSelectItem
-                {
-                    DatabaseName = database.DisplayName,
-                    DatabasePath = database.DatabasePath
-                });
-            }
-            DataContext = viewModel;
+            DataContext = new QueryEditorViewModel();
             InitializeComponent();
         }
-
 
         private void TextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {

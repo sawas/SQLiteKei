@@ -28,7 +28,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow
             set { selectedDatabase = value; UpdateAvailableTables(); }
         }
 
-        public List<DatabaseSelectItem> Databases { get; set; }
+        public IEnumerable<DatabaseSelectItem> Databases { get; set; }
 
         private string indexName;
         public string IndexName
@@ -92,7 +92,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.IndexCreatorWindow
 
         public IndexCreatorViewModel()
         {
-            Databases = new List<DatabaseSelectItem>();
+            Databases = MainTreeHandler.GetDatabaseSelectItems();
             Tables = new ObservableCollection<string>();
             Columns = new ObservableCollection<ColumnItem>();
             Columns.CollectionChanged += CollectionContentChanged;

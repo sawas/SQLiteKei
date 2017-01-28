@@ -27,7 +27,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow
             set { selectedDatabase = value; UpdateAvailableTables(); }
         }
 
-        public List<DatabaseSelectItem> Databases { get; set; }
+        public IEnumerable<DatabaseSelectItem> Databases { get; set; }
 
         private string triggerName;
         public string TriggerName
@@ -128,7 +128,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow
 
         public TriggerCreatorViewModel()
         {
-            Databases = new List<DatabaseSelectItem>();
+            Databases = MainTreeHandler.GetDatabaseSelectItems();
 
             TriggerEntryPoints = new List<string> { "BEFORE", "AFTER", "INSTEAD OF" };
             TriggerEvents = new List<string> { "DELETE", "INSERT", "UPDATE", "UPDATE OF" };

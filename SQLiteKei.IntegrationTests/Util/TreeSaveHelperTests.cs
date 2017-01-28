@@ -12,7 +12,7 @@ using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 
 namespace SQLiteKei.IntegrationTests.Util
 {
-    [TestFixture, Explicit]
+    [TestFixture]
     public class TreeSaveHelperTests : IntegrationTestBase
     {
         private TreeSaveHelper treeSaveHelper;
@@ -34,7 +34,7 @@ namespace SQLiteKei.IntegrationTests.Util
             {
                 new DatabaseItem
                 {
-                    DisplayName = testDatabaseFile,
+                    DisplayName = "TestDb",
                     DatabasePath = testDatabaseFile,
                     Items = new ObservableCollection<TreeItem>
                     {

@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Data.SQLite;
 using System.IO;
 
@@ -30,7 +29,7 @@ namespace SQLiteKei.IntegrationTests.Base
         public void ResetFakeData()
         {
             var oneTimeConnection = new SQLiteConnection();
-            oneTimeConnection.ConnectionString = string.Format("Data Source={0}", testDatabaseFile);
+            oneTimeConnection.ConnectionString = connectionString;
             oneTimeConnection.Open();
 
             for (var i = 1; i <= 10; i++)

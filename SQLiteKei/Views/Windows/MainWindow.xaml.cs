@@ -48,27 +48,27 @@ namespace SQLiteKei.Views.Windows
 
         private void OpenQueryEditor(object sender, RoutedEventArgs e)
         {
-            new QueryEditor(viewModel.TreeViewItems).ShowDialog();
+            new QueryEditor().ShowDialog();
         }
 
         private void OpenTableCreator(object sender, RoutedEventArgs e)
         {
-            new TableCreator(viewModel.TreeViewItems).ShowDialog();
+            new TableCreator().ShowDialog();
         }
 
         private void OpenViewCreator(object sender, RoutedEventArgs e)
         {
-            new ViewCreator(viewModel.TreeViewItems).ShowDialog();
+            new ViewCreator().ShowDialog();
         }
 
         private void OpenIndexCreator(object sender, RoutedEventArgs e)
         {
-            new IndexCreator(viewModel.TreeViewItems).ShowDialog();
+            new IndexCreator().ShowDialog();
         }
 
         private void OpenTriggerCreator(object sender, RoutedEventArgs e)
         {
-            new TriggerCreator(viewModel.TreeViewItems).ShowDialog();
+            new TriggerCreator().ShowDialog();
         }
 
         private void CloseDatabase(object sender, RoutedEventArgs e)

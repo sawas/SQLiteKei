@@ -35,7 +35,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
             }
         }
 
-        public List<DatabaseSelectItem> Databases { get; set; }
+        public IEnumerable<DatabaseSelectItem> Databases { get; set; }
 
         public ObservableCollection<ColumnDefinitionItem> ColumnDefinitions { get; set; }
 
@@ -76,7 +76,7 @@ namespace SQLiteKei.ViewModels.CreatorWindows.TableCreatorWindow
 
         public TableCreatorViewModel()
         {
-            Databases = new List<DatabaseSelectItem>();
+            Databases = MainTreeHandler.GetDatabaseSelectItems();
             ColumnDefinitions = new ObservableCollection<ColumnDefinitionItem>();
             ForeignKeyDefinitions = new ObservableCollection<ForeignKeyDefinitionItem>();
 

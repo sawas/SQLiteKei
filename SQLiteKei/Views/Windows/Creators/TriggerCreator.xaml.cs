@@ -1,9 +1,4 @@
-﻿using SQLiteKei.ViewModels.Common;
-using SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
-
-using System.Collections.Generic;
+﻿using SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow;
 using System.Windows;
 
 
@@ -14,20 +9,9 @@ namespace SQLiteKei.Views.Windows.Creators
     /// </summary>
     public partial class TriggerCreator : Window
     {
-        public TriggerCreator(IEnumerable<TreeItem> databases)
+        public TriggerCreator()
         {
-            var viewModel = new TriggerCreatorViewModel();
-
-            foreach (DatabaseItem database in databases)
-            {
-                viewModel.Databases.Add(new DatabaseSelectItem
-                {
-                    DatabaseName = database.DisplayName,
-                    DatabasePath = database.DatabasePath
-                });
-            }
-
-            DataContext = viewModel;
+            DataContext = new TriggerCreatorViewModel();
             InitializeComponent();
         }
     }

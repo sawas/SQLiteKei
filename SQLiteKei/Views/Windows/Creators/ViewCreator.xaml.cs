@@ -1,9 +1,4 @@
-﻿using SQLiteKei.ViewModels.Common;
-using SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
-using SQLiteKei.ViewModels.MainWindow.DBTreeView;
-
-using System.Collections.Generic;
+﻿using SQLiteKei.ViewModels.CreatorWindows.ViewCreatorWindow;
 using System.Windows;
 
 namespace SQLiteKei.Views.Windows.Creators
@@ -13,20 +8,9 @@ namespace SQLiteKei.Views.Windows.Creators
     /// </summary>
     public partial class ViewCreator : Window
     {
-        public ViewCreator(IEnumerable<TreeItem> databases)
+        public ViewCreator()
         {
-            var viewModel = new ViewCreatorViewModel();
-
-            foreach (DatabaseItem database in databases)
-            {
-                viewModel.Databases.Add(new DatabaseSelectItem
-                {
-                    DatabaseName = database.DisplayName,
-                    DatabasePath = database.DatabasePath
-                });
-            }
-
-            DataContext = viewModel;
+            DataContext = new ViewCreatorViewModel();
             InitializeComponent();
         }
     }

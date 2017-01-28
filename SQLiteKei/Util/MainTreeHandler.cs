@@ -1,8 +1,10 @@
 ﻿using log4net;
-
+using SQLiteKei.ViewModels.Common;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Mapping;
+
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -25,6 +27,22 @@ namespace SQLiteKei.Util
         {
             mainTree = tree;
             logger.Info("Registered main tree on MainTreeHandler");
+        }
+
+        public static IEnumerable<DatabaseSelectItem> GetDatabaseSelectItems()
+        {
+            var databases = new List<DatabaseSelectItem>();
+
+            foreach (DatabaseItem dbItem in mainTree)
+            {
+                databases.Add(new DatabaseSelectItem
+                {
+                    DatabaseName = dbItem.DisplayName,
+                    DatabasePath = dbItem.DatabasePath
+                });
+            }
+
+            return databases;
         }
 
         /// <summary>
