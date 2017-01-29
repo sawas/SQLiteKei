@@ -1,10 +1,9 @@
 ﻿using NUnit.Framework;
-
+using SQLiteKei.UnitTests.TestUtils;
 using SQLiteKei.Util;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView;
 using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace SQLiteKei.UnitTests.Util
 {
@@ -120,7 +119,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.AddTable("NewTable", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<TableFolderItem>("NewTable", DATABASEPATH1);
+            var result = TreeSearcher.DatabaseHoldsItem<TableFolderItem>(testTree,"NewTable", DATABASEPATH1);
             Assert.IsTrue(result);
         }
 
@@ -129,7 +128,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.AddTable("NewTable", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<TableFolderItem>("NewTable", DATABASEPATH2);
+            var result = TreeSearcher.DatabaseHoldsItem<TableFolderItem>(testTree, "NewTable", DATABASEPATH2);
             Assert.IsFalse(result);
         }
 
@@ -138,7 +137,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.AddView("NewView", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<ViewFolderItem>("NewView", DATABASEPATH1);
+            var result = TreeSearcher.DatabaseHoldsItem<ViewFolderItem>(testTree, "NewView", DATABASEPATH1);
             Assert.IsTrue(result);
         }
 
@@ -147,7 +146,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.AddView("NewView", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<ViewFolderItem>("NewView", DATABASEPATH2);
+            var result = TreeSearcher.DatabaseHoldsItem<ViewFolderItem>(testTree, "NewView", DATABASEPATH2);
             Assert.IsFalse(result);
         }
 
@@ -156,7 +155,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.AddTrigger("NewTrigger", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<TriggerFolderItem>("NewTrigger", DATABASEPATH1);
+            var result = TreeSearcher.DatabaseHoldsItem<TriggerFolderItem>(testTree, "NewTrigger", DATABASEPATH1);
             Assert.IsTrue(result);
         }
 
@@ -165,7 +164,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.AddTrigger("NewTrigger", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<TriggerFolderItem>("NewTrigger", DATABASEPATH2);
+            var result = TreeSearcher.DatabaseHoldsItem<TriggerFolderItem>(testTree, "NewTrigger", DATABASEPATH2);
             Assert.IsFalse(result);
         }
 
@@ -174,7 +173,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.UpdateTableName("Table", "NewTable", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<TableFolderItem>("NewTable", DATABASEPATH1);
+            var result = TreeSearcher.DatabaseHoldsItem<TableFolderItem>(testTree, "NewTable", DATABASEPATH1);
             Assert.IsTrue(result);
         }
 
@@ -183,7 +182,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.UpdateTableName("Table", "NewTable", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<TableFolderItem>("Table", DATABASEPATH1);
+            var result = TreeSearcher.DatabaseHoldsItem<TableFolderItem>(testTree, "Table", DATABASEPATH1);
             Assert.IsFalse(result);
         }
 
@@ -192,7 +191,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.UpdateViewName("View", "NewView", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<ViewFolderItem>("NewView", DATABASEPATH1);
+            var result = TreeSearcher.DatabaseHoldsItem<ViewFolderItem>(testTree, "NewView", DATABASEPATH1);
             Assert.IsTrue(result);
         }
 
@@ -201,7 +200,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.UpdateViewName("View", "NewView", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<ViewFolderItem>("View", DATABASEPATH1);
+            var result = TreeSearcher.DatabaseHoldsItem<ViewFolderItem>(testTree, "View", DATABASEPATH1);
             Assert.IsFalse(result);
         }
 
@@ -210,7 +209,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.UpdateTriggerName("Trigger", "NewTrigger", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<TriggerFolderItem>("NewTrigger", DATABASEPATH1);
+            var result = TreeSearcher.DatabaseHoldsItem<TriggerFolderItem>(testTree, "NewTrigger", DATABASEPATH1);
             Assert.IsTrue(result);
         }
 
@@ -219,7 +218,7 @@ namespace SQLiteKei.UnitTests.Util
         {
             MainTreeHandler.UpdateTriggerName("Trigger", "NewTrigger", DATABASEPATH1);
 
-            var result = DatabaseHoldsItem<TriggerFolderItem>("Trigger", DATABASEPATH1);
+            var result = TreeSearcher.DatabaseHoldsItem<TriggerFolderItem>(testTree, "Trigger", DATABASEPATH1);
             Assert.IsFalse(result);
         }
 
@@ -263,27 +262,6 @@ namespace SQLiteKei.UnitTests.Util
         {
             Assert.DoesNotThrow(
                 () => MainTreeHandler.UpdateTriggerName("InvalidOldName", "NewName", DATABASEPATH1));
-        }
-
-        private bool DatabaseHoldsItem<TType>(string itemName, string databasePath)
-            where TType : DirectoryItem
-        {
-            var db = GetDatabaseFromTree(databasePath);
-            var folder = GetSubFolderOf<TType>(db);
-            var item = folder.Items.SingleOrDefault(i => i.DisplayName.Equals(itemName));
-
-            return item == null ? false : true;
-        }
-
-        private DatabaseItem GetDatabaseFromTree(string targetDatabasePath)
-        {
-            return testTree.SingleOrDefault(i => i.DatabasePath.Equals(targetDatabasePath)) as DatabaseItem;
-        }
-
-        private TType GetSubFolderOf<TType>(DatabaseItem db)
-            where TType : DirectoryItem
-        {
-            return db.Items.SingleOrDefault(i => i.GetType() == typeof(TType)) as TType;
         }
     }
 }

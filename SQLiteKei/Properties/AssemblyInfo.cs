@@ -54,5 +54,6 @@ using System.Windows;
 [assembly: AssemblyFileVersion("1.1")]
 [assembly: InternalsVisibleTo("SQLiteKei.IntegrationTests")]
 [assembly: InternalsVisibleTo("SQLiteKei.UnitTests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
