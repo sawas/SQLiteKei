@@ -1,8 +1,11 @@
 ﻿using NUnit.Framework;
 
 using SQLiteKei.IntegrationTests.Base;
+using SQLiteKei.Util;
 using SQLiteKei.ViewModels.Common;
 using SQLiteKei.ViewModels.CreatorWindows.TriggerCreatorWindow;
+using SQLiteKei.ViewModels.MainWindow.DBTreeView.Base;
+using System.Collections.ObjectModel;
 
 namespace SQLiteKei.IntegrationTests.ViewModels
 {
@@ -14,6 +17,7 @@ namespace SQLiteKei.IntegrationTests.ViewModels
         [SetUp]
         public void SetUp()
         {
+            MainTreeHandler.Register(new ObservableCollection<TreeItem>());
             viewModel = new TriggerCreatorViewModel();
         }
 
