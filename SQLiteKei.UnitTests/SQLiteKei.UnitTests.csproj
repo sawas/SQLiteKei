@@ -53,6 +53,7 @@
     <Compile Include="TestUtils\TreeSearcher.cs" />
     <Compile Include="Util\MainTreeHandlerTests.cs" />
     <Compile Include="ViewModels\MainWindowViewModelTests.cs" />
+    <Compile Include="ViewModels\QueryEditorWindow\QueryTemplateGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SQLiteKei\SQLiteKei.csproj">

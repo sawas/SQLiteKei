@@ -5,13 +5,12 @@ using SQLiteKei.DataAccess.QueryBuilders.Enums;
 using SQLiteKei.Util;
 
 using System.Collections.Generic;
-using System;
 
 namespace SQLiteKei.ViewModels.QueryEditorWindow
 {
-    internal class QueryTemplateGenerator
+    internal static class QueryTemplateGenerator
     {
-        private readonly ILog logger = LogHelper.GetLogger();
+        private static readonly ILog logger = LogHelper.GetLogger();
 
         public static IEnumerable<string> GetAvailableTemplates()
         {
@@ -32,8 +31,14 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
             };
         }
 
-        public string GetTemplateFor(string templateName)
+        public static string GetTemplateFor(string templateName)
         {
+            if (string.IsNullOrEmpty(templateName))
+            {
+                logger.Error("Could not load template because it was null or empty.");
+                return string.Empty;
+            }
+
             if (templateName.Equals("ALTER TABLE ADD COLUMN"))
                 return GetAlterTableAddColumn();
             if (templateName.Equals("CREATE INDEX"))
@@ -63,14 +68,14 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
             return string.Empty;
         }
 
-        private string SelectAll()
+        private static string SelectAll()
         {
             return QueryBuilder.Select()
                 .From("TableName")
                 .Build();
         }
 
-        private string Select()
+        private static string Select()
         {
             return QueryBuilder.Select()
                 .From("TableName")
@@ -86,28 +91,28 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
                 .Build();
         }
 
-        private string Insert()
+        private static string Insert()
         {
             return QueryBuilder.InsertInto("TableName")
                 .Values(new[] { "ValueA", "3", "Abc" })
                 .Build();
         }
 
-        private string DropView()
+        private static string DropView()
         {
             return QueryBuilder.DropView("ViewName")
                .IfExists()
                .Build();
         }
 
-        private string DropTrigger()
+        private static string DropTrigger()
         {
             return QueryBuilder.DropTrigger("TriggerName")
                .IfExists()
                .Build();
         }
 
-        private string DropTable()
+        private static string DropTable()
         {
             return QueryBuilder.DropTable("TableName")
                .IfExists()
@@ -115,14 +120,14 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
                .Build();
         }
 
-        private string DropIndex()
+        private static string DropIndex()
         {
             return QueryBuilder.DropIndex("IndexName")
                 .IfExists()
                 .Build();
         }
 
-        private string CreateView()
+        private static string CreateView()
         {
             return QueryBuilder.CreateView("ViewName")
                 .IfNotExists()
@@ -130,7 +135,7 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
                 .Build();
         }
 
-        private string CreateTrigger()
+        private static string CreateTrigger()
         {
             return QueryBuilder.CreateTrigger("TriggerName")
                 .IfNotExists()
@@ -143,7 +148,7 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
                 .Build();
         }
 
-        private string CreateTable()
+        private static string CreateTable()
         {
             return QueryBuilder.CreateTable("TableName")
                  .AddColumn("ColumnA", "Integer", true, true)
@@ -153,7 +158,7 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
                  .Build();
         }
 
-        private string CreateIndex()
+        private static string CreateIndex()
         {
             return QueryBuilder.CreateIndex("IndexName")
                 .Unique()

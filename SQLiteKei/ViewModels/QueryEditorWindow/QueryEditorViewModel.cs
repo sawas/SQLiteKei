@@ -16,24 +16,25 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
 {
     public class QueryEditorViewModel : NotifyingModel
     {
-        private ILog logger = LogHelper.GetLogger();
+        private readonly ILog logger = LogHelper.GetLogger();
 
         public DatabaseSelectItem SelectedDatabase { get; set; }
 
         public IEnumerable<DatabaseSelectItem> Databases { get; set; }
 
-        private string selectedTemplate;
+        private readonly string selectedTemplate;
         public string SelectedTemplate
         {
             get { return selectedTemplate; }
             set
             {
-                var templateGenerator = new QueryTemplateGenerator();
-
-                if(string.IsNullOrWhiteSpace(sqlStatement))
-                    SqlStatement = templateGenerator.GetTemplateFor(value);
-                else
-                    SqlStatement += "\n" + templateGenerator.GetTemplateFor(value);
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    if (string.IsNullOrWhiteSpace(sqlStatement))
+                        SqlStatement = QueryTemplateGenerator.GetTemplateFor(value);
+                    else
+                        SqlStatement += "\n\n" + QueryTemplateGenerator.GetTemplateFor(value);
+                }
             }
         }
 
