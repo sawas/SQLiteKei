@@ -6,11 +6,14 @@ using SQLiteKei.DataAccess.Exceptions;
 using SQLiteKei.DataAccess.QueryBuilders.Base;
 using SQLiteKei.DataAccess.QueryBuilders.Where;
 using SQLiteKei.DataAccess.QueryBuilders.Data;
+using System;
 
 namespace SQLiteKei.DataAccess.QueryBuilders
 {
     public class SelectQueryBuilder : ConditionalQueryBuilder
     {
+        private StringBuilder resultStringBuilder;
+
         private string table;
 
         private bool isDistinct;
@@ -28,22 +31,17 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             selects = new Dictionary<string, string>();
             WhereClauses = new List<string>();
             OrderClauses = new List<OrderData>();
+            resultStringBuilder = new StringBuilder();
         }
 
-        public SelectQueryBuilder(string select)
+        public SelectQueryBuilder(string select) : this()
         {
-            selects = new Dictionary<string, string>();
             selects.Add(select, string.Empty);
-            WhereClauses = new List<string>();
-            OrderClauses = new List<OrderData>();
         }
 
-        public SelectQueryBuilder(string select, string alias)
+        public SelectQueryBuilder(string select, string alias) : this()
         {
-            selects = new Dictionary<string, string>();
             selects.Add(select, alias);
-            WhereClauses = new List<string>();
-            OrderClauses = new List<OrderData>();
         }
 
         public SelectQueryBuilder Distinct(bool value = true)
@@ -85,7 +83,6 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             return new AndWhereClause(this, columnName);
         }
 
-        //TODO Unit tests for this one needed
         public override SelectQueryBuilder OrderBy(string columnName, bool descending = false)
         {
             OrderClauses.Add(new OrderData
@@ -105,42 +102,27 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             return this;
         }
 
-        //TODO replace string concatination with StringBuilder
         public override string Build()
         {
             if(string.IsNullOrWhiteSpace(table))
                 throw new SelectQueryBuilderException("No table has been defined.");
 
+            AppendSelects();
+            AppendWhereClauses();
+            AppendOrderClauses();
+            AppendLimit();
+
+            return resultStringBuilder.ToString();
+        }
+
+        private void AppendSelects()
+        {
             string finalSelect = GetFinalSelect();
 
-            string resultString;
-
             if (isDistinct)
-                resultString = string.Format("SELECT DISTINCT {0}\nFROM '{1}'", finalSelect, table);
+                resultStringBuilder.Append(string.Format("SELECT DISTINCT {0}\nFROM '{1}'", finalSelect, table));
             else
-                resultString = string.Format("SELECT {0}\nFROM '{1}'", finalSelect, table);
-
-            if (WhereClauses.Any())
-            {
-                var combinedWhereClauses = string.Join("\n", WhereClauses);
-                resultString += string.Format("\nWHERE {0}", combinedWhereClauses);
-            }
-
-            if (OrderClauses.Any())
-            {
-                var combinedOrderClauses = string.Join(", ", OrderClauses.Select(x => x.ToString()));
-                resultString += string.Format("\nORDER BY {0}", combinedOrderClauses);
-            }
-
-            if (limit > 0)
-            {
-                resultString += string.Format("\nLIMIT {0}", limit);
-
-                if (limitOffset > 0)
-                    resultString += string.Format(" OFFSET {0}", limitOffset);
-            }
-
-            return resultString;
+                resultStringBuilder.Append(string.Format("SELECT {0}\nFROM '{1}'", finalSelect, table));
         }
 
         private string GetFinalSelect()
@@ -150,6 +132,12 @@ namespace SQLiteKei.DataAccess.QueryBuilders
                 return "*";
             }
 
+            var selectsAndAliases = CombineSelectsAndAliases();        
+            return string.Join(", ", selectsAndAliases);
+        }
+
+        private IEnumerable<string> CombineSelectsAndAliases()
+        {
             var selectsAndAliases = new List<string>();
 
             foreach (var select in selects)
@@ -165,7 +153,36 @@ namespace SQLiteKei.DataAccess.QueryBuilders
                 selectsAndAliases.Add(stringBuilder.ToString());
             }
 
-            return string.Join(", ", selectsAndAliases);
+            return selectsAndAliases;
+        }
+
+        private void AppendOrderClauses()
+        {
+            if (OrderClauses.Any())
+            {
+                var combinedOrderClauses = string.Join(", ", OrderClauses.Select(x => x.ToString()));
+                resultStringBuilder.Append(string.Format("\nORDER BY {0}", combinedOrderClauses));
+            }
+        }
+
+        private void AppendWhereClauses()
+        {
+            if (WhereClauses.Any())
+            {
+                var combinedWhereClauses = string.Join("\n", WhereClauses);
+                resultStringBuilder.Append(string.Format("\nWHERE {0}", combinedWhereClauses));
+            }
+        }
+
+        private void AppendLimit()
+        {
+            if (limit > 0)
+            {
+                resultStringBuilder.Append(string.Format("\nLIMIT {0}", limit));
+
+                if (limitOffset > 0)
+                    resultStringBuilder.Append(string.Format(" OFFSET {0}", limitOffset));
+            }
         }
     }
 }

@@ -210,5 +210,31 @@ namespace SQLiteKei.UnitTests.Queries
                     .Where("Second").Is("Test")
                     .Build());
         }
+
+        [Test]
+        public void Build_WithOrderByAscendingStatement_BuildsValidQuery()
+        {
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nORDER BY Column";
+
+            var result = QueryBuilder.Select()
+                .From("Table")
+                .OrderBy("Column", false)
+                .Build();
+
+            Assert.AreEqual(EXPECTED_QUERY, result);
+        }
+
+        [Test]
+        public void Build_WithOrderByDescStatement_BuildsValidQuery()
+        {
+            const string EXPECTED_QUERY = "SELECT *\nFROM 'Table'\nORDER BY Column DESC";
+
+            var result = QueryBuilder.Select()
+                .From("Table")
+                .OrderBy("Column", true)
+                .Build();
+
+            Assert.AreEqual(EXPECTED_QUERY, result);
+        }
     }
 }
