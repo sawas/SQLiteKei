@@ -243,7 +243,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\DelegateCommand.cs" />
-    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Util\DatabaseTabGenerator.cs" />
     <Compile Include="Util\Interfaces\ITreeSaveHelper.cs" />
     <Compile Include="Util\LocalisationHelper.cs" />
