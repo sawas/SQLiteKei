@@ -44,12 +44,6 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             return new AndWhereClause(this, columnName);
         }
 
-        [Obsolete("Don't use")]
-        public override SelectQueryBuilder OrderBy(string columnName, bool descending = false)
-        {
-            return null;
-        }
-
         public override string Build()
         {
             var combinedSets = string.Join(", ", sets);

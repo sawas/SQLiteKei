@@ -19,12 +19,6 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             WhereClauses = new List<string>();
         }
 
-        [Obsolete("Don't use")]
-        public override SelectQueryBuilder OrderBy(string columnName, bool descending = false)
-        {
-            throw new NotImplementedException();
-        }
-
         public override WhereClause Where(string columnName)
         {
             return new WhereClause(this, columnName);

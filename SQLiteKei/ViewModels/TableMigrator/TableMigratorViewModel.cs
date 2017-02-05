@@ -33,7 +33,7 @@ namespace SQLiteKei.ViewModels.TableMigrator
             set { selectedDatabase = value; }
         }
 
-        public List<DatabaseSelectItem> Databases { get; set; }
+        public IEnumerable<DatabaseSelectItem> Databases { get; set; }
 
         public string TargetTableName { get; set; }
 
@@ -46,37 +46,20 @@ namespace SQLiteKei.ViewModels.TableMigrator
             set { statusInfo = value; NotifyPropertyChanged(); }
         }
 
-        public TableMigratorViewModel(IEnumerable<TreeItem> databases, string tableName)
+        public TableMigratorViewModel(string tableName)
         {
             this.tableName = TargetTableName = tableName;
             sourceDatabase = Settings.Default.CurrentDatabase;
+            Databases = MainTreeHandler.GetDatabaseSelectItems();
+            
             WindowTitle = LocalisationHelper.GetString("WindowTitle_TableMigrator_Copy", tableName);
 
             executeCommand = new DelegateCommand(Copy);
-
-            Databases = new List<DatabaseSelectItem>();
-
-            foreach (DatabaseItem database in databases)
-            {
-                if (!database.DatabasePath.Equals(sourceDatabase))
-                {
-                    Databases.Add(new DatabaseSelectItem
-                    {
-                        DatabaseName = database.DisplayName,
-                        DatabasePath = database.DatabasePath
-                    });
-                }
-            }
         }
 
         private void Copy()
         {
-            if (selectedDatabase == null)
-            {
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(TargetTableName))
+            if (selectedDatabase == null || string.IsNullOrWhiteSpace(TargetTableName))
             {
                 return;
             }

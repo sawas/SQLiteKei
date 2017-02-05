@@ -130,7 +130,7 @@ namespace SQLiteKei.Views.Windows
         private void CopyTable(object sender, RoutedEventArgs e)
         {
             var treeItem = DBTreeView.SelectedItem as TableItem;
-            var tableMigratorViewModel = new TableMigratorViewModel(viewModel.TreeViewItems, treeItem.DisplayName);
+            var tableMigratorViewModel = new TableMigratorViewModel(treeItem.DisplayName);
 
             new TableMigrator(tableMigratorViewModel).ShowDialog();
         }

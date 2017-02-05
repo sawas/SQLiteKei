@@ -78,7 +78,7 @@
                                 <DataTemplate DataType="{x:Type viewmodel:OrderItem}">
                                     <DockPanel Margin="0 2">
                                         <ComboBox ItemsSource="{Binding Columns, Mode=OneWay}" SelectedItem="{Binding SelectedColumn}" Width="200"/>
-                                        <CheckBox VerticalAlignment="Center" Margin="5 0" IsChecked="{Binding Descending}">
+                                        <CheckBox VerticalAlignment="Center" Margin="5 0" IsChecked="{Binding IsDescending}">
                                             <TextBlock Text="DESC" Foreground="{DynamicResource ApplicationFontColor}" VerticalAlignment="Center" />
                                         </CheckBox>
                                     </DockPanel>

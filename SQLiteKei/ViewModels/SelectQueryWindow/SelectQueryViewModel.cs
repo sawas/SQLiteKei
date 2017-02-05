@@ -165,7 +165,6 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
             AddWhereClauses();
             AddOrderClauses();
             SetLimit();
-            
 
             SelectQuery = selectQueryBuilder.Build();
         }
@@ -248,7 +247,7 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
                 case "Ends with":
                     return clause.EndsWith(compareValue);
                 default:
-                    throw new NotImplementedException();
+                    throw new NotImplementedException("Unsupported compare type on where clause");
             }
         }
 
@@ -264,10 +263,10 @@ namespace SQLiteKei.ViewModels.SelectQueryWindow
         private void AddOrderStatement()
         {
             var databasePath = Properties.Settings.Default.CurrentDatabase;
-            using (var databaseHandler = new TableHandler(databasePath))
+            using (var tableHandler = new TableHandler(databasePath))
             {
                 var orderItem = new OrderItem();
-                var columns = databaseHandler.GetColumns(tableName);
+                var columns = tableHandler.GetColumns(tableName);
 
                 foreach (var column in columns)
                 {

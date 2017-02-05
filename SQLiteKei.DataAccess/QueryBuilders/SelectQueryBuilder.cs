@@ -83,7 +83,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             return new AndWhereClause(this, columnName);
         }
 
-        public override SelectQueryBuilder OrderBy(string columnName, bool descending = false)
+        public SelectQueryBuilder OrderBy(string columnName, bool descending = false)
         {
             OrderClauses.Add(new OrderData
             {
