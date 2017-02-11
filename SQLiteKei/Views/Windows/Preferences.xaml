@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="{x:Static localisation:Resources.WindowTitle_Preferences}"
-        Height="193" Width="250"
+        SizeToContent="WidthAndHeight"
         ResizeMode="NoResize">
     <DockPanel Margin="6">
-        <GroupBox  DockPanel.Dock="Top" Header="{x:Static localisation:Resources.Preferences_GroupBoxHeader_Languages}" Background="{DynamicResource GroupBoxBackgroundColor_Darker}">
+        <GroupBox  DockPanel.Dock="Top" Header="{x:Static localisation:Resources.Preferences_GroupBoxHeader_Languages}" Background="{DynamicResource GroupBoxBackgroundColor_Darker}" Width="220">
             <StackPanel>
                 <DockPanel>
                     <Label Content="{x:Static localisation:Resources.Preferences_Language}" />
@@ -20,8 +20,8 @@
             </StackPanel>
         </GroupBox>
         <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Style="{DynamicResource ButtonDark}" Content="{x:Static localisation:Resources.ButtonText_Apply}" Command="{Binding ApplySettingsCommand}" Click="Close" IsDefault="True" Margin="5 0" Padding="5 2" MinWidth="50"/>
-            <Button Style="{DynamicResource ButtonDark}" Content="{x:Static localisation:Resources.ButtonText_Cancel}" Margin="5 0" Padding="5 2" IsCancel="True" MinWidth="50"/>
+            <Button Style="{DynamicResource ButtonDark}" Content="{x:Static localisation:Resources.ButtonText_Apply}" Command="{Binding ApplySettingsCommand}" Click="Close" IsDefault="True" Margin="5 0 5 2" Padding="5 2" MinWidth="50"/>
+            <Button Style="{DynamicResource ButtonDark}" Content="{x:Static localisation:Resources.ButtonText_Cancel}" Margin="5 0 5 2" Padding="5 2" IsCancel="True" MinWidth="50"/>
         </StackPanel>
     </DockPanel>
 </Window>
