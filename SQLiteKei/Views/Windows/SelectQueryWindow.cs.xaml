@@ -106,7 +106,7 @@
             </TabItem>
             <TabItem Header="SQL">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <TextBox Text="{Binding SelectQuery}" TextWrapping="Wrap" />
+                    <TextBox Text="{Binding SelectQuery}" TextWrapping="Wrap" AcceptsReturn="True" />
                 </ScrollViewer>
             </TabItem>
         </TabControl>
