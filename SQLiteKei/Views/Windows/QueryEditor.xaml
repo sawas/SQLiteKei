@@ -35,6 +35,7 @@
             <TextBox VerticalAlignment="Stretch" Text="{Binding SqlStatement, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="TextBox_SelectionChanged" TextWrapping="Wrap" AcceptsReturn="True" Margin="5 0 5 5" IsInactiveSelectionHighlightEnabled="True">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Return" Modifiers="Ctrl" Command="{Binding ExecuteCommand}" />
+                    <KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding SaveCommand}" />
                 </TextBox.InputBindings>
             </TextBox>
         </ScrollViewer>
