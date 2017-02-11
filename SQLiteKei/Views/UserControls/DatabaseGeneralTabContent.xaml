@@ -42,7 +42,7 @@
                 <DataGrid.Columns>
                         <DataGridTextColumn Header="{x:Static localisation:Resources.DatabaseGeneralTab_TableName}" Binding="{Binding Name}" IsReadOnly="False" />
                         <DataGridTextColumn Header="{x:Static localisation:Resources.DatabaseGeneralTab_TableColumns}" Binding="{Binding ColumnCount}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="{x:Static localisation:Resources.DatabaseGeneralTab_TableRecords}" Binding="{Binding RowCount}" IsReadOnly="False" />
+                        <DataGridTextColumn Header="{x:Static localisation:Resources.DatabaseGeneralTab_TableRecords}" Binding="{Binding RowCount}" IsReadOnly="True" />
                 </DataGrid.Columns>
             </DataGrid>
             <Label x:Name="NoTablesFoundLabel" Content="{x:Static localisation:Resources.DatabaseGeneralTab_NoTablesFound}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
