@@ -54,7 +54,7 @@ namespace SQLiteKei.DataAccess.Database
                 var index = GetIndex(oldName);
                 var createCommand = index.SqlStatement.Replace(oldName, newName);
 
-                command.CommandText = string.Format("BEGIN; {0}; {1}; COMMIT;", dropCommand, createCommand);
+                command.CommandText = $"BEGIN; {dropCommand}; {createCommand}; COMMIT;";
                 command.ExecuteNonQuery();
                 logger.Info("Updated index name from " + oldName + "' to '" + newName + "'.");
             }
@@ -85,7 +85,7 @@ namespace SQLiteKei.DataAccess.Database
                     newSQL = index.SqlStatement.Replace(" UNIQUE ", " ");
                 }
 
-                command.CommandText = string.Format("BEGIN; {0}; {1}; COMMIT;", dropCommand, newSQL);
+                command.CommandText = $"BEGIN; {dropCommand}; {newSQL}; COMMIT;";
                 command.ExecuteNonQuery();
                 logger.Info("Updated index '" + indexName + "'. Set uniqueness enforcement from " + !value + "' to '" + value + "'.");
             }

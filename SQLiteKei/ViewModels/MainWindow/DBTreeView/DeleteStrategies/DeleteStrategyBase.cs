@@ -29,7 +29,7 @@ namespace SQLiteKei.ViewModels.MainWindow.DBTreeView.DeleteStrategies
                 if (item == treeItem)
                 {
                     treeItems.Remove(item);
-                    log.Info(string.Format("Removed item of type {0} from tree hierarchy.", item.GetType()));
+                    log.Info($"Removed item of type {item.GetType()} from tree hierarchy.");
                     break;
                 }
 

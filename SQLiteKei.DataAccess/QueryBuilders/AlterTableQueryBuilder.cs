@@ -57,7 +57,7 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             switch(alterType)
             {
                 case AlterType.AddColumn:
-                    return string.Format("ALTER TABLE '{0}'\nADD COLUMN {1};", tableName, column);
+                    return $"ALTER TABLE '{tableName}'\nADD COLUMN {column};";
                 default:
                     throw new QueryBuilderException("Could not build ALTER TABLE query. The altering type has not been defined.");
             }

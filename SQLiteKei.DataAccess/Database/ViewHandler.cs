@@ -33,7 +33,7 @@ namespace SQLiteKei.DataAccess.Database
                 var view = GetView(oldName);
                 var createCommand = QueryBuilder.CreateView(newName).As(view.SqlStatement).Build();
 
-                command.CommandText = string.Format("BEGIN; {0}; {1}; COMMIT;", dropCommand, createCommand);
+                command.CommandText = $"BEGIN; {dropCommand}; {createCommand}; COMMIT;";
                 command.ExecuteNonQuery();
                 logger.Info("Updated view name from" + oldName + "' to '" + newName + "'.");
             }
@@ -51,7 +51,7 @@ namespace SQLiteKei.DataAccess.Database
                 var dropCommand = QueryBuilder.DropView(viewName).Build();
                 var createCommand = QueryBuilder.CreateView(viewName).As(newSql).Build();
 
-                command.CommandText = string.Format("BEGIN; {0}; {1}; COMMIT;", dropCommand, createCommand);
+                command.CommandText = $"BEGIN; {dropCommand}; {createCommand}; COMMIT;";
                 command.ExecuteNonQuery();
                 logger.Info("Updated SQL statement of view " + viewName + "' to '" + newSql + "'.");
             }

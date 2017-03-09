@@ -17,12 +17,12 @@ namespace SQLiteKei.Views.Windows
 
         private object GetVersionString()
         {
-            string assemblyVersion = System.Reflection.Assembly.GetExecutingAssembly()
+            string assemblyVersionNumber = System.Reflection.Assembly.GetExecutingAssembly()
                                            .GetName()
                                            .Version
                                            .ToString();
 
-            return string.Format("Version {0}", assemblyVersion);
+            return $"Version {assemblyVersionNumber}";
         }
 
         private void CheckoutOnGithub(object sender, RequestNavigateEventArgs e)

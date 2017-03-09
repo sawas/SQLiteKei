@@ -179,7 +179,7 @@ namespace SQLiteKei.DataAccess.Database
         {
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = string.Format("REINDEX '{0}'", tableName);
+                command.CommandText = $"REINDEX '{tableName}'";
                 command.ExecuteNonQuery();
                 logger.Info("Reindexed table '" + tableName + "'.");
             }
@@ -232,12 +232,15 @@ namespace SQLiteKei.DataAccess.Database
 
             using (var command = connection.CreateCommand())
             {
+                var combinedOldColumns = string.Join(",", oldColumns);
+                var combinedNewColumns = string.Join(",", newColumns);
+
                 command.CommandText = "BEGIN TRANSACTION;\n"
                     + tmpQueryBuilder.Build() + "\n"
-                    + string.Format("INSERT INTO SQLiteKei_TMP1 SELECT {0} FROM '{1}';\n", string.Join(",", oldColumns), tableName)
+                    + $"INSERT INTO SQLiteKei_TMP1 SELECT {combinedOldColumns} FROM '{tableName}';\n"
                     + QueryBuilder.DropTable(tableName).Build() + ";\n"
                     + originalQueryBuilder.Build() + "\n"
-                    + string.Format("INSERT INTO {0} SELECT {1} FROM 'SQLiteKei_TMP1';\n", tableName, string.Join(",", newColumns))
+                    + $"INSERT INTO {tableName} SELECT {combinedNewColumns} FROM 'SQLiteKei_TMP1';\n"
                     + QueryBuilder.DropTable("SQLiteKei_TMP1").Build() + ";\n"
                     + "COMMIT;";
 
@@ -270,12 +273,14 @@ namespace SQLiteKei.DataAccess.Database
             
             using (var command = connection.CreateCommand())
             {
+                var combinedColumnsToPreserve = string.Join(",", columnsToPreserve);
+
                 command.CommandText = "BEGIN TRANSACTION;\n"
                     + tmpQueryBuilder.Build() + "\n"
-                    + string.Format("INSERT INTO SQLiteKei_TMP1 SELECT {0} FROM '{1}';\n", string.Join(",", columnsToPreserve), tableName)
+                    + $"INSERT INTO SQLiteKei_TMP1 SELECT {combinedColumnsToPreserve} FROM '{tableName}';\n"
                     + QueryBuilder.DropTable(tableName).Build() + ";\n"
                     + originalQueryBuilder.Build() + "\n"
-                    + string.Format("INSERT INTO {0} SELECT {1} FROM 'SQLiteKei_TMP1';\n", tableName, string.Join(",", columnsToPreserve))
+                    + $"INSERT INTO {tableName} SELECT {combinedColumnsToPreserve} FROM 'SQLiteKei_TMP1';\n"
                     + QueryBuilder.DropTable("SQLiteKei_TMP1").Build() + ";\n"
                     + "COMMIT;";
 

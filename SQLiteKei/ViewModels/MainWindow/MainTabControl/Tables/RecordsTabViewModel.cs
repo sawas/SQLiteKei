@@ -150,13 +150,13 @@ namespace SQLiteKei.ViewModels.MainWindow.MainTabControl.Tables
         {
             try
             {
-                var dbPath = Properties.Settings.Default.CurrentDatabase;
+                var dbPath = Settings.Default.CurrentDatabase;
                 using (var dbHandler = new DatabaseHandler(dbPath))
                 {
                     var resultTable = dbHandler.ExecuteReader(selectQuery);
 
                     DataGridCollection = new PagableCollectionView(resultTable.DefaultView, ItemsPerPage);
-                    StatusInfo = string.Format("Rows returned: {0}", resultTable.Rows.Count);
+                    StatusInfo = $"Rows returned: {resultTable.Rows.Count}";
                     NotifyPropertyChanged();
                     NotifyPropertyChanged();
                 }

@@ -109,13 +109,13 @@ namespace SQLiteKei.ViewModels.QueryEditorWindow
                     var queryResult = dbHandler.ExecuteReader(sqlStatement);
 
                     DataGrid = new ListCollectionView(queryResult.DefaultView);
-                    StatusInfo = string.Format("Rows returned: {0}", queryResult.Rows.Count);
+                    StatusInfo = $"Rows returned: {queryResult.Rows.Count}";
                 }
                 else
                 {
                     var commandResult = dbHandler.ExecuteNonQuery(sqlStatement);
 
-                    StatusInfo = string.Format("Rows affected: {0}", commandResult);
+                    StatusInfo = $"Rows affected: {commandResult}";
                 }
             }
             catch (Exception ex)

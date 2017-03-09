@@ -52,7 +52,7 @@ namespace SQLiteKei.DataAccess.Database
                 var trigger = GetTrigger(oldName);
                 var newSQL = trigger.SqlStatement.Replace(oldName, newName);
 
-                command.CommandText = string.Format("BEGIN; {0}; {1}; COMMIT;", dropCommand, newSQL);
+                command.CommandText = $"BEGIN; {dropCommand}; {newSQL}; COMMIT;";
                 command.ExecuteNonQuery();
                 logger.Info("Updated trigger name from " + oldName + "' to '" + newName + "'.");
             }

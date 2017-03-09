@@ -77,7 +77,7 @@ namespace SQLiteKei.ViewModels.ElementRenameWindow
         {
             var originalFileDirectory = Path.GetDirectoryName(originalElement.DatabasePath);
             var originalFileEnding = Path.GetExtension(originalElement.DatabasePath);
-            var newFileName = string.Format("{0}{1}", NewName, originalFileEnding);
+            var newFileName = $"{NewName}{originalFileEnding}";
             var newDatabasePath = Path.Combine(originalFileDirectory, newFileName);
 
             File.Move(originalElement.DatabasePath, newDatabasePath);

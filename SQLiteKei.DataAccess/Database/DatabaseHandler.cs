@@ -158,7 +158,7 @@ namespace SQLiteKei.DataAccess.Database
         {
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = string.Format("PRAGMA {0};", pragmaName);
+                command.CommandText = $"PRAGMA {pragmaName};";
                 var resultTable = new DataTable();
                 resultTable.Load(command.ExecuteReader());
 
@@ -190,7 +190,7 @@ namespace SQLiteKei.DataAccess.Database
             {
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = string.Format("PRAGMA {0}={1}", pragmaName, newValue);
+                    command.CommandText = $"PRAGMA {pragmaName}={newValue}";
                     var result= command.ExecuteNonQuery();
                 }
             }

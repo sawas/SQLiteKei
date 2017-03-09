@@ -49,10 +49,10 @@ namespace SQLiteKei.DataAccess.QueryBuilders
             var combinedSets = string.Join(", ", sets);
 
             if (!WhereClauses.Any())
-                return string.Format("UPDATE '{0}'\nSET {1}", tableName, combinedSets);
+                return $"UPDATE '{tableName}'\nSET {combinedSets}";
 
             var combinedWhereClauses = string.Join("\n", WhereClauses);
-            return string.Format("UPDATE '{0}'\nSET {1}\nWHERE {2}", tableName, combinedSets, combinedWhereClauses);
+            return $"UPDATE '{tableName}'\nSET {combinedSets}\nWHERE {combinedWhereClauses}";
         }
     }
 }

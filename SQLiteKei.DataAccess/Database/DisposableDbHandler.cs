@@ -34,7 +34,7 @@ namespace SQLiteKei.DataAccess.Database
             {
                 connection = new SQLiteConnection(databasePath)
                 {
-                    ConnectionString = string.Format("Data Source={0};Pooling=true", databasePath)
+                    ConnectionString = $"Data Source={databasePath};Pooling=true"
                 };
 
                 connection.Open();
